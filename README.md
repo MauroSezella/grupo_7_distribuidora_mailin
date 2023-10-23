@@ -5,7 +5,7 @@ Sitio de ventas de productos alimentarios (golosinas).
 
 ¿Quién será nuestra audiencia objetivo?
 
-Comercios mayoristas del rubro.
+Comercios mayoristas y minoristas del rubro.
 
 
 ¿Cómo ajustaremos nuestra oferta a ese público?
