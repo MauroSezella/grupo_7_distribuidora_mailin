@@ -1,6 +1,6 @@
 # E-COMMERCE GOLOSINAS MAILIN
 
-## Descripción de integrantes del grupo:
+## Descripción de integrantes del grupo
 
 #### Sezella Mauro Esteban - 29 años - Analista en Sistemas de Información - Estudiante de la Lic. En Sistema de Información.
 #### Gomez Lucas Tadeo - 22 años - Estudiante de la carrera de Tecnico en Programacion de nivel universitaro en la Universidad Nacional de Santiago del Estero.
@@ -8,13 +8,13 @@
 #### Abraham Bernardo Diego - 31 años - Médico oftalmólogo Universidad Nacional de Tucumán.
 #### Coronel Pablo Federico - 34 años - CCNA y FOH.
 
-### ¿Qué productos o servicios brindará nuestro sitio? 
+## ¿Qué productos o servicios brindará nuestro sitio? 
 #### Sitio de ventas de productos alimentarios (golosinas).
 
-### ¿Quién será nuestra audiencia objetivo?
+## ¿Quién será nuestra audiencia objetivo?
 #### Comercios mayoristas y minoristas del rubro.
 
-### ¿Cómo ajustaremos nuestra oferta a ese público?
+## ¿Cómo ajustaremos nuestra oferta a ese público?
 #### Se comercializaran productos empaquetados en cajas cerradas.
 
 ## Referentes del mercado:
