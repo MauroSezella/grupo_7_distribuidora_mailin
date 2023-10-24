@@ -24,3 +24,4 @@
 #### https://www.lacasadelasgolosinas.com/es/79-golosinas - Ejemplo de distribuidora extranjera (Chile).
 #### https://distribuidorasfranklin.com/ - Buen estilo gráfico.
 #### https://dulcilandia.com.ar/par/ - El estilo e interfaz que más gustó al grupo.
+#### https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
