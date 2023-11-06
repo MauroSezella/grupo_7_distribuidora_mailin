@@ -19,11 +19,11 @@ Coronel Pablo Federico - 34 años - CCNA y FOH.
 
 ## Referentes del mercado:
 
-http://santiagoaza.com/ - Ejemplo de distribuidora local santiagueña.
-https://arcorencasa.com/ - Distribuidora nacional más conocida del mercado.
-https://www.lacasadelasgolosinas.com/es/79-golosinas - Ejemplo de distribuidora extranjera (Chile).
-https://distribuidorasfranklin.com/ - Buen estilo gráfico.
-https://dulcilandia.com.ar/par/ - El estilo e interfaz que más gustó al grupo.
-https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
+* http://santiagoaza.com/ - Ejemplo de distribuidora local santiagueña.
+* https://arcorencasa.com/ - Distribuidora nacional más conocida del mercado.
+* https://www.lacasadelasgolosinas.com/es/79-golosinas - Ejemplo de distribuidora extranjera (Chile).
+* https://distribuidorasfranklin.com/ - Buen estilo gráfico.
+* https://dulcilandia.com.ar/par/ - El estilo e interfaz que más gustó al grupo.
+* https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
 
 TRELLO : https://trello.com/invite/b/vhuVnRyH/ATTI16fdf2a821f59e4969f67e8c87f1038cFC88AC2D/sprint-i
