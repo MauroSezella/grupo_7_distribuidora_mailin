@@ -6,4 +6,4 @@ app.listen(3030, () => console.log('Servidor Corriendo'));
 
 app.use(express.static('public'));
 
-//app.get('/',(req,res) => res.sendFile(path.resolve("./views/index.html")));
+app.get('/productDetail',(req,res) => res.sendFile(path.resolve("./views/productDetail.html.html")));
