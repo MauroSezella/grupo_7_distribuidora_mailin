@@ -97,27 +97,21 @@ body{
     color: #1A1265;
     font-size: x-large;
     width: 30%;
+    order:2;
 }
 
 .header__icons--cart{
     color: #1A1265;
     font-size: x-large;
     width: 30%;
+    order:1;
 }
 
 .burger-menu__boton{
-    color: white;
-    background-color:#1A1265;
-    display: block;
-    max-width: 50px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    text-align: center;
-    margin: auto;
-}
-
-.fa-bars{
-    font-size: large;
+    color: #1A1265;
+    font-size: x-large;
+    width: 30%;
+    order:3;
 }
 
 @media (min-width: 577px){
