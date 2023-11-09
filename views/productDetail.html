@@ -1,12 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style-productDetail.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golosinas Mailin</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style-productDetail.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style-header.css">
 </head>
+
 <body>
-    
+    <header class="header__container">
+        <div class="header__logo">
+            <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="" />
+        </div>
+
+        <nav class="nav-bar">
+            <ul class="nav-bar__options">
+                <li><a href="">Categorias</a></li>
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Ayuda</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__search">
+            <input type="search" placeholder="Buscar..." class="header__search--input" />
+            <a href="" class="header__search--icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
+
+        <div class="header__icons">
+            <a class="burger-menu__boton"><i class="fas fa-bars"></i></a>
+            <a href="" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
+            <a href="" class="header__icons--cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <main class="main__container">
+        <section class="main__producto">
+            <div class="main__producto-enlaces">
+                <a href="#">Inicio > </a><a href="#">Alfajores > </a> <a href="#">Triple</a>
+
+            </div>
+            <div class="main__producto-img" id="contenedor">
+                <img src="images/alfajor__fantoche.png" alt="alfajor fantoche">
+            </div>
+            <div class="main__producto-detalle">
+
+                <h2 class="main__producto-nombre">ALFAJOR FANTOCHE TRIPLE BLANCO 85g</h2>
+                <p class="main__producto-detalle--precio">$6.099,13</p>
+                <p class="main__producto-detalle-disponible">Disponible</p>
+                <div class="main__producto-detalle-cantidad">
+                    <div class="cantidad">
+                        <a href="#" class="boton-menos"><i class="fa-solid fa-minus"></i></a>
+                        <input type="number">
+                        <a href="#" class="boton-mas"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                    <button class="agregar-carrito">Añadir a carrito</button>
+                </div>
+            </div>
+            <p class="main__producto-detalle-info">SKU:</p>
+            <p class="main__producto-detalle-info">Categoria:</p>
+            <p class="main__producto-detalle-info">Etiquetas:</p>
+        </section>
+
+        <section class="main__producto-descripcion">
+            <h4 class=".descripcion">Descripción</h4>
+            <p>ALFAJOR FANTOCHE TRIPLE BLANCO 85g CAJA x24</p>
+        </section>
+
+
+        <section class="main__producto-relacionado">
+            <h3>PRODUCTOS RELACIONADOS</h3>
+            <div class="card">
+                <article class="producto-relacionado--card">
+                    <img src="images/alfajor_trishot.png" alt="alfajor trishot">
+                    <div class="card-descripcion">
+                        <p class="producto-relacionado--card-categ">TRIPLE</p>
+                        <h4 class="producto-relacionado--card-titulo">
+                            ALFAJOR TRISHOT 60g x6</h4>
+                        <p class="producto-relacionado--card-precio">$1.968,32</p>
+                        <button class="producto-relacionado-button agregar-carrito">Añadir a carrito</button>
+                    </div>
+                </article>
+                <article class="producto-relacionado--card">
+                    <img src="images/alfajor_terrabusi.png" alt="alfajor terrabusi">
+                    <div class="card-descripcion">
+                        <p class="producto-relacionado--card-categ">TRIPLE</p>
+                        <h4 class="producto-relacionado--card-titulo">
+                            ALFAJOR TERR TORTA 70g x6</h4>
+                        <p class="producto-relacionado--card-precio">$2.086,35</p>
+                        <button class="producto-relacionado-button agregar-carrito">Añadir a carrito</button>
+                    </div>
+                </article>
+                <article class="producto-relacionado--card">
+                    <img src="images/alfajor_terrabusi.png" alt="alfajor terrabusi">
+                    <div class="card-descripcion">
+                        <p class="producto-relacionado--card-categ">TRIPLE</p>
+                        <h4 class="producto-relacionado--card-titulo">
+                            ALFAJOR TERR TORTA 70g x6</h4>
+                        <p class="producto-relacionado--card-precio">$2.086,35</p>
+                        <button class="producto-relacionado-button agregar-carrito">Añadir a carrito</button>
+                    </div>
+                </article>
+                <article class="producto-relacionado--card">
+                    <img src="images/alfajor_terrabusi.png" alt="alfajor terrabusi">
+                    <div class="card-descripcion">
+                        <p class="producto-relacionado--card-categ">TRIPLE</p>
+                        <h4 class="producto-relacionado--card-titulo">
+                            ALFAJOR TERR TORTA 70g x6</h4>
+                        <p class="producto-relacionado--card-precio">$2.086,35</p>
+                        <button class="producto-relacionado-button agregar-carrito">Añadir a carrito</button>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+    </main>
 </body>
+
 </html>
