@@ -1,7 +1,7 @@
 {
   "name": "grupo_7_distribuidora_mailin",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Descripción de integrantes del grupo",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
