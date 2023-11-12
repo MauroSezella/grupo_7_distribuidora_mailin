@@ -1,0 +1,172 @@
+/*generales*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #EBEBEB ;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*header*/
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: white;
+    border-bottom: 10px ridge #FF217A;
+    border-top: 5px dashed #FF217A;
+}
+.logo{
+    display: flex;
+    width: 30%;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+.logo__img{
+    width: 100%;
+   
+}
+.nav-bar{
+    display: none;
+}
+.opciones{
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+}
+.opcion__link{
+    text-decoration: none;
+    color: #1A1265;
+    display: inline-block;
+    padding: 5px 5px;
+    font-weight: bold;
+}
+.buscador{
+    width: 50%;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    display: none;
+}
+.buscador__input{
+    width: 100%;
+    border-radius: 5px; 
+    border-width: 0px;
+    margin-bottom: 2px;
+    padding: 10px 10px;
+    border: 2px solid #FF217A;
+}
+.buscador__icono{
+    color: #1A1265;
+    border-radius: 5px; 
+    padding: 10px;
+    right: 2%;
+    top: 5%;
+    position: absolute;
+    background-color: white;
+ 
+}
+.iconos{
+    display: flex;
+    text-align: center;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+}
+.icono{
+    color: #1A1265;
+    font-size: x-large;
+    width: 30%;
+}
+.icono--burger-menu{
+	order:3;
+}
+.icono--user{
+	order:2;
+}
+.icono--carrito{
+	order:1;
+}
+
+/*main*/
+
+
+
+/*footer*/
+
+
+
+/*media*/
+
+@media (min-width: 577px){
+
+    .header{
+        justify-content: space-between;
+        border-bottom: 30px ridge #FF217A;
+        border-top: 15px dashed #FF217A;
+    }
+}
+
+@media (min-width: 769px){
+
+    .logo{
+        width: 20%;
+    }
+
+    .buscador{
+        display: flex;
+        justify-content: end;
+        align-items: start;
+        width: 25%;
+    }
+
+    .nav-bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .opciones{
+        display: flex;
+    }
+    
+
+    .opcion{
+        display: flex;
+        margin: 0 5px;
+        text-align: center;
+    }
+    
+    .icono--burger-menu{
+        display: none;
+    }
+
+    .buscador__input{
+        width: 90%;
+    }
+
+    .buscador__icono {
+        display: inline-block;
+        position: relative;
+        width: 20%;
+        height: 43px;
+        margin: 0px 5px;
+        padding: 10px 5px;
+        right: 0px;
+        border: 2px solid #FF217A;
+    }
+
+    .iconos{
+        display: flex;
+        justify-content: flex-end;
+        width: 15%;
+    }
+    
+
+}
