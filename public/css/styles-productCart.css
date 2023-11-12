@@ -96,6 +96,77 @@ body{
 
 /*main*/
 
+.titulo{
+	width:100%;
+	text-align:center;
+	padding:5%;
+}
+.nav-carrito{
+	display:none;
+}
+.productos{
+	display:flex;
+	flex-wrap:wrap;
+	margin:0px 5%;
+}
+.subtitulos{
+	display:flex;
+	justify-content:space-between;
+	width:100%;
+}
+.subtitulos__subtitulo--precio{
+	display:none;
+}
+.subtitulos__subtitulo--subtotal{
+	display:none;
+}
+.producto{
+	display:flex;
+	border-top: solid 1px black;
+}
+.boton-cancelar{
+	display:flex;
+	width:10%;
+}
+.boton-cancelar__boton{
+	width:100%;
+	border:none;
+}
+.boton-cancelar__icono{
+	font-size:1.5em;
+}
+.producto__img{
+	width:25%;
+	margin:2.5%;
+}
+.descripcion{
+	width:40%;
+	margin:2.5%;
+}
+.descripcion__nombre{
+	height:70%;
+}
+.cantidad{
+	display:flex;
+	width:20%;
+	align-items:center;
+}
+.cantidad__boton{
+	width:33.33%;
+	height:30%;
+}
+.cantidad__input{
+	width:33.33%;
+	height:30%;
+	text-align:center; 
+	-moz-appearance:textfield;
+}
+.total{
+	padding:5%;
+}
+.cupones{
+	padding:5%;
+}
 
 
 /*footer*/
