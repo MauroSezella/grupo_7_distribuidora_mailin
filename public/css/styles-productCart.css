@@ -147,25 +147,66 @@ body{
 	height:70%;
 }
 .cantidad{
-	display:flex;
+	display:inline-flex;
 	width:20%;
 	align-items:center;
 }
-.cantidad__boton{
+.formulario-cantidad{
+	display:inline-flex;
+}
+.formulario-cantidad__boton{
 	width:33.33%;
 	height:30%;
 }
-.cantidad__input{
+.formulario-cantidad__input{
 	width:33.33%;
 	height:30%;
 	text-align:center; 
 	-moz-appearance:textfield;
 }
+.botones-productos{
+	width:100%;
+	display:flex;
+	padding: 5% 0px;
+	border-top:solid 1px black;
+	justify-content:space-between;
+}
+.botones-productos__boton{
+	height:30px;
+}
 .total{
-	padding:5%;
+	margin:5%;
+	border:solid 1px black;
+	text-align:center;
+	padding:10%;
+}
+.total__titulo{
+	text-align:center;
+}
+.cuadro-total{
+	display:flex;
+	border-top:solid 1px black;
+	justify-content:space-between;
+}
+.total__boton{
+	margin-top:3%;
+	padding:2%;
 }
 .cupones{
-	padding:5%;
+	margin:5%;
+	text-align:center;
+	border:solid 1px black;
+}
+.cupones__titulo{
+	margin-top:15px;
+}
+.cupones__input{
+	width:80%;
+	margin:3% 0px;
+}
+.cupones__boton{
+	padding:1%;
+	margin-bottom:15px;
 }
 
 

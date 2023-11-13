@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 	
 	<head>
 		
@@ -82,13 +82,17 @@
 						<p class="descripcion__precio">$000.00</p>
 					</div>
 					
-					<form class="cantidad">
+					<div class="cantidad">
 						
-						<button class="cantidad__boton">+</button>
-						<input type="number" class="cantidad__input">
-						<button class="cantidad__boton">-</button>
+						<form class="formulario-cantidad">
 						
-					</form>
+							<button class="formulario-cantidad__boton">+</button>
+							<input type="number" class="formulario-cantidad__input">
+							<button class="formulario-cantidad__boton">-</button>
+							
+						</form>
+						
+					</div>
 					
 					<div class="subtotal">
 						<p class="subtotal__numero"></p>
@@ -109,13 +113,17 @@
 						<p class="descripcion__precio">$000.00</p>
 					</div>
 					
-					<form class="cantidad">
+					<div class="cantidad">
 						
-						<button class="cantidad__boton">+</button>
-						<input type="number" step="1" class="cantidad__input">
-						<button class="cantidad__boton">-</button>
+						<form class="formulario-cantidad">
 						
-					</form>
+							<button class="formulario-cantidad__boton">+</button>
+							<input type="number" class="formulario-cantidad__input">
+							<button class="formulario-cantidad__boton">-</button>
+							
+						</form>
+						
+					</div>
 					
 					<div class="subtotal">
 						<p class="subtotal__numero"></p>
@@ -136,13 +144,17 @@
 						<p class="descripcion__precio">$000.00</p>
 					</div>
 					
-					<form class="cantidad">
+					<div class="cantidad">
 						
-						<button class="cantidad__boton">+</button>
-						<input type="number" step="1" class="cantidad__input">
-						<button class="cantidad__boton">-</button>
+						<form class="formulario-cantidad">
 						
-					</form>
+							<button class="formulario-cantidad__boton">+</button>
+							<input type="number" class="formulario-cantidad__input">
+							<button class="formulario-cantidad__boton">-</button>
+							
+						</form>
+						
+					</div>
 					
 					<div class="subtotal">
 						<p class="subtotal__numero"></p>
@@ -150,8 +162,12 @@
 					
 				</article>
 				
-				<button class="productos__boton">SEGUIR COMPRANDO</button>
-				<button class="productos__boton">ACTUALIZAR CARRITO</button>
+				<div class="botones-productos">
+					
+					<button class="botones-productos__boton">SEGUIR COMPRANDO</button>
+					<button class="botones-productos__boton">ACTUALIZAR CARRITO</button>
+					
+				</div>
 				
 			</section>
 				
@@ -174,18 +190,18 @@
 					<p class="cuadro-total__texto">TOTAL</p>
 					<p class="cuadro-total__numero">$000.00</p>
 				</div>
-			
+				
+				<button class="total__boton">REALIZAR COMPRA</button>
+				
 			</section>
 			
 			
 			<section class="cupones">
 				
-				
-				
 				<form>
-					<label> <h2 class="cupones__tutulo">CUPONES</h2> </label>
-					<input type="text" name="cupon">
-					<button type="submit">APLICAR CUPON</button>
+					<label> <h2 class="cupones__titulo">CUPONES</h2> </label>
+					<input type="text" name="cupon" class="cupones__input">
+					<button type="submit" class="cupones__boton">APLICAR CUPON</button>
 					
 				</form>
 				
