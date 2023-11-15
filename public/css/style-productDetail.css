@@ -4,6 +4,7 @@
     --color-2: #1A1265;
     --color-grisOscuro: #6b6b6b;
     --color-grisClaro: #ebebeb;
+    --color-footer: #0d1117
     --fuente: 'Quicksand';
 }
 
@@ -18,6 +19,129 @@ body {
     font-family: 'Roboto', sans-serif, 'Quicksand';
     font-size: 14px;
 }
+
+/*HEADER*/
+header {
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+    border-top: 8px dashed #FF217A;
+    margin-bottom: 10px;
+
+}
+
+.header__container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    font-family: 'Quicksand';
+}
+
+
+.header__logo {
+    display: flex;
+    width: 30%;
+    padding-right: 10px;
+    border-radius: 10px;
+
+}
+
+.header__logo--img {
+    width: 100%;
+
+}
+
+.header__search>.header__search--icon {
+    display: block;
+    font-size: 20px;
+    padding: 5px;
+    width: 40px;
+    color: white;
+    background-color: #0f95b6;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 35px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    text-align: center;
+}
+
+.header__search {
+    display: none;
+    border: 1px solid #6b6b6b;
+    border-radius: 5px;
+    position: relative;
+    height: 35px;
+    padding: 2px;
+}
+
+.header__search--input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+
+
+
+.nav-bar {
+    display: none;
+}
+
+.nav-bar__options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #1A1265;
+    display: inline-block;
+    padding: 5px 5px;
+    font-weight: bold;
+}
+
+.header__icons {
+    display: flex;
+    text-align: center;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+}
+
+.header__icons a:hover {
+    color: #0f95b6;
+}
+
+.header__icons--user {
+    color: #1A1265;
+    font-size: x-large;
+    width: 30%;
+    order: 2;
+}
+
+.header__icons--cart {
+    color: #1A1265;
+    font-size: x-large;
+    width: 30%;
+    order: 1;
+}
+
+.burger-menu__boton {
+    color: #1A1265;
+    font-size: x-large;
+    width: 30%;
+    order: 3;
+}
+
+/*MAIN*/
+
 
 .main__container {
     padding: 10px 0;
@@ -201,7 +325,6 @@ body {
 .agregar-carrito {
     letter-spacing: 0.5px;
     border: none;
-    background-color: #252525;
     padding: 10px;
     color: #f7f7f7;
     display: flex;
@@ -211,10 +334,11 @@ body {
     font-weight: 700;
     cursor: pointer;
     font-size: 12px;
+    background-color: var(--color-3);
 }
 
 .agregar-carrito:hover {
-    background-color: var(--color-3);
+    background-color: #252525;
 }
 
 .main__producto-detalle-info {
@@ -269,11 +393,13 @@ p {
 
 }
 
+/*slider*/
+
+
 .card {
     display: flex;
     flex-wrap: nowrap;
     overflow: auto;
-
 }
 
 
@@ -288,7 +414,6 @@ p {
     justify-content: center;
     z-index: 1;
     opacity: 0;
-visibility: hidden;
 }
 
 .card:hover .card-slider {
@@ -323,6 +448,8 @@ visibility: hidden;
     flex-direction: column;
     max-height: 300px;
     max-width: 200px;
+
+
 }
 
 .producto-relacionado--card:hover {
@@ -341,10 +468,11 @@ visibility: hidden;
 }
 
 .card-descripcion {
-    height: 43%;
+    height: 44%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .producto-relacionado--card-categ {
@@ -360,17 +488,166 @@ visibility: hidden;
 }
 
 .producto-relacionado--card-titulo:hover {
-    color: var(--color-1);
+    color: var(--color-3);
     font-weight: 700;
 }
-
 
 .producto-relacionado-button {
     font-size: 10px;
     margin: 0 auto;
-    padding: 5px 10px;
+    padding: 10px;
+}
+.producto-relacionado--card-precio{
+    padding-bottom: 10px;
 }
 
+/* fin slider*/
+
+
+/*FOOTER*/
+footer {
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    font-family: 'Quicksand';
+    background-color: #0d1117;
+    color: white;
+}
+
+.footer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.footer img {
+
+    width: 40%;
+    max-width: 150px;
+
+}
+
+.footer__contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.footer__contactoSurcusal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer__contactoSurcusal p {
+    padding: 5px 0;
+}
+
+
+.footer__contacto-redes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__contacto-redes h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contacto-redes a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/*
+.fa-instagram {
+    color: white;
+    background-color: #b31e5a;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+
+.fa-facebook {
+    color:  #1E3050;
+    border-radius: 12px;
+    background-color: #ebebeb;
+    padding: 0;
+    font-size: 22px;
+}
+
+
+
+*/
+
+.img-redes img {
+    width: 25px;
+
+}
+
+@media (min-width: 577px) {
+    .header__container {
+        justify-content: space-between;
+    }
+
+    .header__logo {
+        width: 20%;
+    }
+
+    .footer {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+    }
+
+    .footer__contacto {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+    }
+
+    .footer__contactoSurcusal {
+        align-items: flex-start;
+        margin: 0;
+
+    }
+
+    .footer img {
+        align-self: flex-start;
+    }
+
+
+    .footer__contacto-sucursal {
+        font-size: 18px;
+    }
+
+    .footer__contacto-redes h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+
+}
 
 
 @media (min-width: 601px) {
@@ -420,13 +697,9 @@ visibility: hidden;
     
     /*SECCION PRODUCTOS RELACIONADOS*/
     
-      
+      /*slider*/
     .card {
         overflow: auto;
-    }
-    
-    .card-slider{
-     visibility: visible;
     }
     
  
@@ -462,6 +735,56 @@ visibility: hidden;
 
 @media (min-width: 769px) {
 
+    /*HEADER*/
+    .header__logo {
+        width: 15%;
+    }
+
+    .header__search {
+        display: flex;
+        justify-content: end;
+        align-items: start;
+        width: 25%;
+    }
+
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-bar__options {
+        display: flex;
+    }
+
+
+    .nav-bar li {
+        display: flex;
+        margin: 0 5px;
+        text-align: center;
+    }
+
+    .burger-menu__boton {
+        display: none;
+    }
+
+
+
+    .header__icons {
+        display: flex;
+        justify-content: flex-end;
+        width: 15%;
+    }
+
+    .nav-bar a {
+        font-size: 16px;
+    }
+
+    .nav-bar a:hover {
+        color: #0f95b6;
+    }
+
+    /*MAIN*/
 
     .main__producto-enlaces a {
         font-size: 18px;
@@ -485,21 +808,47 @@ visibility: hidden;
        
         font-size: 14px;
     }
-
+    
+    
 
     /*SECCION PRODUCTOS RELACIONADOS*/
-    
+    /*slider*/
       
     .card {
         overflow: hidden;
         width: 90%;
         margin: 0 auto;
     }
+    
+    /*FOOTER*/
+    .footer__contacto-sucursal {
+        font-size: 20px;
+    }
 
+    .footer__contacto-redes h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer__logo-contacto {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+    }
 }
 
 
 @media (min-width: 1025px) {
+
+    /*HEADER*/
+    .nav-bar a {
+        font-size: 18px;
+    }
+
+    
+
+    /*MAIN*/
     .main__producto {
         width: 85%;
         grid-template-columns: 1fr 1fr;
@@ -534,6 +883,9 @@ visibility: hidden;
         justify-content: space-between; 
     }
 
-
+ /*FOOTER*/
+ .footer__contactoSurcusal p {
+    font-size: 16px;
+}
 
 }
