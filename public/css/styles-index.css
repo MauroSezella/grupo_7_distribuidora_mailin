@@ -169,12 +169,12 @@ header{
     flex-wrap: nowrap;
     overflow: auto;
     margin-top: 20px;
+    align-items: center;
 
 }
 
 .card-slider{
     background-color: rgb(255, 255, 255);
-    height: 87%;
     position: absolute;
     width: 50px;
     display: flex;
@@ -206,6 +206,7 @@ header{
 #card-slider-left{
     left:  0;
 }
+
 
 .main__ofertas--card {
     flex: 1 0 auto;
@@ -292,6 +293,77 @@ header{
     background-color: #252525;
 }
 
+footer {
+    margin-top: 30px;
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    font-family: 'Quicksand';
+    background-color: #0d1117;
+    color: white;
+}
+
+.footer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.footer img {
+
+    width: 40%;
+    max-width: 150px;
+
+}
+
+.footer__contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.footer__contactoSurcusal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer__contactoSurcusal p {
+    padding: 5px 0;
+}
+
+
+.footer__contacto-redes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__contacto-redes h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contacto-redes a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.img-redes img {
+    width: 25px;
+
+}
+
 
 @media (min-width: 577px){
 
@@ -308,12 +380,14 @@ header{
 
     .card {
         overflow: auto;
+        align-items: center;
     }
     
     .card-slider{
      visibility: visible;
     }
-
+    
+    
     .main__ofertas--card {
         max-height: 350px;
         max-width: 210px;
@@ -338,6 +412,48 @@ header{
     .main__ofertas-button {
         font-size: 12px;
     }
+
+    .footer {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+    }
+
+    .footer__contacto {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+    }
+
+    .footer__contactoSurcusal {
+        align-items: flex-start;
+        margin: 0;
+
+    }
+
+    .footer img {
+        align-self: flex-start;
+    }
+
+
+    .footer__contacto-sucursal {
+        font-size: 18px;
+    }
+
+    .footer__contacto-redes h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
     
 }
 
@@ -407,6 +523,23 @@ header{
         overflow: hidden;
         width: 90%;
         margin: 0 auto;
+        align-items: center;
+    }
+   
+    .footer__contacto-sucursal {
+        font-size: 20px;
+    }
+
+    .footer__contacto-redes h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer__logo-contacto {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
     }
 
 }
@@ -428,7 +561,11 @@ header{
 
    .main-title:hover{
     color:#0f95b6;
-} 
+    } 
+
+.footer__contactoSurcusal p {
+    font-size: 16px;
+    }
 
 }
 
