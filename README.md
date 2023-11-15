@@ -1,5 +1,8 @@
 # E-COMMERCE GOLOSINAS MAILIN
 
+<image src="/images/logo-golosinas-mailin.svg" alt="Golosinas Mailin">
+
+
 ## Descripción de integrantes del grupo
 
 Sezella Mauro Esteban - 29 años - Analista en Sistemas de Información - Estudiante de la Lic. En Sistema de Información.
