@@ -1,6 +1,6 @@
 # E-COMMERCE GOLOSINAS MAILIN
 
-<image src="/images/logo-golosinas-mailin.svg" alt="Golosinas Mailin">
+<image src="./images/logo-golosinas-mailin.svg" alt="Golosinas Mailin">
 
 
 ## Descripción de integrantes del grupo
