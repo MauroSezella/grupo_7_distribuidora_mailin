@@ -510,6 +510,12 @@ footer {
         padding-bottom: 20px;
     }
 
+    
+   .main-title:hover{
+    color:#0f95b6;
+    } 
+
+
     .main__categoria-link .main__categoria-img{
         transition: 1s;
         object-fit: cover;
@@ -557,11 +563,6 @@ footer {
     .card-descripcion{
        justify-content: space-between; 
    }
-
-
-   .main-title:hover{
-    color:#0f95b6;
-    } 
 
 .footer__contactoSurcusal p {
     font-size: 16px;
