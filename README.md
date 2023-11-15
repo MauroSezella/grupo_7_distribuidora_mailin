@@ -1,22 +1,18 @@
 # E-COMMERCE GOLOSINAS MAILIN
 
-<kbd>
 <image src="./public/images/logo-golosinas-mailin.svg" alt="Golosinas Mailin">
-</kbd>
-
-
 
 ## Descripción de integrantes del grupo
 
-*Sezella Mauro Esteban - 29 años - Analista en Sistemas de Información - Estudiante de la Lic. En Sistema de Información.
+* Sezella Mauro Esteban - 29 años - Analista en Sistemas de Información - Estudiante de la Lic. En Sistema de Información.
 
-*Gomez Lucas Tadeo - 22 años - Estudiante de la carrera de Tecnico en Programacion de nivel universitaro en la Universidad Nacional de Santiago del Estero.
+* Gomez Lucas Tadeo - 22 años - Estudiante de la carrera de Tecnico en Programacion de nivel universitaro en la Universidad Nacional de Santiago del Estero.
 
-*García Luciana Anabell - 29 años - Estudiante de Tec. en Programación en el ITSE.
+* García Luciana Anabell - 29 años - Estudiante de Tec. en Programación en el ITSE.
 
-*Abraham Bernardo Diego - 31 años - Médico oftalmólogo Universidad Nacional de Tucumán.
+* Abraham Bernardo Diego - 31 años - Médico oftalmólogo Universidad Nacional de Tucumán.
 
-*Coronel Pablo Federico - 34 años - CCNA y FOH.
+* Coronel Pablo Federico - 34 años - CCNA y FOH.
 
 ## ¿Qué productos o servicios brindará nuestro sitio? 
  Sitio de ventas de productos alimentarios (golosinas).
