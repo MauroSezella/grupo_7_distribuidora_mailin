@@ -111,18 +111,21 @@ h2 {
     color: var(--color-footer);
 }
 
+footer {
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    font-family: 'Quicksand';
+    background-color: #0d1117;
+    color: white;
+}
 
 .footer {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction:row;
-    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
-    padding: 30px 20px;
-    background-color: #0d1117;
-    color: white;
+    flex-direction: column;
 
 }
 
@@ -151,7 +154,6 @@ h2 {
 
 .footer__contactoSurcusal p {
     padding: 5px 0;
-    text-align: center;
 }
 
 
@@ -175,27 +177,12 @@ h2 {
 }
 
 
-.fa-instagram {
-    color: white;
-    background-color: #b31e5a;
-    border-radius: 5px;
-    font-size: 22px;
-}
-
-
-.fa-facebook {
-    color:  #1E3050;
-    border-radius: 12px;
-    background-color: #ebebeb;
-    padding: 0;
-    font-size: 22px;
-}
-
-
 .img-redes img {
     width: 25px;
 
 }
+
+
 @media (min-width: 577px) { 
     .header__container {
         justify-content: space-between;
@@ -209,7 +196,7 @@ h2 {
     }
     
     .footer {
-        width: 100%;
+        width: 90%;
         margin: 0 auto;
         display: flex;
         flex-direction: row;
@@ -249,7 +236,7 @@ h2 {
         margin-bottom: 10px;
     }
 
-    
+
 }
 
 @media (min-width: 769px){
@@ -261,27 +248,28 @@ h2 {
         margin: 5% 25%;
    }
 
-    .footer__contacto-sucursal {
-        font-size: 20px;
-    }
+   .footer__contacto-sucursal {
+    font-size: 20px;
+}
 
-    .footer__contacto-redes h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
+.footer__contacto-redes h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
-    .footer__logo-contacto {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
+.footer__logo-contacto {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 
-    }
+}
 
  }
 
 @media (min-width: 1024px){
     .footer__contactoSurcusal p {
         font-size: 16px;
-        }
+    }
+
     
 }
