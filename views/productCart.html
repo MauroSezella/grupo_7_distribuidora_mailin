@@ -54,19 +54,19 @@
 			
 			<nav class="nav-carrito">
 				<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">CARRITO</h2>  </a>
-				<h2>></h2>
+				<h2 class="nav-carrito__texto nav-carrito__texto--separador">></h2>
 				<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">DETALLES DE PAGO</h2>  </a>
-				<h2>></h2>
+				<h2 class="nav-carrito__texto nav-carrito__texto--separador"">></h2>
 				<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">PEDIDO COMPLETADO</h2>  </a>
 			</nav>
 			
 			<section class="productos">
 				
 				<div class="subtitulos">
-					<h3 class="subtitulos__subtitulo">PRODUCTO</h3>
-					<h3 class="subtitulos__subtitulo subtitulos__subtitulo--precio">PRECIO</h3>
+					<h3 class="subtitulos__subtitulo subtitulos__subtitulo--mayor">PRODUCTO</h3>
+					<h3 class="subtitulos__subtitulo subtitulos__subtitulo--tablet">PRECIO</h3>
 					<h3 class="subtitulos__subtitulo"> CANTIDAD</h3>
-					<h3 class="subtitulos__subtitulo subtitulos__subtitulo--subtotal">SUBTOTAL</h3>
+					<h3 class="subtitulos__subtitulo subtitulos__subtitulo--tablet">SUBTOTAL</h3>
 				</div>
 				
 				<article class="producto">
@@ -95,7 +95,7 @@
 					</div>
 					
 					<div class="subtotal">
-						<p class="subtotal__numero"></p>
+						<p class="subtotal__numero">0000.00</p>
 					</div>
 					
 				</article>
@@ -126,7 +126,7 @@
 					</div>
 					
 					<div class="subtotal">
-						<p class="subtotal__numero"></p>
+						<p class="subtotal__numero">0000.00</p>
 					</div>
 					
 				</article>
@@ -157,7 +157,7 @@
 					</div>
 					
 					<div class="subtotal">
-						<p class="subtotal__numero"></p>
+						<p class="subtotal__numero">0000.00</p>
 					</div>
 					
 				</article>
@@ -198,10 +198,10 @@
 			
 			<section class="cupones">
 				
-				<form>
-					<label> <h2 class="cupones__titulo">CUPONES</h2> </label>
-					<input type="text" name="cupon" class="cupones__input">
-					<button type="submit" class="cupones__boton">APLICAR CUPON</button>
+				<form class="formulario-cupones">
+					<label class="cupones-titulo"> <h2 class="cupones-titulo__texto">CUPONES</h2> </label>
+					<input type="text" name="cupon" class="formulario-cupones__input">
+					<button type="submit" class="formulario-cupones__boton">APLICAR CUPON</button>
 					
 				</form>
 				
@@ -210,6 +210,8 @@
 		</main>
 		
 		<footer>
+			
+			
 			
 		</footer>
 		
