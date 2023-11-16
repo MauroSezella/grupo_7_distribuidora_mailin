@@ -350,6 +350,26 @@ body{
 
 @media (min-width:1024px){
 	
-	
-	
+	.info{
+		width:100%;
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:space-around;
+	}
+	.nav-carrito{
+		width:100%;
+	}
+	.productos{
+		width:55%;
+		margin-right:0px;
+	}
+	.subtotal{
+		margin-left:0px;
+	}
+	.total{
+		padding:4%;
+		margin-top:0px;
+		margin-right:5%;
+		height:3%;
+	}
 }
