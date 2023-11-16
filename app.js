@@ -5,5 +5,6 @@ const app = express();
 app.listen(3030, () => console.log('Servidor Corriendo'));
 
 app.use(express.static('public'));
+app.use(express.static('views'));
 
-//app.get('/',(req,res) => res.sendFile(path.resolve("./views/index.html")));
+app.get('/',(req,res) => res.sendFile(path.resolve("./views/login.html")));

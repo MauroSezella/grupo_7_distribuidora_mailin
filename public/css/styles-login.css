@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'quicksand';
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-1: #FF217A;
+    --color-3: #0f95b6;
+    --color-2: #1A1265;
+    --color-grisOscuro: #6b6b6b;
+    --color-grisClaro: #ebebeb;
+    --color-footer: #0d1117;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10%;
+}
+
+.logo {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+    padding-left: 0px;
+    display: flex;
+    margin: 5px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: larger;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border-color: var(--color-1);
+}
+
+.form-group button {
+    background-color: var(--color-3);
+    color: var(--color-grisClaro);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: var(--color-2);
+}
+
+.options {
+    display:flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.options a {
+    font-size: 14px;
+    text-align: left;
+    color: var(--color-footer);
+}
+
+
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction:row;
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    background-color: #0d1117;
+    color: white;
+
+}
+
+.footer img {
+
+    width: 40%;
+    max-width: 150px;
+
+}
+
+.footer__contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.footer__contactoSurcusal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer__contactoSurcusal p {
+    padding: 5px 0;
+}
+
+
+.footer__contacto-redes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__contacto-redes h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contacto-redes a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+}
+
+
+.fa-instagram {
+    color: white;
+    background-color: #b31e5a;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+
+.fa-facebook {
+    color:  #1E3050;
+    border-radius: 12px;
+    background-color: #ebebeb;
+    padding: 0;
+    font-size: 22px;
+}
+
+
+.img-redes img {
+    width: 25px;
+
+}
