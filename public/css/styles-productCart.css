@@ -191,6 +191,9 @@ header {
 	height:70%;
 	font-weight:500;
 }
+.descripcion__precio{
+	margin: 0px 5px;
+}
 .cantidad{
 	display:inline-flex;
 	width:20%;
