@@ -153,6 +153,7 @@ body{
 }
 .descripcion__nombre{
 	height:70%;
+	font-weight:500;
 }
 .cantidad{
 	display:inline-flex;
@@ -198,6 +199,14 @@ body{
 	display:flex;
 	border-top:solid 1px black;
 	justify-content:space-between;
+}
+.cuadro-total__numero--total{
+	font-size:1.2em;
+	font-weight:700;
+}
+.cuadro-total__texto--total{
+	font-size:1.2em;
+	font-weight:700;
 }
 .total__boton{
 	margin-top:3%;
@@ -269,6 +278,12 @@ body{
     background-color: var(--color-3);
 }
 .formulario-cupones__boton:hover {
+    background-color: #252525;
+}
+.botones-productos__boton:hover {
+    background-color: #252525;
+}
+.total__boton:hover {
     background-color: #252525;
 }
 
@@ -589,7 +604,12 @@ footer {
 		margin-left:5%;
 		align-items:center;
 	}
-	
+	.cuadro-total__texto{
+	margin:5px 0px;
+}
+.cuadro-total__numero{
+	margin:5px 0px;
+}
 	
 	/*footer*/
 	.footer__contacto-sucursal {
@@ -622,7 +642,7 @@ footer {
 		width:100%;
 	}
 	.productos{
-		width:55%;
+		width:50%;
 		margin-right:0px;
 	}
 	.boton-cancelar__boton:hover{
@@ -636,7 +656,7 @@ footer {
 		padding:4%;
 		margin-top:0px;
 		margin-right:5%;
-		height:40%;
+		height:50%;
 	}
 	
 	
