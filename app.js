@@ -9,3 +9,4 @@ app.use(express.static('public'));
 app.get('/',(req,res) => res.sendFile(path.resolve("./views/index.html")));
 app.get('/login',(req,res) => res.sendFile(path.resolve("./views/login.html")));
 app.get('/productDetail',(req,res) => res.sendFile(path.resolve("./views/productDetail.html")));
+app.get('/productCart',(req,res) => res.sendFile(path.resolve("./views/productCart.html")));
