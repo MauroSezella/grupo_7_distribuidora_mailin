@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+        <title> Golosinas Mailin - ¡Regístrate! </title>
+
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="css/styles-register.css">
+        <link rel="stylesheet" href="css/normalize.css" />
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header__container">
+                <div class="header__logo">
+                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main>
+            <div class="formulario-register">
+                <form action = "/register" method = "POST" class = "form-register" >
+                    <h2 class="title-register">¡Registrate!</h2>
+
+                    <label> Nombre
+                        <br>
+                        <input type="text" name="nombre" id="nombre" minlength="3" required>
+                    </label>
+
+                    <label> Apellido
+                        <br>
+                        <input type="text" name="apellido" id="apellido" minlength="2" required>
+                    </label>
+
+                    <label> Email
+                        <br>
+                        <input type = "email" name="email" id="email" required>
+                    </label>
+
+                    <label> Usuario
+                        <br>
+                        <input type = "text" name="usuario" id="usuario" required>
+                    </label>
+                    
+                    <label> Contraseña
+                        <br>
+                        <input type = "password" name="password" id="password" required>
+                    </label>
+                    
+                    <label> Repetir contraseña
+                        <br>
+                        <input type="password"  name="confirmPassword" id="confirmPassword" required>
+                    </label>
+
+                        <label><input type = "checkbox" id = "terminos" name = "aceptaTerminos" required>  Términos y condiciones </label>
+                        <br>
+
+                    <div class="btn-form">
+
+                        <button type = submit> ¡Registrarme!
+
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
