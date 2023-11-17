@@ -16,7 +16,7 @@
 
 body{
     font-family: 'Quicksand';
-    background-color: var(--color-grisClaro);
+    background-color: white;
 }
 
 /* header */
@@ -61,15 +61,12 @@ main{
 
 .formulario-register {
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
     margin-top: 10px;
-
     background-color:white;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(100, 100, 100);
-
-
 }
 
 .form-register h2{
@@ -89,6 +86,10 @@ label {
     font-size: 14px;
 }
 
+input {
+    margin: 10px 0px;
+}
+
 .form-register input {
     margin-bottom: 10px;
     border: 1px solid #666;
@@ -105,11 +106,12 @@ label {
     border: none;
     background-color: #FF217A;
     color: white;
-    width: 110px;
+    width: 170px;
     padding: 10px ;
     font-weight: 600;
-    font-family: "Roboto";
+    font-family: 'Quicksand';
     border-radius: 5px;
+    font-size: larger;
   }
 
   /*media*/
@@ -117,7 +119,7 @@ label {
   @media (min-width:460px) {
     .formulario-register {
         width: 70%;
-        max-width: 450px;
+        max-width: 650px;
     }
   }
 
