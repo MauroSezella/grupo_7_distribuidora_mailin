@@ -16,7 +16,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="css/styles-login.css">
+    <link rel="stylesheet" href="css/styles-register.css">
     <title>Golosinas Mailin</title>
 </head>	
 	
@@ -29,7 +29,61 @@
 	</header>   
     
     <main>
-    
+            <form class="formulario">
+                <h4 class="titulo">Ingresá tus datos para registrarte</h4>
+
+                <label class="campo"> Nombre
+                    <br>
+                    <input type="text" name="nombre" id="nombre" minlength="3" required class="campo__input">
+                </label>
+                <br>
+                <br>
+
+                <label class="campo"> Apellido
+                    <br>
+                    <input type="text" name="apellido" id="apellido" minlength="2" required class="campo__input">
+                </label>
+                <br>
+                <br>
+
+                <label class="campo"> Email
+                    <br>
+                    <input type = "email" name="email" id="email" required class="campo__input">
+                </label>
+                <br>
+                <br>
+
+                <label class="campo"> Usuario
+                    <br>
+                    <input type = "text" name="usuario" id="usuario" required class="campo__input">
+                </label>
+                <br>
+                <br>
+                
+                <label class="campo"> Contraseña
+                    <br>
+                    <input type = "password" name="password" id="password" required class="campo__input">
+                </label>
+                <br>
+                <br>
+                
+                <label class="campo"> Repetir contraseña
+                    <br>
+                    <input type="password"  name="confirmPassword" id="confirmPassword" required class="campo__input">
+                </label>
+                <br>
+                <br>
+                <br>
+
+                    <input type = "checkbox" id = "terminos" name = "aceptaTerminos" required><label> Términos y condiciones </label>
+                    <br>
+                    <br>
+                    <br>
+
+                <button type = submit class="boton"> ¡Registrarme! 
+                </label>
+            </form>
+	
 	</main>
 
 <footer>
