@@ -7,8 +7,6 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
 
     <link
         href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -17,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/styles-login.css">
-    <title>Golosinas Mailin</title>
+    <title>Login</title>
 </head>
 <header>
     <div class="header__container">
@@ -35,6 +33,12 @@
             <div class="main__form-group">
                 <input type="password" id="password" name="password" required placeholder="Contraseña">
             </div>
+            <div class="main__recordarUsuario">
+                <label>
+                    <input type="checkbox" id="recordarUsuario" name="recordarUsuario">
+                    Recordar usuario 
+                </label>
+            </div>    
             <div class="main__form-group">
                 <button type="submit">Ingresar</button>
             </div>
@@ -42,7 +46,6 @@
         <p class="main__options"><a href="/register">*No estoy registrado</a></p>
     </div>
 </main>
-
 <footer>
     <div class="footer">
         <img src="/images/logo-golosinas-mailin.svg" alt="" />
@@ -64,6 +67,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>

@@ -79,6 +79,22 @@ h2 {
     margin-bottom: 5px;
     font-size: larger;
 }
+.main__recordarUsuario{
+ padding-bottom: 20px;
+}
+
+.main__recordarUsuario label {
+  padding-bottom: 5px;
+  display: block;
+  text-align: left;
+  font-size: smaller;
+}
+
+.main__recordarUsuario input {
+  width: 20px;
+  height: 10px;
+  vertical-align: center;
+}
 
 .main__form-group input {
     width: 100%;
