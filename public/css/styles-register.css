@@ -67,10 +67,15 @@ main{
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(100, 100, 100);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-register h2{
     text-align: center;
+    font-size: 26px;
+    margin: 5px;
 }
 
 .form-register {
@@ -83,11 +88,17 @@ main{
 label {
     font-weight: 600;
     letter-spacing: 0.5px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 input {
     margin: 10px 0px;
+    width: 60%;
+}
+
+.termInput {
+    margin: 10px 0px;
+    width:auto ;
 }
 
 .form-register input {
@@ -95,6 +106,7 @@ input {
     border: 1px solid #666;
     border-radius: 5px;
     padding: 10px;
+    border-color: #FF217A;
 }
 
 .btn-form{
@@ -112,6 +124,7 @@ input {
     font-family: 'Quicksand';
     border-radius: 5px;
     font-size: larger;
+    cursor: pointer;
   }
 
   /*media*/
