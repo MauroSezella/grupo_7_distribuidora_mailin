@@ -27,33 +27,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="header__container">
-            <div class="header__logo">
-                <a href="/"><img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="" /></a>
-            </div>
 
-            <nav class="nav-bar">
-                <ul class="nav-bar__options">
-                    <li><a href="">Categorias</a></li>
-                    <li><a href="">Ofertas</a></li>
-                    <li><a href="">Ayuda</a></li>
-                </ul>
-            </nav>
-
-            <div class="header__search">
-                <input type="search" placeholder="Buscar..." class="header__search--input" />
-                <a href="" class="header__search--icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div>
-
-            <div class="header__icons">
-                <a class="burger-menu__boton"><i class="fas fa-bars"></i></a>
-                <a href="/login" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
-                <a href="/productCart" class="header__icons--cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-
-        </div>
-    </header>
+    <%- include('../partials/header')  %>
 
     <main class="main__container">
         <section class="main__producto">
@@ -187,31 +162,8 @@
 
     </main>
 
-    <footer>
-        <div class="footer">
-            <img src="/images/logo-golosinas-mailin.svg" alt="" />
-            <div class="footer__contacto">
+    <%- include('../partials/footer')  %>
 
-                <div class="footer__contactoSurcusal">
-                    <h3 class="footer__contacto-sucursal">Sucursal</h3>
-                    <p class="footer__contacto-direc">Av. Bolivia Sur 125 (La Banda)</p>
-                    <p><i class="fa-solid fa-phone"></i> 385-4123456</p>
-                </div>
-                <div class="footer__contacto-redes">
-                    <h3>Nuestras Redes</h3>
-                    <!--<div class="contacto-redes">
-                        <a href="https://www.facebook.com/people/Golosinas-Mailin-Mayorista/100064696055833/"><i class="fa-brands fa-facebook"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    </div>-->
-                    <div class="contacto-redes">
-                        <a href="https://www.facebook.com/people/Golosinas-Mailin-Mayorista/100064696055833/"
-                            class="img-redes"><img src="/images/facebook.png" alt="facebook"></a>
-                        <a href="https://www.instagram.com/golosinas_mailin/" class="img-redes"><img src="/images/instagram.png" alt="instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>
