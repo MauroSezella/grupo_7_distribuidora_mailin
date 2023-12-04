@@ -116,12 +116,31 @@ button {
 
 .btn-regresar {
     order: 1;
+    border: none;
+    background-color: #FF217A;
+    color: white;
+    width: 170px;
+    padding: 10px ;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    border-radius: 5px;
+    font-size: larger;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-guardar {
     order: -1;
     background-color: #0f95b6;
     color: white;
+    width: 170px;
+    padding: 10px ;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    border-radius: 5px;
+    font-size: larger;
+    text-align: center;
+    text-decoration: none;
 }
 
 button:hover {
