@@ -67,7 +67,7 @@ main{
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(100, 100, 100);
-    text-align: center;
+    text-align: left;
     align-items: center;
     justify-content: center;
 }
@@ -146,74 +146,23 @@ input {
     .header__logo {
         width: 20%;
     }
-
-    .footer {
-        width: 90%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 30px;
-
-    }
-
-    .footer__contacto {
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        gap: 10px;
-        align-items: flex-start;
-        justify-content: flex-start;
-
-    }
-
-    .footer__contactoSurcusal {
-        align-items: flex-start;
-        margin: 0;
-
-    }
-
-    .footer img {
-        align-self: flex-start;
-    }
-
-
-    .footer__contacto-sucursal {
-        font-size: 18px;
-    }
-
-    .footer__contacto-redes h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-
+    .form-register {
+        margin: 5% 20%;
+   }
 }
+
 
 @media (min-width: 769px) {
 
     .header__logo {
         width: 15%;
     }
+    .form-register {
+        margin: 5% 20%;
+   }
 
-   
-    .footer__contacto-sucursal {
-        font-size: 20px;
-    }
-
-    .footer__contacto-redes h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .footer__logo-contacto {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-
-    }
 }
+
 
 
 @media (min-width: 1025px) {
