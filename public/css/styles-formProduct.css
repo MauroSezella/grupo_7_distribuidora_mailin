@@ -1,0 +1,212 @@
+:root {
+    --color-1: #FF217A;
+    --color-3: #0f95b6;
+    --fuente: 'Quicksand';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: 'Quicksand', sans-serif;
+    background-color: white;
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+
+.form-contenedor {
+    background-color: white;
+    width: 90%;
+    margin: 30px auto;
+    box-shadow: 0px 0px 5px rgb(100, 100, 100);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.form-titulo {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formulario {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: flex-direction 0.5s ease;
+}
+
+
+
+input,
+textarea {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.input-precio {
+    width: 50%;
+}
+
+.input-foto {
+    font-family: 'Quicksand';
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.categorias {
+    padding: 8px;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 60%;
+}
+
+.categorias option {
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.btn-form {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    font-family: 'Quicksand';
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(44, 44, 44);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 0px 1px rgb(100, 100, 100);
+    height: 35px;
+    width: 120px;
+    background-color: #ebebeb;
+    border: 1px solid #ccc;
+
+}
+
+.btn-regresar {
+    order: 1;
+}
+
+.btn-guardar {
+    order: -1;
+    background-color: #0f95b6;
+    color: white;
+}
+
+button:hover {
+    border: 1px solid #8a8a8a;
+    font-weight: 600;
+}
+
+@media (min-width:540px) {
+
+    .form-contenedor {
+        width: 80%;
+
+    }
+
+    .form-items {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    label {
+        text-align: end;
+        width: 30%;
+    }
+
+    input,
+    textarea {
+    
+        width: 60%;
+    }
+
+    .input-precio {
+        width: 30%;
+    }
+
+
+    .categorias {
+        width: 30%;
+    }
+
+
+    .btn-form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .btn-regresar {
+        order: -1;
+    }
+
+    .btn-guardar {
+        order: 1;
+
+    }
+}
+
+@media (min-width:768px){
+    .form-contenedor {
+        width: 60%;
+
+    }
+
+    .form-titulo {
+        font-size: 24px;
+    }
+
+    label{
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width:1025px){
+    .form-contenedor {
+        width: 50%;
+        
+    }
+    .input-precio {
+        width: 20%;
+    }
+    
+    
+    .categorias {
+        width: 20%;
+    }
+}
