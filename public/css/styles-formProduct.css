@@ -233,7 +233,7 @@ button:hover {
     .titulo__container{
         width: 50%;
     }
-    
+
     .input-precio {
         width: 20%;
     }
@@ -242,4 +242,5 @@ button:hover {
     .categorias {
         width: 20%;
     }
+    
 }
