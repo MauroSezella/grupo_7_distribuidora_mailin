@@ -25,50 +25,65 @@
         <header>
             <div class="header__container">
                 <div class="header__logo">
-                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                    <a href="/">
+                        <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                    </a>
                 </div>
 
             </div>
 
         </header>
 
-
         <main>
             <div class="formulario-register">
                 <form action = "/register" method = "POST" class = "form-register" >
                     <h2 class="title-register">¡Registrate!</h2>
+                    <br>
 
-                    <label> Nombre
+
+                    <div><label> Nombre
                         <br>
+                        <br>
+
                         <input type="text" name="nombre" id="nombre" minlength="3" required>
-                    </label>
+                    </label></div>
 
-                    <label> Apellido
+                    <div><label> Apellido
                         <br>
+                        <br>
+
                         <input type="text" name="apellido" id="apellido" minlength="2" required>
-                    </label>
+                    </label></div>
 
-                    <label> Email
+                    <div><label> Email
                         <br>
+                        <br>
+
                         <input type = "email" name="email" id="email" required>
-                    </label>
+                    </label></div>
 
-                    <label> Usuario
+                    <div><label> Usuario
                         <br>
+                        <br>
+
                         <input type = "text" name="usuario" id="usuario" required>
-                    </label>
+                    </label></div>
                     
-                    <label> Contraseña
+                    <div><label> Contraseña
                         <br>
-                        <input type = "password" name="password" id="password" required>
-                    </label>
-                    
-                    <label> Repetir contraseña
                         <br>
-                        <input type="password"  name="confirmPassword" id="confirmPassword" required>
-                    </label>
 
-                        <label><input type = "checkbox" id = "terminos" name = "aceptaTerminos" required>  Términos y condiciones </label>
+                        <input type = "password" name="password" id="password" required>
+                    </label></div>
+                    
+                    <div><label> Repetir contraseña
+                        <br>
+                        <br>
+
+                        <input type="password"  name="confirmPassword" id="confirmPassword" required>
+                    </label></div>
+
+                        <label><input class = "termInput"  type = "checkbox" id = "terminos" name = "aceptaTerminos" required>  Términos y condiciones </label>
                         <br>
 
                     <div class="btn-form">
