@@ -8,6 +8,10 @@ let productController = {
 
     getCarrito: (req,res)=>{
         res.render('./products/productCart')
+    },
+
+    getCreate: (req,res)=>{
+        res.render('./products/productForm')
     }
 
  

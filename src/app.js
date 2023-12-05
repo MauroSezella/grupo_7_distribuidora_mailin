@@ -15,6 +15,12 @@ app.use('/', indexRouter);
 
 
 
+
+
+app.get('/formProduct',(req,res) => res.sendFile(path.resolve(__dirname, 'views/products/productForm.html')));
+
+
+
 /*app.get('/',(req,res) => res.sendFile(path.resolve("./views/index.html")));
 app.get('/login',(req,res) => res.sendFile(path.resolve("./views/login.html")));
 app.get('/productDetail',(req,res) => res.sendFile(path.resolve("./views/productDetail.html")));
