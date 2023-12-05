@@ -3,20 +3,23 @@
 ## More of
 
 * Mejorar nivel de detalle de las tareas asignadas en trello.
-* Exponer con más rapidez los bloqueantes, para tener más tiempos para resolverlos.
+
 
 ## Keep Doing
 
+* Exponer con más rapidez los bloqueantes, para tener más tiempos para resolverlos.
 * Comunicación continua del equipo.
 * Puesta en común de las actividades de cada integrante.
 * Trabajo colaborativo.
+* Asignacion de tareas de a pares.
+* Comenzar el sprint lo más pronto posible.
+
 
 ## Start Doing
 
-* Asignacion de tareas de a pares.
-* Comenzar el sprint lo más pronto posible.
 * Realiza al menos una reunion semanal para mostrar avances, dudas o bloqueantes.
 * Asignar una misma tarea a todos los integrantes asi se van obligados a reunirse y a trabajar en equipo.
+
 
 ## Stop Doing
 

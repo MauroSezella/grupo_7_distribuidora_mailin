@@ -7,8 +7,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -16,7 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="css/styles-login.css">
+    <link rel="stylesheet" href="/css/styles-login.css">
     <title>Golosinas Mailin</title>
 </head>
 <header>
@@ -35,35 +34,21 @@
             <div class="main__form-group">
                 <input type="password" id="password" name="password" required placeholder="Contraseña">
             </div>
+            <div class="main__recordarUsuario">
+                <label>
+                    <input type="checkbox" id="recordarUsuario" name="recordarUsuario">
+                    Recordar usuario 
+                </label>
+            </div>    
             <div class="main__form-group">
                 <button type="submit">Ingresar</button>
             </div>
         </form>
-        <p class="main__options"><a href="/register">*No estoy registrado</a></p>
+        <p class="main__options"><a href="/user/register">*No estoy registrado</a></p>
     </div>
 </main>
 
-<footer>
-    <div class="footer">
-        <img src="/images/logo-golosinas-mailin.svg" alt="" />
-        <div class="footer__contacto">
-
-            <div class="footer__contactoSurcusal">
-                <h3 class="footer__contacto-sucursal">Sucursal</h3>
-                <p class="footer__contacto-direc">Av. Bolivia Sur 125 (La Banda)</p>
-                <p><i class="fa-solid fa-phone"></i> 385-4123456</p>
-            </div>
-            <div class="footer__contacto-redes">
-                <h3>Nuestras Redes</h3>
-                <div class="contacto-redes">
-                    <a href="https://www.facebook.com/people/Golosinas-Mailin-Mayorista/100064696055833/"
-                        class="img-redes"><img src="images/facebook.png" alt="facebook"></a>
-                    <a href="https://www.instagram.com/golosinas_mailin/" class="img-redes"><img src="images/instagram.png" alt="instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<%- include('../partials/footer')  %>
 
 </body>
 </html>

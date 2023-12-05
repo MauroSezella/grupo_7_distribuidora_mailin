@@ -21,33 +21,7 @@
 <body>
   
 
-    <header>
-        <div class="header__container">
-            <div class="header__logo">
-                <a href="/"><img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="" /></a>
-            </div>
-    
-            <nav class="nav-bar">
-                <ul class="nav-bar__options">
-                    <li><a href="">Categorias</a></li>
-                    <li><a href="">Ofertas</a></li>
-                    <li><a href="">Ayuda</a></li>
-                </ul>
-            </nav>
-    
-            <div class="header__search">
-                <input type="search" placeholder="Buscar..." class="header__search--input" />
-                <a href="" class="header__search--icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div>
-    
-            <div class="header__icons">
-                <a class="burger-menu__boton"><i class="fas fa-bars"></i></a>
-                <a href="/login" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
-                <a href="/productCart" class="header__icons--cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-    
-        </div>
-    </header>
+   <%- include('./partials/header')  %>
 
 
     <main>
@@ -80,13 +54,13 @@
 
                 <article class="main__ofertas--card">
 
-                    <div class="main__ofertas--card-img">
+                    <a href="/productos/2" class="main__ofertas--card-img">
                         <img src="images/oferta-fantoche.png" alt="alfajor-fantoche">
-                    </div>
+                    </a>
 
                     <div class="card-descripcion">
                         <p class="main__ofertas--card-categ">ALFAJORES</p>
-                        <a href="/productDetail" class="main__ofertas--card-titulo">
+                        <a href="/productos/2" class="main__ofertas--card-titulo">
                             ALFAJOR FANTOCHE TRIPLE X12U</a>
                         <p class="main__ofertas--card-precio">$2.710,00</p>
                         <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
@@ -95,13 +69,14 @@
                 </article>
 
                 <article class="main__ofertas--card">
-                    <div class="main__ofertas--card-img">
-                        <img src="images/oferta-pelotita.png" alt="chupetin-pelotita">
 
-                    </div>
+                    <a href="/productos/2" class="main__ofertas--card-img">
+                        <img src="images/oferta-pelotita.png" alt="chupetin-pelotita">
+                    </a>
+
                     <div class="card-descripcion">
                         <p class="main__ofertas--card-categ">CHUPETINES</p>
-                        <a href="/productDetail" class="main__ofertas--card-titulo">CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+                        <a href="/productos/2" class="main__ofertas--card-titulo">CHUPETIN PELOTITA DULCE DE LECHE X12</a>
                         <p class="main__ofertas--card-precio">$8.760,00</p>
                         <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
                     </div>
@@ -110,26 +85,28 @@
             
                 <article class="main__ofertas--card">
 
-                    <div class="main__ofertas--card-img">
+                    <a href="/productos/2" class="main__ofertas--card-img">
                         <img src="images/oferta-desfile.png" alt="galleta-desfile">
+                    </a>
 
-                    </div>
                     <div class="card-descripcion">
                         <p class="main__ofertas--card-categ">GALLETAS</p>
-                        <a href="/productDetail" class="main__ofertas--card-titulo">GALLETA LIA DESFILE X 398GR X21</a>
+                        <a href="/productos/2" class="main__ofertas--card-titulo">GALLETA LIA DESFILE X 398GR X21</a>
                         <p class="main__ofertas--card-precio">$9.850,00</p>
                         <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
                     </div>
                 </article>
 
                 <article class="main__ofertas--card">
-                    <div class="main__ofertas--card-img">
+
+                    <a href="/productos/2" class="main__ofertas--card-img">
                         <img src="images/oferta-misky.png" alt="masticable-misky">
 
-                    </div>
+                    </a>
+
                     <div class="card-descripcion">
                         <p class="main__ofertas--card-categ">CARAMELOS</p>
-                        <a href="/productDetail" class="main__ofertas--card-titulo">
+                        <a href="/productos/2" class="main__ofertas--card-titulo">
                             MASTICABLES MISKY X800gr X10</a>
                         <p class="main__ofertas--card-precio">$14.800,00</p>
                         <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
@@ -145,27 +122,7 @@
 
     </main>
 
-    <footer>
-        <div class="footer">
-            <img src="/images/logo-golosinas-mailin.svg" alt="" />
-            <div class="footer__contacto">
-
-                <div class="footer__contactoSurcusal">
-                    <h3 class="footer__contacto-sucursal">Sucursal</h3>
-                    <p class="footer__contacto-direc">Av. Bolivia Sur 125 (La Banda)</p>
-                    <p><i class="fa-solid fa-phone"></i> 385-4123456</p>
-                </div>
-                <div class="footer__contacto-redes">
-                    <h3>Nuestras Redes</h3>
-                    <div class="contacto-redes">
-                        <a href="https://www.facebook.com/people/Golosinas-Mailin-Mayorista/100064696055833/"
-                            class="img-redes"><img src="images/facebook.png" alt="facebook"></a>
-                        <a href="https://www.instagram.com/golosinas_mailin/" class="img-redes"><img src="images/instagram.png" alt="instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%- include('./partials/footer')  %>
 
 </body>
 </html>
