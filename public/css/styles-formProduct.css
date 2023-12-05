@@ -27,10 +27,16 @@ body {
     border-radius: 5px;
 }
 
+.titulo__container{
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+}
+
 .form-titulo {
     font-size: 18px;
     text-align: start;
-    padding-left: 20%;
+    
     margin-bottom: 10px;
 }
 
@@ -158,6 +164,9 @@ button:hover {
         width: 80%;
 
     }
+    .titulo__container{
+        width: 80%;
+    }
 
     .form-items {
         flex-direction: row;
@@ -220,6 +229,11 @@ button:hover {
         width: 50%;
         
     }
+
+    .titulo__container{
+        width: 50%;
+    }
+    
     .input-precio {
         width: 20%;
     }
