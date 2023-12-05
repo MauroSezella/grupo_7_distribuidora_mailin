@@ -33,15 +33,17 @@
 
     </header>
     <main>
+        <h2 class="form-titulo">Agregar/Editar Producto</h2>
+
         <div class="form-contenedor">
-            <h2 class="form-titulo">Agregar/Editar Producto</h2>
+            
             <form action="" method="POST" class="formulario">
                 <div class="form-items">
                     <label for="nombreProducto">Nombre del producto</label>
                     <input type="text" name="name" id="nombreProducto" class="input-nombre" required>
                 </div>
                 <div class="form-items">
-                    <label for="descripcionProducto">Descripción</label>
+                    <label for="descripcionProducto" class="form__label">Descripción</label>
                     <textarea name="description" id="descripcionProducto" cols="30" required></textarea>
                 </div>
                 <div class="form-items">
@@ -52,7 +54,7 @@
                 <div class="form-items">
                     <label for="categoriaProducto">Categoría</label>
                     <select name="category" id="categoriaProducto" class="categorias" required>
-                        <option value="lfajores">Alfajores</option>
+                        <option value="alfajores">Alfajores</option>
                         <option value="caramelos">Caramelos</option>
                         <option value="chupetines">Chupetines</option>
                         <option value="galletas">Galletas</option>
