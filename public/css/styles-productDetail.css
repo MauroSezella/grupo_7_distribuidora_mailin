@@ -432,9 +432,9 @@ p {
     display: flex;
     flex-wrap: nowrap;
     overflow: auto;
+    scrollbar-color: #656666 #f1f1f1;
+    scrollbar-width: thin;
 }
-
-
 
 .card-slider {
     background-color: rgb(255, 255, 255);
@@ -733,12 +733,9 @@ footer {
     /*SECCION PRODUCTOS RELACIONADOS*/
 
     /*slider*/
-    .card {
-        overflow: auto;
-    }
-
+   
     .card-slider {
-        visibility: visible;
+        visibility: hidden;
     }
 
 
@@ -854,7 +851,6 @@ footer {
     /*slider*/
 
     .card {
-        overflow: hidden;
         width: 90%;
         margin: 0 auto;
     }

@@ -201,7 +201,8 @@ header{
     overflow: auto;
     margin-top: 20px;
     align-items: center;
-
+    scrollbar-color: #656666 #f1f1f1;
+    scrollbar-width: thin;
 }
 
 .card-slider{
@@ -409,13 +410,9 @@ footer {
         width: 23%;;
     }
 
-    .card {
-        overflow: auto;
-        align-items: center;
-    }
-    
+        
     .card-slider{
-     visibility: visible;
+     visibility: hidden;
     }
     
     
@@ -557,7 +554,6 @@ footer {
     }
 
     .card {
-        overflow: hidden;
         width: 90%;
         margin: 0 auto;
         align-items: center;
