@@ -489,6 +489,58 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.363);
 }
 
+/*descuento*/
+
+.descuento {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 100;
+  }
+
+  .contenedor-descuento{
+    background-color: #FF217A;
+    width: 45px;
+    height: 45px;
+    position: relative;
+    text-align: center;
+  }
+  .contenedor-descuento:before,
+  .contenedor-descuento:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 45px;
+    background-color: #FF217A;
+   
+  }
+  .contenedor-descuento:before {
+    transform: rotate(30deg);
+  }
+  .contenedor-descuento:after {
+    transform: rotate(60deg);
+  }
+  
+  .producto-relacionado--card>.contenedor-descuento {
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .producto-relacionado--card {
+    position: relative;
+  
+  }
+
+
 .producto-relacionado--card-img {
     height: 60%;
     padding: 5px;
@@ -520,22 +572,26 @@ p {
     font-size: 12px;
 }
 
-.producto-relacionado--card-titulo:hover {
-    color: var(--color-1);
-    font-weight: 700;
-}
-
 
 .producto-relacionado-button {
-    font-size: 10px;
+  font-size: 10px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 8px 10px;
 }
 
 .producto-relacionado--card-precio {
     padding-bottom: 10px;
+    display: flex;
+   gap: 10px;
+    align-items: baseline;
+
 }
 
+.precio{
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #252525;
+}
 
 /*footer*/
 
