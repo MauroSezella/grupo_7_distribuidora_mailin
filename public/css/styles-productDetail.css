@@ -133,12 +133,45 @@ header {
     order: 1;
 }
 
-.burger-menu__boton {
-    color: #1A1265;
-    font-size: x-large;
+.header__burguer-menu{
     width: 30%;
     order: 3;
 }
+
+.header__burguer-menu i {
+    color: #1A1265;
+    font-size: x-large;
+}
+
+.burguer-menu__options{
+    display: none;
+    position: fixed;
+    right: 1%;
+    width: 50%;
+}
+
+.input__burguer-menu{
+    display: none;
+}
+
+.input__burguer-menu:checked ~ .burguer-menu__options{
+    display: block;
+}
+
+.burguer-menu__options li{
+    display: block;
+    background:  #1A1265;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    border-bottom: 1px solid  white;
+}
+
+.burguer-menu__options li a{
+    text-decoration: none;
+    color: white;
+}
+
 
 /*MAIN*/
 .main__container {
