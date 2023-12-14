@@ -74,6 +74,10 @@ textarea {
     font-size: 14px;
 }
 
+.input-oferta {
+    max-width: min-content;
+}
+
 .categorias {
     padding: 8px;
     font-size: 14px;
