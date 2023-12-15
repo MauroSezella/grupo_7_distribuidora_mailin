@@ -10,6 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link
         href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -34,7 +35,12 @@
     </header>
     <main>
         <div class="titulo__container"> 
+        <div class="titulo__container"> 
             <h2 class="form-titulo">Agregar/Editar Producto</h2>
+        </div>
+
+        <div class="form-contenedor">
+            
         </div>
 
         <div class="form-contenedor">
@@ -46,6 +52,7 @@
                 </div>
                 <div class="form-items">
                     <label for="descripcionProducto" class="form__label">Descripción</label>
+                    <label for="descripcionProducto" class="form__label">Descripción</label>
                     <textarea name="description" id="descripcionProducto" cols="30" required></textarea>
                 </div>
                 <div class="form-items">
@@ -54,7 +61,7 @@
                         required>
                 </div>
                 <div class="form-items">
-                    <label for="categoriaProducto">Categoría</label>
+                    <label for="categoriaProducto"> Categoría </label>
                     <select name="category" id="categoriaProducto" class="categorias" required>
                         <option value="alfajores">Alfajores</option>
                         <option value="caramelos">Caramelos</option>
@@ -63,8 +70,20 @@
                     </select>
                 </div>
                 <div class="form-items">
-                    <label for="precioProducto">Precio</label>
+                    <label for="stockProducto"> Stock </label>
+                    <input type="number" name="stock" id="stockProducto" class="input-stock" placeholder="0" required>
+                </div>
+                <div class="form-items">
+                    <label for="enOferta"> En oferta </label>
+                    <input type = "checkbox" name = "enOferta" id = "enOferta" class="input-oferta" >
+                </div>
+                <div class="form-items">
+                    <label for="precioProducto"> Precio $ </label>
                     <input type="number" name="price" id="precioProducto" class="input-precio" placeholder="0.00" required>
+                </div>
+                <div class="form-items">
+                    <label for="descuento"> Descuento % </label>
+                    <input type="number" name="descuento" id="descuento" class="input-descuento" placeholder="0">
                 </div>
                 <div class="btn-form">
                     <a type="button" class="btn-regresar" href="/"> Regresar </a>
