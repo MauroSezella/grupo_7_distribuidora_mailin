@@ -33,88 +33,48 @@
     <main class="main__container">
         <h2 class="main-titulo">Todos los productos</h2>
        
-                           <!-- card con descuento -->
+        <% products.forEach(product => { %>
+                
+            <%if(!product.descuento > 0) { %>
+                <!-- card sin descuento -->
                 <article class="producto--card">
-                    <a href="/productos/2" class="producto--card-img">
-                        <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
+                    <a href="/productos/<%=product.id%>" class="producto--card-img">
+                        <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                    </a>
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ"><%=product.categoria%></p>
+                        <a href="" class="producto--card-titulo"><%=product.nombre%></a>
+                            <div class="producto--card-precio">
+                                <p class="precio-final">$ <%=product.precio%></p>
+                            </div>
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+            <% }else{ %>
+
+                <article class="producto--card">
+                    <a href="/productos/<%=product.id%>" class="producto--card-img">
+                        <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                     </a>
                     
                     <div class="contenedor-descuento">
-                        <p class="descuento">15% OFF</p>
+                        <p class="descuento"><%=product.descuento%>% OFF</p>
                     </div>
 
                     <div class="card-descripcion">
-                        <p class="producto--card-categ">CHUPETINES</p>
-                        <a href="" class="producto--card-titulo">
-                            CHUPETIN PELOTITA DULCE DE LECHE X12</a>
-
+                        <p class="producto--card-categ"><%=product.categoria%></p>
+                        <a href="" class="producto--card-titulo"><%=product.nombre%></a>
                             <div class="producto--card-precio">
-                                <p class="precio">$2.710,00</p>
-                                <p class="precio-final">$2.710,00</p>
+                                <p class="precio">$ <%=product.precio%></p>
+                                <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
                             </div>
-        
                         <button class="agregar-carrito">Añadir al carrito</button>
                     </div>
                 </article>
 
-                <!-- card sin descuento -->
-                <article class="producto--card">
-                    <a href="/productos/2" class="producto--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ">TRIPLE</p>
-                        <a href="" class="producto--card-titulo">ALFAJOR FANTOCHE TRIPLE CHOCOLATE 85g
-                            x24</a>
-                            <div class="producto--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto--card">
-                    <a href="/productos/2" class="producto--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ">TRIPLE</p>
-                        <a href="" class="producto--card-titulo">
-                            ALFAJOR TERR TORTA 70g x6</a>
-                            <div class="producto--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto--card">
-                    <a href="/productos/2" class="producto--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ">TRIPLE</p>
-                        <a href="" class="producto--card-titulo">
-                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
-                            <div class="producto--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto--card">
-                    <a href="/productos/2" class="producto--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ">TRIPLE</p>
-                        <a href="" class="producto--card-titulo">
-                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
-                            <div class="producto--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
- 
+                <% } %>
+        <% }); %>
 
     </main>
 

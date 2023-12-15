@@ -1,9 +1,10 @@
 const path = require('path');
+const productService = require('../data/productService');
 
 let productController = {
 
-    getAll: (req,res)=>{
-        res.render('./products/products')
+    index: (req,res)=>{
+        res.render('./products/products', {products: productService.getAll()})
     },
 
     getProduct: (req,res) => {
