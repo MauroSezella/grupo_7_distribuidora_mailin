@@ -2,6 +2,10 @@ const path = require('path');
 
 let productController = {
 
+    getAll: (req,res)=>{
+        res.render('./products/products')
+    },
+
     getProduct: (req,res) => {
         res.render('./products/productDetail');
     },
