@@ -21,7 +21,7 @@ let productController = {
 
     store:(req, res)=>{
        productService.save(req);
-       res.redirect('./products/products');
+       res.redirect('/productos');
     }
 
 

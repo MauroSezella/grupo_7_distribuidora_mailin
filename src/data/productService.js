@@ -43,10 +43,10 @@ const productService = {
             return valorActual.id > valorMax? valorActual.id: valorMax;
         }, 0);
 
-        product.id=maxId++;
+        product.id=maxId+1;
         this.products.push(product);
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
-        
+
     }
 
 

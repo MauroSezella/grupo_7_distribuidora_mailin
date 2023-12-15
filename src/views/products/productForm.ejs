@@ -41,19 +41,15 @@
 
         <div class="form-contenedor">
             
-        </div>
-
-        <div class="form-contenedor">
-            
-            <form action="" method="POST" class="formulario">
+            <form action="/productos" method="POST" enctype="multipart/form-data"  class="formulario" >
                 <div class="form-items">
                     <label for="nombreProducto">Nombre del producto</label>
-                    <input type="text" name="name" id="nombreProducto" class="input-nombre" required>
+                    <input type="text" name="nombre" id="nombreProducto" class="input-nombre" required>
                 </div>
                 <div class="form-items">
+                
                     <label for="descripcionProducto" class="form__label">Descripción</label>
-                    <label for="descripcionProducto" class="form__label">Descripción</label>
-                    <textarea name="description" id="descripcionProducto" cols="30" required></textarea>
+                    <textarea name="descripcion" id="descripcionProducto" cols="30" required></textarea>
                 </div>
                 <div class="form-items">
                     <label for="imagenproducto">Seleccionar imagen</label>
@@ -62,7 +58,7 @@
                 </div>
                 <div class="form-items">
                     <label for="categoriaProducto"> Categoría </label>
-                    <select name="category" id="categoriaProducto" class="categorias" required>
+                    <select name="categoria" id="categoriaProducto" class="categorias" required>
                         <option value="alfajores">Alfajores</option>
                         <option value="caramelos">Caramelos</option>
                         <option value="chupetines">Chupetines</option>
@@ -79,7 +75,7 @@
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
-                    <input type="number" name="price" id="precioProducto" class="input-precio" placeholder="0.00" required>
+                    <input type="number" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" required>
                 </div>
                 <div class="form-items">
                     <label for="descuento"> Descuento % </label>
@@ -87,7 +83,7 @@
                 </div>
                 <div class="btn-form">
                     <a type="button" class="btn-regresar" href="/"> Regresar </a>
-                    <a type="button" class="btn-guardar" href="/"> Guardar </a>
+                    <button type="submit" class="btn-guardar"> Guardar </button>
 
                 </div>
             </form>
