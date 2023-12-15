@@ -7,8 +7,8 @@ let productController = {
         res.render('./products/products', {products: productService.getAll()})
     },
 
-    getProduct: (req,res) => {
-        res.render('./products/productDetail');
+    detail: (req,res) => {
+        res.render('./products/productDetail',{product: productService.getOne(req.params.id), products: productService.getProductosRelacionados(req.params.id)});
     },
 
     getCarrito: (req,res)=>{

@@ -33,21 +33,21 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">Inicio > </a><a href="#">Alfajores</a>
+                    <a href="/">Inicio > </a><a href="#"><%=product.categoria.toUpperCase()%></a>
                 </div>
                 <div class="main__producto-img" id="contenedor">
-                    <img src="/images/alfajor__fantoche.png" alt="alfajor fantoche">
+                    <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                     <div class="main-contenedor--descuento">
-                        <p class="main-descuento">15% OFF</p>
+                        <p class="main-descuento"><%=product.descuento%>% OFF</p>
                     </div>
                 </div>
 
 
                 <div class="main__producto-detalle">
-                    <h2 class="main__producto-nombre">ALFAJOR FANTOCHE TRIPLE BLANCO 85g</h2>
+                    <h2 class="main__producto-nombre"><%=product.nombre%></h2>
                     <div class="main__producto-detalle--precio">
-                        <p class="main-precio">$2.710,00</p>
-                        <p class="main-precio-final">$2.710,00</p>
+                        <p class="main-precio">$ <%=product.precio%></p>
+                        <p class="main-precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
                     </div>
                     <p class="main__producto-detalle-disponible">Disponible</p>
                     <!--<div class="main__producto-detalle-cantidad">
@@ -77,12 +77,12 @@
                     </form>
                     <div class="main__producto-descripcion">
                         <h4 class=".descripcion">Descripción</h4>
-                        <p>Alfajor Fantoche triple blanco 85g caja x24</p>
+                        <p><%=product.descripcion%></p>
                     </div>
 
-                    <p class="main__producto-detalle-info">SKU: <span id="sku">4585</span></p>
+                    <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%></span></p>
                     <p class="main__producto-detalle-info" id="categoria">Categoria: <a href=""
-                            id="categoria">Alfajores</a></p>
+                            id="categoria"><%=product.categoria%></a></p>
 
                     <div class="btn-product">
                         <a href="/products/edit/??" class="action-button edit">EDITAR PRODUCTO</a>
@@ -94,7 +94,6 @@
             </section>
 
 
-
             <section class="main__producto-relacionado">
                 <h3>PRODUCTOS RELACIONADOS</h3>
                 <div class="card">
@@ -102,126 +101,58 @@
                         <i class="fa-solid fa-angle-left"></i>
                     </div> -->
 
-                    <!-- card con descuento -->
-                    <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
-                        </a>
+                   
+                    <% products.forEach(product => { %>
+                
+                        <%if(!product.descuento > 0) { %>
 
-                        <div class="contenedor-descuento">
-                            <p class="descuento">15% OFF</p>
-                        </div>
+                             <!-- card sin descuento -->
+                            <article class="producto-relacionado--card">
+                                <a href="/productos/<%=product.id%>" class="producto-relacionado--card-img">
+                                    <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                                </a>
+                                <div class="card-descripcion">
+                                    <p class="producto-relacionado--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                    <a href="" class="producto-relacionado--card-titulo"><%=product.nombre%></a>
+                                    <div class="producto-relacionado--card-precio">
+                                        <p class="precio-final">$ <%=product.precio%></p>
+                                    </div>
+                                    <button class="producto-relacionado-button">Añadir al carrito</button>
+                                </div>
+                            </article> 
 
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
-                            <a href="" class="producto-relacionado--card-titulo">
-                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+                    <% }else{ %>
 
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio">$2.710,00</p>
-                                <p class="precio-final">$2.710,00</p>
+                        <!-- card con descuento -->
+                        <article class="producto-relacionado--card">
+                            <a href="/productos/<%=product.id%>" class="producto-relacionado--card-img">
+                                <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                            </a>
+
+                            <div class="contenedor-descuento">
+                                <p class="descuento"><%=product.descuento%>% OFF</p>
                             </div>
 
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
+                            <div class="card-descripcion">
+                                <p class="producto-relacionado--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                <a href="" class="producto-relacionado--card-titulo">
+                                    <%=product.nombre%></a>
 
-                    <!-- card sin descuento -->
-                    <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                        </a>
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">TRIPLE</p>
-                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE TRIPLE CHOCOLATE 85g
-                                x24</a>
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio-final">$2.710,00</p>
+                                <div class="producto-relacionado--card-precio">
+                                    <p class="precio">$ <%=product.precio%>/p>
+                                    <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
+                                </div>
+
+                                <button class="producto-relacionado-button">Añadir al carrito</button>
                             </div>
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-                     <!-- card con descuento -->
-                     <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
-                        </a>
+                        </article>
 
-                        <div class="contenedor-descuento">
-                            <p class="descuento">15% OFF</p>
-                        </div>
+                  
 
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
-                            <a href="" class="producto-relacionado--card-titulo">
-                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
-
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio">$2.710,00</p>
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-
-                    <!-- card sin descuento -->
-                    <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                        </a>
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">TRIPLE</p>
-                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE 
-                                x24</a>
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-                       <!-- card con descuento -->
-                       <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
-                        </a>
-
-                        <div class="contenedor-descuento">
-                            <p class="descuento">15% OFF</p>
-                        </div>
-
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
-                            <a href="" class="producto-relacionado--card-titulo">
-                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
-
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio">$2.710,00</p>
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-
-                    <!-- card sin descuento -->
-                    <article class="producto-relacionado--card">
-                        <a href="/productos/2" class="producto-relacionado--card-img">
-                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                        </a>
-                        <div class="card-descripcion">
-                            <p class="producto-relacionado--card-categ">TRIPLE</p>
-                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE 
-                                x24</a>
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                            <button class="producto-relacionado-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-                    <!-- <div class="card-slider" id="card-slider-right">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </div> -->
+                    <% } %>
+                <% }); %>
+            
+                     
                 </div>
 
             </section>
