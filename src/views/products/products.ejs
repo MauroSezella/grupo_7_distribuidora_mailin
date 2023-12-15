@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golosinas Mailin</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/styles-products.css" />
+    <link rel="stylesheet" href="/css/normalize.css"/>
+
+</head>
+
+<body>
+
+    <%- include('../partials/header')  %>
+
+    <main class="main__container">
+        <h2 class="main-titulo">Todos los productos</h2>
+       
+                           <!-- card con descuento -->
+                <article class="producto--card">
+                    <a href="/productos/2" class="producto--card-img">
+                        <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
+                    </a>
+                    
+                    <div class="contenedor-descuento">
+                        <p class="descuento">15% OFF</p>
+                    </div>
+
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ">CHUPETINES</p>
+                        <a href="" class="producto--card-titulo">
+                            CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+
+                            <div class="producto--card-precio">
+                                <p class="precio">$2.710,00</p>
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+        
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- card sin descuento -->
+                <article class="producto--card">
+                    <a href="/productos/2" class="producto--card-img">
+                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                    </a>
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ">TRIPLE</p>
+                        <a href="" class="producto--card-titulo">ALFAJOR FANTOCHE TRIPLE CHOCOLATE 85g
+                            x24</a>
+                            <div class="producto--card-precio">
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="producto--card">
+                    <a href="/productos/2" class="producto--card-img">
+                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                    </a>
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ">TRIPLE</p>
+                        <a href="" class="producto--card-titulo">
+                            ALFAJOR TERR TORTA 70g x6</a>
+                            <div class="producto--card-precio">
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="producto--card">
+                    <a href="/productos/2" class="producto--card-img">
+                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                    </a>
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ">TRIPLE</p>
+                        <a href="" class="producto--card-titulo">
+                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
+                            <div class="producto--card-precio">
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="producto--card">
+                    <a href="/productos/2" class="producto--card-img">
+                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                    </a>
+                    <div class="card-descripcion">
+                        <p class="producto--card-categ">TRIPLE</p>
+                        <a href="" class="producto--card-titulo">
+                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
+                            <div class="producto--card-precio">
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+                        <button class="agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+ 
+
+    </main>
+
+    <%- include('../partials/footer')  %>
+
+</body>
+
+</html>
