@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
        cb(null, './public/images/products'); 
     }, 
     filename: function (req, file, cb) { 
-       cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } //Aqui tenemos que setear como queremos se guardan las imagenes.
+       cb(null, `img_${path.extname(file.originalname)}`);  } //Aqui tenemos que setear como queremos se guardan las imagenes.
   })
 
 const upload = multer({ storage : storage });

@@ -15,9 +15,16 @@ let productController = {
         res.render('./products/productCart')
     },
 
-    getCreate: (req,res)=>{
+    create: (req,res)=>{
         res.render('./products/productForm')
+    },
+
+    store:(req, res)=>{
+       productService.save(req);
+       res.redirect('./products/products');
     }
+
+
 
  
 }

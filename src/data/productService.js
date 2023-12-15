@@ -29,6 +29,24 @@ const productService = {
         productosEnOferta = this.products.filter((product)=>product.enOferta == "si");
 
         return productosEnOferta;
+    },
+
+    save: function(req){
+        let product= req.body;
+        let imagen= req.file;
+
+        if (imagen != undefined ){
+            product.img=imagen.filename
+        }
+
+        let maxId= this.products.reduce((valorMax, valorActual)=>{
+            return valorActual.id > valorMax? valorActual.id: valorMax;
+        }, 0);
+
+        product.id=maxId++;
+        this.products.push(product);
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
+        
     }
 
 

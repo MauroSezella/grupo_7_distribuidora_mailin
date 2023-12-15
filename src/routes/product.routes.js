@@ -5,11 +5,12 @@ const productController = require('../controllers/productController');
 
 
 router.get('/', productController.index);
+router.get('/create', productController.create);
+router.post('/', upload.single('img'), productController.store)
 router.get('/:id',productController.detail);
 
 
 router.get('/cart', productController.getCarrito);
-router.get('/create', productController.getCreate);
 
 
 module.exports = router;
