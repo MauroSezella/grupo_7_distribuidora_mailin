@@ -61,99 +61,55 @@
                         <i class="fa-solid fa-angle-left"></i>
                     </div> -->
                     
+                    <% products.forEach(product => { %>
+                
+                        <%if(!product.descuento > 0) { %>
+
+                            <!-- card sin descuento -->
+                            <article class="main__ofertas--card">
+                                <a href="/productos/<%=product.id%>" class="main__ofertas--card-img">
+                                    <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                                </a>
+
+                                <div class="card-descripcion">
+                                    <p class="main__ofertas--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                    <a href="/productos/<%=product.id%>" class="main__ofertas--card-titulo">
+                                        <%=product.nombre%></a>
+                                    <div class="main__ofertas--card-precios">
+                                        <p class="precio-final">$ <%=product.precio%></p>
+                                    </div>
+                                    <button class="main__ofertas-button">Añadir al carrito</button>
+                                </div>
+
+                            </article>
+
+                    
+                        <% }else{ %>        
+
                     <!-- card con descuento -->
                     <article class="main__ofertas--card">
 
-
-                        <a href="/productos/2" class="main__ofertas--card-img">
-                            <img src="images/oferta-fantoche.png" alt="alfajor-fantoche">
+                        <a href="/productos/<%=product.id%>" class="main__ofertas--card-img">
+                            <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                         </a>
 
                         <div class="contenedor-descuento">
-                            <p class="descuento">15% OFF</p>
+                            <p class="descuento"><%=product.descuento%>% OFF</p>
                         </div>
                         <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ">ALFAJORES</p>
-                            <a href="/productos/2" class="main__ofertas--card-titulo">
-                                ALFAJOR FU</a>
+                            <p class="main__ofertas--card-categ"><%=product.categoria.toUpperCase()%></p>
+                            <a href="/productos/<%=product.id%>" class="main__ofertas--card-titulo"><%=product.nombre%></a>
                             <div class="main__ofertas--card-precios">
-                                <p class="precio">$2.710,00</p>
-                                <p class="precio-final">$2.710,00</p>
+                                <p class="precio">$  <%=product.precio%></p>
+                                <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
                             </div>
                             <button class="main__ofertas-button">Añadir al carrito</button>
                         </div>
 
                     </article>
 
-                    <!-- card sin descuento -->
-                    <article class="main__ofertas--card">
-                        <a href="/productos/2" class="main__ofertas--card-img">
-                            <img src="images/oferta-fantoche.png" alt="alfajor-fantoche">
-                        </a>
-
-                        <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ">ALFAJORES</p>
-                            <a href="/productos/2" class="main__ofertas--card-titulo">
-                                ALFAJOR FANTOCHE TRIPLE X12U</a>
-                            <div class="main__ofertas--card-precios">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                            <button class="main__ofertas-button">Añadir al carrito</button>
-                        </div>
-
-                    </article>
-
-                    <article class="main__ofertas--card">
-
-                        <a href="/productos/2" class="main__ofertas--card-img">
-                            <img src="images/oferta-pelotita.png" alt="chupetin-pelotita">
-                        </a>
-
-                        <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ">CHUPETINES</p>
-                            <a href="/productos/2" class="main__ofertas--card-titulo">CHUPETIN PELOTITA DULCE DE LECHE X12</a>
-                            <div class="main__ofertas--card-precios">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                            <button class="main__ofertas-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-
-
-                    <article class="main__ofertas--card">
-
-                        <a href="/productos/2" class="main__ofertas--card-img">
-                            <img src="images/oferta-desfile.png" alt="galleta-desfile">
-                        </a>
-
-                        <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ">GALLETAS</p>
-                            <a href="/productos/2" class="main__ofertas--card-titulo">GALLETA LIA DESFILE X 398GR
-                                X21</a>
-                                <div class="main__ofertas--card-precios">
-                                    <p class="precio-final">$2.710,00</p>
-                                </div>
-                            <button class="main__ofertas-button">Añadir al carrito</button>
-                        </div>
-                    </article>
-
-                    <article class="main__ofertas--card">
-
-                        <a href="/productos/2" class="main__ofertas--card-img">
-                            <img src="images/oferta-misky.png" alt="masticable-misky">
-
-                        </a>
-
-                        <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ">CARAMELOS</p>
-                            <a href="/productos/2" class="main__ofertas--card-titulo">
-                                MASTICABLES MISKY X800gr X10</a>
-                                <div class="main__ofertas--card-precios">
-                                    <p class="precio-final">$2.710,00</p>
-                                </div>
-                            <button class="main__ofertas-button">Añadir al carrito</button>
-                        </div>
-                    </article>
+                    <% } %>
+                <% }); %>
 
                     <!-- <div class="card-slider" id="card-slider-right">
                         <i class="fa-solid fa-angle-right"></i>

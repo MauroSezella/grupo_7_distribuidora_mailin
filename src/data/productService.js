@@ -22,6 +22,13 @@ const productService = {
         productsRelacionados = this.products.filter((product)=>product.categoria == categoria);
 
         return productsRelacionados;
+    },
+
+    getProductosEnOferta: function(){
+
+        productosEnOferta = this.products.filter((product)=>product.enOferta == "si");
+
+        return productosEnOferta;
     }
 
 
