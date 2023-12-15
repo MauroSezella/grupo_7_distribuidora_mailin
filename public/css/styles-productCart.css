@@ -21,12 +21,10 @@ body{
 
 
 /*header*/
-
-header {
+header{
     box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
     border-top: 8px dashed #FF217A;
-    margin-bottom: 10px;
-
+    
 }
 
 .header__container {
@@ -55,12 +53,14 @@ header {
 }
 
 .header__search>.header__search--icon {
+    border: none;
+    
     display: block;
     font-size: 20px;
     padding: 5px;
     width: 40px;
     color: white;
-    background-color: #0f95b6;
+    background-color:#0f95b6;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     height: 35px;
@@ -68,6 +68,8 @@ header {
     top: -1px;
     right: -1px;
     text-align: center;
+    cursor: pointer;
+
 }
 
 .header__search {
@@ -86,9 +88,6 @@ header {
     outline: none;
     font-size: 16px;
 }
-
-
-
 
 .nav-bar {
     display: none;
@@ -116,7 +115,7 @@ header {
     width: 40%;
 }
 
-.header__icons a:hover {
+.header__icons a:hover{
     color: #0f95b6;
 }
 
@@ -172,7 +171,6 @@ header {
     text-decoration: none;
     color: white;
 }
-
 /*main*/
 
 .titulo{
@@ -481,26 +479,7 @@ footer {
     padding: 10px;
 }
 
-/*
-.fa-instagram {
-    color: white;
-    background-color: #b31e5a;
-    border-radius: 5px;
-    font-size: 22px;
-}
 
-
-.fa-facebook {
-    color:  #1E3050;
-    border-radius: 12px;
-    background-color: #ebebeb;
-    padding: 0;
-    font-size: 22px;
-}
-
-
-
-*/
 
 .img-redes img {
     width: 25px;
@@ -515,7 +494,6 @@ footer {
     .header__container {
         justify-content: space-between;
     }
-
     .header__logo {
         width: 20%;
     }
@@ -596,24 +574,24 @@ footer {
         text-align: center;
     }
 
-    .burger-menu__boton {
+    .header__burguer-menu {
         display: none;
     }
 
-    .header__icons {
+      .header__icons {
         display: flex;
         justify-content: flex-end;
         width: 15%;
     }
 
-    .nav-bar a {
+    .nav-bar a{
         font-size: 16px;
-    }
+    } 
 
-    .nav-bar a:hover {
-        color: #0f95b6;
-    }
-    
+    .nav-bar a:hover{
+        color:#0f95b6;
+    } 
+
 	
 	/*main*/
 	.titulo{

@@ -22,29 +22,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/styles-productDetail.css" />
-    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/normalize.css" />
 
 </head>
 
 <body>
 
-    <%- include('../partials/header')  %>
+    <%- include('../partials/header') %>
 
-    <main class="main__container">
-        <section class="main__producto">
-            <div class="main__producto-enlaces">
-                <a href="#">Inicio > </a><a href="#">Alfajores</a>
+        <main class="main__container">
+            <section class="main__producto">
+                <div class="main__producto-enlaces">
+                    <a href="/">Inicio > </a><a href="#">Alfajores</a>
+                </div>
+                <div class="main__producto-img" id="contenedor">
+                    <img src="/images/alfajor__fantoche.png" alt="alfajor fantoche">
+                    <div class="main-contenedor--descuento">
+                        <p class="main-descuento">15% OFF</p>
+                    </div>
+                </div>
 
-            </div>
-            <div class="main__producto-img" id="contenedor">
-                <img src="/images/alfajor__fantoche.png" alt="alfajor fantoche">
-            </div>
-            <div class="main__producto-detalle">
 
-                <h2 class="main__producto-nombre">ALFAJOR FANTOCHE TRIPLE BLANCO 85g</h2>
-                <p class="main__producto-detalle--precio">$6.099,13</p>
-                <p class="main__producto-detalle-disponible">Disponible</p>
-                <!--<div class="main__producto-detalle-cantidad">
+                <div class="main__producto-detalle">
+                    <h2 class="main__producto-nombre">ALFAJOR FANTOCHE TRIPLE BLANCO 85g</h2>
+                    <div class="main__producto-detalle--precio">
+                        <p class="main-precio">$2.710,00</p>
+                        <p class="main-precio-final">$2.710,00</p>
+                    </div>
+                    <p class="main__producto-detalle-disponible">Disponible</p>
+                    <!--<div class="main__producto-detalle-cantidad">
                    <div class="cantidad">
                         <a href="#" class="boton-menos"><i class="fa-solid fa-minus"></i></a>
                         <input type="number" value="1" min="1">
@@ -57,130 +63,172 @@
                     <button class="agregar-carrito">Añadir a carrito</button>
                 </div>-->
 
-                <div class="main__producto-detalle-cantidad ">
-                    <div class="cantidad">
-                        <input type="number" value="1" min="1" />
-
-                        <div class="btn-increment-decrement">
+                    <form class="main__producto-detalle-cantidad ">
+                        <div class="cantidad">
+                            <input type="number" value="1" min="1" />
+                            <!-- <div class="btn-increment-decrement">
                             <i class="fa-solid fa-chevron-up" id="increment"></i>
                             <i class="fa-solid fa-chevron-down" id="decrement"></i>
+                        </div> -->
                         </div>
-                    </div>
-                    <button class="agregar-carrito">
-                        Añadir al carrito
-                    </button>
-                </div>
-
-                <p class="main__producto-detalle-info">SKU: <span id="sku">4585</span></p>
-                <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="" id="categoria">Alfajores</a>
-                </p>
-            </div>
-        </section>
-
-        <section class="main__producto-descripcion">
-            <h4 class=".descripcion">Descripción</h4>
-            <p>ALFAJOR FANTOCHE TRIPLE BLANCO 85g CAJA x24</p>
-        </section>
-
-
-        <section class="main__producto-relacionado">
-            <h3>PRODUCTOS RELACIONADOS</h3>
-            <div class="card">
-                <div class="card-slider left" id="card-slider-left">
-                    <i class="fa-solid fa-angle-left"></i>
-                </div>
-
-                 <!-- card con descuento -->
-                <article class="producto-relacionado--card">
-                    <a href="/productos/2" class="producto-relacionado--card-img">
-                        <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
-                    </a>
-                    
-                    <div class="contenedor-descuento">
-                        <p class="descuento">15% OFF</p>
+                        <button class="agregar-carrito">
+                            Añadir al carrito
+                        </button>
+                    </form>
+                    <div class="main__producto-descripcion">
+                        <h4 class=".descripcion">Descripción</h4>
+                        <p>Alfajor Fantoche triple blanco 85g caja x24</p>
                     </div>
 
-                    <div class="card-descripcion">
-                        <p class="producto-relacionado--card-categ">CHUPETINES</p>
-                        <a href="" class="producto-relacionado--card-titulo">
-                            CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+                    <p class="main__producto-detalle-info">SKU: <span id="sku">4585</span></p>
+                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href=""
+                            id="categoria">Alfajores</a></p>
+
+                    <div class="btn-product">
+                        <a href="/products/edit/??" class="action-button edit">EDITAR PRODUCTO</a>
+                        <form action="/products/???_method=DELETE" method="POST" style="display: inline-flex">
+                            <button type="submit" class="action-button delete">ELIMINAR</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="main__producto-relacionado">
+                <h3>PRODUCTOS RELACIONADOS</h3>
+                <div class="card">
+                    <!-- <div class="card-slider left" id="card-slider-left">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div> -->
+
+                    <!-- card con descuento -->
+                    <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
+                        </a>
+
+                        <div class="contenedor-descuento">
+                            <p class="descuento">15% OFF</p>
+                        </div>
+
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
+                            <a href="" class="producto-relacionado--card-titulo">
+                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
 
                             <div class="producto-relacionado--card-precio">
                                 <p class="precio">$2.710,00</p>
                                 <p class="precio-final">$2.710,00</p>
                             </div>
-        
-                        <button class="producto-relacionado-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
 
-                <!-- card sin descuento -->
-                <article class="producto-relacionado--card">
-                    <a href="/productos/2" class="producto-relacionado--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto-relacionado--card-categ">TRIPLE</p>
-                        <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE TRIPLE CHOCOLATE 85g
-                            x24</a>
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+
+                    <!-- card sin descuento -->
+                    <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                        </a>
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">TRIPLE</p>
+                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE TRIPLE CHOCOLATE 85g
+                                x24</a>
                             <div class="producto-relacionado--card-precio">
                                 <p class="precio-final">$2.710,00</p>
                             </div>
-                        <button class="producto-relacionado-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto-relacionado--card">
-                    <a href="/productos/2" class="producto-relacionado--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto-relacionado--card-categ">TRIPLE</p>
-                        <a href="" class="producto-relacionado--card-titulo">
-                            ALFAJOR TERR TORTA 70g x6</a>
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+                     <!-- card con descuento -->
+                     <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
+                        </a>
+
+                        <div class="contenedor-descuento">
+                            <p class="descuento">15% OFF</p>
+                        </div>
+
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
+                            <a href="" class="producto-relacionado--card-titulo">
+                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+
+                            <div class="producto-relacionado--card-precio">
+                                <p class="precio">$2.710,00</p>
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+
+                    <!-- card sin descuento -->
+                    <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                        </a>
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">TRIPLE</p>
+                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE 
+                                x24</a>
                             <div class="producto-relacionado--card-precio">
                                 <p class="precio-final">$2.710,00</p>
                             </div>
-                        <button class="producto-relacionado-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto-relacionado--card">
-                    <a href="/productos/2" class="producto-relacionado--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto-relacionado--card-categ">TRIPLE</p>
-                        <a href="" class="producto-relacionado--card-titulo">
-                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+                       <!-- card con descuento -->
+                       <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/oferta-pelotita.png" alt="chupetin-pelotita">
+                        </a>
+
+                        <div class="contenedor-descuento">
+                            <p class="descuento">15% OFF</p>
+                        </div>
+
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">CHUPETINES</p>
+                            <a href="" class="producto-relacionado--card-titulo">
+                                CHUPETIN PELOTITA DULCE DE LECHE X12</a>
+
+                            <div class="producto-relacionado--card-precio">
+                                <p class="precio">$2.710,00</p>
+                                <p class="precio-final">$2.710,00</p>
+                            </div>
+
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+
+                    <!-- card sin descuento -->
+                    <article class="producto-relacionado--card">
+                        <a href="/productos/2" class="producto-relacionado--card-img">
+                            <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
+                        </a>
+                        <div class="card-descripcion">
+                            <p class="producto-relacionado--card-categ">TRIPLE</p>
+                            <a href="" class="producto-relacionado--card-titulo">ALFAJOR FANTOCHE 
+                                x24</a>
                             <div class="producto-relacionado--card-precio">
                                 <p class="precio-final">$2.710,00</p>
                             </div>
-                        <button class="producto-relacionado-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <article class="producto-relacionado--card">
-                    <a href="/productos/2" class="producto-relacionado--card-img">
-                        <img src="/images/alfajor_trishot.png" alt="alfajor trishot">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto-relacionado--card-categ">TRIPLE</p>
-                        <a href="" class="producto-relacionado--card-titulo">
-                            ALFAJOR MILKA 3 MOUSSE 55g x6</a>
-                            <div class="producto-relacionado--card-precio">
-                                <p class="precio-final">$2.710,00</p>
-                            </div>
-                        <button class="producto-relacionado-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                <div class="card-slider" id="card-slider-right">
-                    <i class="fa-solid fa-angle-right"></i>
+                            <button class="producto-relacionado-button">Añadir al carrito</button>
+                        </div>
+                    </article>
+                    <!-- <div class="card-slider" id="card-slider-right">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div> -->
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </main>
+        </main>
 
-    <%- include('../partials/footer')  %>
+        <%- include('../partials/footer') %>
 
 </body>
 
