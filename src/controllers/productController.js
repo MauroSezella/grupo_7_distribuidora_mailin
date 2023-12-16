@@ -12,21 +12,28 @@ let productController = {
     },
 
     getCarrito: (req,res)=>{
-        res.render('./products/productCart')
+        res.render('./products/productCart');
     },
 
     create: (req,res)=>{
-        res.render('./products/productForm')
+        res.render('./products/productForm');
     },
 
     store:(req, res)=>{
        productService.save(req);
        res.redirect('/productos');
+    },
+
+    edit:(req,res)=>{
+        res.render('./products/productEditForm',{product: productService.getOne(req.params.id)});
+    },
+
+    update:(req,res)=>{
+        productService.update(req);
+        res.redirect('/productos');
     }
 
 
-
- 
 }
 
 module.exports = productController;

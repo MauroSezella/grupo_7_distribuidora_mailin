@@ -47,6 +47,27 @@ const productService = {
         this.products.push(product);
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
 
+    },
+
+    update: function(req){
+
+        let product = this.getOne(req.params.id);
+
+        let productEdit = req.body;
+    
+        product.nombre = productEdit.nombre;
+        product.precio = productEdit.precio;
+        product.descuento = productEdit.descuento;
+        product.categoria = productEdit.categoria;
+        product.descripcion = productEdit.descripcion;
+        product.stock = productEdit.stock;
+        
+        let index = this.products.findIndex((elem) => elem.id == req.params.id);
+    
+        this.products[index] = product;
+    
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
+
     }
 
 

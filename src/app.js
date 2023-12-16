@@ -11,6 +11,7 @@ app.listen(3030, ()=> console.log('Servidor corriendo en el puerto 3030'));
 app.use(express.static(path.resolve(__dirname,'../public')));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));
 
 //Template Engine 
 app.set('view engine','ejs');
