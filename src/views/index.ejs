@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles-index.css">
+    <link rel="stylesheet" href="/css/styles-slider.css">
+
 
     <title>Golosinas Mailin</title>
 </head>
@@ -34,6 +36,7 @@
             <section class="main__banner">
                 <img src="./images/banner-fantoche.jpg" class="main__banner-img">
             </section>
+        
 
             <section class="main__categoria">
                 <h3 class="main-title">Categorías</h3>
@@ -51,7 +54,7 @@
 
             </section>
 
-            <section class="main__ofertas">
+            <section class="main__sliderProducto slider-index">
 
                 <h3 class="main-title">Ofertas Destacadas</h3>
 
@@ -66,19 +69,19 @@
                         <%if(!product.descuento > 0) { %>
 
                             <!-- card sin descuento -->
-                            <article class="main__ofertas--card">
-                                <a href="/productos/<%=product.id%>" class="main__ofertas--card-img">
+                            <article class="sliderProducto--card">
+                                <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
                                     <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                                 </a>
 
                                 <div class="card-descripcion">
-                                    <p class="main__ofertas--card-categ"><%=product.categoria.toUpperCase()%></p>
-                                    <a href="/productos/<%=product.id%>" class="main__ofertas--card-titulo">
+                                    <p class="sliderProducto--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                    <a href="/productos/<%=product.id%>" class="sliderProducto--card-titulo">
                                         <%=product.nombre%></a>
-                                    <div class="main__ofertas--card-precios">
+                                    <div class="sliderProducto--card-precios">
                                         <p class="precio-final">$ <%=product.precio%></p>
                                     </div>
-                                    <button class="main__ofertas-button">Añadir al carrito</button>
+                                    <button class="sliderProducto-button">Añadir al carrito</button>
                                 </div>
 
                             </article>
@@ -87,9 +90,9 @@
                         <% }else{ %>        
 
                     <!-- card con descuento -->
-                    <article class="main__ofertas--card">
+                    <article class="sliderProducto--card">
 
-                        <a href="/productos/<%=product.id%>" class="main__ofertas--card-img">
+                        <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
                             <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                         </a>
 
@@ -97,13 +100,13 @@
                             <p class="descuento"><%=product.descuento%>% OFF</p>
                         </div>
                         <div class="card-descripcion">
-                            <p class="main__ofertas--card-categ"><%=product.categoria.toUpperCase()%></p>
-                            <a href="/productos/<%=product.id%>" class="main__ofertas--card-titulo"><%=product.nombre%></a>
-                            <div class="main__ofertas--card-precios">
+                            <p class="sliderProducto--card-categ"><%=product.categoria.toUpperCase()%></p>
+                            <a href="/productos/<%=product.id%>" class="sliderProducto--card-titulo"><%=product.nombre%></a>
+                            <div class="sliderProducto--card-precios">
                                 <p class="precio">$  <%=product.precio%></p>
                                 <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
                             </div>
-                            <button class="main__ofertas-button">Añadir al carrito</button>
+                            <button class="sliderProducto-button">Añadir al carrito</button>
                         </div>
 
                     </article>

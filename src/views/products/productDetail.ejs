@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/styles-productDetail.css" />
+    <link rel="stylesheet" href="/css/styles-slider.css">
     <link rel="stylesheet" href="/css/normalize.css" />
 
 </head>
@@ -33,7 +34,7 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">Inicio > </a><a href="#"><%=product.categoria.toUpperCase()%></a>
+                    <a href="/">INICIO </a><span class="span">> </span><a href="#"> <%=product.categoria.toUpperCase()%></a>
                 </div>
                 <div class="main__producto-img" id="contenedor">
                     <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
@@ -82,10 +83,10 @@
 
                     <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%></span></p>
                     <p class="main__producto-detalle-info" id="categoria">Categoria: <a href=""
-                            id="categoria"><%=product.categoria%></a></p>
+                            id="categoria"><%=product.categoria.toUpperCase()%></a></p>
 
                     <div class="btn-product">
-                        <a href="/products/edit/??" class="action-button edit">EDITAR PRODUCTO</a>
+                        <a href="/productos/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
                         <form action="/products/???_method=DELETE" method="POST" style="display: inline-flex">
                             <button type="submit" class="action-button delete">ELIMINAR</button>
                         </form>
@@ -94,7 +95,7 @@
             </section>
 
 
-            <section class="main__producto-relacionado">
+            <section class="main__sliderProducto ">
                 <h3>PRODUCTOS RELACIONADOS</h3>
                 <div class="card">
                     <!-- <div class="card-slider left" id="card-slider-left">
@@ -107,25 +108,26 @@
                         <%if(!product.descuento > 0) { %>
 
                              <!-- card sin descuento -->
-                            <article class="producto-relacionado--card">
-                                <a href="/productos/<%=product.id%>" class="producto-relacionado--card-img">
+                            <article class="sliderProducto--card">
+                                
+                                <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
                                     <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                                 </a>
                                 <div class="card-descripcion">
-                                    <p class="producto-relacionado--card-categ"><%=product.categoria.toUpperCase()%></p>
-                                    <a href="" class="producto-relacionado--card-titulo"><%=product.nombre%></a>
-                                    <div class="producto-relacionado--card-precio">
+                                    <p class="sliderProducto--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                    <a href="" class="sliderProducto--card-titulo"><%=product.nombre%></a>
+                                    <div class="sliderProducto--card-precio">
                                         <p class="precio-final">$ <%=product.precio%></p>
                                     </div>
-                                    <button class="producto-relacionado-button">Añadir al carrito</button>
+                                    <button class="sliderProducto-button">Añadir al carrito</button>
                                 </div>
                             </article> 
 
                     <% }else{ %>
 
                         <!-- card con descuento -->
-                        <article class="producto-relacionado--card">
-                            <a href="/productos/<%=product.id%>" class="producto-relacionado--card-img">
+                        <article class="sliderProducto--card">
+                            <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
                                 <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
                             </a>
 
@@ -134,16 +136,16 @@
                             </div>
 
                             <div class="card-descripcion">
-                                <p class="producto-relacionado--card-categ"><%=product.categoria.toUpperCase()%></p>
-                                <a href="" class="producto-relacionado--card-titulo">
+                                <p class="sliderProducto--card-categ"><%=product.categoria.toUpperCase()%></p>
+                                <a href="" class="sliderProducto--card-titulo">
                                     <%=product.nombre%></a>
 
-                                <div class="producto-relacionado--card-precio">
-                                    <p class="precio">$ <%=product.precio%>/p>
+                                <div class="sliderProducto--card-precio">
+                                    <p class="precio">$ <%=product.precio%></p>
                                     <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
                                 </div>
 
-                                <button class="producto-relacionado-button">Añadir al carrito</button>
+                                <button class="sliderProducto-button">Añadir al carrito</button>
                             </div>
                         </article>
 
@@ -151,7 +153,9 @@
 
                     <% } %>
                 <% }); %>
-            
+                    <!-- <div class="card-slider" id="card-slider-right">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div> -->
                      
                 </div>
 
