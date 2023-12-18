@@ -2,83 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Golosinas Mailin</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
-
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="/css/styles-products.css" />
-    <link rel="stylesheet" href="/css/normalize.css"/>
+    <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles-products.css" />
+        <title>Golosinas Mailin</title>
 
 </head>
 
 <body>
 
-    <%- include('../partials/header')  %>
+    <%- include('../partials/header') %>
 
-    <main class="main__container">
-        <h2 class="main-titulo">Todos los productos</h2>
-       
-        <% products.forEach(product => { %>
-                
-            <%if(!product.descuento > 0) { %>
-                <!-- card sin descuento -->
-                <article class="producto--card">
-                    <a href="/productos/<%=product.id%>" class="producto--card-img">
-                        <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                    </a>
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ"><%=product.categoria%></p>
-                        <a href="" class="producto--card-titulo"><%=product.nombre%></a>
-                            <div class="producto--card-precio">
-                                <p class="precio-final">$ <%=product.precio%></p>
+        <section class="main-titulo">
+            <h2>Todos los productos</h2>
+        </section>
+        <main class="main__container">
+            <section class="main_categorias">
+                <details open>
+                    <summary>Categorias<i class="fa-solid fa-caret-down"></i><i class="fa-solid fa-minus"></i></summary>
+                    <% categorias.forEach(element=> { %>
+                        <a href="/productos/categoria/<%= element %>" class="enlaces-category">
+                            <li>
+                                <%= element %>
+                            </li>
+                        </a>
+                        <% }); %>
+                </details>
+            </section>
+
+
+            <section class="main__producto ">
+                <% products.forEach(product=> { %>
+                    <article class="producto--card">
+                        <a href="/productos/<%=product.id%>" class="producto--card-img">
+                            <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                        </a>
+                        <%if(product.descuento> 0) { %>
+                            <div class="contenedor-descuento">
+                                <p class="descuento">
+                                    <%=product.descuento%>% OFF
+                                </p>
                             </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
+                            <% } %>
+                                <div class="card-descripcion">
+                                    <p class="producto--card-categ">
+                                        <%=product.categoria.toUpperCase()%>
+                                    </p>
+                                    <a href="" class="producto--card-titulo">
+                                        <%=product.nombre%>
+                                    </a>
+                                    <div class="producto--card-precio">
+                                        <%if(product.descuento> 0) { %>
+                                            <p class="precio">$ <%=product.precio%>
+                                            </p>
+                                            <p class="precio-final">$ <% let precioFinal=product.precio -
+                                                    (product.precio * (product.descuento/100)) %>
+                                                    <%= precioFinal %>
+                                            </p>
+                                            <% }else{ %>
+                                                <p class="precio-final">$ <%=product.precio%>
+                                                </p>
+                                                <% } %>
+                                    </div>
+                                    <button class="agregar-carrito">Añadir al carrito</button>
+                                </div>
+                    </article>
+                    <% }); %>
 
-            <% }else{ %>
 
-                <article class="producto--card">
-                    <a href="/productos/<%=product.id%>" class="producto--card-img">
-                        <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                    </a>
-                    
-                    <div class="contenedor-descuento">
-                        <p class="descuento"><%=product.descuento%>% OFF</p>
-                    </div>
+            </section>
 
-                    <div class="card-descripcion">
-                        <p class="producto--card-categ"><%=product.categoria%></p>
-                        <a href="" class="producto--card-titulo"><%=product.nombre%></a>
-                            <div class="producto--card-precio">
-                                <p class="precio">$ <%=product.precio%></p>
-                                <p class="precio-final">$ <% let precioFinal = product.precio - (product.precio * (product.descuento/100)) %> <%= precioFinal %></p>
-                            </div>
-                        <button class="agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
 
-                <% } %>
-        <% }); %>
+        </main>
 
-    </main>
-
-    <%- include('../partials/footer')  %>
+        <%- include('../partials/footer') %>
 
 </body>
 

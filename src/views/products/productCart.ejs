@@ -4,19 +4,9 @@
 	
 	<head>
 		
-		<meta charset="UTF-8">
-		<title>Golosinas Mailin</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<script src="https://kit.fontawesome.com/d964575e02.js" crossorigin="anonymous"></script>
-		
-		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-		
-		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-		
-		<link href="/css/normalize.css" rel="stylesheet">
+		<%- include('../partials/head') %>
 		<link href="/css/styles-productCart.css" rel="stylesheet">
+		<title>Golosinas Mailin</title>
 		
 	</head>
 	
@@ -145,7 +135,7 @@
 					
 					<div class="botones-productos">
 						
-						<button class="botones-productos__boton"> <i class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</button>
+						<a href="/productos" class="botones-productos__boton"> <i class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</a>
 						<button class="botones-productos__boton">ACTUALIZAR CARRITO <i class="fa-solid fa-arrow-rotate-left"></i> </button>
 						
 					</div>
