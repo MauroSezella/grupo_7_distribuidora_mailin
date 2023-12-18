@@ -255,6 +255,7 @@ header{
 }
 .botones-productos__boton{
 	height:30px;
+    text-decoration: none;
 }
 .total{
 	margin:5%;

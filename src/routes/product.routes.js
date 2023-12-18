@@ -5,6 +5,7 @@ const productController = require('../controllers/productController');
 
 /*** TRAER TODOS LOS PRODUCTOS***/ 
 router.get('/', productController.index);
+router.get('/cart', productController.getCarrito);
 
 /*** CREAR UN PRODUCTO ***/ 
 router.get('/create', productController.create);
@@ -17,7 +18,6 @@ router.get('/:id',productController.detail);
 router.get('/edit/:id', productController.edit); 
 router.put('/edit/:id', productController.update); 
 
-router.get('/cart', productController.getCarrito);
 
 
 module.exports = router;

@@ -31,14 +31,35 @@ const productService = {
         return productosEnOferta;
     },
 
+    getCategorias:  function(){ //agrego
+        let categorias =[];
+
+        this.products.forEach(product => {
+            if(!categorias.includes(product.categoria )){
+                categorias.push(product.categoria)
+            }
+        });
+
+        return categorias;
+        
+    },
+
+    search: function (keywords) {
+        return this.products.filter((product) => {
+                   return product.nombre.toLowerCase().includes(keywords.toLowerCase());
+           })
+        
+    } ,
+
     save: function(req){
+        
         let product= req.body;
         let imagen= req.file;
-
+        
         if (imagen != undefined ){
             product.img=imagen.filename
         }
-
+        
         let maxId= this.products.reduce((valorMax, valorActual)=>{
             return valorActual.id > valorMax? valorActual.id: valorMax;
         }, 0);
@@ -56,14 +77,19 @@ const productService = {
         let productEdit = req.body;
     
         product.nombre = productEdit.nombre;
-        product.precio = productEdit.precio;
-        product.descuento = productEdit.descuento;
-        product.categoria = productEdit.categoria;
         product.descripcion = productEdit.descripcion;
-        product.stock = productEdit.stock;
-        
+        product.categoria = productEdit.categoria;
+        //agrego
+        if (productEdit.enOferta === 'on'){
+            product.enOferta='si';
+        }else{
+            product.enOferta='no';
+        }
+        product.stock = parseInt(productEdit.stock);
+        product.precio = parseFloat(productEdit.precio);
+        product.descuento = parseInt(productEdit.descuento);
         let index = this.products.findIndex((elem) => elem.id == req.params.id);
-    
+
         this.products[index] = product;
     
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");

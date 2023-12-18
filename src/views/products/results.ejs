@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+
+        <link rel="stylesheet" href="/css/styles-products.css" />
+
+        <title>Golosinas Mailin</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="main__container">
+            <section class="main-tituloBusqueda">
+                <h2 class="products-title">Resultados de la búsqueda: <%= keywords %></h2>
+            </section>
+            <section class="main_categorias">
+                <details>
+                    <summary>Categorias<i class="fa-solid fa-caret-down"></i><i class="fa-solid fa-minus"></i></summary>
+                    <% categorias.forEach(element=> { %>
+                        <a href="/productos/categoria/<%= element %>" class="enlaces-category">
+                            <li>
+                                <%= element %>
+                            </li>
+                        </a>
+                        <% }); %>
+                </details>
+            </section>
+
+
+            <section class="main__producto ">
+                <% if (products.length>0){ %>
+                <% products.forEach(product=> { %>
+                    <article class="producto--card">
+                        <a href="/productos/<%=product.id%>" class="producto--card-img">
+                            <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                        </a>
+                        <%if(product.descuento> 0) { %>
+                            <div class="contenedor-descuento">
+                                <p class="descuento">
+                                    <%=product.descuento%>% OFF
+                                </p>
+                            </div>
+                            <% } %>
+                                <div class="card-descripcion">
+                                    <p class="producto--card-categ">
+                                        <%=product.categoria.toUpperCase()%>
+                                    </p>
+                                    <a href="" class="producto--card-titulo">
+                                        <%=product.nombre%>
+                                    </a>
+                                    <div class="producto--card-precio">
+                                        <%if(product.descuento> 0) { %>
+                                            <p class="precio">$ <%=product.precio%>
+                                            </p>
+                                            <p class="precio-final">$ <% let precioFinal=product.precio -
+                                                    (product.precio * (product.descuento/100)) %>
+                                                    <%= precioFinal %>
+                                            </p>
+                                            <% }else{ %>
+                                                <p class="precio-final">$ <%=product.precio%>
+                                                </p>
+                                                <% } %>
+                                    </div>
+                                    <button class="agregar-carrito">Añadir al carrito</button>
+                                </div>
+                    </article>
+                    <% }); %>
+                    <% } else{ %>
+
+                        <div class="nohayproductos">
+                            <h2 class="products-title">No hay productos que coincidan con esa búsqueda</h2>
+                        </div>
+            
+                        <% } %>
+
+            </section>
+
+
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

@@ -174,26 +174,122 @@ header{
 
 /*MAIN*/
 .main__container {
-    padding: 10px 0;
-    background-color: #ffffff;
-    margin: 10px auto 0;
-    width: 90vw;
+    width: 90%;
     font-family: 'Quicksand';
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    margin: 3px auto 10px;
     transition: flex-wrap 0.5s ease; 
 }
 
 .main-titulo{
-    color:#1A1265;
-    text-align: center;
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
+    padding: 20px;
     width: 100%;
     margin-bottom: 20px;
+    height: max-content;
+    background-color: #1A1265;
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.main-tituloBusqueda{
+    padding: 20px;
+    width: 100%;
+    margin: 20px auto;
+    height: max-content;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1A1265;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: start;
+}
+
+.nohayproductos{
+    color: tomato;
+    margin: 30px auto;
+    font-size: 14px;
+    width: 90%;
+
+    text-align: center;
+}
+
+.main_categorias{
+    padding-top: 10px;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.main_categorias details{
+    margin: 0 auto;
+    width: 70%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+summary{
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #1A1265;
+    font-weight: 600;
+    letter-spacing: 1px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+
+}
+
+  details[open] summary{
+    background-color: var(--color-3);
+    color: white;
+  }
+  details[open] summary .fa-caret-down,
+  details:not([open]) summary .fa-minus {
+    display: none;
+  }
+  
+  details[open] summary .fa-minus,
+  details:not([open]) summary .fa-caret-down {
+    display: inline-block;
+  }
+  
+
+
+
+.enlaces-category{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #252525;
+    padding: 10px 25px;
+    border-bottom: #6b6b6b solid 0.5px;
+}
+
+.enlaces-category:hover{
+    color: white;
+    font-weight: 600;
+    background-color: #6b6b6b;
+
+}
+
+.main__producto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: flex-wrap 0.5s ease;
+    margin: 0 auto;
+    width: 100%;
 
 }
 
@@ -204,7 +300,7 @@ header{
     display: flex;
     flex-direction: column;
     height: 300px;
-    max-width: 220px;
+    max-width: 200px;
 }
 
 .producto--card:hover {
@@ -533,8 +629,36 @@ footer {
     
     /*MAIN*/
 
+    .main__container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } 
+    
     .main-titulo{
-        font-size: 24px;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .nohayproductos{
+
+        font-size: 16px;
+     
+    
+    }
+
+     .main_categorias{
+        width: 20%;
+
+    }
+
+    
+    .main_categorias details{
+        width: 100%;
+    }
+    
+    .main__producto{
+        width: 80%;
     }
 
     .agregar-carrito {
@@ -543,10 +667,7 @@ footer {
     }
 
     .producto--card {
-        margin: 15px 10px;
-        
-            height: 350px;
-            max-width: 270px;
+        margin: 10px 10px 15px;
     }
      
 
@@ -583,6 +704,7 @@ footer {
     .nav-bar a{
         font-size: 18px;
     } 
+  
 
 
 .footer__contactoSurcusal p {

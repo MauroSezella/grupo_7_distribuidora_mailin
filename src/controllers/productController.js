@@ -4,19 +4,21 @@ const productService = require('../data/productService');
 let productController = {
 
     index: (req,res)=>{
-        res.render('./products/products', {products: productService.getAll()})
+        res.render('./products/products', {products: productService.getAll(), categorias: productService.getCategorias()})
     },
 
     detail: (req,res) => {
         res.render('./products/productDetail',{product: productService.getOne(req.params.id), products: productService.getProductosRelacionados(req.params.id)});
     },
 
+   
+
     getCarrito: (req,res)=>{
         res.render('./products/productCart');
     },
 
     create: (req,res)=>{
-        res.render('./products/productForm');
+        res.render('./products/productForm', {products: productService.getCategorias()});//agrego
     },
 
     store:(req, res)=>{
@@ -25,7 +27,8 @@ let productController = {
     },
 
     edit:(req,res)=>{
-        res.render('./products/productEditForm',{product: productService.getOne(req.params.id)});
+        res.render('./products/productEditForm',{product: productService.getOne(req.params.id), products: productService.getCategorias()});
+        //agrego 
     },
 
     update:(req,res)=>{
