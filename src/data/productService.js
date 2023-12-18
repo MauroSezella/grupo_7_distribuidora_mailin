@@ -94,6 +94,13 @@ const productService = {
     
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
 
+    },
+
+    delete: function(id){
+        
+        index = this.products.findIndex((elem)=>elem.id == id);
+        this.products.splice(index,1);
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
     }
 
 

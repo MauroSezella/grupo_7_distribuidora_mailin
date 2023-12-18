@@ -130,15 +130,5 @@
     "descuento": 0,
     "stock": 100,
     "img": "img-chupetin-bola-loca-max.jpg"
-  },
-  {
-    "nombre": "ALFAJOR GUAYMALLEN CHOCOLATE x38g.",
-    "descripcion": "ALFAJOR GUAYMALLEN CHOCOLATE x38g.",
-    "categoria": "alfajores",
-    "stock": "200",
-    "precio": "2000",
-    "descuento": "2",
-    "img": "img_.jpg",
-    "id": 13
   }
 ]
