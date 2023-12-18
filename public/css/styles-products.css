@@ -43,6 +43,7 @@ header{
     width: 30%;
     padding-right: 10px;
     border-radius: 10px;
+    z-index: 100;
 
 }
 
@@ -55,14 +56,14 @@ header{
     border: none;
     
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     padding: 5px;
-    width: 40px;
+    width: 30px;
     color: white;
     background-color:#0f95b6;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    height: 35px;
+    height: 30px;
     position: absolute;
     top: -1px;
     right: -1px;
@@ -72,20 +73,24 @@ header{
 }
 
 .header__search {
-    display: none;
+    /* display: none; */
+    order: 3;
     border: 1px solid #6b6b6b;
     border-radius: 5px;
     position: relative;
-    height: 35px;
+    height: 30px;
     padding: 2px;
+    width: 80%;
+    margin: 0 auto 15px;
 }
 
 .header__search--input {
     width: 100%;
     border: none;
-    padding: 5px;
+    padding: 3px;
     outline: none;
     font-size: 16px;
+    font-size: 14px;
 }
 
 .nav-bar {
@@ -147,28 +152,46 @@ header{
     position: fixed;
     right: 1%;
     width: 50%;
-}
+} 
 
 .input__burguer-menu{
     display: none;
 }
 
 .input__burguer-menu:checked ~ .burguer-menu__options{
+/*esto*/
     display: block;
+    background-color: white;
+    z-index: 50;
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    margin: 0;
+    right: 0;
+    box-shadow: 0px 8px 8px -4px rgba(0, 0, 0, 0.1);
 }
 
 .burguer-menu__options li{
     display: block;
-    background:  #1A1265;
+    /* background:  #1A1265; */
     margin: 0;
-    padding: 10px;
+    padding: 20px 10px 0;
     list-style: none;
-    border-bottom: 1px solid  white;
 }
 
 .burguer-menu__options li a{
     text-decoration: none;
-    color: white;
+    color: var(--color-2);
+    font-weight: 600;
+    padding-bottom: 5px;
+    border-bottom: white solid 2px;
+    transition: all 0.2s ease;
+}
+
+.burguer-menu__options li a:hover{
+    color:#0f95b6;
+    border-bottom: #0f95b6 2px solid;
+
 }
 
 
@@ -405,6 +428,7 @@ summary{
     font-size: 11px;
     margin: 0 auto;
     padding: 8px 15px;
+    font-family: 'Quicksand';
 }
 
 .agregar-carrito:hover {
@@ -580,15 +604,14 @@ footer {
 
 @media (min-width: 769px) {
 
-    .header__logo {
-        width: 15%;
-    }
-
     .header__search {
         display: flex;
         justify-content: end;
         align-items: start;
         width: 25%;
+        order: initial;
+        margin: 0;
+
     }
 
     .nav-bar {
@@ -620,13 +643,17 @@ footer {
 
     .nav-bar a{
         font-size: 16px;
+        padding: 10px 5px;
+       border-bottom: white solid 2px;
+       transition: all 0.2s ease;
     } 
 
     .nav-bar a:hover{
         color:#0f95b6;
+        border-bottom: #0f95b6 2px solid;
+
     } 
 
-    
     /*MAIN*/
 
     .main__container {

@@ -45,17 +45,14 @@
                 <div class="form-items">
                     <label for="categoriaProducto"> Categoría </label>
                     <select name="categoria" id="categoriaProducto" class="categorias" required>
-                        <% products.forEach(element => {%>
+                        <% categorias.forEach(element => {%>
                             <option value="alfajores"><%= element %></option>  
                          <% }); %>
-                        <!-- <option value="caramelos">Caramelos</option>
-                        <option value="chupetines">Chupetines</option>
-                        <option value="galletas">Galletas</option> -->
                     </select>
                 </div>
                 <div class="form-items">
                     <label for="stockProducto"> Stock </label>
-                    <input type="number" name="stock" id="stockProducto" class="input-stock" placeholder="0" required>
+                    <input type="number" min="0" name="stock" id="stockProducto" class="input-stock" placeholder="0" required>
                 </div>
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
@@ -63,11 +60,11 @@
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
-                    <input type="number" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" required>
+                    <input type="number" min="0" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" required>
                 </div>
                 <div class="form-items">
                     <label for="descuento"> Descuento % </label>
-                    <input type="number" name="descuento" id="descuento" class="input-descuento" placeholder="0">
+                    <input type="number" min="0" name="descuento" id="descuento" class="input-descuento" placeholder="0">
                 </div>
                 <div class="botones-form">
                     <a type="button" class="action-button btn-regresar" href="/productos"> Regresar </a>

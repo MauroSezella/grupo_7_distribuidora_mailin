@@ -31,7 +31,7 @@ const productService = {
         return productosEnOferta;
     },
 
-    getCategorias:  function(){ //agrego
+    getCategorias:  function(){ //array solo de categorias
         let categorias =[];
 
         this.products.forEach(product => {
@@ -44,9 +44,19 @@ const productService = {
         
     },
 
+    getByCategory(categoria) {
+        let products = this.products.filter((product) => {
+            return product.categoria == categoria;
+        });
+    
+        return products;
+    },
+
     search: function (keywords) {
         return this.products.filter((product) => {
-                   return product.nombre.toLowerCase().includes(keywords.toLowerCase());
+                 productSearch=product.nombre.toLowerCase().includes(keywords.toLowerCase());
+                categoriaSearch= product.categoria.toLowerCase().includes(keywords.toLowerCase());
+                return categoriaSearch || productSearch;
            })
         
     } ,
@@ -64,7 +74,20 @@ const productService = {
             return valorActual.id > valorMax? valorActual.id: valorMax;
         }, 0);
 
+        if (product.enOferta === 'on'){
+            product.enOferta='si';
+        }else{
+            product.enOferta='no';
+        }
+        product.stock = parseInt(product.stock);
+        product.precio = parseFloat(product.precio);
+        if (product.descripciones==null){ 
+            product.descuento=0;
+        }else{
+        product.descuento = parseInt(product.descuento);
+        }
         product.id=maxId+1;
+
         this.products.push(product);
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
 
@@ -79,7 +102,7 @@ const productService = {
         product.nombre = productEdit.nombre;
         product.descripcion = productEdit.descripcion;
         product.categoria = productEdit.categoria;
-        //agrego
+
         if (productEdit.enOferta === 'on'){
             product.enOferta='si';
         }else{
@@ -101,7 +124,9 @@ const productService = {
         index = this.products.findIndex((elem)=>elem.id == id);
         this.products.splice(index,1);
         fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
-    }
+    },
+
+    
 
 
 };

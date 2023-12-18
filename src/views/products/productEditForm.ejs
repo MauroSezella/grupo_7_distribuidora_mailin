@@ -43,7 +43,7 @@
                     <select name="categoria" id="categoriaProducto" class="categorias">
 
                         <!-- agrego -->
-                        <% products.forEach(element => {%>
+                        <% categorias.forEach(element => {%>
                             <% if (element==product.categoria) {%>
                                 <option value="<%= element %>" selected ><%= element %></option>  
                             <% } else{%>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-items">
                     <label for="stockProducto"> Stock </label>
-                    <input type="number" name="stock" id="stockProducto" class="input-stock" placeholder="0" value="<%=product.stock%>">
+                    <input type="number" name="stock" min="0" id="stockProducto" class="input-stock" placeholder="0" value="<%=product.stock%>">
                 </div>
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
@@ -63,11 +63,11 @@
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
-                    <input type="number" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" value="<%=product.precio%>">
+                    <input type="number" name="precio" id="precioProducto" min="0" class="input-precio" placeholder="0.00" value="<%=product.precio%>">
                 </div>
                 <div class="form-items">
                     <label for="descuento"> Descuento % </label>
-                    <input type="number" name="descuento" id="descuento" class="input-descuento" value="<%=product.descuento%>" placeholder="0">
+                    <input type="number" name="descuento" min="0" id="descuento" class="input-descuento" value="<%=product.descuento%>" placeholder="0">
                 </div>
                 <div class="botones-form">
                     <a href="/productos/<%= product.id %>" class="action-button btn-regresar"> Regresar </a>

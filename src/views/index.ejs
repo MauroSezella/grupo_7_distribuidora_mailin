@@ -23,18 +23,15 @@
             </section>
 
 
-            <section class="main__categoria">
+            <section class="main__categoria" id="categoria">
                 <h3 class="main-title">Categorías</h3>
 
                 <div class="main__categoria-container">
-                    <a href="" class="main__categoria-link"><img src="./images/categoria-alfajores.jpg" alt=""
-                            class="main__categoria-img"></a>
-                    <a href="" class="main__categoria-link"><img src="./images/categoria-caramelos.jpg" alt=""
-                            class="main__categoria-img"></a>
-                    <a href="" class="main__categoria-link"><img src="./images/categoria-chupetines.jpg" alt=""
-                            class="main__categoria-img"></a>
-                    <a href="" class="main__categoria-link"><img src="./images/categoria-galletas.jpg" alt=""
-                            class="main__categoria-img"></a>
+
+                    <% categorias.forEach(element=> { %>
+                        <a href="/productos/categoria/<%= element %>" class="main__categoria-link"><img src="./images/categoria-<%= element %>.jpg" alt=""
+                                class="main__categoria-img"></a>
+                                <% }) %>
                 </div>
 
             </section>
@@ -81,17 +78,20 @@
                                                     <% }else{ %>
                                                         <p class="precio-final">$ <%=product.precio%>
                                                         </p>
-                                                        <% } %>
+    
+                                                        <% }; %>
                                             </div>
+                                            <% if (product.stock > 0) { %>
                                             <button class="sliderProducto-button">Añadir al carrito</button>
+                                            <%}else{%>
+                                                <button class="sliderProducto-button">sin stock</button>
+                                            <%} %>
+    
                                         </div>
                             </article>
                             <% } %>
                                 <% }); %>
 
-                                    <!-- <div class="card-slider" id="card-slider-right">
-                         <i class="fa-solid fa-angle-right"></i>
-                     </div> -->
 
                 </div>
 

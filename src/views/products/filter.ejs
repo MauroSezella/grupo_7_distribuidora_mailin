@@ -2,20 +2,27 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head.ejs') %>
-        <link rel="stylesheet" href="/css/styles-products.css" />
-        <title>Golosinas Mailin</title>
+    <%- include('../partials/head') %>
 
+        <link rel="stylesheet" href="/css/styles-products.css" />
+
+        <title>Golosinas Mailin</title>
 </head>
 
 <body>
 
-    <%- include('../partials/header') %>
 
+    <%- include('../partials/header') %>
         <section class="main-titulo">
-            <h2>Todos los productos</h2>
+
+            <h2><%=categoria.toUpperCase()%>
         </section>
+
+   
+
+
         <main class="main__container">
+            </h2>
             <section class="main_categorias">
                 <details open>
                     <summary>Categorias<i class="fa-solid fa-caret-down"></i><i class="fa-solid fa-minus"></i></summary>
@@ -63,12 +70,7 @@
                                                 </p>
                                                 <% } %>
                                     </div>
-                                    <% if (product.stock>0) { %>
-                                        <button class="agregar-carrito">Añadir al carrito</button>
-                                        
-                                    <%} else{ %>
-                                        <button class="agregar-carrito">sin stock</button>
-                                        <% } %>
+                                    <button class="agregar-carrito">Añadir al carrito</button>
                                 </div>
                     </article>
                     <% }); %>

@@ -20,17 +20,21 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">INICIO </a><span class="span">> </span><a href="#">
+                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/categoria/<%= product.categoria %>">
                         <%=product.categoria.toUpperCase()%>
                     </a>
                 </div>
                 <div class="main__producto-img" id="contenedor">
                     <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                    <div class="main-contenedor--descuento">
-                        <p class="main-descuento">
-                            <%=product.descuento%>% OFF
-                        </p>
-                    </div>
+
+                    
+                        <%if(product.descuento> 0) { %>
+                                <div class="main-contenedor--descuento">
+                                    <p class="main-descuento">
+                                        <%=product.descuento%>% OFF
+                                    </p>
+                                </div>
+                     <%} %>
                 </div>
 
 
@@ -38,51 +42,39 @@
                     <h2 class="main__producto-nombre">
                         <%=product.nombre%>
                     </h2>
-                    <div class="main__producto-detalle--precio">
-                        <p class="main-precio">$ <%=product.precio%>
-                        </p>
-                        <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *
-                                (product.descuento/100)) %>
-                                <%= precioFinal %>
-                        </p>
-                    </div>
-                    <p class="main__producto-detalle-disponible">Disponible</p>
-                    <!--<div class="main__producto-detalle-cantidad">
-                   <div class="cantidad">
-                        <a href="#" class="boton-menos"><i class="fa-solid fa-minus"></i></a>
-                        <input type="number" value="1" min="1">
-                        <a href="#" class="boton-mas"><i class="fa-solid fa-plus"></i></a>
-                    </div>
-                    <button class="agregar-carrito">Añadir a carrito</button>
-                </div>
-                <div class="main__producto-detalle-cantidad">
-                   <input type="number" value="1" min="1">
-                    <button class="agregar-carrito">Añadir a carrito</button>
-                </div>-->
 
-                    <form class="main__producto-detalle-cantidad ">
-                        <div class="cantidad">
-                            <input type="number" value="1" min="1" />
-                            <!-- <div class="btn-increment-decrement">
-                            <i class="fa-solid fa-chevron-up" id="increment"></i>
-                            <i class="fa-solid fa-chevron-down" id="decrement"></i>
-                        </div> -->
-                        </div>
-                        <button class="agregar-carrito">
-                            Añadir al carrito
-                        </button>
-                    </form>
+                    <div class="main__producto-detalle--precio">
+                        <%if(product.descuento> 0) { %>
+                            <p class="main-precio">$ <%=product.precio%>
+                            </p>
+                            <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>                                    <%= precioFinal %>
+                                    </p>
+                        <% }else{ %>
+                            <p class="main-precio-final">$ <%=product.precio%></p>
+                        <% } %>
+                    </div>
+                    <% if (product.stock>0) {%>
+                        <p class="main__producto-detalle-disponible">Disponible</p>
+                        <form class="main__producto-detalle-cantidad ">
+                            <div class="cantidad">
+                                <input type="number" value="1" min="1" />
+                            </div>
+                            <button class="agregar-carrito">
+                                Añadir al carrito
+                            </button>
+                        </form> 
+                        <%} else { %>
+                            <p class="main__producto-detalle-disponible">No disponible</p>
+                    <%} %>
+
                     <div class="main__producto-descripcion">
                         <h4 class=".descripcion">Descripción</h4>
-                        <p>
-                            <%=product.descripcion%>
-                        </p>
+                        <p> <%=product.descripcion%> </p>
                     </div>
 
-                    <p class="main__producto-detalle-info">SKU: <span id="sku">
-                            <%=product.id%>
+                    <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%>
                         </span></p>
-                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="" id="categoria">
+                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/categoria/<%= product.categoria %>" id="categoria">
                             <%=product.categoria.toUpperCase()%>
                         </a></p>
 
@@ -100,9 +92,6 @@
                 <h3>PRODUCTOS RELACIONADOS</h3>
 
                 <div class="card">
-                    <!-- <div class="card-slider left" id="card-slider-left">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </div> -->
 
                     <% products.forEach(product=> { %>
                         <article class="sliderProducto--card">
@@ -137,16 +126,15 @@
 
                                                     <% }; %>
                                         </div>
+                                        <% if (product.stock > 0) { %>
                                         <button class="sliderProducto-button">Añadir al carrito</button>
+                                        <%}else{%>
+                                            <button class="sliderProducto-button">sin stock</button>
+                                        <%} %>
+
                                     </div>
                         </article>
                         <% }); %>
-
-
-
-                            <!--<div class="card-slider" id="card-slider-right">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </div> -->
 
                 </div>
 

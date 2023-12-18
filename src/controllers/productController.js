@@ -15,8 +15,14 @@ let productController = {
         res.render('./products/productCart');
     },
 
+    
+    filter: (req,res)=>{
+       
+        res.render('./products/filter', {categorias: productService.getCategorias() , products: productService.getByCategory(req.params.categoria), categoria: req.params.categoria})
+    },
+
     create: (req,res)=>{
-        res.render('./products/productForm', {products: productService.getCategorias()});//agrego
+        res.render('./products/productForm', {categorias: productService.getCategorias()});
     },
 
     store:(req, res)=>{
@@ -25,8 +31,7 @@ let productController = {
     },
 
     edit:(req,res)=>{
-        res.render('./products/productEditForm',{product: productService.getOne(req.params.id), products: productService.getCategorias()});
-        //agrego 
+        res.render('./products/productEditForm',{product: productService.getOne(req.params.id), categorias: productService.getCategorias()});
     },
 
     update:(req,res)=>{

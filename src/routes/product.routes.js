@@ -21,4 +21,8 @@ router.put('/edit/:id', productController.update);
 /*** ELIMINAR UN PRODUCTO ***/
 router.delete('/:id', productController.destroy);
 
+/*** Filtrar productos por categoría ***/
+router.get('/categoria/:categoria', productController.filter);
+
+
 module.exports = router;
