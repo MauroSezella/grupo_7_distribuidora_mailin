@@ -1,6 +1,6 @@
 # RETROSPECTIVA
 
-## Aplicación de Retrospectiva  SPRINT II
+## Aplicación de Retrospectiva  SPRINT III
 
 * Mejoramos las vistas de productos, formulario LogIn y formulario de registro.
 

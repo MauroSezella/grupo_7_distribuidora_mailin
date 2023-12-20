@@ -1,6 +1,6 @@
 # RETROSPECTIVA
 
-## Aplicación de Retrospectiva SPRINT I
+## Aplicación de Retrospectiva SPRINT II
 
 * Colocamos el Logo de la marca y le cambiamos el formato a extensión ".svg"
 * Tuvimos en cuenta la consigna de que todos los integrantes deben hacer commits significativos en

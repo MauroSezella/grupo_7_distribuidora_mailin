@@ -1,6 +1,6 @@
 # RETROSPECTIVA
 
-## Aplicación de Retrospectiva SPRINT III
+## Aplicación de Retrospectiva SPRINT IV
 
 * Comprendimos el manejo de la Retrospectiva esperado por los evaluadores.
 * Adicionalmente, a las tareas Trello, les agregamos fecha de caducidad para llevar un mejor control del progreso grupal.
