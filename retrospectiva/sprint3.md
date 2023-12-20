@@ -39,5 +39,4 @@
 
 ## Less Of
 
-* Separar demasiado las tareas, de manera tal que cada integrante esta muy aislado del equipo.
 * Participar poco en debates/reparto de tareas.
