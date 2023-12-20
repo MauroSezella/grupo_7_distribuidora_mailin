@@ -13,6 +13,7 @@
 * Conectarse seguido al discord.
 * Aportar sus puntos de vista en los debates.
 * Comunicación continua del equipo.
+* Agregar fechas limtites a las tareas asignadas.
 
 
 ## Keep Doing
@@ -29,11 +30,12 @@
 
 ## Start Doing
 
+* Colocar las dudas o consultas a tiempo en el discord.
+* Hacer una reunion grupal presencial para conocer al equipo.
 
 
 ## Stop Doing
 
-* No colocar las dudas o consultas a tiempo en el discord.
 * Incumplir con horarios de reuniones.
 * No involucrarse en el desarrollo del proyecto.
 
