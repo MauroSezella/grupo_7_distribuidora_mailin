@@ -24,17 +24,18 @@
 * Asignacion de tareas de a pares.
 * Comenzar el sprint lo más pronto posible.
 * Realiza al menos una reunion semanal para mostrar avances, dudas o bloqueantes.
+* Asignar tareas grupales, para seguir mejorando el trabajo en equipo.
 
 
 ## Start Doing
 
-* Asignar una misma tarea a todos los integrantes asi se van obligados a reunirse y a trabajar en equipo.
 
 
 ## Stop Doing
 
 * No colocar las dudas o consultas a tiempo en el discord.
-* Incumplir con horarios de reuniones
+* Incumplir con horarios de reuniones.
+* No involucrarse en el desarrollo del proyecto.
 
 
 ## Less Of
