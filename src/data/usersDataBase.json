@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "nombre": "Mauro",
+        "apellido": "Sezella",
+        "email": "maurillo_seze@gmail.com",
+        "usuario": "Mau.CCLA",
+        "contraseña": "********",
+        "categoria": "admin",
+        "imagen": ,
+
+    },
+    {
+        "id": "2",
+        "nombre": "Luciana",
+        "apellido": "García",
+        "email": "lu_garcia@gmail.com",
+        "usuario": "Lu.Ana.Gar",
+        "contraseña": "********",
+        "categoria": "admin",
+        "imagen": ,
+
+    },
+    {
+        "id": "3",
+        "nombre": "Lucas",
+        "apellido": "Gomez",
+        "email": "lukita_gomez@gmail.com",
+        "usuario": "Luks.Gomez",
+        "contraseña": "********",
+        "categoria": "admin",
+        "imagen": ,
+
+    },
+    {
+        "id": "4",
+        "nombre": "Pablo",
+        "apellido": "Coronel",
+        "email": "pablito_coro@gmail.com",
+        "usuario": "FD.Coro",
+        "contraseña": "********",
+        "categoria": "admin",
+        "imagen": ,
+
+    },
+    {
+        "id": "5",
+        "nombre": "Diego",
+        "apellido": "Abraham",
+        "email": "10GO_AB@gmail.com",
+        "usuario": "10GO.AB",
+        "contraseña": "********",
+        "categoria": "admin",
+        "imagen": ,
+
+    }
+]
