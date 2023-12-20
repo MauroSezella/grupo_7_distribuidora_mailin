@@ -19,6 +19,7 @@
         "contraseña": "********",
         "categoria": "admin",
         "imagen": ,
+
     },
     {
         "id": "3",
@@ -29,6 +30,7 @@
         "contraseña": "********",
         "categoria": "admin",
         "imagen": ,
+
     },
     {
         "id": "4",
@@ -39,6 +41,7 @@
         "contraseña": "********",
         "categoria": "admin",
         "imagen": ,
+
     },
     {
         "id": "5",
@@ -49,5 +52,6 @@
         "contraseña": "********",
         "categoria": "admin",
         "imagen": ,
+
     }
 ]
