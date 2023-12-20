@@ -4,9 +4,12 @@
 <head>
     <%- include('../partials/head') %>
 
-        <link rel="stylesheet" href="/css/styles-productDetail.css" />
-        <link rel="stylesheet" href="/css/styles-slider.css">
-
+    <link rel="stylesheet" href="/css/styles-slider.css">
+    <link rel="stylesheet" href="/css/styles-productDetail.css" />
+    <link rel="stylesheet" href="/css/styles-headerFooter.css">
+  
+    
+                
         <title>
             <%=product.nombre%>
         </title>
@@ -20,7 +23,7 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/categoria/<%= product.categoria %>">
+                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/filter?categorias=<%=product.categoria%>">
                         <%=product.categoria.toUpperCase()%>
                     </a>
                 </div>
@@ -74,8 +77,8 @@
 
                     <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%>
                         </span></p>
-                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/categoria/<%= product.categoria %>" id="categoria">
-                            <%=product.categoria.toUpperCase()%>
+                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria%>" id="categoria">
+                            <%=product.categoria%>
                         </a></p>
 
                     <div class="btn-product">
@@ -89,52 +92,11 @@
 
 
             <section class="main__sliderProducto ">
-                <h3>PRODUCTOS RELACIONADOS</h3>
+                <h3 class="slider-title">PRODUCTOS RELACIONADOS</h3>
 
                 <div class="card">
 
-                    <% products.forEach(product=> { %>
-                        <article class="sliderProducto--card">
-                            <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
-                                <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                            </a>
-                            <%if(product.descuento> 0) { %>
-                                <div class="contenedor-descuento">
-                                    <p class="descuento">
-                                        <%=product.descuento%>% OFF
-                                    </p>
-                                </div>
-                                <% } %>
-                                    <div class="card-descripcion">
-                                        <p class="sliderProducto--card-categ">
-                                            <%=product.categoria.toUpperCase()%>
-                                        </p>
-                                        <a href="" class="sliderProducto--card-titulo">
-                                            <%=product.nombre%>
-                                        </a>
-                                        <div class="sliderProducto--card-precio">
-                                            <%if(product.descuento> 0) { %>
-                                                <p class="precio">$ <%=product.precio%>
-                                                </p>
-                                                <p class="precio-final">$ <% let precioFinal=product.precio -
-                                                        (product.precio * (product.descuento/100)) %>
-                                                        <%= precioFinal %>
-                                                </p>
-                                                <% }else{ %>
-                                                    <p class="precio-final">$ <%=product.precio%>
-                                                    </p>
-
-                                                    <% }; %>
-                                        </div>
-                                        <% if (product.stock > 0) { %>
-                                        <button class="sliderProducto-button">Añadir al carrito</button>
-                                        <%}else{%>
-                                            <button class="sliderProducto-button">sin stock</button>
-                                        <%} %>
-
-                                    </div>
-                        </article>
-                        <% }); %>
+                    <%- include('../partials/productsSlider') %>
 
                 </div>
 

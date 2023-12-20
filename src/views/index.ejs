@@ -5,6 +5,7 @@
     <%- include('./partials/head.ejs') %>
         <link rel="stylesheet" href="css/styles-index.css">
         <link rel="stylesheet" href="/css/styles-slider.css">
+        <link rel="stylesheet" href="css/styles-headerFooter.css">
 
 
         <title>Golosinas Mailin</title>
@@ -27,11 +28,11 @@
                 <h3 class="main-title">Categorías</h3>
 
                 <div class="main__categoria-container">
-
+                 
                     <% categorias.forEach(element=> { %>
-                        <a href="/productos/categoria/<%= element %>" class="main__categoria-link"><img src="./images/categoria-<%= element %>.jpg" alt=""
+                        <a href="/productos/filter?categorias=<%= element%>" class="main__categoria-link"><img src="./images/categoria-<%= element %>.jpg" alt=""
                                 class="main__categoria-img"></a>
-                                <% }) %>
+                        <% }) %>
                 </div>
 
             </section>
@@ -42,59 +43,9 @@
 
                 <div class="card">
 
-                    <!-- slider
-                        <div class="card-slider left" id="card-slider-left">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </div> -->
-
-                    <% products.forEach(product=> { %>
-                        <%if(product.enOferta==='si') { %>
-                            <article class="sliderProducto--card">
-                                <a href="/productos/<%=product.id%>" class="sliderProducto--card-img">
-                                    <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                                </a>
-                                <%if(product.descuento> 0) { %>
-                                    <div class="contenedor-descuento">
-                                        <p class="descuento">
-                                            <%=product.descuento%>% OFF
-                                        </p>
-                                    </div>
-                                    <% } %>
-                                        <div class="card-descripcion">
-                                            <p class="sliderProducto--card-categ">
-                                                <%=product.categoria.toUpperCase()%>
-                                            </p>
-                                            <a href="" class="sliderProducto--card-titulo">
-                                                <%=product.nombre%>
-                                            </a>
-                                            <div class="sliderProducto--card-precio">
-                                                <%if(product.descuento> 0) { %>
-                                                    <p class="precio">$ <%=product.precio%>
-                                                    </p>
-                                                    <p class="precio-final">$ <% let precioFinal=product.precio -
-                                                            (product.precio * (product.descuento/100)) %>
-                                                            <%= precioFinal %>
-                                                    </p>
-                                                    <% }else{ %>
-                                                        <p class="precio-final">$ <%=product.precio%>
-                                                        </p>
-    
-                                                        <% }; %>
-                                            </div>
-                                            <% if (product.stock > 0) { %>
-                                            <button class="sliderProducto-button">Añadir al carrito</button>
-                                            <%}else{%>
-                                                <button class="sliderProducto-button">sin stock</button>
-                                            <%} %>
-    
-                                        </div>
-                            </article>
-                            <% } %>
-                                <% }); %>
-
+                    <%- include('./partials/productsSlider.ejs') %>
 
                 </div>
-
             </section>
 
         </main>

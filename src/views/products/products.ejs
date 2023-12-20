@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head.ejs') %>
         <link rel="stylesheet" href="/css/styles-products.css" />
+        <link rel="stylesheet" href="/css/styles-headerFooter.css">
         <title>Golosinas Mailin</title>
 
 </head>
@@ -18,61 +19,30 @@
         <main class="main__container">
             <section class="main_categorias">
                 <details open>
-                    <summary>Categorias<i class="fa-solid fa-caret-down"></i><i class="fa-solid fa-minus"></i></summary>
-                    <% categorias.forEach(element=> { %>
-                        <a href="/productos/categoria/<%= element %>" class="enlaces-category">
-                            <li>
-                                <%= element %>
-                            </li>
-                        </a>
-                        <% }); %>
+                    <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-minus"></i></summary>
+
+                    <form action="/productos/filter" method="get" class="form-filter">
+                        <div class="label-categoria">
+                            <p class="label-filter">Categoría</p>
+                            <% categorias.forEach(element=> { %>
+                               <li ><input type="checkbox" name="categorias" value="<%= element %>">  <%= element %></li> 
+                
+                            <% }); %>
+                        </div>
+                        <div class="label-ofertas">
+                            <p for="" class="label-filter">Ofertas</p>
+                            <li><input type="checkbox" name="ofertas" value="si"> Si</li>
+                            <li><input type="checkbox" name="ofertas" value="no"> No</li>
+                        </div>
+                        <button type="submit">Filtrar</button>
+                    </form>
                 </details>
             </section>
 
 
             <section class="main__producto ">
-                <% products.forEach(product=> { %>
-                    <article class="producto--card">
-                        <a href="/productos/<%=product.id%>" class="producto--card-img">
-                            <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
-                        </a>
-                        <%if(product.descuento> 0) { %>
-                            <div class="contenedor-descuento">
-                                <p class="descuento">
-                                    <%=product.descuento%>% OFF
-                                </p>
-                            </div>
-                            <% } %>
-                                <div class="card-descripcion">
-                                    <p class="producto--card-categ">
-                                        <%=product.categoria.toUpperCase()%>
-                                    </p>
-                                    <a href="" class="producto--card-titulo">
-                                        <%=product.nombre%>
-                                    </a>
-                                    <div class="producto--card-precio">
-                                        <%if(product.descuento> 0) { %>
-                                            <p class="precio">$ <%=product.precio%>
-                                            </p>
-                                            <p class="precio-final">$ <% let precioFinal=product.precio -
-                                                    (product.precio * (product.descuento/100)) %>
-                                                    <%= precioFinal %>
-                                            </p>
-                                            <% }else{ %>
-                                                <p class="precio-final">$ <%=product.precio%>
-                                                </p>
-                                                <% } %>
-                                    </div>
-                                    <% if (product.stock>0) { %>
-                                        <button class="agregar-carrito">Añadir al carrito</button>
-                                        
-                                    <%} else{ %>
-                                        <button class="agregar-carrito">sin stock</button>
-                                        <% } %>
-                                </div>
-                    </article>
-                    <% }); %>
-
+                <%- include('../partials/product.ejs') %>
 
             </section>
 

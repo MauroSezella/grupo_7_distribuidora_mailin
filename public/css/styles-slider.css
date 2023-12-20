@@ -26,7 +26,7 @@
 }
 
 
-.main__sliderProducto h3 {
+.slider-title {
     width: 100%;
     font-family: var(--fuente);
     font-size: 20px;
@@ -302,7 +302,7 @@
 
 @media (min-width: 1025px) {
 
-    .main__sliderProducto h3 {
+    .slider-title {
         font-size: 20px;
 
     }

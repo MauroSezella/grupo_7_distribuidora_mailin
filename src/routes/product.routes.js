@@ -6,6 +6,7 @@ const productController = require('../controllers/productController');
 /*** TRAER TODOS LOS PRODUCTOS***/ 
 router.get('/', productController.index);
 router.get('/cart', productController.getCarrito);
+router.get('/filter', productController.filter);
 
 /*** CREAR UN PRODUCTO ***/ 
 router.get('/create', productController.create);
@@ -21,8 +22,7 @@ router.put('/edit/:id', productController.update);
 /*** ELIMINAR UN PRODUCTO ***/
 router.delete('/:id', productController.destroy);
 
-/*** Filtrar productos por categoría ***/
-router.get('/categoria/:categoria', productController.filter);
+
 
 
 module.exports = router;

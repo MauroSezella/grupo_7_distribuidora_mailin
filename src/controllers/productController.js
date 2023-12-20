@@ -8,19 +8,21 @@ let productController = {
     },
 
     detail: (req,res) => {
-        res.render('./products/productDetail',{product: productService.getOne(req.params.id), products: productService.getProductosRelacionados(req.params.id)});
+
+    let id=req.params.id;
+        res.render('./products/productDetail',{product: productService.getOne(id), products: productService.getProductosRelacionados(id), categorias: productService.getCategorias()});
     },
 
     getCarrito: (req,res)=>{
-        res.render('./products/productCart');
+        res.render('./products/productCart', {categorias: productService.getCategorias()});
     },
 
+    filter: (req, res) => {
+        const categoriasSeleccionadas = req.query.categorias || [];
+        const ofertasSeleccionadas = req.query.ofertas || [];
+        res.render('./products/filter', { products: productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), categorias: productService.getCategorias(), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+      },
     
-    filter: (req,res)=>{
-       
-        res.render('./products/filter', {categorias: productService.getCategorias() , products: productService.getByCategory(req.params.categoria), categoria: req.params.categoria})
-    },
-
     create: (req,res)=>{
         res.render('./products/productForm', {categorias: productService.getCategorias()});
     },

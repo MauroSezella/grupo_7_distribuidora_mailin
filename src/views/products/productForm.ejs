@@ -46,7 +46,7 @@
                     <label for="categoriaProducto"> Categoría </label>
                     <select name="categoria" id="categoriaProducto" class="categorias" required>
                         <% categorias.forEach(element => {%>
-                            <option value="alfajores"><%= element %></option>  
+                            <option value="alfajores" ><%= element %></option>  
                          <% }); %>
                     </select>
                 </div>
@@ -56,11 +56,11 @@
                 </div>
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
-                    <input type = "checkbox" name = "enOferta" id = "enOferta" class="input-oferta" >
+                    <input type = "checkbox" name = "enOferta" value="si" id = "enOferta" class="input-oferta" >
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
-                    <input type="number" min="0" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" required>
+                    <input type="number" min="0" step="0.1" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" required>
                 </div>
                 <div class="form-items">
                     <label for="descuento"> Descuento % </label>
