@@ -1,5 +1,11 @@
 # RETROSPECTIVA
 
+## Aplicación de Retrospectiva  SPRINT III
+
+* Mejoramos las vistas de productos, formulario LogIn y formulario de registro.
+
+## Starfish Dinamic
+
 ## More of
 
 * Mejorar nivel de detalle de las tareas asignadas en trello.

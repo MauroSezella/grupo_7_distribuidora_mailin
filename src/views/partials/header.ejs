@@ -6,22 +6,55 @@
 
         <nav class="nav-bar">
             <ul class="nav-bar__options">
-                <li><a href="">Categorias</a></li>
-                <li><a href="">Ofertas</a></li>
-                <li><a href="">Ayuda</a></li>
+
+                <li><a href="/productos" class="nav-bar_enlaces">Productos</a></li>
+                <div class="dropdown">
+                    <button class="nav-bar_enlaces">Categorias</button>
+                    <div class="dropdown-content">
+                        <% categorias.forEach(element=> { %>
+                            <a href="/productos/filter?categorias=<%= element%>" class="navbar-category">
+                                <%= element %>    </a>
+                                <% }); %>
+                            </div>
+                        </div>
+                        <% let oferta ="si" %>
+                <li><a href="/productos/filter?ofertas=<%=oferta%>" class="nav-bar_enlaces">Ofertas</a></li>
             </ul>
         </nav>
 
-        <div class="header__search">
-            <input type="search" placeholder="Buscar..." class="header__search--input" />
-            <a href="" class="header__search--icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-        </div>
+        <form action="/search" method="get" class="header__search">
+            <input type="search" name="keywords" placeholder="Buscar..." class="header__search--input" />
+            <button class="header__search--icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
 
         <div class="header__icons">
-            <a class="burger-menu__boton"><i class="fas fa-bars"></i></a>
+
             <a href="/user/login" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
             <a href="/productos/cart" class="header__icons--cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
 
+            <div class="header__burguer-menu">
+                <input type="checkbox" id="burguer-menu" class="input__burguer-menu">
+                <label for="burguer-menu"><i class="fas fa-bars"></i></label>
+              
+                <ul class="burguer-menu__options">
+                    <li><a href="/productos" class="header-enlaces">Productos</a></li>
+                    <details class="header-details">
+                        <summary class="header-summary">Categorias<i class="fa-solid fa-caret-down" style="font-size: 14px;"></i><i class="fa-solid fa-minus" style="font-size: 14px"></i></summary>
+                       
+                            <% categorias.forEach(element=> { %>
+                                <a href="/productos/filter?categorias=<%= element%>" class="header-categoria">
+                                    <li><%= element %> </li></a>
+                                  
+                                    <% }); %>
+                          
+                           
+                    </details>
+                    <li><a href="/productos/filter?ofertas=<%=oferta%>" class="header-enlaces">Ofertas</a></li>
+                </ul>
+
+            </div>
+
+        </div>
     </div>
 </header>

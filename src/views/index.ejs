@@ -1,128 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="css/styles-index.css">
+        <link rel="stylesheet" href="/css/styles-slider.css">
+        <link rel="stylesheet" href="css/styles-headerFooter.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet">
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles-index.css">
-
-    <title>Golosinas Mailin</title>
+        <title>Golosinas Mailin</title>
 </head>
+
 <body>
-  
-
-   <%- include('./partials/header')  %>
 
 
-    <main>
+    <%- include('./partials/header') %>
 
-        <section class="main__banner">
-            <img src="./images/banner-fantoche.jpg" class="main__banner-img">
-        </section>
 
-        <section class="main__categoria">
-            <h3 class="main-title">Categorías</h3>
+        <main>
 
-            <div class="main__categoria-container">
-                <a href="" class="main__categoria-link"><img src="./images/categoria-alfajores.jpg" alt="" class="main__categoria-img"></a>
-                <a href="" class="main__categoria-link"><img src="./images/categoria-caramelos.jpg" alt="" class="main__categoria-img"></a>
-                <a href="" class="main__categoria-link"><img src="./images/categoria-chupetines.jpg" alt="" class="main__categoria-img"></a>
-                <a href="" class="main__categoria-link"><img src="./images/categoria-galletas.jpg" alt="" class="main__categoria-img"></a>
-            </div>
+            <section class="main__banner">
+                <img src="./images/banner-fantoche.jpg" class="main__banner-img">
+            </section>
 
-        </section>
 
-        <section class="main__ofertas">
-            
-            <h3 class="main-title">Ofertas Destacadas</h3>
+            <section class="main__categoria" id="categoria">
+                <h3 class="main-title">Categorías</h3>
 
-            <div class="card">
-
-                <div class="card-slider left" id="card-slider-left">
-                    <i class="fa-solid fa-angle-left"></i>
+                <div class="main__categoria-container">
+                 
+                    <% categorias.forEach(element=> { %>
+                        <a href="/productos/filter?categorias=<%= element%>" class="main__categoria-link"><img src="./images/categoria-<%= element %>.jpg" alt=""
+                                class="main__categoria-img"></a>
+                        <% }) %>
                 </div>
 
-                <article class="main__ofertas--card">
+            </section>
 
-                    <a href="/productos/2" class="main__ofertas--card-img">
-                        <img src="images/oferta-fantoche.png" alt="alfajor-fantoche">
-                    </a>
+            <section class="main__sliderProducto slider-index">
 
-                    <div class="card-descripcion">
-                        <p class="main__ofertas--card-categ">ALFAJORES</p>
-                        <a href="/productos/2" class="main__ofertas--card-titulo">
-                            ALFAJOR FANTOCHE TRIPLE X12U</a>
-                        <p class="main__ofertas--card-precio">$2.710,00</p>
-                        <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                    
-                </article>
+                <h3 class="main-title">Ofertas Destacadas</h3>
 
-                <article class="main__ofertas--card">
+                <div class="card">
 
-                    <a href="/productos/2" class="main__ofertas--card-img">
-                        <img src="images/oferta-pelotita.png" alt="chupetin-pelotita">
-                    </a>
+                    <%- include('./partials/productsSlider.ejs') %>
 
-                    <div class="card-descripcion">
-                        <p class="main__ofertas--card-categ">CHUPETINES</p>
-                        <a href="/productos/2" class="main__ofertas--card-titulo">CHUPETIN PELOTITA DULCE DE LECHE X12</a>
-                        <p class="main__ofertas--card-precio">$8.760,00</p>
-                        <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-
-            
-                <article class="main__ofertas--card">
-
-                    <a href="/productos/2" class="main__ofertas--card-img">
-                        <img src="images/oferta-desfile.png" alt="galleta-desfile">
-                    </a>
-
-                    <div class="card-descripcion">
-                        <p class="main__ofertas--card-categ">GALLETAS</p>
-                        <a href="/productos/2" class="main__ofertas--card-titulo">GALLETA LIA DESFILE X 398GR X21</a>
-                        <p class="main__ofertas--card-precio">$9.850,00</p>
-                        <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-
-                <article class="main__ofertas--card">
-
-                    <a href="/productos/2" class="main__ofertas--card-img">
-                        <img src="images/oferta-misky.png" alt="masticable-misky">
-
-                    </a>
-
-                    <div class="card-descripcion">
-                        <p class="main__ofertas--card-categ">CARAMELOS</p>
-                        <a href="/productos/2" class="main__ofertas--card-titulo">
-                            MASTICABLES MISKY X800gr X10</a>
-                        <p class="main__ofertas--card-precio">$14.800,00</p>
-                        <button class="main__ofertas-button agregar-carrito">Añadir al carrito</button>
-                    </div>
-                </article>
-                
-                <div class="card-slider" id="card-slider-right">
-                    <i class="fa-solid fa-angle-right"></i>
                 </div>
-            </div>
+            </section>
 
-        </section>
+        </main>
 
-    </main>
-
-    <%- include('./partials/footer')  %>
+        <%- include('./partials/footer') %>
 
 </body>
+
 </html>

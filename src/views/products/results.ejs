@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles-products.css" />
+    <link rel="stylesheet" href="/css/styles-headerFooter.css">
+
+        <title>Golosinas Mailin</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="main__container">
+            <section class="main-tituloBusqueda">
+                    <h2 class="products-title">Resultados de la búsqueda: <%= keywords %></h2>
+            </section>
+
+
+            <section class="main__producto ">
+                <% if (products.length>0){ %>
+                    <%-  include('../partials/product.ejs') %>
+                    
+                    <% } else{ %>
+
+                        <div class="nohayproductos">
+                            <h2 class="products-title">No hay productos que coincidan con esa búsqueda</h2>
+                        </div>
+            
+                        <% } %>
+
+            </section>
+
+
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

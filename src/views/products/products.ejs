@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/styles-products.css" />
+        <link rel="stylesheet" href="/css/styles-headerFooter.css">
+        <title>Golosinas Mailin</title>
+
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+        <section class="main-titulo">
+            <h2>Todos los productos</h2>
+        </section>
+        <main class="main__container">
+            <section class="main_categorias">
+                
+                <details>
+                    <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-minus"></i></summary>
+
+                    <form action="/productos/filter" method="get" class="form-filter">
+                        <div class="label-categoria">
+                            <p class="label-filter">Categoría</p>
+                            <% categorias.forEach(element=> { %>
+                               <li ><input type="checkbox" name="categorias" value="<%= element %>">  <%= element %></li> 
+                
+                            <% }); %>
+                        </div>
+                        <div class="label-ofertas">
+                            <p for="" class="label-filter">Ofertas</p>
+                            <li><input type="checkbox" name="ofertas" value="si"> Si</li>
+                            <li><input type="checkbox" name="ofertas" value="no"> No</li>
+                        </div>
+                        <button type="submit">Filtrar</button>
+                    </form>
+                </details>
+                <div class="enlace-product">
+                    <a href="/productos/create" class="enlaces-category">Agregar Producto</a>
+
+                </div>
+            </section>
+
+
+            <section class="main__producto ">
+                <%- include('../partials/product.ejs') %>
+
+            </section>
+
+
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

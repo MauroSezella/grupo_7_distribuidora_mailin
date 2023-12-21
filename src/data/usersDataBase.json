@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "nombre": "Mauro",
+        "apellido": "Sezella",
+        "email": "maurosezella@digitalhouse.com",
+        "usuario": "msezella",
+        "contraseña": "Mauro_123",
+        "rol":"admin"
+
+    },
+    {
+        "id": "2",
+        "nombre": "Luciana",
+        "apellido": "García",
+        "email": "lucianagarcia@digitalhouse.com",
+        "usuario": "lgarcia",
+        "contraseña": "Luciana_123",
+        "rol": "admin"
+
+    },
+    {
+        "id": "3",
+        "nombre": "Lucas",
+        "apellido": "Gomez",
+        "email": "lucasgomez@digitalhouse.com",
+        "usuario": "lgomez",
+        "contraseña": "Lucas_123",
+        "rol": "admin"
+
+    },
+    {
+        "id": "4",
+        "nombre": "Fede",
+        "apellido": "Coronel",
+        "email": "fedecoronel@digitalhouse.com",
+        "usuario": "fcoronel",
+        "contraseña": "Fede_123",
+        "rol": "admin"
+
+    },
+    {
+        "id": "5",
+        "nombre": "Diego",
+        "apellido": "Abraham",
+        "email": "diegoabraham@digitalhouse.com",
+        "usuario": "dabraham",
+        "contraseña": "Diego_123",
+        "rol": "cliente"
+
+    }
+]
