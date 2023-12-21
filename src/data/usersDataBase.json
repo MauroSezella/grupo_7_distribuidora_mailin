@@ -36,7 +36,7 @@
         "email": "fedecoronel@digitalhouse.com",
         "usuario": "fcoronel",
         "contraseña": "Fede_123",
-        "categoria": "admin"
+        "rol": "admin"
 
     },
     {
@@ -46,7 +46,7 @@
         "email": "diegoabraham@digitalhouse.com",
         "usuario": "dabraham",
         "contraseña": "Diego_123",
-        "categoria": "Cliente"
+        "rol": "Cliente"
 
     }
 ]
