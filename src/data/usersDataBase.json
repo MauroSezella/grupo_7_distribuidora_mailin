@@ -5,7 +5,7 @@
         "apellido": "Sezella",
         "email": "maurosezella@digitalhouse.com",
         "usuario": "msezella",
-        "contraseña": "Mauro_123",
+        "password": "Mauro_123",
         "rol":"admin"
 
     },
@@ -15,7 +15,7 @@
         "apellido": "García",
         "email": "lucianagarcia@digitalhouse.com",
         "usuario": "lgarcia",
-        "contraseña": "Luciana_123",
+        "password": "Luciana_123",
         "rol": "admin"
 
     },
@@ -25,7 +25,7 @@
         "apellido": "Gomez",
         "email": "lucasgomez@digitalhouse.com",
         "usuario": "lgomez",
-        "contraseña": "Lucas_123",
+        "password": "Lucas_123",
         "rol": "admin"
 
     },
@@ -35,7 +35,7 @@
         "apellido": "Coronel",
         "email": "fedecoronel@digitalhouse.com",
         "usuario": "fcoronel",
-        "contraseña": "Fede_123",
+        "password": "Fede_123",
         "rol": "admin"
 
     },
@@ -45,7 +45,7 @@
         "apellido": "Abraham",
         "email": "diegoabraham@digitalhouse.com",
         "usuario": "dabraham",
-        "contraseña": "Diego_123",
+        "password": "Diego_123",
         "rol": "cliente"
 
     }

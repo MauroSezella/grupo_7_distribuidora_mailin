@@ -5,7 +5,7 @@ const methodOverride =  require('method-override');
 
 const indexRouter = require('./routes/index.routes');
 
-app.listen(3030, ()=> console.log('Servidor corriendo en el puerto 3030'));
+app.listen(3030, ()=> console.log('Servidor corriendo en el puerto 3030, http://localhost:3030/'));
 
 //Middlewares
 app.use(express.static(path.resolve(__dirname,'../public')));
