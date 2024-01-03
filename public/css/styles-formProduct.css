@@ -14,16 +14,75 @@ body {
 
     font-family: 'Quicksand', sans-serif;
     background-color: white;
-    background-color: #f0f0f0;
     font-size: 14px;
 }
+
+header {
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+    border-top: 8px dashed #FF217A;
+
+}
+
+
+.header__container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    font-family: 'Quicksand';
+}
+
+
+.header__logo {
+    display: flex;
+    width: 30%;
+    padding-right: 10px;
+    border-radius: 10px;
+
+}
+
+.header__logo--img {
+    width: 100%;
+
+}
+
+main{
+    margin: 40px auto;
+    width: 90%;
+}
+
+.main__enlaces {
+    width: 90%;
+    margin: 20px auto  0;
+    color: #212529;
+    font-size: 12px;
+
+}
+
+.main__enlaces a {
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--color-grisOscuro);
+    font-weight: 500;
+    text-transform: uppercase;
+
+}
+
+.main__enlaces a:hover {
+    color: var(--color-3);
+    font-weight: bold;
+}
+
 
 .form-contenedor {
     background-color: white;
     width: 90%;
-    margin: 30px auto;
-    box-shadow: 0px 0px 5px rgb(100, 100, 100);
-    padding: 30px;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 5px;
 }
 
@@ -43,27 +102,30 @@ body {
 
 .form-items {
     display: flex;
-    flex-direction: column;
     gap: 10px;
     transition: flex-direction 0.5s ease;
 }
 
+.form-items-1{
+    flex-direction: column;
+}
 
 
 input,
 textarea {
     padding: 5px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid #ccc;
     width: 100%;
+    font-family: 'Quicksand', sans-serif; 
 }
 
 textarea {
     resize: vertical;
 }
 
-.input-precio {
+.input-precio, .input-descuento, .input-stock {
     width: 50%;
 }
 
@@ -105,25 +167,26 @@ textarea {
 
 
 .action-button {
-    color: #ffffff;
     padding: 10px 15px;
-    cursor: pointer;
     width: 170px;
-    text-align: center;
-    letter-spacing: 0.5px;
-    color: white;
-    font-weight: 600;
-    font-family: 'Quicksand';
-    border-radius: 5px;
-    font-size: larger;
     text-decoration: none;
+text-align: center;
     border: none;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Quicksand';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
   }
   
 
 .btn-regresar {
     order: 1;
- background-color: #FF217A; 
+ background-color: #1A1265; 
 
 }
 
@@ -133,11 +196,35 @@ textarea {
 
 }
 
-.action-button:hover {
-  background-color: #1A1265;
+.btn-regresar:hover, .btn-guardar:hover {
+  background-color: #0d1117;
+}
+.main__options {
+    margin: 15px 0 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.main__options a {
+    text-decoration: none;
+    color: var(--color-3);
+    font-weight: bold;
+}
+
+.main__options a:hover {
+
+    color: var(--color-2);
+
+}
+
+footer{ 
+       background-color: #0d1117;
+       height: 30px;
 }
 
 @media (min-width:540px) {
+
+    
 
     .form-contenedor {
         width: 80%;
@@ -161,7 +248,7 @@ textarea {
         width: 60%;
     }
 
-    .input-precio {
+    .input-precio, .input-descuento, .input-stock {
         width: 30%;
     }
 
@@ -188,7 +275,35 @@ textarea {
     }
 }
 
+@media (min-width: 577px) {
+    .header__container {
+        justify-content: space-between;
+    }
+
+    .header__logo {
+        width: 20%;
+    }
+
+}
+
+
 @media (min-width:768px){
+    .header__logo {
+        width: 15%;
+    }
+
+    .main__enlaces {
+        width: 70%;
+                font-size: 14px;
+        
+            }
+        
+        
+            .main__enlaces a {
+                font-size: 16px;
+            }
+        
+
     .form-contenedor {
         width: 60%;
 
@@ -209,7 +324,7 @@ textarea {
         width: 50%;
         
     }
-    .input-precio {
+    .input-precio, .input-descuento, .input-stock {
         width: 20%;
     }
     
@@ -217,4 +332,9 @@ textarea {
     .categorias {
         width: 20%;
     }
+
+        .header__logo {
+            width: 12%;
+        }
+   
 }

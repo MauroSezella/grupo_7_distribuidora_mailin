@@ -4,41 +4,43 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/styles-formProduct.css">
-    <link rel="stylesheet" href="/css/styles-register.css">
-    <title>Golosinas Mailin</title>
+    <title>Editar: <%=product.nombre%></title>
 
 </head>
 
 <body>
-
     <header>
         <div class="header__container">
             <div class="header__logo">
-                <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                <a href="/">
+                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                </a>
             </div>
 
         </div>
 
     </header>
+ 
 
     <main>
-        <div class="titulo__container"> 
-            <h2 class="form-titulo">Editar Producto: <%=product.nombre%></h2>
+        <div class="main__enlaces">
+            <a href="/">Inicio </a><span class="span"> > </span><a href="/productos"> Productos</a><span class="span"> > </span><a href="/productos/edit/<%=product.id%>"> Editar</a>
         </div>
-
+        
         <div class="form-contenedor">
             
             <form action="/productos/edit/<%=product.id%>?_method=PUT" method="POST" class="formulario">
-                <div class="form-items">
-                    <label for="nombreProducto">Nombre del producto</label>
+                <h2 class="form-titulo">Editar: <%=product.nombre%></h2>
+                <div class="form-items form-items-1">
+                    <label for="nombreProducto" class="form__label">Nombre del producto</label>
                     <input type="text" name="nombre" id="nombreProducto" class="input-nombre" value="<%=product.nombre%>">
                 </div>
-                <div class="form-items">
+                <div class="form-items form-items-1">
                     <label for="descripcionProducto" class="form__label">Descripción</label>
                     <textarea name="descripcion" id="descripcionProducto" cols="30"><%=product.descripcion%></textarea>
                 </div>
               
-                <div class="form-items">
+                <div class="form-items form-items-1">
                     <label for="categoriaProducto"> Categoría </label>
                     <select name="categoria" id="categoriaProducto" class="categorias">
 
@@ -72,11 +74,14 @@
                 <div class="botones-form">
                     <a href="/productos/<%= product.id %>" class="action-button btn-regresar"> Regresar </a>
                     <button type="submit" class="action-button btn-guardar"> Guardar </button>
-
                 </div>
             </form>
         </div>
     </main>
+
+<footer>
+
+</footer>
 
 </body>
 
