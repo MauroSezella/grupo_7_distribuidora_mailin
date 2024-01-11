@@ -127,7 +127,10 @@ main {
     -moz-appearance: none;
     appearance: none;
     border-radius: 3px;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    font-family: 'Quicksand';
+    color: #212529;
+
 }
 
 .input-with-icon input:focus,
@@ -157,23 +160,28 @@ main {
 }
 
 
-/* .is-invalid input{
+.is-invalid {
     border: 1px solid #dc3545;
-    }
-*/
+    border-radius: 3px;
+}
 
-
-/* .is-invalid i {
+.is-invalid i {
     color: #dc3545;
 
 }
 
-.text-danger{
+.span-label {
+    color: #dc3545;
+    ;
+}
+
+.text-danger {
     color: #dc3545;
     font-size: small;
     font-family: sans-serif;
     margin-top: 3px;
-    } */
+    padding: 5px;
+}
 
 .main__recordarUsuario {
     margin: 5px 0;
@@ -201,12 +209,12 @@ main {
     background-color: var(--color-footer);
 }
 
-.main__options{
+.main__options {
     text-align: center;
     margin-top: 15px;
 }
 
-.main__options a{
+.main__options a {
     margin: 15px 0 0;
     text-align: center;
     font-size: 14px;
@@ -217,9 +225,17 @@ main {
 
 
 .main__options:hover {
-
     color: var(--color-2);
+}
 
+.mensaje {
+    border: 0.5px seagreen solid;
+    color: seagreen;
+    font-size: 14px;
+    width: min(90%, 450px);
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
 }
 
 
@@ -247,7 +263,7 @@ main {
 
 
     .main__enlaces {
-width: 70%;
+        width: 70%;
         font-size: 14px;
 
     }
@@ -261,7 +277,8 @@ width: 70%;
         font-size: 16px;
     }
 
-    .input-with-icon input, .input-register {
+    .input-with-icon input,
+    .input-register {
         font-size: 16px;
     }
 
@@ -284,12 +301,12 @@ width: 70%;
         font-size: 16px;
     }
 
-    .main__options a{
+    .main__options a {
         font-size: 16px;
     }
 
 
-  
+
 
 }
 

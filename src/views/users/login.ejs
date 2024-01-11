@@ -21,8 +21,13 @@
     </header>
     <main>
         <div class="main__enlaces">
-            <a href="/">Inicio </a><span class="span"> > </span><a href="/user/login"> Login</a>
+            <a href="/">Inicio </a><span class="span"> > </span><a href=""> Login</a>
         </div>
+        <% if (locals.mensaje) { %>
+            <div class="mensaje">
+                <%= mensaje %>
+            </div>
+        <% } %>
 
         <div class="main-form">
 

@@ -1,4 +1,5 @@
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 let userController = {
 
@@ -10,10 +11,12 @@ let userController = {
         res.render('./users/register')
     },
     processRegister: (req, res) =>{
-        res.send({
-            body: req.body,
-            file: req.file
-        })
+
+        if (validationResult(req).errors.length > 0){
+            res.render('./users/register', {errors: validationResult(req).mapped(), oldData: req.body});
+        }else{
+            res.render('./users/login', {mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.'});
+        }
     }
 
 }
