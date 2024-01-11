@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <%- include('../partials/head') %>
+                <link rel="stylesheet" href="/css/styles-header.css">
+                <link rel="stylesheet" href="/css/styles-perfil.css">
+                <link rel="stylesheet" href="/css/styles-Loginregister.css">
+
+
+                <title>
+                        Mi Perfil
+                </title>
+
+</head>
+
+<body>
+
+        <%- include('../partials/header') %>
+
+                <main class="main__container">
+
+                        <div class="main__enlaces">
+                                <a href="/">Inicio </a><span class="span"> > </span><a href=""> Mi cuenta</a>
+                        </div>
+
+                        <h2>Bienvenid@</h2>
+                        <section class="container perfil">
+
+                                
+                                <img src="/images/users/<%= user.avatar %>">
+                                <div class="contenedor-editar">
+        
+                                                <div class="editar-titulo">
+                                                        Datos Personales
+                                                        <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+                                                </div>
+                                                
+                                       
+                                        <div class="contenedor-datos">
+                                                <p><%= user.nombre + ' ' + user.apellido %></p>
+                                                <p><%= user.email%></p>
+                                        </div>
+                                </div>
+                                <a href="" class="cerrar-sesion">cerrar sesión</a>
+
+
+                        </section>
+
+
+
+
+
+
+
+
+                </main>
+
+                <%- include('../partials/footer') %>
+
+</body>
+
+</html>

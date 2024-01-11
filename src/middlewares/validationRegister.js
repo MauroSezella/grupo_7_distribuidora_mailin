@@ -34,6 +34,7 @@ const validationRegister = [
             filename: 'default.png'
           }; 
           return true;
+          
         } else {
           let fileExtension = path.extname(file.originalname);
           if (!acceptedExtensions.includes(fileExtension)) {

@@ -17,6 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 
+
+
+const productService= require('./data/productService')
+app.use((req, res, next) => {
+	res.locals.categorias = productService.getCategorias();
+	next();
+});
+  
 app.use('/', indexRouter);
 
 

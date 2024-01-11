@@ -1,52 +1,69 @@
 [
-    {
-        "id": "1",
-        "nombre": "Mauro",
-        "apellido": "Sezella",
-        "email": "maurosezella@digitalhouse.com",
-        "usuario": "msezella",
-        "password": "Mauro_123",
-        "rol":"admin"
-
-    },
-    {
-        "id": "2",
-        "nombre": "Luciana",
-        "apellido": "García",
-        "email": "lucianagarcia@digitalhouse.com",
-        "usuario": "lgarcia",
-        "password": "Luciana_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "3",
-        "nombre": "Lucas",
-        "apellido": "Gomez",
-        "email": "lucasgomez@digitalhouse.com",
-        "usuario": "lgomez",
-        "password": "Lucas_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "4",
-        "nombre": "Fede",
-        "apellido": "Coronel",
-        "email": "fedecoronel@digitalhouse.com",
-        "usuario": "fcoronel",
-        "password": "Fede_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "5",
-        "nombre": "Diego",
-        "apellido": "Abraham",
-        "email": "diegoabraham@digitalhouse.com",
-        "usuario": "dabraham",
-        "password": "Diego_123",
-        "rol": "cliente"
-
-    }
+ {
+  "id": 1,
+  "nombre": "Mauro",
+  "apellido": "Sezella",
+  "email": "maurosezella@digitalhouse.com",
+  "usuario": "msezella",
+  "password": "Mauro_123",
+  "rol": "admin"
+ },
+ {
+  "id": 2,
+  "nombre": "Luciana",
+  "apellido": "García",
+  "email": "lucianagarcia@digitalhouse.com",
+  "usuario": "lgarcia",
+  "password": "Luciana_123",
+  "rol": "admin"
+ },
+ {
+  "id": 3,
+  "nombre": "Lucas",
+  "apellido": "Gomez",
+  "email": "lucasgomez@digitalhouse.com",
+  "usuario": "lgomez",
+  "password": "Lucas_123",
+  "rol": "admin"
+ },
+ {
+  "id": 4,
+  "nombre": "Fede",
+  "apellido": "Coronel",
+  "email": "fedecoronel@digitalhouse.com",
+  "usuario": "fcoronel",
+  "password": "Fede_123",
+  "rol": "admin"
+ },
+ {
+  "id": 5,
+  "nombre": "Diego",
+  "apellido": "Abraham",
+  "email": "diegoabraham@digitalhouse.com",
+  "usuario": "dabraham",
+  "password": "Diego_123",
+  "rol": "cliente"
+ },
+ {
+  "id": 6,
+  "nombre": "luciana",
+  "apellido": "garcia",
+  "email": "luciana@gmail.com",
+  "password": "$2a$10$3cHClcWqVet7nyCQQdNzF.Z/bK1.sqXUPFqQMEzBbiGOXCX03Gpzi",
+  "confirmPassword": "$2a$10$FsE3hQduMb.SSSof7AlaXO3bGNnDoS4c.1G3p4uIL/O1/Y3qrC.rq",
+  "aceptaTerminos": "true",
+  "avatar": "default.png",
+  "rol": "cliente"
+ },
+ {
+  "id": 7,
+  "nombre": "luciana",
+  "apellido": "garcia",
+  "email": "lucianag@gmail.com",
+  "password": "$2a$10$V3qiQCPFeBa8t9bGucu3BOm0AO6AfdR7IbVDtiw0usefzrAMjWy.a",
+  "confirmPassword": "$2a$10$6cwCj3cohOtIT9DRVNoWA.FFefSOb7ZYcGZZ3rfintjYN2wjurCvu",
+  "aceptaTerminos": "true",
+  "avatar": "avatar_1705010053966_.jpg",
+  "rol": "cliente"
+ }
 ]
