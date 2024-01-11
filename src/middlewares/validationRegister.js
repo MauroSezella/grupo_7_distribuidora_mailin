@@ -15,10 +15,8 @@ const validationRegister = [
       .notEmpty().withMessage('Debes confirmar tu contraseña').bail()
       .custom((value, { req }) => {
         if (req.body.password && req.body.password.length < 8) {
-            // Si hay un error en 'password', no mostrar el mensaje de longitud mínima en 'confirmPassword'
             return true;
           }
-        // Compara las contraseñas
         if (value !== req.body.password) {
           throw new Error('Las contraseñas no coinciden');
         }

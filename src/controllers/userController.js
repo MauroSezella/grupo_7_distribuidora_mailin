@@ -34,9 +34,8 @@ let userController = {
             rol: "cliente"
         };
 
-       res.render('./users/perfil', {user: userService.create(userData)})
-    
-        //res.render('./users/login', { user: userService.create(userData), mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.' });
+       //res.render('./users/perfil', {user: userService.create(userData)})
+       res.render('./users/login', { user: userService.create(userData), mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.' });
     },
 
     perfil: (req, res)=>{
