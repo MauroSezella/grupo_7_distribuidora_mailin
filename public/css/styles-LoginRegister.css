@@ -159,8 +159,8 @@ main {
 
 /* .is-invalid input{
     border: 1px solid #dc3545;
-}
- */
+    }
+*/
 
 
 /* .is-invalid i {
@@ -173,7 +173,7 @@ main {
     font-size: small;
     font-family: sans-serif;
     margin-top: 3px;
-} */
+    } */
 
 .main__recordarUsuario {
     margin: 5px 0;
@@ -199,6 +199,11 @@ main {
 
 .button-submit:hover {
     background-color: var(--color-footer);
+}
+
+.main__options{
+    text-align: center;
+    margin-top: 15px;
 }
 
 .main__options a{
@@ -276,6 +281,10 @@ width: 70%;
     }
 
     .main__options {
+        font-size: 16px;
+    }
+
+    .main__options a{
         font-size: 16px;
     }
 

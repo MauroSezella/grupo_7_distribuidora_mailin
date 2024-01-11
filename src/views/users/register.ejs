@@ -30,7 +30,7 @@
         </div>
         <div class="main-form">
 
-            <form action="#" method="post" class="formulario">
+            <form action="#" method="post" class="formulario" enctype="multipart/form-data">
                 <h2 class="title-form">Crea tu cuenta</h2>
                 <div class="main__form-group">
                     <label for="">Nombre</label>
@@ -70,11 +70,17 @@
                 </div>
                 <div class="main__form-group">
                     <label for="password">Confirmar Contraseña</label>
-                    <input type="password" name="password" class="input-register is-invalid ">
+                    <input type="password" name="confirmPassword" class="input-register is-invalid ">
                     <!-- <div class="text-danger">
                             Contraseña
                         </div> -->
                 </div>
+                
+                <div class="main__form-group">
+                    <label >Imagen de perfil</label>
+                    <input type="file" name="avatar"  accept=".jpg, .png" class="input-register" >
+                </div>
+
                 <div class="main__recordarUsuario">
                     <input type="checkbox" name="aceptaTerminos"><label for=""> Términos y condiciones</label>
 

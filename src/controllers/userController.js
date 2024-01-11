@@ -8,6 +8,12 @@ let userController = {
 
     register: (req, res) =>{
         res.render('./users/register')
+    },
+    processRegister: (req, res) =>{
+        res.send({
+            body: req.body,
+            file: req.file
+        })
     }
 
 }
