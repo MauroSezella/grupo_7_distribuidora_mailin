@@ -1,6 +1,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const bcryptjs= require('bcryptjs');
 
 const User = {
     fileName: path.join(__dirname, "../data/usersDataBase.json"),
@@ -27,14 +28,20 @@ const User = {
          return userFound;
     },
 
-    create: function (userData) {
+    create: function (req) {
         let allUsers = this.users();
-       // delete userData.confirmPassword;
 
         let newUser = {
             id: this.generateId(),
-            ...userData,
+            ...req.body,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            confirmPassword: bcryptjs.hashSync(req.body.password, 10),
+            avatar: req.file ? req.file.filename : 'default.png',
+            rol: "cliente"
         }
+   
+       // delete userData.confirmPassword;
+
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return newUser;

@@ -1,6 +1,6 @@
 const path = require('path');
 const userService= require ('../data/userService');
-const bcryptjs= require('bcryptjs');
+
 const { validationResult } = require('express-validator');
 
 let userController = {
@@ -26,16 +26,8 @@ let userController = {
             return res.render('./users/register', { errors: { email: { msg: 'Este email ya está registrado' } }, oldData: req.body });
         }
     
-        let userData = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            confirmPassword: bcryptjs.hashSync(req.body.password, 10),
-            avatar: req.file.filename,
-            rol: "cliente"
-        };
-
-       //res.render('./users/perfil', {user: userService.create(userData)})
-       res.render('./users/login', { user: userService.create(userData), mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.' });
+      // res.render('./users/perfil', {user: userService.create(req)})
+        res.render('./users/login', { user: userService.create(req), mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.' });
     },
 
     perfil: (req, res)=>{
