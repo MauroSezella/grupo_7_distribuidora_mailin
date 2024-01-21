@@ -192,9 +192,6 @@ header{
     font-size: 16px;
   }
 
-  .dropdown-perfil button img{
-width: 40px;
-  }
 
 
 
@@ -223,7 +220,7 @@ width: 40px;
     width: 30%;
 }
 .img-perfil{
-    width: 100% ;
+    width: 30px ;
     border:#1A1265 1px solid;
     border-radius:50% ;
 }

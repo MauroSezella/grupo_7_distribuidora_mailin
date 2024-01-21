@@ -14,12 +14,13 @@ let productController = {
     },
 
     getCarrito: (req,res)=>{
-        res.render('./products/productCart', {categorias: productService.getCategorias()});
+        res.render('./products/productCart');
     },
 
     filter: (req, res) => {
         const categoriasSeleccionadas = req.query.categorias || [];
-        const ofertasSeleccionadas = req.query.ofertas || [];
+        const ofertasSeleccionadas = req.query.ofertas;
+
         res.render('./products/filter', { products: productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
       },
     
@@ -38,7 +39,7 @@ let productController = {
 
     update:(req,res)=>{
         productService.update(req);
-        res.redirect('/productos');
+        res.redirect('/user/admin');
     },
 
     destroy:(req,res)=>{
