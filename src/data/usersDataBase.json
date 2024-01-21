@@ -43,5 +43,14 @@
   "usuario": "dabraham",
   "password": "Diego_123",
   "rol": "cliente"
+ },
+ {
+  "id": 6,
+  "nombre": "luciana",
+  "apellido": "garcia",
+  "email": "luciana@digitalhouse.com",
+  "password": "$2a$10$bk5OSoIj6KzqzzePgifVz.G74tnjdEhUDg9Hvj0PHrDMSTFwrN5vG",
+  "avatar": "default.png",
+  "rol": "admin"
  }
 ]

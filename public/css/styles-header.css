@@ -92,38 +92,78 @@ header{
     font-weight: bold;
 }
 
-.dropdown {
+.dropdown, .dropdown-perfil {
     display: inline-block;
     position: relative;
   }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+
+  .dropdown-content, .dropdown-content-perfil {
+      display: none;
+      position: absolute;
+      box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+
+    }
+
+.dropdown-content-perfil{
+    right: 0;
+}
+    .dropdown:hover button{
+      color: #0f95b6;
+    }
+  
+    .dropdown:hover .dropdown-content{
+      display: block;
+      z-index: 2000;
+      background-color: rgb(255, 255, 255);
+      width: max-content;
+      padding: 10px 20px;
+      border-radius: 3px ;
+      border: 1px solid #ccc;
+    }
+
+  .dropdown-perfil:hover .dropdown-content-perfil{
+      display: block;
+      z-index: 2000;
+      background-color: rgb(255, 255, 255);
+      width: max-content;
+      padding: 10px 20px;
+      border-radius: 3px ;
+      border: 1px solid #ccc;
   }
 
-  .dropdown:hover button{
+  .dropdown-content-perfil a {
+    display: block;
+    color: #1A1265;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 0;
+    text-align: start;
+    border-bottom: 0.5px solid #e4e4e4;
+  }
+
+  .dropdown-content-perfil a:last-child {
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+
+  .dropdown-content-perfil a:hover {
     color: #0f95b6;
   }
 
-  .dropdown:hover .dropdown-content{
-    display: block;
-    z-index: 2000;
-    background-color: rgb(255, 255, 255);
-    width: max-content;
-    padding: 10px 20px;
-    border-radius: 3px ;
-    border: 1px solid #ccc;
+  .dropdown-content a:hover {
+    color: #0f95b6;
   }
+
 
   .dropdown-content a {
     display: block;
     color: #1A1265;
     font-weight: 600;
     font-size: 14px;
+    padding: 5px;
     text-decoration: none;
   }
-
   .dropdown-content a:hover {
     color: #0f95b6;
   }
@@ -140,6 +180,22 @@ header{
     font-size: 16px;
   }
 
+  .dropdown-perfil button{
+    border: none;
+    background: none;
+    padding: 0;
+    color: #1A1265;
+    display: inline-block;
+    padding: 5px 20px;
+    font-weight: bold;
+    width: max-content;
+    font-size: 16px;
+  }
+
+  .dropdown-perfil button img{
+width: 40px;
+  }
+
 
 
 .header__icons {
@@ -150,6 +206,8 @@ header{
     width: 40%;
 }
 
+
+
 .header__icons--user:hover, .header__icons--cart:hover, .burguer-menu__options:hover {
     color: #0f95b6;
 }
@@ -159,6 +217,15 @@ header{
     font-size: x-large;
     width: 30%;
     order: 2;
+}
+
+.user-perfil{
+    width: 30%;
+}
+.img-perfil{
+    width: 100% ;
+    border:#1A1265 1px solid;
+    border-radius:50% ;
 }
 
 .header__icons--cart {
@@ -281,6 +348,23 @@ button{
 
 
 
+.admin{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+    text-align: end;
+    padding: 5px 10px;
+    border: 1px solid beige;
+}
+
+.admin a{
+    color:#1A1265;
+    text-decoration: none;
+    padding: 5px;
+}
+
+
 @media (min-width: 577px){
 
     .header__container {
@@ -291,7 +375,7 @@ button{
     }
 
 
-   
+    
     
 }
 
@@ -318,6 +402,10 @@ button{
         justify-content: space-between;
         align-items: baseline;
     }
+
+    /* .header__icons--user img{
+        width:80%;
+    } */
 
     .nav-bar__options {
         display: flex;
@@ -366,6 +454,7 @@ button{
         border-bottom: #0f95b6 2px solid;
 
     } 
+
 
 
 }

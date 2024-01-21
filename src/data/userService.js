@@ -1,58 +1,72 @@
+const bcryptjs= require('bcryptjs')
 
 const fs = require("fs");
 const path = require("path");
-const bcryptjs= require('bcryptjs');
 
-const User = {
-    fileName: path.join(__dirname, "../data/usersDataBase.json"),
+const User={
+    fileName: path.join(__dirname, "../data/usersDataBase.json") ,
 
-    users: function () {
+    getData: function (){
         return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'))
     },
 
-    generateId: function () {
-        let lastUser = this.users().pop();
-        if (lastUser) {
-            return lastUser.id + 1;
+    generateId: function(){
+        let allUsers= this.findAll();
+        let lastUser= allUsers.pop();
+        if(lastUser){
+            return lastUser.id + 1 ;
         }
         return 1;
+   },
+
+    findAll: function(){
+        return this.getData()
     },
 
-    findById: function (id) {
-        let userFound = this.users().find(oneUser => oneUser.id === id);
+    findByPK: function(id){
+        let allUsers= this.findAll();
+        let userFound= allUsers.find(oneUser=> oneUser.id==id);
         return userFound;
     },
 
-    findByField: function (field, text) { 
-         let userFound = this.users().find(oneUser => oneUser[field] === text);
-         return userFound;
+    findByField: function(field, text){
+        let allUsers= this.findAll();
+        let userFound= allUsers.find(oneUser=> oneUser[field]===text);
+        return userFound;
     },
 
-    create: function (req) {
-        let allUsers = this.users();
+    comparePasswords: (password, hashedPassword) => {
+        return bcryptjs.compareSync(password, hashedPassword);
+    },
 
+
+    create: function(req){
+
+        let allUsers= this.findAll();
+        delete req.body.confirmPassword
+        
         let newUser = {
             id: this.generateId(),
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
-            confirmPassword: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file ? req.file.filename : 'default.png',
-            rol: "cliente"
+            rol: 'cliente'
         }
-   
-       // delete userData.confirmPassword;
 
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return newUser;
     },
 
-    delete: function (id) {
-        let finalUser = this.users().filter(oneUser => oneUser.id !== id);
+
+    delete: function(id){
+        let allUsers= this.findAll();
+        let finalUser = allUsers.filter(oneUser => oneUser.id !== id);
         fs.writeFileSync(this.fileName, JSON.stringify(finalUser, null, ' '));
         return true
     }
-
 }
 
+
+//"password": "Luciana_123",
 module.exports = User;

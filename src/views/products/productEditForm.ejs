@@ -29,7 +29,7 @@
         
         <div class="form-contenedor">
             
-            <form action="/productos/edit/<%=product.id%>?_method=PUT" method="POST" class="formulario">
+            <form action="/productos/edit/<%=product.id%>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data">
                 <h2 class="form-titulo">Editar: <%=product.nombre%></h2>
                 <div class="form-items form-items-1">
                     <label for="nombreProducto" class="form__label">Nombre del producto</label>
@@ -39,7 +39,15 @@
                     <label for="descripcionProducto" class="form__label">Descripción</label>
                     <textarea name="descripcion" id="descripcionProducto" cols="30"><%=product.descripcion%></textarea>
                 </div>
-              
+                <div class="form-items form-items-1 ">
+                    <label for="imagenproducto">Seleccionar imagen</label>
+                    <div class="imagen"> 
+                        <% if (product.img) { %>
+                            <img src="/images/products/<%= product.img %>" alt="Imagen actual del producto" class="imagen-actual">
+                        <% } %> 
+                        <input type="file" name="img" id="imagenproducto" accept=".jpg, .png" class="input-foto">
+                    </div>
+                </div>
                 <div class="form-items form-items-1">
                     <label for="categoriaProducto"> Categoría </label>
                     <select name="categoria" id="categoriaProducto" class="categorias">
@@ -61,7 +69,7 @@
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
                     <!-- agrego -->
-                    <input type="checkbox" name="enOferta" id="enOferta" class="input-oferta" <%= product.enOferta === 'si' ? 'checked' : '' %> >
+                    <input type="checkbox" name="enOferta" id="enOferta" class="input-oferta" value="<%=product.enOferta%>"<%= product.enOferta === 'si' ? 'checked' : '' %> >
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
@@ -78,7 +86,6 @@
             </form>
         </div>
     </main>
-
 </body>
 
 </html>

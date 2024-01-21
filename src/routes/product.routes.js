@@ -17,7 +17,7 @@ router.get('/:id',productController.detail);
 
 /*** EDITAR UN PRODUCTO ***/ 
 router.get('/edit/:id', productController.edit); 
-router.put('/edit/:id', productController.update); 
+router.put('/edit/:id',upload.single('img'), productController.update); 
 
 /*** ELIMINAR UN PRODUCTO ***/
 router.delete('/:id', productController.destroy);
