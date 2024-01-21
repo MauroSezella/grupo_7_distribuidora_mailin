@@ -52,5 +52,15 @@
   "password": "$2a$10$bk5OSoIj6KzqzzePgifVz.G74tnjdEhUDg9Hvj0PHrDMSTFwrN5vG",
   "avatar": "default.png",
   "rol": "admin"
+ },
+ {
+  "id": 7,
+  "nombre": "sdasd",
+  "apellido": "ga",
+  "email": "lu@digitalhouse.com",
+  "password": "$2a$10$PX3aym9f34UN3edh4zGG6OTlcw5wLyyDUmS6uQECGht94.FMg8hyi",
+  "aceptaTerminos": "true",
+  "avatar": "default.png",
+  "rol": "cliente"
  }
 ]

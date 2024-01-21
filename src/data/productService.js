@@ -55,8 +55,6 @@ const productService = {
         if (ofertasSeleccionadas==="si") {
             productosFiltrados=this.getProductosEnOferta();
         }
-
-        console.log(productosFiltrados)
         return productosFiltrados
     },
     

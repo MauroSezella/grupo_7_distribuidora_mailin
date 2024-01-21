@@ -67,6 +67,4 @@ const User={
     }
 }
 
-
-//"password": "Luciana_123",
 module.exports = User;
