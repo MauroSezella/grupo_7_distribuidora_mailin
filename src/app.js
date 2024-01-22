@@ -30,10 +30,12 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.use(cookies())
 
-app.use(userLoggedMiddleware);
-
-  
+app.use(userLoggedMiddleware); 
 
 app.use('/', indexRouter);
+
+app.use((req,res,next)=>{
+	res.status(404).render('not-found');
+})
 
 
