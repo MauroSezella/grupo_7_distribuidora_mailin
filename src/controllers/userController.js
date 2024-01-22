@@ -130,10 +130,6 @@ let userController = {
 
     },
 
-    editar: (req, res) =>{
-        res.render('./users/edit-perfil')
-    },
-
     logout: (req, res)=>{
         res.clearCookie('userEmail');
         req.session.destroy();

@@ -21,31 +21,47 @@
                 <main class="main__container">
 
                         <div class="main__enlaces">
-                                <a href="/">Inicio </a><span class="span"> > </span><a href="/user/perfil"> Mi cuenta</a>
+                                <a href="/">Inicio </a><span class="span"> > </span><a href="/user/perfil"> Mi
+                                        cuenta</a>
                         </div>
+                        
+                        <div class="secciones">
+                                <h2>Bienvenid@</h2>
 
-                        <h2>Bienvenid@</h2>
-                        <section class="container perfil">
+                                <section class="container perfil">
 
                                 
-                                <img src="/images/users/<%= user.avatar %>">
-                                <div class="contenedor-editar">
-        
+                                        <img src="/images/users/<%= user.avatar %>">
+                                        <div class="contenedor-editar">
+
                                                 <div class="editar-titulo">
                                                         Datos Personales
-                                                        <a href="/user/perfil/edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                                        <a href="/user/perfil/edit"><i
+                                                                        class="fa-regular fa-pen-to-square"></i></a>
                                                 </div>
-                                                
-                                       
-                                        <div class="contenedor-datos">
-                                                <p><%= user.nombre + ' ' + user.apellido %></p>
-                                                <p><%= user.email%></p>
+
+
+                                                <div class="contenedor-datos">
+                                                        <p>
+                                                                <%= user.nombre + ' ' + user.apellido %>
+                                                        </p>
+                                                        <p>
+                                                                <%= user.email%>
+                                                        </p>
+                                                </div>
                                         </div>
-                                </div>
-                                <a href="/user/logout/" class="cerrar-sesion">cerrar sesión</a>
 
 
-                        </section>
+                                </section>
+                                <% if (!isAdmin) { %>
+        
+                                        <section class="compras">
+                                                <i class="fa-solid fa-bag-shopping"></i>
+                                                <p>¡Hacé tu primera compra!</p>
+                                                <a href="/productos" class="cerrar-sesion compras-boton">IR A TIENDA</a>
+                                        </section>
+                                <% }%>
+                        </div>
 
 
                 </main>

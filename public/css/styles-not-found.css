@@ -11,48 +11,88 @@ body {
 }
 
 .main__container{
-    width: 100%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-}
-
-.main__img{
-    width: 100%;
+    width: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin: 20px auto 0;
 }
 
-.img_error{
-    width: 80%;
+.main__img {
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+.img_error {
+    width: 100%;
 }
 
 .main__error{
     text-align: center;
     width: 100%;
+    font-family: 'Quicksand';
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    align-items: center;
 }
 
 .code__error{
     color:#1A1265;
-    font-size: 80px;
+    font-size:50px;
     margin: 0;
 }
 
 .text__error{
     color:#1A1265;
     margin: 0;
+    font-size: 22px;
 }
+
+
+
+@media (min-width: 769px){
+
+
+    .main__img {
+       
+        max-width: 300px;
+    }
+ 
+   
+    } 
+    
+    
+
 
 @media (min-width: 1024px){
 
 .main__container{
     width: 100%;
-    margin-top: 2%;
-    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-    
-.img_error{
-    width: 30%;
+
+
+.main__img{
+    margin: 0;
+    max-width: 350px;
+
 }
+
+.main__error{
+    width:max-content;
+
+}
+.code__error{
+    font-size:75px;
+}
+
+.text__error{
+    font-size: 30px;
+}
+
 
 } 
 

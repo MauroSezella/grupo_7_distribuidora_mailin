@@ -24,17 +24,24 @@ body {
 
 main {
     width: 90%;
-    margin: 50px auto;
+    margin: 20px auto 30px;
     font-family: 'Quicksand';
     color: #6b6b6b;
 }
 
 .titulo{
-    width:100%;
-    text-align:center;
-    color: #212529;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: max-content;
+    background-color: #1A1265;
+    font-size: 16px;
     font-weight: bold;
-    font-size: 22px;
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: 'Quicksand';
 }
 
 .contenedor-carrito{

@@ -9,10 +9,10 @@
 
                 <li><a href="/productos" class="nav-bar_enlaces">Productos</a></li>
                 <div class="dropdown">
-                    <button class="nav-bar_enlaces">Categorias</button>
+                    <button class="nav-bar_enlaces categoria">Categorias</button>
                     <div class="dropdown-content">
                         <% categorias.forEach(element=> { %>
-                            <a href="/productos/filter?categorias=<%= element%>" class="navbar-category">
+                            <a href="/productos/filter?categorias=<%= element%>" class=" navbar-category">
                                 <%= element %>
                             </a>
                             <% }); %>
@@ -33,12 +33,14 @@
             <% if (locals.isLogged) { %>
                 <div class="header__icons--user user-perfil ">
                     <div class="dropdown-perfil">
-                        <button class="nav-bar_enlaces"> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil"
+                        <button class=""> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil"
                                 alt=""></i></button>
                         <div class="dropdown-content-perfil">
-                            <a href="/user/admin">Listar Productos</a>
-                            <a href="/user/perfil">Mi cuenta</a>
-                            <a href="/user/logout/">cerrar sesión</a>
+                            <% if (isAdmin) { %>
+                                <a href="/user/admin">Listado de Productos</a>
+                            <% } %>
+                            <a href="/user/perfil">Mi Cuenta</a>
+                            <a href="/user/logout/">Cerrar Sesión</a>
 
                         </div>
                     </div>

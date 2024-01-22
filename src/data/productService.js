@@ -91,7 +91,7 @@ const productService = {
         product.id = maxId + 1;
 
         this.products.push(product);
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), 'utf-8');
 
     },
 
@@ -115,7 +115,7 @@ const productService = {
         }
         let index = this.products.findIndex((elem) => elem.id == req.params.id);
         this.products[index] = product;
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
 
     },
 
@@ -124,7 +124,7 @@ const productService = {
     this.eliminarImagen(product.img);
     const index = this.products.findIndex((elem) => elem.id == id);
     this.products.splice(index, 1);
-    fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
+    fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
     console.log(`Producto con id ${id} eliminado correctamente.`);
     },
     

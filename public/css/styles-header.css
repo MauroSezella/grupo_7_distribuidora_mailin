@@ -95,18 +95,20 @@ header{
 .dropdown, .dropdown-perfil {
     display: inline-block;
     position: relative;
-  }
+}
+
 
   .dropdown-content, .dropdown-content-perfil {
       display: none;
       position: absolute;
       box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+      border-radius: 3px;
 
     }
 
-.dropdown-content-perfil{
-    right: 0;
-}
+ .dropdown-content-perfil{
+    right: -50px;
+} 
     .dropdown:hover button{
       color: #0f95b6;
     }
@@ -163,6 +165,12 @@ header{
     font-size: 14px;
     padding: 5px;
     text-decoration: none;
+    border-bottom: 0.5px solid #e4e4e4;
+  }
+
+  .dropdown-content a:last-child {
+    border-bottom: none;
+    padding-bottom: 5px;
   }
   .dropdown-content a:hover {
     color: #0f95b6;
@@ -178,6 +186,7 @@ header{
     font-weight: bold;
     width: max-content;
     font-size: 16px;
+    width: max-content;
   }
 
   .dropdown-perfil button{
@@ -186,10 +195,10 @@ header{
     padding: 0;
     color: #1A1265;
     display: inline-block;
-    padding: 5px 20px;
     font-weight: bold;
     width: max-content;
-    font-size: 16px;
+    box-sizing: border-box;
+   
   }
 
 
@@ -200,7 +209,7 @@ header{
     text-align: center;
     justify-content: end;
     align-items: center;
-    width: 40%;
+    width: max-content
 }
 
 
@@ -214,13 +223,17 @@ header{
     font-size: x-large;
     width: 30%;
     order: 2;
+    margin:  0 10px;
 }
 
 .user-perfil{
-    width: 30%;
+    width: 35px ;
+    height: 35px;
+    z-index: 60;
 }
 .img-perfil{
-    width: 30px ;
+    width: 35px ;
+    height: 35px;
     border:#1A1265 1px solid;
     border-radius:50% ;
 }
@@ -230,11 +243,13 @@ header{
     font-size: x-large;
     width: 30%;
     order: 1;
+    margin: 0 10px;
 }
 
 .header__burguer-menu{
     width: 30%;
-    order: 3;
+    order: 3; 
+    margin-left: 10px ;
 }
 
 .header__burguer-menu i {
@@ -379,7 +394,7 @@ button{
 
 
 
-@media (min-width: 769px){
+@media (min-width: 916px){
     .header__logo {
         width: 15%;
     }
@@ -398,6 +413,7 @@ button{
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        width: max-content;
     }
 
     /* .header__icons--user img{
@@ -406,6 +422,8 @@ button{
 
     .nav-bar__options {
         display: flex;
+        justify-content: center;
+        width: max-content;
     }
 
     
@@ -428,8 +446,6 @@ button{
     .nav-bar a{
         font-size: 18px;
         padding: 10px 5px;
-        border-bottom: white solid 2px;
-        transition: all 0.2s ease;
     } 
 
     .dropdown button{
@@ -440,19 +456,35 @@ button{
         font-size: 16px;
     }
     
-    .dropdown .nav-bar_enlaces{
-        padding: 10px 5px;
-        border-bottom: white 2px solid;
+    .dropdown .navbar-category{
+        border-bottom: 0.5px solid #e4e4e4;
+    }
+  
+    .dropdown-content .navbar-category:last-child {
+      border-bottom: none;
+      padding-bottom: 5px;
+    }
+    .dropdown-content a:hover {
+      color: #0f95b6;
     }
   
 
-    .nav-bar a:hover{
+    .nav-bar_enlaces:hover{
         color:#0f95b6;
         border-bottom: #0f95b6 2px solid;
-
     } 
 
 
+
+    .categoria:hover{
+        border: none;
+    }
+
+    .dropdown-content-perfil a {
+ 
+        font-size: 16px;
+      
+      }
 
 }
 
