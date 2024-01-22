@@ -12,14 +12,16 @@ function userLoggedMiddleware(req, res, next) {
 
   if (userFromCookie) {
     req.session.userLogged = userFromCookie
-    if (userFromCookie.rol === 'admin') {
-      res.locals.isAdmin = true;
-    }
   }
 
   if (req.session && req.session.userLogged) {
     res.locals.isLogged = true;
     res.locals.userLogged = req.session.userLogged
+
+    if (req.session.userLogged.rol === 'admin') {
+      res.locals.isAdmin = true;
+    }
+
   }
 
   next()

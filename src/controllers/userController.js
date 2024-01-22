@@ -39,7 +39,7 @@ let userController = {
                 }
 
                 res.redirect('/user/perfil')
-            }
+            }else{
             return res.render('./users/login', {
                 errors: {
                     email:{
@@ -48,6 +48,7 @@ let userController = {
                 }
             })
         }
+        }else{
         return res.render('./users/login', {
             errors: {
                 email:{
@@ -55,6 +56,7 @@ let userController = {
                 }
             }
         })
+    }
    
     },
 
