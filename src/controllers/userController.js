@@ -20,7 +20,7 @@ let userController = {
         const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
-			return res.render('./users/login', {
+			    return res.render('./users/login', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
@@ -29,8 +29,39 @@ let userController = {
         let userToLogin= userService.findByField('email', req.body.email)
 
         if (userToLogin){
+
             const okPassword = userService.comparePasswords(req.body.password, userToLogin.password);
+
             if (okPassword){
+
+                delete userToLogin.password
+                req.session.userLogged=userToLogin ///guardar en session
+
+                if(req.body.recordarUsuario){
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 } )
+                }
+
+                return res.redirect('/user/perfil');
+            }
+        }
+
+        res.render('./users/login', {
+            errors: {
+                email:{
+                    msg:null
+                    },
+                password:{
+                msg:'Email y/o contraseña inválidos.'
+                }
+            }
+        })
+
+        /*if (userToLogin){
+
+            const okPassword = userService.comparePasswords(req.body.password, userToLogin.password);
+
+            if (okPassword){
+
                 delete userToLogin.password
                 req.session.userLogged=userToLogin ///guardar en session
 
@@ -39,8 +70,10 @@ let userController = {
                 }
 
                 res.redirect('/user/perfil')
+
             }else{
-            return res.render('./users/login', {
+
+                res.render('./users/login', {
                 errors: {
                     email:{
                     msg:'Las credenciales son inválidas'
@@ -49,14 +82,14 @@ let userController = {
             })
         }
         }else{
-        return res.render('./users/login', {
+            res.render('./users/login', {
             errors: {
                 email:{
                 msg:'Usuario no registrado'
                 }
             }
         })
-    }
+    }*/
    
     },
 
