@@ -5,6 +5,7 @@ const userController = require('../controllers/userController');
 const upload = require('../middlewares/userMulter');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 const validationsRegister= require('../middlewares/validationRegister');
 const validationsLogin= require('../middlewares/validationLogin');
@@ -18,7 +19,7 @@ router.post('/register', upload.single('avatar'), validationsRegister,userContro
 
 router.get('/perfil',authMiddleware, userController.perfil);
 
-router.get('/admin',authMiddleware, userController.admin);
+router.get('/admin',adminMiddleware, userController.admin);
 
 router.get('/logout/',userController.logout);
 
