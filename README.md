@@ -33,3 +33,6 @@
 * https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
 
 TRELLO : https://trello.com/invite/b/gpSTKXbT/ATTI6192dcb925bdd9b7ce6cb74e85b59ccb35030DB1/sprint-v
+
+USUARIO ADMIN PARA PROBAR: luciana@dh.com
+CONSTRASEÑA: 12345678
