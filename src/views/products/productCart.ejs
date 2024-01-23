@@ -1,194 +1,167 @@
 <!DOCTYPE html>
 
 <html lang="es">
-	
-	<head>
-		
-		<%- include('../partials/head') %>
-		<link rel="stylesheet" href="/css/styles-headerFooter.css">
+
+<head>
+
+	<%- include('../partials/head') %>
+		<link rel="stylesheet" href="/css/styles-header.css">
 		<link href="/css/styles-productCart.css" rel="stylesheet">
 		
 		<title>Golosinas Mailin</title>
-		
-	</head>
-	
-	<body>
-		
-		<%- include('../partials/header')  %>
-		
+
+</head>
+
+<body>
+
+	<%- include('../partials/header') %>
+
+	<h1 class="titulo">CARRITO</h1>
 		<main>
-			
-			<div class="info">
-				
-				<h1 class="titulo">CARRITO</h1>
-				
-				<nav class="nav-carrito">
-					<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">CARRITO</h2>  </a>
-					<h2 class="nav-carrito__texto nav-carrito__texto--separador">></h2>
-					<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">DETALLES DE PAGO</h2>  </a>
-					<h2 class="nav-carrito__texto nav-carrito__texto--separador">></h2>
-					<a href="#" class="nav-carrito__link">  <h2 class="nav-carrito__texto">PEDIDO COMPLETADO</h2>  </a>
-				</nav>
-				
-				<section class="productos">
-					
-					<div class="subtitulos">
-						<h3 class="subtitulos__subtitulo subtitulos__subtitulo--mayor">PRODUCTO</h3>
-						<h3 class="subtitulos__subtitulo subtitulos__subtitulo--tablet">PRECIO</h3>
-						<h3 class="subtitulos__subtitulo"> CANTIDAD</h3>
-						<h3 class="subtitulos__subtitulo subtitulos__subtitulo--tablet">SUBTOTAL</h3>
-					</div>
-					
-					<article class="producto">
-						
-						<div class="boton-cancelar">
-							<button class="boton-cancelar__boton"><i class="fa-solid fa-x boton-cancelar__icono"></i></button>
-						</div>
-						
-						<img src="/images/alfajor__fantoche.png" class="producto__img">
-						
-						<div class="descripcion">
-							<p class="descripcion__nombre">ALFAJOR FANTOCHE TRIPLE X12U</p>
-							<p class="descripcion__precio">$000.00</p>
-						</div>
-						
-						<div class="cantidad">
-							
-							<div class="cantidad-p">
-								<input type="number" value="1" min="1" />
 
-								<div class="btn-increment-decrement">
-									<i class="fa-solid fa-chevron-up" id="increment"></i>
-									<i class="fa-solid fa-chevron-down" id="decrement"></i>
-								</div>
-							</div>
-							
-						</div>
-						
-						<div class="subtotal">
-							<p class="subtotal__numero">0000.00</p>
-						</div>
-						
-					</article>
-					
-					<article class="producto">
-						
-						<div class="boton-cancelar">
-							<button class="boton-cancelar__boton"><i class="fa-solid fa-x boton-cancelar__icono"></i></button>
-						</div>
-						
-						<img src="/images/alfajor__milka.png" class="producto__img">
-						
-						<div class="descripcion">
-							<p class="descripcion__nombre">ALFAJOR MILKA X24U</p>
-							<p class="descripcion__precio">$000.00</p>
-						</div>
-						
-						<div class="cantidad">
-							
-							<div class="cantidad-p">
-								<input type="number" value="1" min="1" />
+			<div class="contenedor-carrito">
 
-								<div class="btn-increment-decrement">
-									<i class="fa-solid fa-chevron-up" id="increment"></i>
-									<i class="fa-solid fa-chevron-down" id="decrement"></i>
-								</div>
-							</div>
-							
-						</div>
-						
-						<div class="subtotal">
-							<p class="subtotal__numero">0000.00</p>
-						</div>
-						
-					</article>
-					
-					<article class="producto">
-						
-						<div class="boton-cancelar">
-							<button class="boton-cancelar__boton"><i class="fa-solid fa-x boton-cancelar__icono"></i></button>
-						</div>
-						
-						<img src="/images/alfajor_terrabusi.png" class="producto__img">
-						
-						<div class="descripcion">
-							<p class="descripcion__nombre">ALFAJOR TERRABUSI X12U</p>
-							<p class="descripcion__precio">$000.00</p>
-						</div>
-						
-						<div class="cantidad">
-							
-							<div class="cantidad-p">
-								<input type="number" value="1" min="1" />
+				<table class="tabla_productos">
+					<thead>
+						<tr class="subtitulos">
+							<th class="col-1 subtitulos_producto" colspan="3">PRODUCTO</th>
+							<th class="col-2">PRECIO</th>
+							<th class="col-3">CANTIDAD</th>
+							<th class="col-4">SUBTOTAL</th>
+						</tr>
+					</thead>
 
-								<div class="btn-increment-decrement">
-									<i class="fa-solid fa-chevron-up" id="increment"></i>
-									<i class="fa-solid fa-chevron-down" id="decrement"></i>
+					<tbody>
+						<tr class="item-producto">
+							<td class="col-product" colspan="3">
+								<div class="contenedor_product">
+									<button class="boton-cancelar">
+										<i class="fa-solid fa-x boton-cancelar__icono"></i>
+									</button>
+									<a href="#" class="col-img_produc">
+										<img src="/images/products/img-alfajor-guaymallen-blanco.jpg" alt="">
+									</a>
+									<div class="col-name_product">
+										<a href="#">Alfajor Fantoche Triple Blanco x 85G.</a>
+										<div class="contenedor_movil">
+											<span class="movil_cantidad">3 x </span>
+											<span class="movil_precio">$3.335</span>
+										</div>
+
+									</div>
 								</div>
-							</div>
-							
-						</div>
-						
-						<div class="subtotal">
-							<p class="subtotal__numero">0000.00</p>
-						</div>
-						
-					</article>
-					
-					<div class="botones-productos">
-						
-						<a href="/productos" class="botones-productos__boton"> <i class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</a>
-						<button class="botones-productos__boton">ACTUALIZAR CARRITO <i class="fa-solid fa-arrow-rotate-left"></i> </button>
-						
-					</div>
-					
-				</section>
-					
-				<div class="final">
-				
-					<section class="total">
-					
-						<h2 class="total__titulo">TOTAL DE CARRITO</h2>
-						
-						<div class="cuadro-total">
-							<p class="cuadro-total__texto">SUBTOTAL</p>
-							<p class="cuadro-total__numero">$000.00</p>
-						</div>
-						
-						<div class="cuadro-total">
-							<p class="cuadro-total__texto">ENVIO</p>
-							<p class="cuadro-total__numero">$000.00</p>
-						</div>
-						
-						<div class="cuadro-total">
-							<p class="cuadro-total__texto cuadro-total__texto--total">TOTAL</p>
-							<p class="cuadro-total__numero cuadro-total__numero--total">$000.00</p>
-						</div>
-						
-						<button class="total__boton">REALIZAR COMPRA</button>
-						
-					</section>
-					
-					
-					<section class="cupones">
-						
-						<form class="formulario-cupones">
-							<label class="cupones-titulo"> <h2 class="cupones-titulo__texto"> <i class="fa-solid fa-tags"></i> CUPONES <i class="fa-solid fa-tags"></i> </h2> </label>
-							<input type="text" name="cupon" class="formulario-cupones__input">
-							<button type="submit" class="formulario-cupones__boton">APLICAR CUPON</button>
-							
-						</form>
-						
-					</section>
-					
-				</div>
-				
+							</td>
+							<td class="col-precio"><span>$ 3.335</span></td>
+							<td class="col-cantidad">
+								<div class="cantidad">
+									<input type="number" value="1" id="cantidad_product" min="1" />
+								</div>
+							</td>
+							<td class="col-subtotal"><span>$ 10.005</span></td>
+						</tr>
+						<tr class="item-producto">
+							<td class="col-product" colspan="3">
+								<div class="contenedor_product">
+									<button class="boton-cancelar">
+										<i class="fa-solid fa-x boton-cancelar__icono"></i>
+									</button>
+									<a href="#" class="col-img_produc">
+										<img src="/images/products/img-billiken-masticable-frutal.jpg" alt="">
+									</a>
+									<div class="col-name_product">
+										<a href="#">Billiken Masticable Frutal x200U</a>
+										<div class="contenedor_movil">
+											<span class="movil_cantidad">1 x </span>
+											<span class="movil_precio">$ 1.400,3 </span>
+										</div>
+
+									</div>
+								</div>
+							</td>
+							<td class="col-precio"><span>$1.400,3 </span></td>
+							<td class="col-cantidad">
+								<div class="cantidad">
+									<input type="number" value="1" id="cantidad_product" min="1" />
+								</div>
+							</td>
+							<td class="col-subtotal"><span>$1.400,3</span></td>
+						</tr>
+						<tr class="item-producto">
+							<td class="col-product" colspan="3">
+								<div class="contenedor_product">
+									<button class="boton-cancelar">
+										<i class="fa-solid fa-x boton-cancelar__icono"></i>
+									</button>
+									<a href="#" class="col-img_produc">
+										<img src="/images/products/img-galleta-bagley.jpg" alt="">
+									</a>
+									<div class="col-name_product">
+										<a href="#">Galleta Bagley Surtida X 398G</a>
+										<div class="contenedor_movil">
+											<span class="movil_cantidad">2 x </span>
+											<span class="movil_precio">$15.670</span>
+										</div>
+
+									</div>
+								</div>
+							</td>
+							<td class="col-precio"><span>$15.670</span></td>
+							<td class="col-cantidad">
+								<div class="cantidad">
+									<input type="number" value="1" id="cantidad_product" min="1" />
+								</div>
+							</td>
+							<td class="col-subtotal"><span>$31.340</span></td>
+						</tr>
+						<tr class="botones_carrito ">
+							<td class="" colspan="6">
+								<div class="seguir-actualizar">
+									<a href="/productos" class="botones-productos_boton enlace"> <i
+											class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</a>
+									<button class="botones-productos_boton">ACTUALIZAR CARRITO <i
+											class="fa-solid fa-arrow-rotate-left"></i> </button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="total-carrito">
+					<thead>
+						<tr class="subtitulos">
+							<th class="col-total_carrito" colspan="2">Total del carrito</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="row-total_carrito">
+							<td class="etiqueta">Subtotal</td>
+							<td class="valor">$50.000</td>
+						</tr>
+						<tr class="row-total_carrito envio">
+							<td class="etiqueta">Envío</td>
+							<td class="valor">$0</td>
+						</tr>
+						<tr class="row-total_carrito total">
+							<td class="etiqueta">Total</td>
+							<td class="valor">$50.000</td>
+						</tr>
+						<tr class="botones_carrito finalizar">
+							<td class="" colspan="2">
+								<div class="botones-productos">
+									<a href="#" class="botones-productos_boton finalizar_compra">FINALIZAR COMPRA</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
 			</div>
-			
-		</main>
-		
-		<%- include('../partials/footer')  %>
-		
-	</body>
+
 	
+		</main>
+
+		<%- include('../partials/footer') %>
+
+</body>
+
 </html>

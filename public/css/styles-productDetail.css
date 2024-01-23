@@ -278,10 +278,11 @@ body {
     gap: 5px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     background-color: var(--color-3);
     width: 200px;
     text-transform: uppercase;
+    border-radius: 3px;
 }
 
 .agregar-carrito:hover {
@@ -323,11 +324,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    justify-content: end;
 }
-
+/*
 .action-button {
     font-size: 12px;
     text-decoration: none;
@@ -362,7 +362,68 @@ body {
     background-color: white;
     font-weight: 600;
   }
+ */
  
+.botones-edit-delete{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones-edit-delete{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones-edit-delete span{
+    display: inline;
+    font-weight: bold;
+}
+
+.boton-edit{
+    text-decoration: none;
+    color: #212529;
+    font-size: 14px;
+    border: 1px solid  #212529;
+    border-radius: 3px;
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+}
+
+.boton-cancelar span, .boton-edit span{
+    font-weight: bold;
+}
+
+.boton-cancelar {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    color: #212529;
+    border: 1px solid  #212529;
+    border-radius: 3px;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+}
+
+.boton-edit:hover{
+    color:  var(--color-2);
+    border: 1px solid  var(--color-2);
+}
+
+.boton-cancelar:hover{
+    border: 1px solid  #dc3545;
+    color: #dc3545;
+}
+
+
 
 /*SECCION PRODUCTOS RELACIONADOS*/
 
@@ -446,7 +507,7 @@ footer {
 
     .agregar-carrito {
 
-        font-size: 12px;
+        font-size: 14px;
     }
 
  
@@ -523,9 +584,7 @@ margin-top: 30px;
      padding-right: 20px;
     }
 
-    .agregar-carrito{
-        font-size: 12px;
-    }
+ 
 
 .btn-product{
     grid-area: botones;

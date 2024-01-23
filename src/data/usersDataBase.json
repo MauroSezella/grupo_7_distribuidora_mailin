@@ -1,52 +1,40 @@
 [
-    {
-        "id": "1",
-        "nombre": "Mauro",
-        "apellido": "Sezella",
-        "email": "maurosezella@digitalhouse.com",
-        "usuario": "msezella",
-        "contraseña": "Mauro_123",
-        "rol":"admin"
-
-    },
-    {
-        "id": "2",
-        "nombre": "Luciana",
-        "apellido": "García",
-        "email": "lucianagarcia@digitalhouse.com",
-        "usuario": "lgarcia",
-        "contraseña": "Luciana_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "3",
-        "nombre": "Lucas",
-        "apellido": "Gomez",
-        "email": "lucasgomez@digitalhouse.com",
-        "usuario": "lgomez",
-        "contraseña": "Lucas_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "4",
-        "nombre": "Fede",
-        "apellido": "Coronel",
-        "email": "fedecoronel@digitalhouse.com",
-        "usuario": "fcoronel",
-        "contraseña": "Fede_123",
-        "rol": "admin"
-
-    },
-    {
-        "id": "5",
-        "nombre": "Diego",
-        "apellido": "Abraham",
-        "email": "diegoabraham@digitalhouse.com",
-        "usuario": "dabraham",
-        "contraseña": "Diego_123",
-        "rol": "cliente"
-
-    }
+ {
+  "id": 1,
+  "nombre": "Mauro",
+  "apellido": "Sezella",
+  "email": "mauro@dh.com",
+  "password": "$2a$10$oodfQOR9ZpLEUVw4ZIB2aOtwTpurbi/LYZj3Dhn7IqJsfB0YhYVd6",
+  "avatar": "avatar_1705901012493_.png",
+  "rol": "admin"
+ },
+ {
+  "id": 2,
+  "nombre": "Luciana",
+  "apellido": "Garcia",
+  "email": "luciana@dh.com",
+  "password": "$2a$10$EcwLzUmkPeJQosodcjQnfeF9iZZA5L8KIj/go.51d28AGq/4qIUm.",
+  "avatar": "default.png",
+  "rol": "admin"
+ },
+ {
+  "id": 3,
+  "nombre": "Diego",
+  "apellido": "Abraham",
+  "email": "diego@dh.com",
+  "password": "$2a$10$UJlKxHGFdM.heBBQHd8GGupZ.WqeCGpCWNNaztg7cjpJ7nsJSFMnC",
+  "aceptaTerminos": "true",
+  "avatar": "avatar_1705901419260_.png",
+  "rol": "cliente"
+ },
+ {
+  "id": 4,
+  "nombre": "Fede",
+  "apellido": "Coronel",
+  "email": "fede@dh.com",
+  "password": "$2a$10$Z/JawVb3JZvrSnnP7VM7v.C3xFVuMCD9d4uyrdi7jJtgGEpM7Xyh.",
+  "aceptaTerminos": "true",
+  "avatar": "default.png",
+  "rol": "cliente"
+ }
 ]

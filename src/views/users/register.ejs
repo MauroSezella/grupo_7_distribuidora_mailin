@@ -1,87 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('../partials/head') %>
 
-        <link rel="stylesheet" href="/css/styles-register.css">
+<head>
+    <%- include('../partials/head') %>
 
-    </head>
+        <link rel="stylesheet" href="/css/styles-Loginregister.css">
+        <title>Crea tu cuenta</title>
 
-    <body>
-        <header>
-            <div class="header__container">
-                <div class="header__logo">
-                    <a href="/">
-                        <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
-                    </a>
-                </div>
+</head>
 
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="/">
+                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                </a>
             </div>
 
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <div class="formulario-register">
-                <form action = "/register" method = "POST" class = "form-register" >
-                    <h2 class="title-register">¡Registrate!</h2>
-                    <br>
+    <main>
+        <div class="main__enlaces">
+            <a href="/">Inicio </a><span class="span"> > </span><a href=""> Registro</a>
+        </div>
+        <div class="main-form">
 
+            <form action="/user/register" method="post" class="formulario" enctype="multipart/form-data">
+                <h2 class="title-form">Crea tu cuenta</h2>
+                <div class="main__form-group">
+                    <label for="nombre">Nombre<span class="span-label">*</span></label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>">
 
-                    <div><label> Nombre
-                        <br>
-                        <br>
-
-                        <input type="text" name="nombre" id="nombre" minlength="3" required>
-                    </label></div>
-
-                    <div><label> Apellido
-                        <br>
-                        <br>
-
-                        <input type="text" name="apellido" id="apellido" minlength="2" required>
-                    </label></div>
-
-                    <div><label> Email
-                        <br>
-                        <br>
-
-                        <input type = "email" name="email" id="email" required>
-                    </label></div>
-
-                    <div><label> Usuario
-                        <br>
-                        <br>
-
-                        <input type = "text" name="usuario" id="usuario" required>
-                    </label></div>
-                    
-                    <div><label> Contraseña
-                        <br>
-                        <br>
-
-                        <input type = "password" name="password" id="password" required>
-                    </label></div>
-                    
-                    <div><label> Repetir contraseña
-                        <br>
-                        <br>
-
-                        <input type="password"  name="confirmPassword" id="confirmPassword" required>
-                    </label></div>
-
-                        <label><input class = "termInput"  type = "checkbox" id = "terminos" name = "aceptaTerminos" required>  Términos y condiciones </label>
-                        <br>
-
-                    <div class="btn-form">
-
-                        <button type = submit> ¡Registrarme!
+                        <input type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>" />
+                        <% if (locals.errors && locals.errors.nombre) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
 
                     </div>
-                </form>
-            </div>
-        </main>
-        <footer>
+                    <% if (locals.errors && locals.errors.nombre) { %>
+                        <div class="text-danger">
+                            <%= locals.errors.nombre.msg %>
+                        </div>
+                    <% } %>
+                </div>
+                
+                <div class="main__form-group">
+                    <label for="apellido">Apellido<span class="span-label">*</span></label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
+                        <input type="text" id="apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
 
-        </footer>
-    </body>
+                        <% if (locals.errors && locals.errors.apellido) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
+
+                    </div>
+                    <% if (locals.errors && errors.apellido) { %>
+                        <div class="text-danger">
+                            <%= errors.apellido.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+
+                <div class="main__form-group">
+                    <label for="email">Email<span class="span-label">*</span></label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.email ? 'is-invalid' : '' %>">
+                        <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+
+                        <% if (locals.errors && locals.errors.email) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
+
+                    </div>
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+
+                <div class="main__form-group">
+                    <label for="password">Contraseña<span class="span-label">*</span></label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
+                        <input type="password" id="password" name="password">
+
+                        <% if (locals.errors && locals.errors.password) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
+
+                    </div>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+                <div class="main__form-group">
+                    <label for="confirmPassword">Confirmar Contraseña<span class="span-label">*</span></label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        <% if (locals.errors && locals.errors.confirmPassword) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
+                    </div>
+                    <% if (locals.errors && errors.confirmPassword) { %>
+                        <div class="text-danger">
+                            <%= errors.confirmPassword.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+                <div class="main__form-group">
+                    <label for="avatar">Imagen de perfil</label>
+                    <input type="file"  id="avatar"  name="avatar" accept=".jpg, .png" class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>" >
+                    <% if (locals.errors && errors.avatar) { %>
+                        <div class="text-danger">
+                            <%= errors.avatar.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+                <div class="main__recordarUsuario">
+                    <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" value="true"><label for="aceptaTerminos"  > Términos y condiciones</label>
+                    <% if (locals.errors && errors.aceptaTerminos) { %>
+                        <div class="text-danger">
+                            <%= errors.aceptaTerminos.msg  %>
+                        </div> 
+                    <% } %>
+                </div>
+                <div class="main__form-group">
+                    <button type="submit" class="button-submit">Registrarte</button>
+                </div>
+            </form>
+
+            <p class="main__options">¿Ya tenés una cuenta?<a href="/user/login"> Ingresar</a></p>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+
 </html>

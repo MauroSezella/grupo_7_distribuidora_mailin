@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <%- include('../partials/head.ejs') %>
         <link rel="stylesheet" href="/css/styles-products.css" />
-        <link rel="stylesheet" href="/css/styles-headerFooter.css">
+        <link rel="stylesheet" href="/css/styles-header.css">
+
         <title>Golosinas Mailin</title>
 
 </head>
@@ -19,7 +20,7 @@
         <main class="main__container">
             <section class="main_categorias">
                 
-                <details>
+                <details open >
                     <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
                             class="fa-solid fa-minus"></i></summary>
 
@@ -34,15 +35,18 @@
                         <div class="label-ofertas">
                             <p for="" class="label-filter">Ofertas</p>
                             <li><input type="checkbox" name="ofertas" value="si"> Si</li>
-                            <li><input type="checkbox" name="ofertas" value="no"> No</li>
                         </div>
-                        <button type="submit">Filtrar</button>
+
+                        <button type="submit">Aplicar</button>
                     </form>
                 </details>
-                <div class="enlace-product">
-                    <a href="/productos/create" class="enlaces-category">Agregar Producto</a>
 
-                </div>
+                <% if (isAdmin) { %>
+                    <!-- Mostrar contenido solo para administradores -->
+                    <div class="enlace-product">
+                        <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
+                    </div>
+                <% } %>
             </section>
 
 

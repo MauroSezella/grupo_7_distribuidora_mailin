@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+	<%- include('../partials/head') %>
+		<link rel="stylesheet" href="/css/styles-header.css">
+
+		<!-- <link href="/css/styles-productCart.css" rel="stylesheet"> -->
+		<link href="/css/admin.css" rel="stylesheet">
+
+		<title>Admin - Golosinas Mailin</title>
+
+</head>
+
+<body>
+
+	<%- include('../partials/header') %>
+
+		<main>
+
+
+			<h1 class="titulo">Listado de Productos</h1>
+
+			<div class="contenedor-carrito">
+				
+				<div class="seguir-actualizar">
+					<a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
+				</div>
+
+				<table class="tabla_productos">
+					<thead>
+						<tr class="subtitulos">
+							<th class="col-0">SKU</th>
+							<th class="col-1 subtitulos_producto" colspan="2">PRODUCTO</th>
+							<th class="col-2">CATEGORIA</th>
+							<th class="col-3">STOCK</th>
+							<th class="col-4">PRECIO</th>
+							<th class="col-7">DESCUENTO</th>
+							<th class="col-6">OFERTA</th>
+							<th class="col-5">ACCIONES</th>
+						</tr>
+					</thead>
+
+					<tbody>
+							<% products.forEach(product => {%>
+							
+								<tr class="item-producto">
+									<td class="col-id">
+										<%=product.id%>
+									</td>
+									<td class="col-product" colspan="2">
+										<div class="contenedor_product">
+											<a href="/productos/<%=product.id%>" class="col-img_produc">
+												<img src="/images/products/<%=product.img%>" alt="">
+											</a>
+											<div class="col-name_product">
+												<a href="/productos/<%=product.id%>"><%=product.nombre%></a>
+												<div class="contenedor_movil">
+													<span class="movil"><%=product.categoria%></span> <br>
+													<span class="movil">Precio: $<%=product.precio%></span> <br>
+													<span class="movil">Stock: <%=product.stock%></span>
+												</div>
+											</div>
+										</div>
+									</td>
+									<td class="col-categoria"><span><%=product.categoria%></span></td>
+									<td class="col-stock">
+										<%=product.stock%>
+									</td>
+									<td class="col-precio"><span>$<%=product.precio%></span></td>
+									<td class="col-descuento"><%=  product.descuento> 0? product.descuento + '%': '-'%></td>
+									<td class="col-oferta"><%=product.enOferta%></td>
+									<td class="col-edit">
+										<div class="botones-edit-delete">
+											<a href="/productos/edit/<%=product.id%>" class="boton-edit">
+												<i class="fa-regular fa-pen-to-square"></i>
+													<span> Editar</span>
+											</a>
+											<form action="/productos/<%= product.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres borrar este producto?');" style="display: inline-flex">
+												<button type="submit" class="boton-cancelar">
+													<i class="fa-solid fa-trash"></i><span> Eliminar</span>
+												</button>
+											</form>
+									</td>
+								</tr>
+						<%	}); %>
+					</tbody>
+				</table>
+
+			</div>
+
+
+		</main>
+
+		<%- include('../partials/footer') %>
+
+</body>
+
+</html>

@@ -4,8 +4,7 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/styles-formProduct.css">
-    <link rel="stylesheet" href="/css/styles-register.css">
-    <title>Golosinas Mailin</title>
+    <title>Agregar Producto</title>
 
 </head>
 
@@ -13,40 +12,42 @@
     <header>
         <div class="header__container">
             <div class="header__logo">
-                <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                <a href="/">
+                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                </a>
             </div>
 
         </div>
 
     </header>
     <main>
-        <div class="titulo__container"> 
-        <div class="titulo__container"> 
-            <h2 class="form-titulo">Agregar Producto</h2>
+        <div class="main__enlaces">
+            <a href="/">Inicio </a><span class="span"> > </span><a href="/productos"> Productos</a><span class="span"> > </span><a href="/productos/create"> Agregar</a>
         </div>
-
+        
         <div class="form-contenedor">
             
             <form action="/productos" method="POST" enctype="multipart/form-data"  class="formulario" >
-                <div class="form-items">
+                <h2 class="form-titulo">Agregar Producto</h2>
+                <div class="form-items form-items-1">
                     <label for="nombreProducto">Nombre del producto</label>
                     <input type="text" name="nombre" id="nombreProducto" class="input-nombre" required>
                 </div>
-                <div class="form-items">
+                <div class="form-items form-items-1">
                 
                     <label for="descripcionProducto" class="form__label">Descripción</label>
                     <textarea name="descripcion" id="descripcionProducto" cols="30" required></textarea>
                 </div>
-                <div class="form-items">
+                <div class="form-items form-items-1">
                     <label for="imagenproducto">Seleccionar imagen</label>
                     <input type="file" name="img" id="imagenproducto" accept=".jpg, .png" class="input-foto"
                         required>
                 </div>
-                <div class="form-items">
+                <div class="form-items form-items-1">
                     <label for="categoriaProducto"> Categoría </label>
                     <select name="categoria" id="categoriaProducto" class="categorias" required>
                         <% categorias.forEach(element => {%>
-                            <option value="alfajores" ><%= element %></option>  
+                            <option ><%= element %></option>  
                          <% }); %>
                     </select>
                 </div>

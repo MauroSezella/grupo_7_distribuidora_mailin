@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const User = require("./userService");
 
 const productsFilePath = path.join(__dirname, "../data/productsDataBase.json");
 
@@ -30,7 +31,7 @@ const productService = {
         return productosEnOferta;
     },
 
-    getCategorias: function () { //array solo de categorias
+    getCategorias: function () { 
         let categorias = [];
 
         this.products.forEach(product => {
@@ -51,13 +52,8 @@ const productService = {
             productosFiltrados = productosFiltrados.filter(product => categoriasSeleccionadas.includes(product.categoria));
         }
 
-        if (ofertasSeleccionadas.length > 0) {
-            productosFiltrados = productosFiltrados.filter(producto => {
-                let enOferta = producto.enOferta === 'si';
-                return (
-                    (ofertasSeleccionadas.includes('si') && enOferta) ||  (ofertasSeleccionadas.includes('no'))
-                );
-            });
+        if (ofertasSeleccionadas==="si") {
+            productosFiltrados=this.getProductosEnOferta();
         }
         return productosFiltrados
     },
@@ -85,11 +81,6 @@ const productService = {
             return valorActual.id > valorMax ? valorActual.id : valorMax;
         }, 0);
 
-        if (product.enOferta === 'on') {
-            product.enOferta = 'si';
-        } else {
-            product.enOferta = 'no';
-        }
         product.stock = parseInt(product.stock);
         product.precio = parseFloat(product.precio);
         if (product.descuento == null) {
@@ -100,46 +91,52 @@ const productService = {
         product.id = maxId + 1;
 
         this.products.push(product);
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), 'utf-8');
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), 'utf-8');
 
     },
 
+
     update: function (req) {
-
         let product = this.getOne(req.params.id);
-
         let productEdit = req.body;
+        let imagen = req.file;
 
         product.nombre = productEdit.nombre;
         product.descripcion = productEdit.descripcion;
         product.categoria = productEdit.categoria;
-
-        if (productEdit.enOferta === 'on') {
-            product.enOferta = 'si';
-        } else {
-            product.enOferta = 'no';
-        }
-        product.stock = parseInt(productEdit.stock);
+        product.enOferta=productEdit.enOferta
         product.precio = parseFloat(productEdit.precio);
+        product.stock = parseInt(productEdit.stock);
         product.descuento = parseInt(productEdit.descuento);
+
+        if (imagen !== undefined) {
+            this.eliminarImagen(product.img)
+            product.img = imagen.filename
+        }
         let index = this.products.findIndex((elem) => elem.id == req.params.id);
-
         this.products[index] = product;
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
+        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
 
     },
 
     delete: function (id) {
-
-        index = this.products.findIndex((elem) => elem.id == id);
-        this.products.splice(index, 1);
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products), "utf-8");
+    let product = this.getOne(id)
+    this.eliminarImagen(product.img);
+    const index = this.products.findIndex((elem) => elem.id == id);
+    this.products.splice(index, 1);
+    fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
+    console.log(`Producto con id ${id} eliminado correctamente.`);
     },
+    
+    eliminarImagen: function (nombreArchivo) {
+        const rutaArchivo = path.join(__dirname, `../../public/images/products/${nombreArchivo}`);
+        console.log(rutaArchivo) 
+        fs.unlinkSync(rutaArchivo);
+        console.log(`Imagen ${nombreArchivo} eliminada del servidor.`);
+    
+    }
 
+}
 
-
-
-};
-
+   
 module.exports = productService;

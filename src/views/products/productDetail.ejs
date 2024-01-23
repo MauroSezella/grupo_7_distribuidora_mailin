@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <%- include('../partials/head') %>
 
     <link rel="stylesheet" href="/css/styles-slider.css">
     <link rel="stylesheet" href="/css/styles-productDetail.css" />
-    <link rel="stylesheet" href="/css/styles-headerFooter.css">
+    <link rel="stylesheet" href="/css/styles-header.css">
   
     
                 
@@ -80,13 +80,20 @@
                     <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria%>" id="categoria">
                             <%=product.categoria%>
                         </a></p>
-
-                    <div class="btn-product">
-                        <a href="/productos/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
-                        <form action="/productos/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                            <button type="submit" class="action-button delete">ELIMINAR</button>
-                        </form>
-                    </div>
+                        <% if (isAdmin) { %>
+                            <div class="btn-product">
+                                <a href="/productos/edit/<%=product.id%>" class="boton-edit">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                        <span> Editar</span>
+                                </a>
+                                <form action="/productos/<%= product.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres borrar este producto?');" style="display: inline-flex">
+                                    <button type="submit" class="boton-cancelar">
+                                        <i class="fa-solid fa-trash"></i><span> Eliminar</span>
+                                    </button>
+                                </form>
+                            </div>
+                         
+                        <% }%>
                 </div>
             </section>
 
