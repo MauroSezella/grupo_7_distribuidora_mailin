@@ -1,6 +1,6 @@
 # RETROSPECTIVA
 
-## Aplicación de Retrospectiva SPRINT IV
+## Aplicación de Retrospectiva SPRINT V
 
 * El parate del curso nos afecto considerablemente en el desarrollo del sprint.
 
