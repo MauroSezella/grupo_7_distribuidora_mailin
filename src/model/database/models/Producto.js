@@ -21,6 +21,14 @@ let modelProducto = (sequelize, DataTypes) => {
         timestamps : false
     };
     let Producto = sequelize.define(alias, columns, config);
+
+
+    Producto.associate = (models) => {
+        Producto.belongsTo (models.Categoria, {
+            as : "categoria",
+            foreignKey : "categoria_id"
+        })
+    }
         return Producto
 }
 
