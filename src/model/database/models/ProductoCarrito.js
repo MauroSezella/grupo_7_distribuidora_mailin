@@ -18,8 +18,22 @@ let modelProductoCarrito = (sequelize, DataTypes) => {
     };
     let ProductoCarrito = sequelize.define(alias, columns, config);
 
-
+    ProductoCarrito.associate = (models) => {
+        ProductoCarrito.belongsTo (models.Cupones, {
+            as : "cupon",
+            foreignKey : "cupon_id"
+        })
     
+        ProductoCarrito.belongsTo (models.Carritos, {
+            as : "carrito",
+            foreignKey : "carrito_id"
+        })
+
+        ProductoCarrito.belongsTo (models.Productos, {
+            as : "producto",
+            foreignKey : "producto_id"
+        })
+    }
         return ProductoCarrito
 }
 

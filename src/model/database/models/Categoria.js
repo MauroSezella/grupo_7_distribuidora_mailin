@@ -18,7 +18,7 @@ let modelCategoria = (sequelize, DataTypes) => {
 
 
     Categoria.associate = (models) => {
-        Categoria.hasMany (models.Producto, {
+        Categoria.hasMany (models.Productos, {
             as : "productosCategoria",
             foreignKey : "categoria_id"
         })

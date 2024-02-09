@@ -19,7 +19,12 @@ let modelCupon = (sequelize, DataTypes) => {
     };
     let Cupon = sequelize.define(alias, columns, config);
 
-
+    Cupon.associate = (models) => {
+        Cupon.hasMany (models.Productos_Carrito, {
+            as : "cuponProductoCarrito",
+            foreignKey : "cupon_id"
+        })
+    }
     
     
         return Cupon

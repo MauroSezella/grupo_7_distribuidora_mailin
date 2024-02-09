@@ -24,10 +24,17 @@ let modelProducto = (sequelize, DataTypes) => {
 
 
     Producto.associate = (models) => {
-        Producto.belongsTo (models.Categoria, {
+        Producto.belongsTo (models.Categorias, {
             as : "categoria",
             foreignKey : "categoria_id"
         })
+        Producto.belongsToMany (models.Carritos, {
+            as : "carritos",
+            through : models.Productos_Carrito,
+            foreignKey: "producto_id",
+            otherKey: "carrito_id"
+        })    
+        
     }
         return Producto
 }
