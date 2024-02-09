@@ -21,7 +21,12 @@ let modelUsuarios = (sequelize, DataTypes) => {
     };
     let Usuario = sequelize.define(alias, columns, config);
 
-
+    Usuario.associate = (models) => {
+        Usuario.hasMany (models.Carritos, {
+            as : "carritos",
+            foreignKey : "usuario_id"
+        })
+    }
     
     
         return Usuario

@@ -25,6 +25,10 @@ let modelCarrito = (sequelize, DataTypes) => {
             foreignKey: "carrito_id",
             otherKey: "producto_id"
         })    
+        Carrito.belongsTo (models.Usuarios, {
+            as : "carrito",
+            foreignKey : "usuario_id"
+        })
 
     }
     
