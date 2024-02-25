@@ -231,13 +231,17 @@ header{
     height: 35px;
     z-index: 60;
 }
+
 .img-perfil{
     width: 35px ;
     height: 35px;
-    border:#1A1265 1px solid;
+    border:#1A1265 2px solid;
     border-radius:50% ;
 }
 
+.header__icons--user:hover .img-perfil{
+     border:#0f95b6 2px solid;
+} 
 .header__icons--cart {
     color: #1A1265;
     font-size: x-large;

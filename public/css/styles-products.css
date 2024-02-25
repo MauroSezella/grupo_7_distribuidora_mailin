@@ -100,6 +100,7 @@ body {
     justify-content: space-between;
     position: relative;
     cursor: pointer;
+    user-select: none;
 
 }
 
@@ -121,13 +122,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: 15px ;
   }
 
   .form-filter li{
     list-style: none;
     font-size: 14px;
-    padding: 5px;
+    padding: 5px 10px;
   }
 
   .label-filter{
@@ -138,7 +139,28 @@ body {
     width: 100%;
   }
 
-  .form-filter button{
+  .btn-conteiner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+  }
+
+  .aplicar-btn{
+    border: none;
+    background-color: #313131;
+    padding: 5px 20px;
+    color: white;
+    width: max-content;
+    margin: 0 auto;
+    border-radius: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .limpiar-btn{
     border: none;
     background-color: #868686;
     padding: 5px 20px;
@@ -148,9 +170,12 @@ body {
     border-radius: 15px;
     font-weight: 600;
     letter-spacing: 1px;
-
+    cursor: pointer;
   }
 
+  .aplicar-btn:hover, .limpiar-btn:hover{
+    background-color: #1A1265;
+  }
 
   .boton-agregar{
     text-decoration: none;

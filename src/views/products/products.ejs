@@ -28,21 +28,24 @@
                         <div class="label-categoria">
                             <p class="label-filter">Categoría</p>
                             <% categorias.forEach(element=> { %>
-                               <li ><input type="checkbox" name="categorias" value="<%= element %>">  <%= element %></li> 
+                               <li ><label for="<%=element %>"><input type="checkbox" name="categorias" value="<%= element %>" id="<%=element %>">  <%= element %></label></li> 
                 
                             <% }); %>
                         </div>
                         <div class="label-ofertas">
                             <p for="" class="label-filter">Ofertas</p>
-                            <li><input type="checkbox" name="ofertas" value="si"> Si</li>
+                            <li><label for="oferta"><input type="checkbox" name="ofertas" value="si" id="oferta"> Si</label></li>
                         </div>
 
-                        <button type="submit">Aplicar</button>
+                        <div class="btn-conteiner">
+                            <button type="reset" class="limpiar-btn">Limpiar</button>
+                            <button type="submit" class="aplicar-btn">Aplicar</button>
+                        </div>
                     </form>
                 </details>
 
                 <% if (isAdmin) { %>
-                    <!-- Mostrar contenido solo para administradores -->
+
                     <div class="enlace-product">
                         <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
                     </div>

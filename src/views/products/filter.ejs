@@ -40,7 +40,7 @@
 
         <main class="main__container">
             <section class="main_categorias">
-                <details open>
+                <details open >
                     <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
                             class="fa-solid fa-minus"></i></summary>
 
@@ -48,20 +48,19 @@
                         <div class="label-categoria">
                             <p class="label-filter">Categoría</p>
                             <% categorias.forEach(element=> { %>
-                                <li><input type="checkbox" name="categorias" value="<%= element %>">
-                                    <%= element %>
-                                </li>
-
-                                <% }); %>
+                               <li ><label for="<%=element %>"><input type="checkbox" name="categorias" value="<%= element %>" id="<%=element %>">  <%= element %></label></li> 
+                
+                            <% }); %>
                         </div>
                         <div class="label-ofertas">
                             <p for="" class="label-filter">Ofertas</p>
-                            <li><input type="checkbox" name="ofertas" value="si"> Si</li>
-                            <li><input type="checkbox" name="ofertas" value="no"> No</li>
+                            <li><label for="oferta"><input type="checkbox" name="ofertas" value="si" id="oferta"> Si</label></li>
                         </div>
 
-
-                        <button type="submit">Aplicar</button>
+                        <div class="btn-conteiner">
+                            <button type="reset" class="limpiar-btn">Limpiar</button>
+                            <button type="submit" class="aplicar-btn">Aplicar</button>
+                        </div>
                     </form>
                 </details>
             </section>
