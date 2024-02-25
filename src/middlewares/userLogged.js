@@ -1,24 +1,31 @@
-const User = require('../data/userService')
-const productService = require('../data/productService')
+const productService = require('../data/productService')//MODIFICARR
 
-function userLoggedMiddleware(req, res, next) {
-  res.locals.categorias = productService.getCategorias(); //categorias en header
+const userService = require('../model/services/userService');
+
+async function userLoggedMiddleware(req, res, next) {
+  res.locals.categorias = productService.getCategorias(); //MODIFICARR categorias en header
 
   res.locals.isLogged = false;
   res.locals.isAdmin = false
 
   let emailInCookie = req.cookies.userEmail
-  let userFromCookie = User.findByField('email', emailInCookie)
 
-  if (userFromCookie) {
-    req.session.userLogged = userFromCookie
+  if (emailInCookie) {
+    try {
+      let userFromCookie = await userService.getByEmail(emailInCookie);
+      if (userFromCookie) {
+        req.session.userLogged = userFromCookie;
+      }
+    } catch (error) {
+      console.error("Error al obtener usuario desde la cookie: ", error.message);
+    }
   }
 
   if (req.session && req.session.userLogged) {
     res.locals.isLogged = true;
     res.locals.userLogged = req.session.userLogged
 
-    if (req.session.userLogged.rol === 'admin') {
+    if (req.session.userLogged.rol === 'ADMIN') {
       res.locals.isAdmin = true;
     }
 

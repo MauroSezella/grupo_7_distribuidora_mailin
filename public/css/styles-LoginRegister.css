@@ -172,7 +172,6 @@ main {
 
 .span-label {
     color: #dc3545;
-    ;
 }
 
 .text-danger {
@@ -180,15 +179,35 @@ main {
     font-size: small;
     font-family: sans-serif;
     margin-top: 3px;
-    padding: 5px;
+}
+.main__recordarUsuario {
+    width: 100%;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.main__recordarUsuario {
+.main__aceptaTerminos{
     margin: 5px 0;
 }
 
 .main__recordarUsuario label {
+    margin-left: 2px;
+    font-size: 14px;  
+    user-select: none;
+}
+
+.lostPassword{
+    text-decoration: none;
+    color: #0f95b6;
     font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.lostPassword:hover{
+    color: var(--color-footer);
 }
 
 .button-submit {
@@ -224,8 +243,8 @@ main {
 }
 
 
-.main__options:hover {
-    color: var(--color-2);
+.main__options:hover a{
+    color: var(--color-footer);
 }
 
 .mensaje {
@@ -239,7 +258,6 @@ main {
 }
 
 
-
 @media (min-width: 577px) {
     .header__container {
         justify-content: space-between;
@@ -247,6 +265,11 @@ main {
 
     .header__logo {
         width: 20%;
+    }
+
+    .main__recordarUsuario {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
 }

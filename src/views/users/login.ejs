@@ -24,26 +24,30 @@
             <a href="/">Inicio </a><span class="span"> > </span><a href="/user/login"> Login</a>
         </div>
 
-
-        <% if (locals.mensaje) { %>
-            <div class="mensaje">
-                <%= mensaje %>
-            </div>
-        <% } %>
-
         <div class="main-form">
         
             <form action="/user/login" method="post" class="formulario">
                 <h2 class="title-form">Ingresá a tu cuenta</h2>
+
+                <% if (locals.message) { %>
+                    <div class="mensaje">
+                        <i class="fa-solid fa-check"></i> <%=  message %>
+                    </div>
+                <% } %>
+
+                <% if (locals.errors && errors.general) { %>
+                    <small class="text-danger error"><%= errors.general.msg %></small>
+                <% } %>
+
                 <div class="main__form-group ">
                     <label for="email">Email</label>
                     <div class="input-with-icon <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
-                        <input type="text" name="email" ><i class="fa-solid fa-at"></i>
+                        <input type="text" name="email" value="<%= locals.oldData ? oldData.email : '' %>" ><i class="fa-solid fa-at"></i>
                     </div>
                     <% if (locals.errors && errors.email) { %>
-                        <div class="text-danger">
+                        <small class="text-danger">
                             <%= errors.email.msg  %>
-                        </div> 
+                        </small> 
                     <% } %>
                 </div>
 
@@ -53,22 +57,21 @@
                         <input type="password" name="password" class="password"><i class="fa-solid fa-lock"></i>
                     </div>
                     <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
+                        <small class="text-danger">
                             <%= errors.password.msg  %>
-                        </div> 
+                        </small> 
                     <% } %>
                 </div>
                 <div class="main__recordarUsuario">
-                    <input type="checkbox" id="recordarUsuario" name="recordarUsuario"><label for=""> Recordar mi
-                        usuario</label>
-
+                    <label for="recordarUsuario"><input type="checkbox" id="recordarUsuario" name="recordarUsuario"> Recordar mi usuario</label>
+                    <a href="/user/login?action=resetpassword" class="lostPassword">¿Olvidaste la contraseña?</a>
                 </div>
                 <div class="main__form-group">
                     <button type="submit" class="button-submit">Ingresar</button>
                 </div>
             </form>
 
-            <p class="main__options">¿No tenés cuenta aún? <a href="/user/register">Crear cuenta</a></p>
+            <p class="main__options">¿Aún no tienes cuenta? <a href="/user/register">Regístrate</a></p>
         </div>
     </main>
 

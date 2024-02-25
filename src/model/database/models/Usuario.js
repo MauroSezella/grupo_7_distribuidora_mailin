@@ -1,4 +1,4 @@
-let modelUsuarios = (sequelize, DataTypes) => {
+let modelUsuario = (sequelize, DataTypes) => {
     let alias = "Usuarios";
     let columns = {
         id : {
@@ -7,13 +7,32 @@ let modelUsuarios = (sequelize, DataTypes) => {
             primaryKey : true ,
             autoIncrement : true ,
         },
-        nombre : DataTypes.STRING ,
-        apellido : DataTypes.STRING ,
-        email : DataTypes.STRING ,
-        password : DataTypes.STRING ,
+        nombre : {
+            type : DataTypes.STRING, 
+            allowNull : false ,
+        },
+        apellido : {
+            type : DataTypes.STRING, 
+            allowNull : false ,
+        },
+        email : {
+            type : DataTypes.STRING, 
+            allowNull : false ,
+            unique: true,
+        },
+        password : {
+            type : DataTypes.STRING, 
+            allowNull : false ,
+        },
         avatar : DataTypes.STRING ,
-        rol : DataTypes.STRING ,
-        estado : DataTypes.INTEGER ,
+        rol :{
+            type : DataTypes.STRING, 
+            allowNull : false ,
+        },
+        estado : {
+            type: DataTypes.INTEGER,
+            allowNull : false ,
+        }
     };
     let config = {
         tableName : "usuarios",
@@ -28,8 +47,7 @@ let modelUsuarios = (sequelize, DataTypes) => {
         })
     }
     
-    
-        return Usuario
+    return Usuario
 }
 
 module.exports = modelUsuario ;
