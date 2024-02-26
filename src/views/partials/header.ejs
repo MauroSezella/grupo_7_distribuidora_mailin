@@ -12,7 +12,7 @@
                     <button class="nav-bar_enlaces categoria">Categorias</button>
                     <div class="dropdown-content">
                         <% categorias.forEach(element=> { %>
-                            <a href="/productos/filter?categorias=<%= element.nombre%>" class=" navbar-category">
+                            <a href="/productos/filter?categorias=<%= element.id%>" class=" navbar-category">
                                 <%= element.nombre %>
                             </a>
                             <% }); %>
@@ -64,9 +64,9 @@
                                             style="font-size: 14px"></i></summary>
 
                                     <% categorias.forEach(element=> { %>
-                                        <a href="/productos/filter?categorias=<%= element.nombre%>" class="header-categoria">
+                                        <a href="/productos/filter?categorias=<%= element.id%>" class="header-categoria">
                                             <li>
-                                                <%= element %>
+                                                <%= element.nombre %>
                                             </li>
                                         </a>
 

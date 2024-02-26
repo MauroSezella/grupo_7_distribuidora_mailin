@@ -90,7 +90,7 @@ const productService = {
 
     }
 
-    //Caso por defecto, no se filtraron por categorias ni por ofertas, o solo por categorias
+    //Caso por defecto, no se filtraron por ofertas solo por categorias
     if(categoriasSeleccionadas.length > 0){
         try {
             return await db.Productos.findAll({where: 
@@ -129,34 +129,15 @@ const productService = {
 
     },
 
-    save: function (req) {
-
-        let product = req.body;
-        let imagen = req.file;
-
-        if (imagen != undefined) {
-            product.img = imagen.filename
+    add: async function(body, imagen){
+        try {
+            const producto = new Producto(body, imagen);
+            return await db.Productos.create(producto);
+        } catch (error) {
+            console.log(error);
         }
-
-        let maxId = this.products.reduce((valorMax, valorActual) => {
-            return valorActual.id > valorMax ? valorActual.id : valorMax;
-        }, 0);
-
-        product.stock = parseInt(product.stock);
-        product.precio = parseFloat(product.precio);
-        if (product.descuento == null) {
-            product.descuento = 0;
-        } else {
-            product.descuento = parseInt(product.descuento);
-        }
-        product.id = maxId + 1;
-
-        this.products.push(product);
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), 'utf-8');
-
     },
-
-
+    
     update: function (req) {
         let product = this.getOne(req.params.id);
         let productEdit = req.body;
@@ -198,6 +179,20 @@ const productService = {
     }
 
 }
+
+
+function Producto({nombre, descripcion, categoria, stock, en_oferta, precio, descuento}, imagen) {
+    this.nombre = nombre;
+    this.descripcion = descripcion;
+    this.imagen = imagen.filename;
+    this.categoria_id = categoria;
+    this.stock= stock;
+    this.en_oferta = en_oferta == null ? 0 : en_oferta;
+    this.precio = precio;
+    this.descuento = descuento;
+    this.estado = 1;
+}
+
 
    
 module.exports = productService;

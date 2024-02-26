@@ -48,9 +48,14 @@ let productController = {
         res.render('./products/productForm');
     },
 
-    store:(req, res)=>{
-       productService.save(req);
-       res.redirect('/productos');
+    store: async function(req, res) {
+       try {
+            await productService.add(req.body, req.file);
+            res.redirect('/productos');
+       } catch (error) {
+            console.log(error);
+       }
+       
     },
 
     edit:(req,res)=>{
