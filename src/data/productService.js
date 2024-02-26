@@ -14,9 +14,14 @@ const productService = {
         }
     },
 
-    getOne: function (id) {
-        product = this.products.find((elem) => elem.id == id);
-        return product;
+    getBy: async function (id) {
+        try {
+            return await db.Productos.findByPk(id, {
+                include: 'categoria'
+            })
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     getProductosRelacionados: function (id) {

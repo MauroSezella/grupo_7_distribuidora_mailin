@@ -13,10 +13,16 @@ let productController = {
         }
     },
 
-    detail: (req,res) => {
+    detail: async function (req,res) {
+  
+    try {
+        let product = await productService.getBy(req.params.id);
+        res.render('./products/productDetail',{product: product});
 
-    let id=req.params.id;
-        res.render('./products/productDetail',{product: productService.getOne(id), products: productService.getProductosRelacionados(id)});
+    } catch (error) {
+        console.log(error);
+    }    
+
     },
 
     getCarrito: (req,res)=>{

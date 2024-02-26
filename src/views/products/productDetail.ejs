@@ -23,12 +23,12 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/filter?categorias=<%=product.categoria%>">
-                        <%=product.categoria.toUpperCase()%>
+                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/filter?categorias=<%=product.categoria.nombre%>">
+                        <%=product.categoria.nombre.toUpperCase()%>
                     </a>
                 </div>
                 <div class="main__producto-img" id="contenedor">
-                    <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+                    <img src="/images/products/<%=product.imagen%>" alt="<%=product.nombre%>">
 
                     
                         <%if(product.descuento> 0) { %>
@@ -77,8 +77,8 @@
 
                     <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%>
                         </span></p>
-                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria%>" id="categoria">
-                            <%=product.categoria%>
+                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria.nombre%>" id="categoria">
+                            <%=product.categoria.nombre%>
                         </a></p>
                         <% if (isAdmin) { %>
                             <div class="btn-product">
