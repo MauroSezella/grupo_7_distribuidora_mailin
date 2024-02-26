@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const User = require("./userService");
 const db = require('../model/database/models');
+const { Op } = require("sequelize");
 
 const productService = {
 
@@ -36,11 +37,14 @@ const productService = {
         }
     },
 
-    getProductosEnOferta: function () {
+    getProductosEnOferta: async function () {
 
-        let productosEnOferta = this.products.filter((product) => product.enOferta == "si");
-
-        return productosEnOferta;
+        try {   
+            return await db.Productos.findAll({where: {en_oferta : 1}, include: 'categoria'});
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
     },
 
     getCategorias: async function () { 
@@ -67,12 +71,23 @@ const productService = {
     },
     
 
-    search: function (keywords) {
-        return this.products.filter((product) => {
-            productSearch = product.nombre.toLowerCase().includes(keywords.toLowerCase());
-            categoriaSearch = product.categoria.toLowerCase().includes(keywords.toLowerCase());
-            return categoriaSearch || productSearch;
-        })
+    search: async function (keywords) {
+
+        try {
+            
+            return await db.Productos.findAll({where: 
+                {[Op.or]:[
+                    {nombre : {[Op.like] : '%'+keywords+'%'}},
+                    {'$categoria.nombre$' : {[Op.like] : '%'+keywords+'%'}}
+
+                ]},
+                 include: 'categoria'
+                })
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+
 
     },
 
