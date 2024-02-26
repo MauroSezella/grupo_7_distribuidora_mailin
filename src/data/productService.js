@@ -57,17 +57,50 @@ const productService = {
 
     },
 
-    filtrarProductos: function (categoriasSeleccionadas, ofertasSeleccionadas) {
+    filtrarProductos: async function (categoriasSeleccionadas, ofertasSeleccionadas) {
 
-        let productosFiltrados = this.products;
-        if (categoriasSeleccionadas.length > 0) {
-            productosFiltrados = productosFiltrados.filter(product => categoriasSeleccionadas.includes(product.categoria));
+        //Pregunto si se seleccionaron categorias y si se filtraron por ofertas
+        if(categoriasSeleccionadas.length > 0 && ofertasSeleccionadas === 'si'){
+
+        try {
+                return await db.Productos.findAll({where: 
+                {categoria_id : {[Op.in] : categoriasSeleccionadas},
+                en_oferta : 1
+                },
+                 include: 'categoria'
+                })
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+
+    //Pregunto no se seleccionaron categorias y si se filtraron por ofertas
+    if(categoriasSeleccionadas.length == 0 && ofertasSeleccionadas === 'si'){
+
+        try {
+            return await db.Productos.findAll({where: 
+            {en_oferta : 1},
+             include: 'categoria'
+            })
+         } catch (error) {
+            console.log(error);
+            return [];
         }
 
-        if (ofertasSeleccionadas==="si") {
-            productosFiltrados=this.getProductosEnOferta();
+    }
+
+    //Caso por defecto, no se filtraron por categorias ni por ofertas, o solo por categorias
+    try {
+        return await db.Productos.findAll({where: 
+        {categoria_id : {[Op.in] : categoriasSeleccionadas}},
+         include: 'categoria'
+        })
+        } catch (error) {
+            console.log(error);
+            return [];
         }
-        return productosFiltrados
+
     },
     
 

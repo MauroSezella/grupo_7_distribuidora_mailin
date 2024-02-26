@@ -29,11 +29,13 @@ let productController = {
         res.render('./products/productCart');
     },
 
-    filter: (req, res) => {
-        const categoriasSeleccionadas = req.query.categorias || [];
-        const ofertasSeleccionadas = req.query.ofertas;
+    filter: async function(req, res) {
 
-        res.render('./products/filter', { products: productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+        let categoriasSeleccionadas = req.query.categorias || [];
+
+        let ofertasSeleccionadas = req.query.ofertas;
+
+        res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
       },
     
     create: (req,res)=>{
