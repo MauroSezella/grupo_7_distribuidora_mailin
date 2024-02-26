@@ -21,11 +21,10 @@ router.post('/', upload.single('img'), productController.store)
 router.get('/:id',productController.detail);
 
 /*** EDITAR UN PRODUCTO ***/ 
-router.get('/edit/:id', adminMiddleware, productController.edit); 
+router.get('/edit/:id', productController.edit); 
 router.put('/edit/:id',upload.single('img'), productController.update); 
 
 /*** ELIMINAR UN PRODUCTO ***/
 router.delete('/:id', productController.destroy);
-
 
 module.exports = router;

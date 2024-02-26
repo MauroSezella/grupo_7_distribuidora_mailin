@@ -58,8 +58,13 @@ let productController = {
        
     },
 
-    edit:(req,res)=>{
-        res.render('./products/productEditForm',{product: productService.getOne(req.params.id)});
+    edit: async function (req,res) {
+        try {
+            res.render('./products/productEditForm',{product: await productService.getBy(req.params.id)});
+        } catch (error) {
+            console.log(error);
+        }
+       
     },
 
     update:(req,res)=>{
@@ -71,7 +76,6 @@ let productController = {
         productService.delete(req.params.id);
         res.redirect('/productos');
     }
-
 
 }
 

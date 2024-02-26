@@ -42,10 +42,10 @@
                 <div class="form-items form-items-1 ">
                     <label for="imagenproducto">Seleccionar imagen</label>
                     <div class="imagen"> 
-                        <% if (product.img) { %>
-                            <img src="/images/products/<%= product.img %>" alt="Imagen actual del producto" class="imagen-actual">
+                        <% if (product.imagen) { %>
+                            <img src="/images/products/<%= product.imagen %>" alt="Imagen actual del producto" class="imagen-actual">
                         <% } %> 
-                        <input type="file" name="img" id="imagenproducto" accept=".jpg, .png" class="input-foto">
+                        <input type="file" name="imagen" id="imagenproducto" accept=".jpg, .png" class="input-foto">
                     </div>
                 </div>
                 <div class="form-items form-items-1">
@@ -54,10 +54,10 @@
 
                         <!-- agrego -->
                         <% categorias.forEach(element => {%>
-                            <% if (element==product.categoria) {%>
-                                <option value="<%= element %>" selected ><%= element %></option>  
+                            <% if (element.nombre==product.categoria.nombre) {%>
+                                <option value="<%= element.id %>" selected ><%= element.nombre %></option>  
                             <% } else{%>
-                                <option value="<%= element %>" ><%= element %></option>
+                                <option value="<%= element.id %>" ><%= element.nombre %></option>
                             <% }; %>
                          <% }); %>
                     </select>
@@ -69,7 +69,7 @@
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
                     <!-- agrego -->
-                    <input type="checkbox" name="enOferta" id="enOferta" class="input-oferta" value="<%=product.enOferta%>"<%= product.enOferta === 'si' ? 'checked' : '' %> >
+                    <input type="checkbox" name="en_oferta" id="enOferta" class="input-oferta" value="<%=product.en_oferta%>"<%= product.en_oferta == 1 ? 'checked' : '' %> >
                 </div>
                 <div class="form-items">
                     <label for="precioProducto"> Precio $ </label>
