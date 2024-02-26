@@ -24,11 +24,16 @@ const productService = {
         }
     },
 
-    getProductosRelacionados: function (id) {
-        product = this.getOne(id);
-        categoria = product.categoria
-        productsRelacionados = this.products.filter((product) => product.categoria == categoria);
-        return productsRelacionados;
+    getProductosRelacionados: async function (product) {
+        
+        categoria = product.categoria.id;
+
+        try {
+            return await db.Productos.findAll({where: {categoria_id : categoria}, include: 'categoria'})
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
     },
 
     getProductosEnOferta: function () {

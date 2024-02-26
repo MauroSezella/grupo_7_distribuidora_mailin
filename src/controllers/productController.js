@@ -17,7 +17,7 @@ let productController = {
   
     try {
         let product = await productService.getBy(req.params.id);
-        res.render('./products/productDetail',{product: product});
+        res.render('./products/productDetail',{product: product, products: await productService.getProductosRelacionados(product)});
 
     } catch (error) {
         console.log(error);
