@@ -150,20 +150,22 @@ body {
   .aplicar-btn{
     border: none;
     background-color: #313131;
-    padding: 5px 20px;
+    padding: 5px 15px;
     color: white;
     width: max-content;
     margin: 0 auto;
     border-radius: 15px;
     font-weight: 600;
     letter-spacing: 1px;
+    font-size: 12px;
     cursor: pointer;
   }
 
   .limpiar-btn{
     border: none;
+    font-size: 12px;
     background-color: #868686;
-    padding: 5px 20px;
+    padding: 5px 15px;
     color: white;
     width: max-content;
     margin: 0 auto;
@@ -362,9 +364,7 @@ border: #252525 0.5px solid;
     background: transparent;
 
 }
-details[open]{
-    
-}
+
 @media (min-width: 577px){
     .nohayproductos{
         height: 20vh;

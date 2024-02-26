@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const userController = require('../controllers/userController');
 const upload = require('../middlewares/userMulter');
 const guestMiddleware = require('../middlewares/guestMiddleware');
@@ -9,17 +8,28 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 
 const validationsRegister= require('../middlewares/validationRegister');
 const validationsLogin= require('../middlewares/validationLogin');
-
+const validationsEditUser= require('../middlewares/validationEditUser');
+const validationsPassword= require('../middlewares/validationPassword');
+const validationsEmail= require('../middlewares/validationEmail');
 
 router.get('/login',guestMiddleware, userController.login);
 router.post('/login', validationsLogin,userController.processLogin);
 
+//CREAR
 router.get('/register',guestMiddleware, userController.register);
 router.post('/register', upload.single('avatar'), validationsRegister,userController.processRegister);
 
-router.get('/perfil',authMiddleware, userController.perfil);
+router.get('/profile',authMiddleware, userController.profile);
+//EDITAR
+router.get('/profile/edit',authMiddleware, userController.edit);
+router.put('/profile/edit',upload.single('avatar'), validationsEditUser, userController.update);
+router.get('/resetpassword', userController.resetPassword);
+router.put('/resetpassword', validationsPassword, userController.updatePassword);
+router.post('/verification', validationsEmail,userController.verification);
 
-router.get('/admin',adminMiddleware, userController.admin);
+router.delete('/delete', authMiddleware, userController.delete); 
+
+//router.get('/admin',adminMiddleware, userController.admin);
 
 router.get('/logout/',userController.logout);
 

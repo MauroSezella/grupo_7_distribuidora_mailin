@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/styles-header.css" />
+    <link rel="stylesheet" href="/css/styles-perfil.css" />
+    <link rel="stylesheet" href="/css/styles-Loginregister.css" />
+    <script src="/js/profile.js"></script>
+
+    <title>Mi Perfil</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+    <main class="main__container">
+
+      <% if (locals.errors && errors.general) { %>
+        <small class="text-danger">
+          <%= errors.general.msg %>
+        </small>
+        <% } %>
+        <h1>
+          <%= `Hola, ${user.nombre}`%>
+        </h1>
+            <section class="container perfil">
+              <img src="/images/users/<%= user.avatar %>" />
+              <div class="contenedor-enlaces">
+                <a href="" class="link-perfil" id="enlace-perfil">Cuenta</a>
+                <% if (!isAdmin) { %>
+                  <a href="" class="link-perfil" id="enlace-pedidos">Pedidos</a>
+                <% } %>
+                <a href="/user/logout/" class="link-perfil">Cerrar Sesión</a>
+
+              </div>
+            </section>
+
+            <section class="secciones-perfil" id="perfil">
+              <h2>Perfil</h2>
+              <div class="datos-perfil">
+                <i class="fa-regular fa-user"></i>
+                <div class="datos">
+                  <h3><%= isAdmin? 'Admin: ': null %> <%= user.nombre+ ' ' +user.apellido %> </h3>
+                  <p>Email: <%= user.email %> </p>
+
+                </div>
+              </div>
+              <div class="datos-acciones">
+                <a href="/user/profile/edit" class="btn  btn-editar"><i class="fa-regular fa-pen-to-square"></i>Editar mis Datos</a>
+                <a href="/user/resetpassword" class="btn btn-cambiar"><i class="fa-solid fa-lock"></i>Cambiar Contraseña</a>
+                  <form action="/user/delete?_method=DELETE" method="POST" class="form-delete">
+                    <button type="submit" class="btn btn-eliminar"><i class="fa-solid fa-trash"></i>Eliminar mi Cuenta</button>
+                  </form>
+              </div>
+
+            </section>
+
+
+            <% if (!isAdmin) { %>
+              <section class="compras" id="compras">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p>¡Hacé tu primera compra!</p>
+                <a href="/productos" class="cerrar-sesion compras-boton">IR A TIENDA</a>
+              </section>
+
+              <% }%>
+              <!--  <section class="secciones-perfil" id="pedidos">
+                  <h2>Pedidos</h2>
+                  <div class="datos-pedidos">
+                    <div class="pedidos">
+                      <h3> pedido.id
+                      </h3>
+                      <p>Fecha: <span class="span-pedido">
+                          pedido.fecha_pedido
+                        </span></p>
+                      <p>Total: <span class="span-pedido"> $pedido.total </span></p>
+                    </div>
+    
+                    <div class="detalle-pedido">
+                      <details>
+                        <summary>Detalle de
+                          Pedido</summary>
+                        <table class="tabla_productos">
+                          <tbody>
+    
+                            <tr class="item-producto">
+                              <td class="col-product" colspan="2">
+                                <img src="/images/products/img-chupetin-bola-loca-max.jpg" alt="">
+                                <div class="col-name_product">
+                                  <a href="/productos/">
+                                    nombre
+                                  </a>
+                                  <div class="contenedor_movil">
+                                    <span class="movil_cantidad">
+                                      3x
+                                    </span>
+                                    <span class="movil_precio">$ 2255 </span>
+                                  </div>
+                              </td>
+                              <td class="col-precio"><span>$2500 </span></td>
+                              <td class="col-cantidad"> 3
+    
+                              </td>
+                              <td class="col-subtotal"><span>$3655</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </details>
+                    </div>
+    
+                  </div>
+                </section>  -->
+
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

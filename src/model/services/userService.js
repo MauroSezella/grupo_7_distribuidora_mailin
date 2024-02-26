@@ -69,28 +69,107 @@ const User = {
     },
 
     create: function (req) {
-        let allUsers = this.findAll();
-        delete req.body.confirmPassword;
+  
 
-        let newUser = {
-            id: this.generateId(),
-            ...req.body,
+        //usuario a crear 
+
+     /*     verificar que el email ingreso no este registrado 
+        let data= {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            avatar: req.file ? req.file.filename : "avatar_default.png",
             password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: req.file ? req.file.filename : "default.png",
-            rol: "cliente",
-        };
+            rol: "CLIENTE",
+            estado: 1,
+          };
 
-        allUsers.push(newUser);
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, " "));
-        return newUser;
+           await db.Usuarios.create(data,{
+            raw: true, 
+            nest: true,
+          }) 
+
+          elimiar password delete newUser.password y actualizar session
+          */
+        
+    },
+
+    update: async function (req) {
+        try {
+            let userLogged = req.session.userLogged;
+            //verifico si el email ingresado esta registrado en db
+            if (req.body.email) {
+                let userInDB = await this.getByEmail(req.body.email);
+                if (userInDB && userInDB.email !== userLogged.email) {
+                    console.log('usuario registrado')
+                  throw new Error("Este email ya está registrado");
+                }
+              }
+            
+            let oldData = await this.getByPK(userLogged.id);
+            let image = oldData.avatar
+            let deleteImage = null;
+
+            if (req.file) {
+                image = req.file.filename;
+                deleteImage = oldData.avatar
+            }
+
+            let result = await db.Usuarios.update({
+                nombre: req.body.nombre ? req.body.nombre : oldData.nombre,
+                apellido: req.body.apellido ? req.body.apellido : oldData.apellido,
+                email: req.body.email ? req.body.email : oldData.email,
+                avatar: image,
+                password: req.body.password ? bcryptjs.hashSync(req.body.password, 10) : oldData.password,
+            }, {
+                where: { id: oldData.id }
+            });
+
+            if (result == 1) {
+               if (deleteImage) {
+                   this.deleteAvatar(deleteImage);
+               };
+            };
+            let updatedUser= await this.getByPK(oldData.id);
+            delete updatedUser.password;
+            req.session.userLogged = updatedUser //actualizo session
+            console.log('usuario actualizado')
+            return updatedUser;
+        } catch (error) {
+            console.error("Error al modificar usuario: ", error.message);
+            throw error;
+        }
+    },
+    updatePassword: async function (req) {
+        try {
+              let  oldData= await this.getByPK(req.body.id); //modificar password de usuario no logueado
+            let result = await db.Usuarios.update({
+                password: req.body.password ? bcryptjs.hashSync(req.body.password, 10) : oldData.password,
+            }, {
+                where: { id: oldData.id }
+            });
+
+            if (result==1) {
+                return 'Tu contraseña ha sido restablecida con éxito';
+            }
+            return null
+        } catch (error) {
+            console.error("Error al modificar usuario: ", error.message);
+            throw error;
+        }
     },
 
     delete: function (id) {
-        let allUsers = this.findAll();
-        let finalUser = allUsers.filter((oneUser) => oneUser.id !== id);
-        fs.writeFileSync(this.fileName, JSON.stringify(finalUser, null, " "));
-        return true;
+
+        //buscar usuario por id, el id se saca de req.session.userLogged; una vez eliminado el usuario borrar la imagen con deleteAvatar()
     },
+    deleteAvatar: function (image) {
+        const rutaArchivo = path.resolve("public", "images", "users", image);
+        if (image !== "avatar_default.png") {
+          fs.unlinkSync(rutaArchivo);
+          console.log(`Imagen ${image} eliminada.`);
+        }
+      },
 };
 
 module.exports = User;

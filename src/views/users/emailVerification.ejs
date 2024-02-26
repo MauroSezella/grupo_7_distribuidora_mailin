@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+        <link rel="stylesheet" href="/css/styles-LoginRegister.css">
+        <title>Verificar</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="/">
+                    <img src="/images/logo-golosinas-mailin.svg" class="header__logo--img" alt="golosinas-mailin" />
+                </a>
+            </div>
+
+        </div>
+
+    </header>
+    <main>
+        <div class="main__enlaces">
+            <a href="/">Inicio </a><span class="span"> > </span>  <a href=""> Login </a><span class="span"> > </span><a href=""> Restablecer Contraseña</a>
+        </div>
+
+        <div class="main-form">
+        
+            <form action="/user/verification" method="post" class="formulario">
+                <h2 class="title-form">Verifica tu Email</h2>
+                <% if (locals.errors && errors.general) { %>
+                    <small class="text-danger error"><%= errors.general.msg %></small>
+                <% } %>
+                <div class="main__form-group ">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
+                        <input type="text" name="email" ><i class="fa-solid fa-at"></i>
+                    </div>
+                    <% if (locals.errors && errors.email) { %>
+                        <small class="text-danger">
+                            <%= errors.email.msg  %>
+                        </small> 
+                    <% } %>
+                </div>
+
+                <div class="main__form-group">
+                    <button type="submit" class="button-submit">Verificar</button>
+                </div>
+            </form>
+            <p class="main__options">¿Aún no tienes cuenta? <a href="/user/register">Regístrate</a></p>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+
+</html>
