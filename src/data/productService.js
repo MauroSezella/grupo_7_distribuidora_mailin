@@ -91,15 +91,20 @@ const productService = {
     }
 
     //Caso por defecto, no se filtraron por categorias ni por ofertas, o solo por categorias
-    try {
-        return await db.Productos.findAll({where: 
-        {categoria_id : {[Op.in] : categoriasSeleccionadas}},
-         include: 'categoria'
-        })
-        } catch (error) {
-            console.log(error);
-            return [];
-        }
+    if(categoriasSeleccionadas.length > 0){
+        try {
+            return await db.Productos.findAll({where: 
+            {categoria_id : {[Op.in] : categoriasSeleccionadas}},
+            include: 'categoria'
+            })
+            } catch (error) {
+                console.log(error);
+                return [];
+            }
+
+    }else{
+        return await this.getAll();
+    }
 
     },
     
