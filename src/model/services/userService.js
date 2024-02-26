@@ -68,30 +68,32 @@ const User = {
         return bcryptjs.compareSync(password, hashedPassword);
     },
 
-    create: function (req) {
-  
-
-        //usuario a crear 
-
-     /*     verificar que el email ingreso no este registrado 
-        let data= {
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            avatar: req.file ? req.file.filename : "avatar_default.png",
-            password: bcryptjs.hashSync(req.body.password, 10),
-            rol: "CLIENTE",
-            estado: 1,
-          };
-
-           await db.Usuarios.create(data,{
-            raw: true, 
-            nest: true,
-          }) 
-
-          elimiar password delete newUser.password y actualizar session
-          */
+    create: async function (req) {
+        try {
+            let userInDB = await this.getByEmail(req.body.email)
+            if (userInDB){
+                throw new Error('Este email está registrado')
+            }
+            let data= {
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                avatar: req.file ? req.file.filename : "avatar_default.png",
+                password: bcryptjs.hashSync(req.body.password, 10),
+                rol: "CLIENTE",
+                estado: 1,
+              };
+             let newUser= await db.Usuarios.create(data, {raw: true, 
+                nest: true,})
+        } catch (error) {
+            console.error('Error en registro:', error.message)
+            throw error
+            
         
+                
+    } 
+         
+              
     },
 
     update: async function (req) {
@@ -159,10 +161,22 @@ const User = {
         }
     },
 
-    delete: function (id) {
+    delete: async function (req) {
+        try {
+          let userLogged = req.session.userLogged;
+          await db.Usuarios.destroy({
+              where: {
+                  id: userLogged.id,
+              },
+          });
+           this.deleteAvatar(userLogged.avatar);
+            return 'usuario eliminado'
+    
+      } catch (error) {
+          console.error("error al eliminar el usuario: ", error.message);
+        }
+      },
 
-        //buscar usuario por id, el id se saca de req.session.userLogged; una vez eliminado el usuario borrar la imagen con deleteAvatar()
-    },
     deleteAvatar: function (image) {
         const rutaArchivo = path.resolve("public", "images", "users", image);
         if (image !== "avatar_default.png") {

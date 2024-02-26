@@ -58,34 +58,29 @@ let userController = {
 
     },
     ///CREAR
-    processRegister: (req, res) => {
-
+    processRegister: async (req, res) => {
+    try {
         const resultValidation = validationResult(req);
-
-
         if (resultValidation.errors.length > 0) {
             return res.render('./users/register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
         }
-
-        let userInDB = userService.findByField('email', req.body.email)
-
-        if (userInDB) {
-            return res.render('./users/register', {
-                errors: {
-                    email: {
-                        msg: 'Este email ya está registrado'
-                    }
-                },
-                oldData: req.body
-            });
-
-        }
-
-        res.render('./users/login', { user: userService.create(req), mensaje: '¡Registro exitoso! Por favor, inicia sesión con tu nueva cuenta.' });
-
+        let newUser = await userService.create(re);
+        req.session.userLogged =newUser
+        return res.redirect('/user/profile')
+      
+    }catch(error){
+        return res.render("./users/register", {
+            user: req.session.userLogged,
+            errors: {
+                
+                email: error.message.includes("Este email ya está registrado") ? { msg: error.message } : null
+            },
+            oldData: req.body,
+        });
+    }
     },
 
     edit: (req, res) => {
@@ -198,10 +193,22 @@ let userController = {
 
 
 
-    delete: (req, res) => {
+    delete: async (req, res) => {
+        try {
+           let result = await userService.delete(req);
+           console.log(result)
+            res.clearCookie('userEmail');
+            req.session.destroy();
+            return res.redirect('/')
+        } catch (error) {
+            console.error("Error: ", error.message);
+            return res.render("./users/profile", {
+                user: req.session.userLogged,
+            });
+        }
 
-        //return res.redirect('/')
     },
+
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
