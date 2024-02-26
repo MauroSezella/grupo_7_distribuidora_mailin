@@ -32,4 +32,4 @@ let modelUsuarios = (sequelize, DataTypes) => {
         return Usuario
 }
 
-module.exports = modelUsuario ;
+module.exports = modelUsuarios ;

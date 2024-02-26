@@ -3,8 +3,14 @@ const productService = require('../data/productService');
 
 let productController = {
 
-    index: (req,res)=>{
-        res.render('./products/products', {products: productService.getAll()})
+    list: async function(req, res) {
+        try {
+            let productos = await productService.getAll();
+            res.render('./products/products', {products: productos})
+        } catch (error) {
+            console.log(error);
+            res.render('./products/products', {products: productos})
+        }
     },
 
     detail: (req,res) => {

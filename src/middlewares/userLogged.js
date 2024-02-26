@@ -1,8 +1,8 @@
 const User = require('../data/userService')
 const productService = require('../data/productService')
 
-function userLoggedMiddleware(req, res, next) {
-  res.locals.categorias = productService.getCategorias(); //categorias en header
+async function userLoggedMiddleware(req, res, next) {
+  res.locals.categorias = await productService.getCategorias(); //categorias en header
 
   res.locals.isLogged = false;
   res.locals.isAdmin = false

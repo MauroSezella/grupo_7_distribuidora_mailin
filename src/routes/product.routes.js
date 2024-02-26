@@ -8,7 +8,8 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 
 /*** TRAER TODOS LOS PRODUCTOS***/ 
-router.get('/', productController.index);
+router.get('/', productController.list);
+
 router.get('/cart', authMiddleware, productController.getCarrito);
 router.get('/filter', productController.filter);
 

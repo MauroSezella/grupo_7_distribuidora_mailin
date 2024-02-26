@@ -1,15 +1,17 @@
 const fs = require("fs");
 const path = require("path");
 const User = require("./userService");
-
-const productsFilePath = path.join(__dirname, "../data/productsDataBase.json");
+const db = require('../model/database/models');
 
 const productService = {
 
-    products: JSON.parse(fs.readFileSync(productsFilePath, "utf-8")),
-
-    getAll: function () {
-        return this.products;
+    getAll: async function () {
+        try {
+            return await db.Productos.findAll({include: 'categoria'})
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
     },
 
     getOne: function (id) {
@@ -31,19 +33,15 @@ const productService = {
         return productosEnOferta;
     },
 
-    getCategorias: function () { 
-        let categorias = [];
-
-        this.products.forEach(product => {
-            if (!categorias.includes(product.categoria)) {
-                categorias.push(product.categoria)
-            }
-        });
-
-        return categorias;
+    getCategorias: async function () { 
+        try {   
+            return await db.Categorias.findAll();
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
 
     },
-
 
     filtrarProductos: function (categoriasSeleccionadas, ofertasSeleccionadas) {
 
