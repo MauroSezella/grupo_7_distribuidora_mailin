@@ -31,7 +31,13 @@ let productController = {
 
     filter: async function(req, res) {
 
-        let categoriasSeleccionadas = req.query.categorias || [];
+        let categoriasSeleccionadas;
+
+        if(typeof req.query.categorias !== 'string'){
+            categoriasSeleccionadas = req.query.categorias || [];
+        }else{
+            categoriasSeleccionadas = [req.query.categorias];
+        }
 
         let ofertasSeleccionadas = req.query.ofertas;
 
