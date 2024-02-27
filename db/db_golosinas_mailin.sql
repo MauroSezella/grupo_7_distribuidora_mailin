@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS categorias (
   rol ENUM('CLIENTE', 'ADMIN'),
   PRIMARY KEY (id)); 
   
-  CREATE TABLE IF NOT EXISTS carritos (
+  CREATE TABLE IF NOT EXISTS carrito (
   id INT NOT NULL AUTO_INCREMENT,
   total DECIMAL(10, 2),
   fecha_pedido DATE,

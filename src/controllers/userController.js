@@ -74,8 +74,10 @@ let userController = {
     }catch(error){
         return res.render("./users/register", {
             errors: {
-                
-                email: error.message.includes("Este email ya está registrado") ? { msg: error.message } : null
+                general: {
+                    msg: error.message.includes("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.") ? error.message : null
+                },
+                email: error.message.includes('Este email está registrado') ? { msg: error.message } : null
             },
             oldData: req.body,
         });
@@ -214,8 +216,14 @@ let userController = {
         return res.redirect('/')
     },
 
-    admin: (req, res) => {
-          res.render('./users/admin', { products: productService.getAll() })
+    admin: async (req, res) => {
+        try {
+            let productos = await productService.getAll();
+            res.render('./users/admin', {products: productos})
+        } catch (error) {
+            console.log(error);
+            res.render('./users/admin', {products: productos})
+        }
       } 
 
 }
