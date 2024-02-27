@@ -138,26 +138,29 @@ const productService = {
         }
     },
     
-    update: function (req) {
-        let product = this.getOne(req.params.id);
-        let productEdit = req.body;
+    update: async function (req) {
+
+        let productId = req.params.id;
         let imagen = req.file;
 
-        product.nombre = productEdit.nombre;
-        product.descripcion = productEdit.descripcion;
-        product.categoria = productEdit.categoria;
-        product.enOferta=productEdit.enOferta
-        product.precio = parseFloat(productEdit.precio);
-        product.stock = parseInt(productEdit.stock);
-        product.descuento = parseInt(productEdit.descuento);
+        try {
+            return await db.Productos.update({
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                //imagen: imagen.filename,
+                categoria_id: req.body.categoria,
+                stock: req.body.stock,
+                en_oferta: req.body.en_oferta == null ? 0 : req.body.en_oferta,
+                precio: req.body.precio,
+                descuento: req.body.descuento
 
-        if (imagen !== undefined) {
-            this.eliminarImagen(product.img)
-            product.img = imagen.filename
+            },
+            {
+                where: {id: productId}
+            })
+        } catch (error) {
+            console.log(error);
         }
-        let index = this.products.findIndex((elem) => elem.id == req.params.id);
-        this.products[index] = product;
-        fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
 
     },
 
@@ -172,7 +175,7 @@ const productService = {
     
     eliminarImagen: function (nombreArchivo) {
         const rutaArchivo = path.join(__dirname, `../../public/images/products/${nombreArchivo}`);
-        console.log(rutaArchivo) 
+        console.log(rutaArchivo); 
         fs.unlinkSync(rutaArchivo);
         console.log(`Imagen ${nombreArchivo} eliminada del servidor.`);
     

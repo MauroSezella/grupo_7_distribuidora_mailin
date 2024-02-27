@@ -1,5 +1,6 @@
 const path = require('path');
 const productService = require('../data/productService');
+const { log } = require('console');
 
 let productController = {
 
@@ -21,6 +22,7 @@ let productController = {
 
     } catch (error) {
         console.log(error);
+        res.redirect('/productos');
     }    
 
     },
@@ -41,7 +43,14 @@ let productController = {
 
         let ofertasSeleccionadas = req.query.ofertas;
 
-        res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+        try {
+            res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+
+       
       },
     
     create: (req,res)=>{
@@ -54,6 +63,7 @@ let productController = {
             res.redirect('/productos');
        } catch (error) {
             console.log(error);
+            res.redirect('/productos');
        }
        
     },
@@ -63,13 +73,20 @@ let productController = {
             res.render('./products/productEditForm',{product: await productService.getBy(req.params.id)});
         } catch (error) {
             console.log(error);
+            res.redirect('/productos');
         }
        
     },
 
-    update:(req,res)=>{
-        productService.update(req);
-        res.redirect('/user/admin');
+    update: async function (req,res){
+        try {
+            await productService.update(req);
+            res.redirect('/productos');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+        
     },
 
     destroy:(req,res)=>{
