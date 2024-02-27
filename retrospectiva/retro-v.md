@@ -2,6 +2,10 @@
 
 ## Aplicación de Retrospectiva SPRINT VI
 
+* Se implementó CRUD de usuarios que permite modificar la información de usuario,
+cambiar la contraseña y eliminar o desactivar la cuenta.
+
+
 ## Starfish Dinamic
 
 ## More of
