@@ -143,23 +143,54 @@ const productService = {
         let productId = req.params.id;
         let imagen = req.file;
 
-        try {
-            return await db.Productos.update({
-                nombre: req.body.nombre,
-                descripcion: req.body.descripcion,
-                //imagen: imagen.filename,
-                categoria_id: req.body.categoria,
-                stock: req.body.stock,
-                en_oferta: req.body.en_oferta == null ? 0 : req.body.en_oferta,
-                precio: req.body.precio,
-                descuento: req.body.descuento
+        if(imagen !== undefined){
 
-            },
-            {
-                where: {id: productId}
-            })
-        } catch (error) {
-            console.log(error);
+            try {
+                let product = await this.getBy(productId);
+                this.eliminarImagen(product.imagen);
+
+            } catch (error) {
+                console.log(error);
+            }
+            
+            try {
+                return await db.Productos.update({
+                    nombre: req.body.nombre,
+                    descripcion: req.body.descripcion,
+                    imagen: imagen.filename,
+                    categoria_id: req.body.categoria,
+                    stock: req.body.stock,
+                    en_oferta: req.body.en_oferta == null ? 0 : req.body.en_oferta,
+                    precio: req.body.precio,
+                    descuento: req.body.descuento
+    
+                },
+                {
+                    where: {id: productId}
+                })
+            } catch (error) {
+                console.log(error);
+            }
+
+        }else{
+
+            try {
+                return await db.Productos.update({
+                    nombre: req.body.nombre,
+                    descripcion: req.body.descripcion,
+                    categoria_id: req.body.categoria,
+                    stock: req.body.stock,
+                    en_oferta: req.body.en_oferta == null ? 0 : req.body.en_oferta,
+                    precio: req.body.precio,
+                    descuento: req.body.descuento
+    
+                },
+                {
+                    where: {id: productId}
+                })
+            } catch (error) {
+                console.log(error);
+            }
         }
 
     },
@@ -182,7 +213,6 @@ const productService = {
     }
 
 }
-
 
 function Producto({nombre, descripcion, categoria, stock, en_oferta, precio, descuento}, imagen) {
     this.nombre = nombre;
