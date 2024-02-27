@@ -31,4 +31,4 @@ let modelUsuario = (sequelize, DataTypes) => {
     return Usuario
 }
 
-module.exports = modelUsuarios ;
+module.exports = modelUsuario;
