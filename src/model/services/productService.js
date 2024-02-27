@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const User = require("../../data/userService");
 const db = require('../database/models');
 const { Op } = require("sequelize");
 

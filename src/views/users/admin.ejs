@@ -58,7 +58,7 @@
 											<div class="col-name_product">
 												<a href="/productos/<%=product.id%>"><%=product.nombre%></a>
 												<div class="contenedor_movil">
-													<span class="movil"><%=product.categoria%></span> <br>
+													<span class="movil"><%=product.categoria.nombre%></span> <br>
 													<span class="movil">Precio: $<%=product.precio%></span> <br>
 													<span class="movil">Stock: <%=product.stock%></span>
 												</div>
@@ -71,7 +71,7 @@
 									</td>
 									<td class="col-precio"><span>$<%=product.precio%></span></td>
 									<td class="col-descuento"><%=  product.descuento> 0? product.descuento + '%': '-'%></td>
-									<td class="col-oferta"><%=product.enOferta%></td>
+									<td class="col-oferta"><%=product.en_oferta%></td>
 									<td class="col-edit">
 										<div class="botones-edit-delete">
 											<a href="/productos/edit/<%=product.id%>" class="boton-edit">
