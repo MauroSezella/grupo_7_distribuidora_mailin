@@ -1,5 +1,5 @@
 const path = require('path');
-const productService = require('../data/productService');
+const productService = require('../model/services/productService');
 const { log } = require('console');
 
 let productController = {

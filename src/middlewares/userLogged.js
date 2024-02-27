@@ -1,5 +1,5 @@
 const User = require('../data/userService')
-const productService = require('../data/productService')
+const productService = require('../model/services/productService');
 
 async function userLoggedMiddleware(req, res, next) {
   res.locals.categorias = await productService.getCategorias(); //categorias en header
