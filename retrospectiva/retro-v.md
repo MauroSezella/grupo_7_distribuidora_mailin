@@ -12,10 +12,7 @@ cambiar la contraseña y eliminar o desactivar la cuenta.
 
 * Aportar sus puntos de vista en los debates.
 * Comunicación continua del equipo.
-* Mejorar nivel de detalle de las tareas asignadas en trello.
 * Realiza al menos una reunion semanal para mostrar avances, dudas o bloqueantes.
-* No salir más de vacaciones hasta que termine el curso jaja.
-
 
 ## Keep Doing
 
@@ -33,13 +30,14 @@ cambiar la contraseña y eliminar o desactivar la cuenta.
 
 * Colocar las dudas o consultas a tiempo en el discord.
 * Designar un dia a la semana obligatoriamente para avanzar en el proyecto.
-* Estar al dia con el contenido del Playground para poder realizar tareas, o aportes al grupo.
+* Terminar el sprint con unos dias de antelacion para poder probar mas minuciosamente.
 
 
 ## Stop Doing
 
 * Incumplir con horarios de reuniones.
 * No involucrarse en el desarrollo del proyecto.
+* Dejar las tareas para el ultimo momento.
 
 
 ## Less Of
