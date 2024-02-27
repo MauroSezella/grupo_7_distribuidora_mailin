@@ -37,7 +37,7 @@
                                 alt=""></i></button>
                         <div class="dropdown-content-perfil">
                             <% if (isAdmin) { %>
-                               <!--  <a href="/user/admin">Listado de Productos</a> -->
+                               <a href="/user/admin">Listado de Productos</a> 
                             <% } %>
                             <a href="/user/profile">Mi Cuenta</a>
                             <a href="/user/logout/">Cerrar Sesión</a>
@@ -77,8 +77,8 @@
                                 <li><a href="/productos/filter?ofertas=<%=oferta%>" class="header-enlaces">Ofertas</a>
                                 </li>
                                 <% if (isAdmin) { %>
-                                    <!-- Mostrar contenido solo para administradores 
-                               <li><a href="/user/admin" class="header-enlaces">Admin</a></li>-->
+                                    <!-- Mostrar contenido solo para administradores -->
+                               <li><a href="/user/admin" class="header-enlaces">Admin</a></li>
                                     <% } %>
                             </ul>
 

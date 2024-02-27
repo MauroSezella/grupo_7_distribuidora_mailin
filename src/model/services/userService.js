@@ -85,6 +85,9 @@ const User = {
               };
              let newUser= await db.Usuarios.create(data, {raw: true, 
                 nest: true,})
+
+            delete newUser.password;
+            return newUser
         } catch (error) {
             console.error('Error en registro:', error.message)
             throw error

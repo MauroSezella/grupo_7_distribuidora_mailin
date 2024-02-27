@@ -29,7 +29,7 @@ router.post('/verification', validationsEmail,userController.verification);
 
 router.delete('/delete', authMiddleware, userController.delete); 
 
-//router.get('/admin',adminMiddleware, userController.admin);
+router.get('/admin',adminMiddleware, userController.admin);
 
 router.get('/logout/',userController.logout);
 

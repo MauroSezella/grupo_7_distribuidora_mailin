@@ -67,13 +67,12 @@ let userController = {
                 oldData: req.body
             });
         }
-        let newUser = await userService.create(re);
-        req.session.userLogged =newUser
+        let newUser = await userService.create(req);
+        req.session.userLogged = newUser;
         return res.redirect('/user/profile')
       
     }catch(error){
         return res.render("./users/register", {
-            user: req.session.userLogged,
             errors: {
                 
                 email: error.message.includes("Este email ya está registrado") ? { msg: error.message } : null
@@ -215,9 +214,9 @@ let userController = {
         return res.redirect('/')
     },
 
-    /*   admin: (req, res) => {
+    admin: (req, res) => {
           res.render('./users/admin', { products: productService.getAll() })
-      } */
+      } 
 
 }
 

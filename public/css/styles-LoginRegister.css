@@ -190,12 +190,14 @@ main {
 
 .main__aceptaTerminos{
     margin: 5px 0;
+    text-align: start;
 }
 
 .main__recordarUsuario label {
     margin-left: 2px;
     font-size: 14px;  
     user-select: none;
+    
 }
 
 .lostPassword{

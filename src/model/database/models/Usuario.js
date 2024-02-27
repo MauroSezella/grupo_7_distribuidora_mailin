@@ -7,32 +7,13 @@ let modelUsuario = (sequelize, DataTypes) => {
             primaryKey : true ,
             autoIncrement : true ,
         },
-        nombre : {
-            type : DataTypes.STRING, 
-            allowNull : false ,
-        },
-        apellido : {
-            type : DataTypes.STRING, 
-            allowNull : false ,
-        },
-        email : {
-            type : DataTypes.STRING, 
-            allowNull : false ,
-            unique: true,
-        },
-        password : {
-            type : DataTypes.STRING, 
-            allowNull : false ,
-        },
+        nombre : DataTypes.STRING, 
+        apellido : DataTypes.STRING, 
+        email :  DataTypes.STRING, 
+        password : DataTypes.STRING, 
         avatar : DataTypes.STRING ,
-        rol :{
-            type : DataTypes.STRING, 
-            allowNull : false ,
-        },
-        estado : {
-            type: DataTypes.INTEGER,
-            allowNull : false ,
-        }
+        rol : DataTypes.STRING, 
+        estado :  DataTypes.INTEGER,
     };
     let config = {
         tableName : "usuarios",

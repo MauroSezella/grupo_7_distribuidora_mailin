@@ -27,56 +27,63 @@
         </div>
         <div class="main-form">
 
+            
             <form action="/user/register" method="post" class="formulario" enctype="multipart/form-data">
                 <h2 class="title-form">Crea tu cuenta</h2>
+                <% if (locals.errors && errors.general) { %>
+                    <small class="text-danger error"><%= errors.general.msg %></small>
+                <% } %>
+
+
                 <div class="main__form-group">
                     <label for="nombre">Nombre<span class="span-label">*</span></label>
                     <div class="input-with-icon <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>">
 
-                        <input type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>" />
+                        <input type="text" id="nombre" name="nombre"
+                            value="<%= locals.oldData ? oldData.nombre : null %>" />
                         <% if (locals.errors && locals.errors.nombre) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+                            <% } %>
 
                     </div>
                     <% if (locals.errors && locals.errors.nombre) { %>
-                        <div class="text-danger">
+                        <small class="text-danger">
                             <%= locals.errors.nombre.msg %>
-                        </div>
-                    <% } %>
+                        </small>
+                        <% } %>
                 </div>
-                
+
                 <div class="main__form-group">
                     <label for="apellido">Apellido<span class="span-label">*</span></label>
                     <div class="input-with-icon <%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
-                        <input type="text" id="apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                        <input type="text" id="apellido" name="apellido"
+                            value="<%= locals.oldData ? oldData.apellido : null %>">
 
                         <% if (locals.errors && locals.errors.apellido) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+                            <% } %>
 
                     </div>
                     <% if (locals.errors && errors.apellido) { %>
-                        <div class="text-danger">
-                            <%= errors.apellido.msg  %>
-                        </div> 
-                    <% } %>
+                        <small class="text-danger">
+                            <%= errors.apellido.msg %>
+                        </small>
+                        <% } %>
                 </div>
 
                 <div class="main__form-group">
                     <label for="email">Email<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.email ? 'is-invalid' : '' %>">
-                        <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+                        <div class="input-with-icon <%= locals.errors && errors.email? 'is-invalid' : '' %>">
+                            <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>">
+                               <% if (locals.errors && errors.email) { %>
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                <% } %>
+                        </div>
 
-                        <% if (locals.errors && locals.errors.email) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
-
-                    </div>
                     <% if (locals.errors && errors.email) { %>
-                        <div class="text-danger">
-                            <%= errors.email.msg  %>
-                        </div> 
+                        <small class="text-danger">
+                            <%= errors.email.msg %>
+                        </small>
                     <% } %>
                 </div>
 
@@ -87,52 +94,56 @@
 
                         <% if (locals.errors && locals.errors.password) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+                            <% } %>
 
                     </div>
                     <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
-                            <%= errors.password.msg  %>
-                        </div> 
-                    <% } %>
+                        <small class="text-danger">
+                            <%= errors.password.msg %>
+                        </small>
+                        <% } %>
                 </div>
                 <div class="main__form-group">
                     <label for="confirmPassword">Confirmar Contraseña<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
+                    <div
+                        class="input-with-icon <%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
                         <input type="password" id="confirmPassword" name="confirmPassword">
                         <% if (locals.errors && locals.errors.confirmPassword) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+                            <% } %>
                     </div>
                     <% if (locals.errors && errors.confirmPassword) { %>
-                        <div class="text-danger">
-                            <%= errors.confirmPassword.msg  %>
-                        </div> 
-                    <% } %>
+                        <small class="text-danger">
+                            <%= errors.confirmPassword.msg %>
+                        </small>
+                        <% } %>
                 </div>
                 <div class="main__form-group">
                     <label for="avatar">Imagen de perfil</label>
-                    <input type="file"  id="avatar"  name="avatar" accept=".jpg, .png" class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>" >
+                    <input type="file" id="avatar" name="avatar" accept=".jpg, .png"
+                        class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.avatar) { %>
-                        <div class="text-danger">
-                            <%= errors.avatar.msg  %>
-                        </div> 
-                    <% } %>
+                        <small class="text-danger">
+                            <%= errors.avatar.msg %>
+                        </small>
+                        <% } %>
                 </div>
-                <div class="main__recordarUsuario">
-                    <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" value="true"><label for="aceptaTerminos"  > Términos y condiciones</label>
+                <div class="main__aceptaTerminos">
+                    <label for="aceptaTerminos"><input type="checkbox" id="aceptaTerminos" name="aceptaTerminos"
+                            value="1"> Acepto términos y condiciones</label>
                     <% if (locals.errors && errors.aceptaTerminos) { %>
                         <div class="text-danger">
-                            <%= errors.aceptaTerminos.msg  %>
-                        </div> 
-                    <% } %>
+                            <%= errors.aceptaTerminos.msg %>
+                        </div>
+                        <% } %>
                 </div>
-                <div class="main__form-group">
-                    <button type="submit" class="button-submit">Registrarte</button>
-                </div>
+               
+                        <div class="main__form-group">
+                            <button type="submit" class="button-submit">Registrarte</button>
+                        </div>
             </form>
 
-            <p class="main__options">¿Ya tenés una cuenta?<a href="/user/login"> Ingresar</a></p>
+            <p class="main__options">¿Ya tenés una cuenta?<a href="/user/login"> Inicia sesión</a></p>
         </div>
     </main>
 
