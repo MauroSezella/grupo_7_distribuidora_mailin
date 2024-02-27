@@ -196,12 +196,15 @@ const productService = {
     },
 
     delete: function (id) {
-    let product = this.getOne(id)
-    this.eliminarImagen(product.img);
-    const index = this.products.findIndex((elem) => elem.id == id);
-    this.products.splice(index, 1);
-    fs.writeFileSync(productsFilePath, JSON.stringify(this.products, null, ' '), "utf-8");
-    console.log(`Producto con id ${id} eliminado correctamente.`);
+     try {
+        return db.Productos.destroy({
+            where: {
+                id: id
+            }
+        });
+     } catch (error) {
+        console.log(error);
+     }
     },
     
     eliminarImagen: function (nombreArchivo) {

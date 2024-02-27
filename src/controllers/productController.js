@@ -89,9 +89,15 @@ let productController = {
         
     },
 
-    destroy:(req,res)=>{
-        productService.delete(req.params.id);
-        res.redirect('/productos');
+    destroy: async function (req,res){
+        try {
+            await productService.delete(req.params.id);
+            res.redirect('/productos');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+    
     }
 
 }
