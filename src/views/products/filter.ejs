@@ -49,7 +49,7 @@
                         <div class="label-categoria">
                             <p class="label-filter">Categoría</p>
                             <% categorias.forEach(element=> { %>
-                               <li ><label for="<%=element %>"><input type="checkbox" name="categorias" value="<%= element %>" id="<%=element %>">  <%= element %></label></li> 
+                               <li ><label for="<%=element.nombre %>"><input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">  <%= element.nombre %></label></li> 
                 
                             <% }); %>
                         </div>
