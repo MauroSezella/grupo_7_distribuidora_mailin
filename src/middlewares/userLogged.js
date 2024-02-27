@@ -1,9 +1,9 @@
-const productService = require('../data/productService')//MODIFICARR
+const productService = require('../model/services/productService');
 
 const userService = require('../model/services/userService');
 
 async function userLoggedMiddleware(req, res, next) {
-  res.locals.categorias = productService.getCategorias(); //MODIFICARR categorias en header
+  res.locals.categorias = await productService.getCategorias();
 
   res.locals.isLogged = false;
   res.locals.isAdmin = false

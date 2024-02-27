@@ -1,14 +1,27 @@
 const path = require('path');
-const productService = require('../data/productService');
+const productService = require('../model/services/productService');
 
 let mainController = {
 
-    index: (req,res) => {
-        res.render('index', {products: productService.getProductosEnOferta()});
+    index: async function(req,res){
+
+        try {
+            res.render('index', {products: await productService.getProductosEnOferta()});
+        } catch (error) {
+            console.log(error);
+        }
+       
     },
-    search: (req, res) => {
+
+    search: async function (req, res) {
 		const keywords = req.query.keywords;
-		res.render('products/results', {products: productService.search( keywords), keywords: keywords});
+
+        try {
+            res.render('products/results', {products: await productService.search( keywords), keywords: keywords});
+        } catch (error) {
+            console.log(error);
+        }
+
 		
 	},
 

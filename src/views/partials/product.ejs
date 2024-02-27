@@ -1,7 +1,7 @@
 <% products.forEach(product=> { %>
     <article class="producto--card">
         <a href="/productos/<%=product.id%>" class="producto--card-img">
-            <img src="/images/products/<%=product.img%>" alt="<%=product.nombre%>">
+            <img src="/images/products/<%=product.imagen%>" alt="<%=product.nombre%>">
         </a>
         <%if(product.descuento> 0) { %>
             <div class="contenedor-descuento">
@@ -12,7 +12,7 @@
             <% } %>
                 <div class="card-descripcion">
                     <p class="producto--card-categ">
-                        <%=product.categoria.toUpperCase()%>
+                        <%=product.categoria.nombre.toUpperCase()%>
                     </p>
                     <a href="" class="producto--card-titulo">
                         <%=product.nombre%>

@@ -1,52 +1,104 @@
 const path = require('path');
-const productService = require('../data/productService');
+const productService = require('../model/services/productService');
+const { log } = require('console');
 
 let productController = {
 
-    index: (req,res)=>{
-        res.render('./products/products', {products: productService.getAll()})
+    list: async function(req, res) {
+        try {
+            let productos = await productService.getAll();
+            res.render('./products/products', {products: productos})
+        } catch (error) {
+            console.log(error);
+            res.render('./products/products', {products: productos})
+        }
     },
 
-    detail: (req,res) => {
+    detail: async function (req,res) {
+  
+    try {
+        let product = await productService.getBy(req.params.id);
+        res.render('./products/productDetail',{product: product, products: await productService.getProductosRelacionados(product)});
 
-    let id=req.params.id;
-        res.render('./products/productDetail',{product: productService.getOne(id), products: productService.getProductosRelacionados(id)});
+    } catch (error) {
+        console.log(error);
+        res.redirect('/productos');
+    }    
+
     },
 
     getCarrito: (req,res)=>{
         res.render('./products/productCart');
     },
 
-    filter: (req, res) => {
-        const categoriasSeleccionadas = req.query.categorias || [];
-        const ofertasSeleccionadas = req.query.ofertas;
+    filter: async function(req, res) {
 
-        res.render('./products/filter', { products: productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+        let categoriasSeleccionadas;
+
+        if(typeof req.query.categorias !== 'string'){
+            categoriasSeleccionadas = req.query.categorias || [];
+        }else{
+            categoriasSeleccionadas = [req.query.categorias];
+        }
+
+        let ofertasSeleccionadas = req.query.ofertas;
+
+        try {
+            res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas, ofertasSeleccionadas), enOferta:ofertasSeleccionadas, categoriasSeleccionadas:categoriasSeleccionadas});
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+
+       
       },
     
     create: (req,res)=>{
         res.render('./products/productForm');
     },
 
-    store:(req, res)=>{
-       productService.save(req);
-       res.redirect('/productos');
+    store: async function(req, res) {
+       try {
+            await productService.add(req.body, req.file);
+            res.redirect('/productos');
+       } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+       }
+       
     },
 
-    edit:(req,res)=>{
-        res.render('./products/productEditForm',{product: productService.getOne(req.params.id)});
+    edit: async function (req,res) {
+        try {
+            res.render('./products/productEditForm',{product: await productService.getBy(req.params.id)});
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+       
     },
 
-    update:(req,res)=>{
-        productService.update(req);
-        res.redirect('/user/admin');
+    update: async function (req,res){
+        try {
+            await productService.update(req);
+            res.redirect('/productos');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+        
     },
 
-    destroy:(req,res)=>{
-        productService.delete(req.params.id);
-        res.redirect('/productos');
+    destroy: async function (req,res){
+        try {
+            await productService.delete(req.params.id);
+            res.redirect('/productos');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/productos');
+        }
+    
     }
-
 
 }
 
