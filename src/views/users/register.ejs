@@ -37,10 +37,9 @@
 
                 <div class="main__form-group">
                     <label for="nombre">Nombre<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>">
-
+                    <div class="input-with-icon ">
                         <input type="text" id="nombre" name="nombre"
-                            value="<%= locals.oldData ? oldData.nombre : null %>" />
+                            value="<%= locals.oldData ? oldData.nombre : null %>"  class="<%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>" />
                         <% if (locals.errors && locals.errors.nombre) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -55,9 +54,9 @@
 
                 <div class="main__form-group">
                     <label for="apellido">Apellido<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
+                    <div class="input-with-icon ">
                         <input type="text" id="apellido" name="apellido"
-                            value="<%= locals.oldData ? oldData.apellido : null %>">
+                            value="<%= locals.oldData ? oldData.apellido : null %>" class="<%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
 
                         <% if (locals.errors && locals.errors.apellido) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
@@ -73,8 +72,8 @@
 
                 <div class="main__form-group">
                     <label for="email">Email<span class="span-label">*</span></label>
-                        <div class="input-with-icon <%= locals.errors && errors.email? 'is-invalid' : '' %>">
-                            <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>">
+                        <div class="input-with-icon">
+                            <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>" class=" <%= locals.errors && errors.email? 'is-invalid' : '' %>">
                                <% if (locals.errors && errors.email) { %>
                                     <i class="fa-solid fa-circle-exclamation"></i>
                                 <% } %>
@@ -89,8 +88,8 @@
 
                 <div class="main__form-group">
                     <label for="password">Contraseña<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
-                        <input type="password" id="password" name="password">
+                    <div class="input-with-icon">
+                        <input type="password" id="password" name="password" class=" <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
 
                         <% if (locals.errors && locals.errors.password) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
@@ -106,8 +105,8 @@
                 <div class="main__form-group">
                     <label for="confirmPassword">Confirmar Contraseña<span class="span-label">*</span></label>
                     <div
-                        class="input-with-icon <%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
-                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        class="input-with-icon ">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="<%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
                         <% if (locals.errors && locals.errors.confirmPassword) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -120,7 +119,7 @@
                 </div>
                 <div class="main__form-group">
                     <label for="avatar">Imagen de perfil</label>
-                    <input type="file" id="avatar" name="avatar" accept=".jpg, .png"
+                    <input type="file" id="avatar" name="avatar" 
                         class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.avatar) { %>
                         <small class="text-danger">

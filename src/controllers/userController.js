@@ -1,5 +1,5 @@
 const userService = require('../model/services/userService');
-const productService= require('../model/services/productService');
+const productService = require('../model/services/productService');
 
 const { validationResult } = require('express-validator');
 
@@ -59,29 +59,29 @@ let userController = {
     },
     ///CREAR
     processRegister: async (req, res) => {
-    try {
+        
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('./users/register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
-        }
-        let newUser = await userService.create(req);
-        req.session.userLogged = newUser;
-        return res.redirect('/user/profile')
-      
-    }catch(error){
-        return res.render("./users/register", {
-            errors: {
-                general: {
-                    msg: error.message.includes("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.") ? error.message : null
+        };
+        try {
+            let newUser = await userService.create(req);
+            req.session.userLogged = newUser;
+            return res.redirect('/user/profile')
+
+        } catch (error) {
+            return res.render("./users/register", {
+                errors: {
+                    general: {
+                        msg: error.message
+                    },
                 },
-                email: error.message.includes('Este email está registrado') ? { msg: error.message } : null
-            },
-            oldData: req.body,
-        });
-    }
+                oldData: req.body,
+            });
+        }
     },
 
     edit: (req, res) => {
@@ -132,12 +132,12 @@ let userController = {
                     oldData: req.body
                 });
             };
-         
+
             if (req.body.id) {
                 let result = await userService.updatePassword(req);
-                return res.render("./users/login", {message: result});
-                
-            }else{
+                return res.render("./users/login", { message: result });
+
+            } else {
                 await userService.update(req);
                 return res.redirect("/user/profile")
             }
@@ -196,8 +196,8 @@ let userController = {
 
     delete: async (req, res) => {
         try {
-           let result = await userService.delete(req);
-           console.log(result)
+            let result = await userService.delete(req);
+            console.log(result)
             res.clearCookie('userEmail');
             req.session.destroy();
             return res.redirect('/')
@@ -219,12 +219,12 @@ let userController = {
     admin: async (req, res) => {
         try {
             let productos = await productService.getAll();
-            res.render('./users/admin', {products: productos})
+            res.render('./users/admin', { products: productos })
         } catch (error) {
             console.log(error);
-            res.render('./users/admin', {products: productos})
+            res.render('./users/admin', { products: productos })
         }
-      } 
+    }
 
 }
 

@@ -24,7 +24,7 @@ const User = {
             });
         } catch (error) {
             console.error(`Error al obtener usuario por Pk ${id}: `, error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
+           return null
         }
     },
 
@@ -39,7 +39,7 @@ const User = {
             });
         } catch (error) {
             console.error("Error al obtener usuario por email: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
+            return null
         }
     },
 
@@ -70,11 +70,7 @@ const User = {
 
     create: async function (req) {
         try {
-            let userInDB = await this.getByEmail(req.body.email)
-            if (userInDB){
-                throw new Error('Este email está registrado')
-            }
-            let data= {
+            let data = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
@@ -82,21 +78,20 @@ const User = {
                 password: bcryptjs.hashSync(req.body.password, 10),
                 rol: "CLIENTE",
                 estado: 1,
-              };
-             let newUser= await db.Usuarios.create(data, {raw: true, 
-                nest: true,})
+            };
+
+            let newUser = await db.Usuarios.create(data, {
+                raw: true,
+                nest: true
+            })
 
             delete newUser.password;
             return newUser
+
         } catch (error) {
             console.error('Error en registro:', error.message)
-            throw error
-            
-        
-                
-    } 
-         
-              
+            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
+        }
     },
 
     update: async function (req) {
@@ -107,10 +102,10 @@ const User = {
                 let userInDB = await this.getByEmail(req.body.email);
                 if (userInDB && userInDB.email !== userLogged.email) {
                     console.log('usuario registrado')
-                  throw new Error("Este email ya está registrado");
+                    throw new Error("Este email ya está registrado");
                 }
-              }
-            
+            }
+
             let oldData = await this.getByPK(userLogged.id);
             let image = oldData.avatar
             let deleteImage = null;
@@ -131,11 +126,11 @@ const User = {
             });
 
             if (result == 1) {
-               if (deleteImage) {
-                   this.deleteAvatar(deleteImage);
-               };
+                if (deleteImage) {
+                    this.deleteAvatar(deleteImage);
+                };
             };
-            let updatedUser= await this.getByPK(oldData.id);
+            let updatedUser = await this.getByPK(oldData.id);
             delete updatedUser.password;
             req.session.userLogged = updatedUser //actualizo session
             console.log('usuario actualizado')
@@ -147,14 +142,14 @@ const User = {
     },
     updatePassword: async function (req) {
         try {
-              let  oldData= await this.getByPK(req.body.id); //modificar password de usuario no logueado
+            let oldData = await this.getByPK(req.body.id); //modificar password de usuario no logueado
             let result = await db.Usuarios.update({
                 password: req.body.password ? bcryptjs.hashSync(req.body.password, 10) : oldData.password,
             }, {
                 where: { id: oldData.id }
             });
 
-            if (result==1) {
+            if (result == 1) {
                 return 'Tu contraseña ha sido restablecida con éxito';
             }
             return null
@@ -166,27 +161,27 @@ const User = {
 
     delete: async function (req) {
         try {
-          let userLogged = req.session.userLogged;
-          await db.Usuarios.destroy({
-              where: {
-                  id: userLogged.id,
-              },
-          });
-           this.deleteAvatar(userLogged.avatar);
+            let userLogged = req.session.userLogged;
+            await db.Usuarios.destroy({
+                where: {
+                    id: userLogged.id,
+                },
+            });
+            this.deleteAvatar(userLogged.avatar);
             return 'usuario eliminado'
-    
-      } catch (error) {
-          console.error("error al eliminar el usuario: ", error.message);
+
+        } catch (error) {
+            console.error("error al eliminar el usuario: ", error.message);
         }
-      },
+    },
 
     deleteAvatar: function (image) {
         const rutaArchivo = path.resolve("public", "images", "users", image);
         if (image !== "avatar_default.png") {
-          fs.unlinkSync(rutaArchivo);
-          console.log(`Imagen ${image} eliminada.`);
+            fs.unlinkSync(rutaArchivo);
+            console.log(`Imagen ${image} eliminada.`);
         }
-      },
+    },
 };
 
 module.exports = User;
