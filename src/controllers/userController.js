@@ -1,6 +1,5 @@
 const userService = require('../model/services/userService');
 const productService = require('../model/services/productService');
-
 const { validationResult } = require('express-validator');
 
 let userController = {
@@ -59,7 +58,6 @@ let userController = {
     },
     ///CREAR
     processRegister: async (req, res) => {
-        
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('./users/register', {
@@ -67,6 +65,7 @@ let userController = {
                 oldData: req.body
             });
         };
+
         try {
             let newUser = await userService.create(req);
             req.session.userLogged = newUser;

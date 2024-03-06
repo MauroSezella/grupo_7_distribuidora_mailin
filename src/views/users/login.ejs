@@ -41,20 +41,25 @@
 
                 <div class="main__form-group ">
                     <label for="email">Email</label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
-                        <input type="text" name="email" value="<%= locals.oldData ? oldData.email : '' %>" ><i class="fa-solid fa-at"></i>
+                    <div class="input-with-icon">
+                        <input type="text" name="email" value="<%= locals.oldData ? oldData.email : '' %>"
+                         class=" <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
+                         <% if (locals.errors && locals.errors.email) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
                     </div>
                     <% if (locals.errors && errors.email) { %>
-                        <small class="text-danger">
-                            <%= errors.email.msg  %>
-                        </small> 
+                        <small class="text-danger"><%= errors.email.msg  %></small> 
                     <% } %>
                 </div>
 
                 <div class="main__form-group">
                     <label for="password">Contraseña</label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.password? 'is-invalid' : null %>">
-                        <input type="password" name="password" class="password"><i class="fa-solid fa-lock"></i>
+                    <div class="input-with-icon">
+                        <input type="password" name="password" class="password <%= locals.errors && locals.errors.password? 'is-invalid' : null %>">
+                        <% if (locals.errors && locals.errors.password) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
                     </div>
                     <% if (locals.errors && errors.password) { %>
                         <small class="text-danger">

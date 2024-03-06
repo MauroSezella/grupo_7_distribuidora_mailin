@@ -12,7 +12,8 @@ const User = {
             });
         } catch (error) {
             console.error("Error al obtener Usuarios: ", error.message);
-            return [];
+            return []
+
         }
     },
 
@@ -24,10 +25,10 @@ const User = {
             });
         } catch (error) {
             console.error(`Error al obtener usuario por Pk ${id}: `, error.message);
-           return null
+            return null 
         }
     },
-
+    
     getByEmail: async function (data) {
         try {
             return await db.Usuarios.findOne({
@@ -69,17 +70,16 @@ const User = {
     },
 
     create: async function (req) {
+        const data = {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            avatar: req.file ? req.file.filename : "avatar_default.png",
+            password: bcryptjs.hashSync(req.body.password, 10),
+            rol: "CLIENTE",
+            estado: 1,
+        };
         try {
-            let data = {
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                avatar: req.file ? req.file.filename : "avatar_default.png",
-                password: bcryptjs.hashSync(req.body.password, 10),
-                rol: "CLIENTE",
-                estado: 1,
-            };
-
             let newUser = await db.Usuarios.create(data, {
                 raw: true,
                 nest: true
