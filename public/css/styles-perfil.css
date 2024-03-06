@@ -80,14 +80,18 @@ h1{
     font-size: 14px;
     color: var(--color-footer);
     width: 100%;
-    padding-left: 30px;
+    padding-left: 20px;
+}
 
+.link-perfil i{
+    font-size: 12px;
+    padding: 5px;
+    margin-right: 5px;
 }
 .link-perfil:last-child{
     border-bottom: none;
 }
 .link-perfil:hover{
-    border-right: 2px solid #0f95b6;
     color: #0f95b6;
     font-weight: 600;
 }

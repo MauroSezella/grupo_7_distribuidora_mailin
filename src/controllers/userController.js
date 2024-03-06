@@ -24,31 +24,27 @@ let userController = {
 
     processLogin: async (req, res) => {
         try {
-            const resultValidation = validationResult(req);
+            const userToLogin = await userService.authLogin(req.body.email);
 
+            const resultValidation = validationResult(req);
             if (resultValidation.errors.length > 0) {
                 return res.render('./users/login', {
                     errors: resultValidation.mapped(),
                     oldData: req.body
                 });
             };
-
-            let userToLogin = await userService.authLogin(req);
-
+    
             req.session.userLogged = userToLogin ///guardar en session
-
+    
             if (req.body.recordarUsuario) {
                 res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 });
             };
-
+    
             return res.redirect('/user/profile');
 
         } catch (error) {
-            console.error("Error en la autenticación: ", error.message);
-            res.render("./users/login", {
+            return res.render("./users/login", {
                 errors: {
-                    email: { msg: null },
-                    password: { msg: null },
                     general: { msg: error.message },
                 },
                 oldData: req.body,
@@ -56,17 +52,16 @@ let userController = {
         }
 
     },
-    ///CREAR
-    processRegister: async (req, res) => {
-        const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-            return res.render('./users/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
-        };
 
+    processRegister: async (req, res) => {
         try {
+            const resultValidation = validationResult(req);
+            if (resultValidation.errors.length > 0) {
+                return res.render('./users/register', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body
+                });
+            };
             let newUser = await userService.create(req);
             req.session.userLogged = newUser;
             return res.redirect('/user/profile')
@@ -107,11 +102,7 @@ let userController = {
             return res.render("./users/editProfile", {
                 user: req.session.userLogged,
                 errors: {
-                    general: {
-                        msg: error.message.includes("Hubo un problema para procesar tu solicitud. Por favor, inténtalo más tarde.") ? error.message : null
-                    },
-                    email: error.message.includes("Este email ya está registrado") ? { msg: error.message } : null
-                },
+                    general: {msg: error.message}},
                 oldData: req.body,
             });
         }
@@ -144,9 +135,7 @@ let userController = {
             return res.render("./users/resetPassword", {
                 user: req.session.userLogged || req.body,
                 errors: {
-                    general: {
-                        msg: error.message
-                    },
+                    general: {msg: error.message}
                 },
                 oldData: req.body,
             });
@@ -154,6 +143,7 @@ let userController = {
     },
     verification: async (req, res) => {
         try {
+            let userInDB = await userService.authLogin(req.body.email);
             const resultValidation = validationResult(req);
 
             if (resultValidation.errors.length > 0) {
@@ -163,35 +153,15 @@ let userController = {
                 });
             }
 
-            let userInDB = await userService.getByEmail(req.body.email);
-
-            if (userInDB) {
-                return res.render("./users/resetPassword", {
-                    user: userInDB,
-                });
-            } else {
-                return res.render("./users/emailVerification", {
-                    errors: {
-                        email: {
-                            msg: "Este email no registrado. Por favor, crea una cuenta",
-                        },
-                    },
-                });
-            }
+            return res.render("./users/resetPassword", {user: userInDB})
         } catch (error) {
-            console.error("Error: ", error.message);
             return res.render("./users/emailVerification", {
                 errors: {
-                    general: {
-                        msg: error.mensaje,
-                    },
+                    general: {msg: error.message}
                 },
             });
         }
     },
-
-
-
 
     delete: async (req, res) => {
         try {

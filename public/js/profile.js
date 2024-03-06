@@ -10,8 +10,6 @@ window.addEventListener('load', () => {
     perfil.classList.add('active');
     pedido.classList.remove('active');
 
-    
-    
     perfil.addEventListener('click', (event) => {
         event.preventDefault();
         sectionCompras.style.display = 'none';

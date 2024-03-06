@@ -5,27 +5,21 @@ const upload = require('../middlewares/userMulter');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
-
 const validations= require('../middlewares/usersValidations');
-const validationsLogin= require('../middlewares/validationLogin');
-const validationsEditUser= require('../middlewares/validationEditUser');
-const validationsPassword= require('../middlewares/validationPassword');
-const validationsEmail= require('../middlewares/validationEmail');
 
 router.get('/login',guestMiddleware, userController.login);
-router.post('/login', validationsLogin,userController.processLogin);
+router.post('/login', validations.login,userController.processLogin);
 
-//CREAR
 router.get('/register',guestMiddleware, userController.register);
 router.post('/register', upload.single('avatar'), validations.register,userController.processRegister);
 
 router.get('/profile',authMiddleware, userController.profile);
-//EDITAR
+
 router.get('/profile/edit',authMiddleware, userController.edit);
-router.put('/profile/edit',upload.single('avatar'), validationsEditUser, userController.update);
-router.get('/resetpassword', userController.resetPassword);
-router.put('/resetpassword', validationsPassword, userController.updatePassword);
-router.post('/verification', validationsEmail,userController.verification);
+router.put('/profile/edit',upload.single('avatar'), validations.edit, userController.update);
+router.get('/resetpassword',authMiddleware, userController.resetPassword);
+router.put('/resetpassword', validations.password, userController.updatePassword);
+router.post('/verification', validations.email,userController.verification);
 
 router.delete('/delete', authMiddleware, userController.delete); 
 

@@ -27,14 +27,15 @@
             <section class="container perfil">
               <img src="/images/users/<%= user.avatar %>" />
               <div class="contenedor-enlaces">
-                <a href="" class="link-perfil" id="enlace-perfil">Cuenta</a>
+                <a href="" class="link-perfil" id="enlace-perfil"> <i class="fa-regular fa-user"></i> Cuenta</a>
                 <% if (!isAdmin) { %>
-                  <a href="" class="link-perfil" id="enlace-pedidos">Pedidos</a>
+                  <a href="" class="link-perfil" id="enlace-pedidos"><i class="fa-solid fa-basket-shopping"></i> Pedidos</a>
                 <% } %>
-                <a href="/user/logout/" class="link-perfil">Cerrar Sesión</a>
+                <a href="/user/logout/" class="link-perfil"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión</a>
 
               </div>
             </section>
+            
 
             <section class="secciones-perfil" id="perfil">
               <h2>Perfil</h2>

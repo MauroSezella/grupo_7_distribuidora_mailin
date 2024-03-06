@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models/");
+const e = require("express");
 
 const User = {
     getAll: async function () {
@@ -31,7 +32,7 @@ const User = {
     
     getByEmail: async function (data) {
         try {
-            return await db.Usuarios.findOne({
+           return await db.Usuarios.findOne({
                 where: {
                     email: data,
                 },
@@ -44,24 +45,23 @@ const User = {
         }
     },
 
-    authLogin: async function (req) {
+    authLogin: async function (data) {
         try {
-            let userInDB = await this.getByEmail(req.body.email);
-            if (!userInDB) {
-                throw new Error("Los datos son incorrectos. Revísalos y vuelve a intentarlo.");
-            }
+            let userToLogin =  await db.Usuarios.findOne({
+                where: {
+                    email: data,
+                },
+                raw: true,
+                nest: true,
+            })
 
-            let okPassword = this.comparePasswords(req.body.password, userInDB.password);
-            if (okPassword) {
-                delete userInDB.password;
-                return userInDB;
-            } else {
-                throw new Error("Los datos son incorrectos. Revísalos y vuelve a intentarlo.");
+            if (userToLogin) {
+                delete userToLogin;
+                return userToLogin;
             }
-
         } catch (error) {
             console.error("Error en la autenticación: ", error.message);
-            throw error
+            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
@@ -97,15 +97,6 @@ const User = {
     update: async function (req) {
         try {
             let userLogged = req.session.userLogged;
-            //verifico si el email ingresado esta registrado en db
-            if (req.body.email) {
-                let userInDB = await this.getByEmail(req.body.email);
-                if (userInDB && userInDB.email !== userLogged.email) {
-                    console.log('usuario registrado')
-                    throw new Error("Este email ya está registrado");
-                }
-            }
-
             let oldData = await this.getByPK(userLogged.id);
             let image = oldData.avatar
             let deleteImage = null;
@@ -137,7 +128,7 @@ const User = {
             return updatedUser;
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw error;
+            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
     updatePassword: async function (req) {
@@ -155,7 +146,7 @@ const User = {
             return null
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw error;
+            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
