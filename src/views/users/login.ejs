@@ -45,8 +45,9 @@
                     <div class="input-with-icon">
                         <input type="text" name="email" value="<%= locals.oldData ? oldData.email : '' %>"
                          class=" <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
-                         
-                            <!-- <i class="fa-solid fa-circle-exclamation"></i> -->
+                         <% if (locals.errors && errors.email) { %>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        <% } %>
                       
                     </div>
                     <% if (locals.errors && errors.email) { %>

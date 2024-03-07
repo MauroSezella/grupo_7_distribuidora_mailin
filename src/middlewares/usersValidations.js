@@ -16,6 +16,7 @@ const register = [
       if (userInDB) {
         throw new Error('Este email está registrado.')
       }
+      
       return true
     }),
 
@@ -37,7 +38,7 @@ const register = [
 
   check('avatar').custom((value, { req }) => {
     let file = req.file;
-    let acceptedExtensions = ['".jpg"', '".png"', '".jpeg"', '".gif"'];
+    let acceptedExtensions = ['.jpg', '.png', '.jpeg', '.gif'];
 
     if (file) {
       let fileExtension = path.extname(file.originalname);
@@ -59,10 +60,12 @@ const login = [
     .custom(async (value, { req }) => {
       let userInDB = await userService.getByEmail(value)
       if (userInDB) {
-        let passwordOk = await userService.comparePasswords(req.body.password, userInDB.password);
-        if (!passwordOk) {
-          throw new Error('Credenciales inválidas ')
-        }
+       if ( req.body.password) {
+         let passwordOk = await userService.comparePasswords(req.body.password, userInDB.password);
+         if (!passwordOk) {
+           throw new Error('Credenciales inválidas ')
+         }
+       }
         return true
       } else {
         throw new Error('Este email no está registrado.')
@@ -134,7 +137,7 @@ const edit = [
 
   check('avatar').custom((value, { req }) => {
     let file = req.file;
-    let acceptedExtensions = ['".jpg"', '".png"', '".jpeg"', '".gif"'];
+    let acceptedExtensions = ['.jpg', '.png', '.jpeg"', '.gif'];
 
     if (file) {
       let fileExtension = path.extname(file.originalname);

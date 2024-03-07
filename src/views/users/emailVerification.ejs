@@ -34,7 +34,7 @@
                 <div class="main__form-group ">
                     <label for="email">Email</label>
                     <div class="input-with-icon" >
-                        <input type="text" name="email" class="<%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
+                        <input type="text" name="email" class="<%= locals.errors && locals.errors.email? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.email : '' %>">
                         <% if (locals.errors && locals.errors.email) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                         <% } %>
