@@ -1,6 +1,6 @@
 const path = require('path');
 const productService = require('../model/services/productService');
-const { log } = require('console');
+const { validationResult } = require('express-validator');
 
 let productController = {
 
@@ -59,11 +59,24 @@ let productController = {
 
     store: async function(req, res) {
        try {
+            const resultValidation = validationResult(req);
+            if (resultValidation.errors.length > 0) {
+                return res.render('./products/productForm', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body
+                });
+            }
             await productService.add(req.body, req.file);
             res.redirect('/productos');
        } catch (error) {
-            console.log(error);
-            res.redirect('/productos');
+            return res.render("./products/productForm", {
+            errors: {
+                general: {
+                    msg: error.message.includes("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.") ? error.message : null
+                }
+            },
+            oldData: req.body,
+        });
        }
        
     },
