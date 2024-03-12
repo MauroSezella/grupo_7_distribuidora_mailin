@@ -101,7 +101,6 @@ main{
 }
 
 .form-items {
-    display: flex;
     gap: 10px;
     transition: flex-direction 0.5s ease;
 }
@@ -123,10 +122,6 @@ textarea {
 
 textarea {
     resize: vertical;
-}
-
-.input-precio, .input-descuento, .input-stock {
-    width: 50%;
 }
 
 .input-foto {
@@ -155,6 +150,40 @@ textarea {
     font-family: 'Quicksand', sans-serif;
 }
 
+.form-input{
+    width: 100%;
+    position: relative;
+}
+
+.form-input-number{
+    width: 100%;
+    position: relative;
+}
+
+.form-input-number input{
+    width: 100%;
+}
+
+.form-input input{
+    width: 100%;
+}
+
+.form-input textarea{
+    width: 100%;
+}
+
+
+.form-input i{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+.form-input-number i{
+    position: absolute;
+    right: 30px;
+    top: 7px;
+}
 
 .is-invalid {
     border: 1px solid #dc3545;
@@ -292,10 +321,6 @@ footer{
         width: 60%;
     }
 
-    .input-precio, .input-descuento, .input-stock {
-        width: 30%;
-    }
-
 
     .categorias {
         width: 30%;
@@ -368,10 +393,6 @@ footer{
         width: 50%;
         
     }
-    .input-precio, .input-descuento, .input-stock {
-        width: 20%;
-    }
-    
     
     .categorias {
         width: 20%;
