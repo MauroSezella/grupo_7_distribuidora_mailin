@@ -15,6 +15,7 @@ window.addEventListener('load', function () {
     let registerForm = document.getElementById('form');
 
     const validacion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   
     const acceptedExtensions = ['jpg', 'png', 'jpeg', 'gif'];
     const esImagenValida = (val) => {
         if (val) {
@@ -39,7 +40,7 @@ window.addEventListener('load', function () {
             errores.apellido = 'El apellido debe tener al menos 4 caracteres';
         }
 
-        if (inputEmail.value.length < 1 || validacion.test(email)) {
+        if (inputEmail.value.length < 1 ||  !validacion.test(inputEmail.value) ) {
             errores.email = 'Debe ingresar un email válido que no esté registrado previamente';
         }
 
