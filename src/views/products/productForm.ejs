@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/styles-formProduct.css">
+    <script src="/js/productValidator.js"></script>
     <title>Agregar Producto</title>
 
 </head>
@@ -41,7 +42,7 @@
                     </div>
 
                     <% if (locals.errors && locals.errors.nombre) { %>
-                        <small class="text-danger">
+                        <small id="errorNombre" class="text-danger">
                             <%= locals.errors.nombre.msg %>
                         </small>
                         <% } %>
