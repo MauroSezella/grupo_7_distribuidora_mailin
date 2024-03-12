@@ -43,7 +43,7 @@ const validationProduct = [
 
     check('imagen').custom((value, { req }) => {
         let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png'];
+        let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
         
         if (file) {
             let fileExtension = path.extname(file.originalname);

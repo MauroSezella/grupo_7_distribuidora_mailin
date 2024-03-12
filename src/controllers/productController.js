@@ -93,11 +93,27 @@ let productController = {
 
     update: async function (req,res){
         try {
+            const resultValidation = validationResult(req);
+            console.log(resultValidation);
+            if (resultValidation.errors.length > 0) {
+                return res.render('./products/productEditForm', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    product: await productService.getBy(req.params.id) 
+                });
+            }
+
             await productService.update(req);
             res.redirect('/productos');
         } catch (error) {
-            console.log(error);
-            res.redirect('/productos');
+            return res.render("./products/productEditForm", {
+                errors: {
+                    general: {
+                        msg: error.message.includes("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.") ? error.message : null
+                    }
+                },
+                oldData: req.body,
+                product: await productService.getBy(req.params.id)});
         }
         
     },

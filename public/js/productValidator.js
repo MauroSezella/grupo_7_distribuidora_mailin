@@ -3,6 +3,7 @@ window.addEventListener('load',function(){
     let formulario = document.querySelector('.formulario');
     let btnSubmit = document.querySelector('.btn-guardar');
 
+    const exprNumber = /^[0-9]*$/;
     const acceptedExtensions = ['jpg', 'png', 'jpeg'];
     const esImagenValida = (val) => {
     if (val) {
@@ -58,20 +59,19 @@ window.addEventListener('load',function(){
             formulario.stock.classList.add('is-invalid');
             errorStock.innerHTML += 'El stock no puede estar vacio';
             errores++;
-        } else if(isNumber(formulario.stock.value)){
+        } else if(!exprNumber.test(formulario.stock.value)){
             formulario.stock.classList.add('is-invalid');
             errorStock.innerHTML += 'El stock debe ser un numero';
             errores++;
         } 
 
-
         if (formulario.precio.value == ""){
             formulario.precio.classList.add('is-invalid');
             errorPrecio.innerHTML += 'El precio no puede estar vacio';
             errores++;
-        } else if(isNumber(formulario.precio.value)){
+        } else if(!exprNumber.test(formulario.precio.value)){
             formulario.precio.classList.add('is-invalid');
-            errorPrecio.innerHTML += 'El stock debe ser un numero';
+            errorPrecio.innerHTML += 'El precio debe ser un numero';
             errores++;
         } 
 
@@ -79,7 +79,7 @@ window.addEventListener('load',function(){
             formulario.descuento.classList.add('is-invalid');
             errorDescuento.innerHTML += 'El descuento no puede estar vacio';
             errores++;
-        } else if(isNumber(formulario.descuento.value)){
+        } else if(!exprNumber.test(formulario.descuento.value)){
             formulario.descuento.classList.add('is-invalid');
             errorDescuento.innerHTML += 'El descuento debe ser un numero';
             errores++;
@@ -91,7 +91,7 @@ window.addEventListener('load',function(){
             errores++;
         }
 
-        if(errores > 1){
+        if(errores){
             e.preventDefault();
         }
        
