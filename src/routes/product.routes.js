@@ -15,7 +15,7 @@ router.get('/cart', authMiddleware, productController.getCarrito);
 router.get('/filter', productController.filter);
 
 /*** CREAR UN PRODUCTO ***/ 
-router.get('/create',/*adminMiddleware,*/ productController.create);
+router.get('/create',adminMiddleware, productController.create);
 router.post('/', upload.single('imagen'), validationProduct, productController.store)
 
 /*** VER DETALLE DE UN PRODUCTO ***/ 
