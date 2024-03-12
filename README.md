@@ -32,7 +32,7 @@
 * https://dulcilandia.com.ar/par/ - El estilo e interfaz que más gustó al grupo.
 * https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
 
-TRELLO : https://trello.com/invite/b/OUuGgN7t/ATTI7985e91cc38688a3b446ff09b315ab97BCBF5F86/sprint-vi
+TRELLO : https://trello.com/invite/b/iOa2Qkgh/ATTI1e6d8e1f25178aae907e30cd22e0a0f6D2F08B01/sprint-vii
 
 USUARIO ADMIN PARA PROBAR: admin@dh.com
 CONSTRASEÑA: 12345678
