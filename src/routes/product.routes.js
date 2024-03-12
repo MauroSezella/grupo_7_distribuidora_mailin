@@ -22,7 +22,7 @@ router.post('/', upload.single('imagen'), validationProduct, productController.s
 router.get('/:id',productController.detail);
 
 /*** EDITAR UN PRODUCTO ***/ 
-router.get('/edit/:id', /*adminMiddleware,*/ productController.edit); 
+router.get('/edit/:id', adminMiddleware, productController.edit); 
 router.put('/edit/:id', upload.single('imagen'), validationProduct, productController.update); 
 
 /*** ELIMINAR UN PRODUCTO ***/
