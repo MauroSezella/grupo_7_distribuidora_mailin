@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="/css/styles-Loginregister.css">
         <title>Crea tu cuenta</title>
+        <script src="/js/registerValidation.js"></script>
 
 </head>
 
@@ -28,7 +29,7 @@
         <div class="main-form">
             
             
-            <form action="/user/register" method="post" class="formulario" enctype="multipart/form-data">
+            <form action="/user/register" method="post" class="formulario" id="form" enctype="multipart/form-data">
                 <h2 class="title-form">Crea tu cuenta</h2>
                 <% if (locals.errors && errors.general) { %>
                     <small class="text-danger error"><%= errors.general.msg %></small>
@@ -37,10 +38,10 @@
 
                 <div class="main__form-group">
                     <label for="nombre">Nombre<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>">
-
+                    <div class="input-with-icon ">
                         <input type="text" id="nombre" name="nombre"
-                            value="<%= locals.oldData ? oldData.nombre : null %>" />
+                            value="<%= locals.oldData ? oldData.nombre : null %>"  class="<%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>" />
+                            <small class="text-danger" id="erNombre"></small>
                         <% if (locals.errors && locals.errors.nombre) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -55,10 +56,10 @@
 
                 <div class="main__form-group">
                     <label for="apellido">Apellido<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
+                    <div class="input-with-icon ">
                         <input type="text" id="apellido" name="apellido"
-                            value="<%= locals.oldData ? oldData.apellido : null %>">
-
+                            value="<%= locals.oldData ? oldData.apellido : null %>" class="<%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
+                            <small class="text-danger" id="erApellido"></small>
                         <% if (locals.errors && locals.errors.apellido) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -73,9 +74,10 @@
 
                 <div class="main__form-group">
                     <label for="email">Email<span class="span-label">*</span></label>
-                        <div class="input-with-icon <%= locals.errors && errors.email? 'is-invalid' : '' %>">
-                            <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>">
-                               <% if (locals.errors && errors.email) { %>
+                        <div class="input-with-icon">
+                            <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>" class=" <%= locals.errors && errors.email? 'is-invalid' : '' %>">
+                            <small class="text-danger" id="erEmail"></small>   
+                            <% if (locals.errors && errors.email) { %>
                                     <i class="fa-solid fa-circle-exclamation"></i>
                                 <% } %>
                         </div>
@@ -89,9 +91,9 @@
 
                 <div class="main__form-group">
                     <label for="password">Contraseña<span class="span-label">*</span></label>
-                    <div class="input-with-icon <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
-                        <input type="password" id="password" name="password">
-
+                    <div class="input-with-icon">
+                        <input type="password" id="password" name="password" class=" <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
+                        <small class="text-danger" id="erPassword"></small>
                         <% if (locals.errors && locals.errors.password) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -106,8 +108,9 @@
                 <div class="main__form-group">
                     <label for="confirmPassword">Confirmar Contraseña<span class="span-label">*</span></label>
                     <div
-                        class="input-with-icon <%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
-                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        class="input-with-icon ">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="<%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
+                        <small class="text-danger" id="erConfirmar"></small>
                         <% if (locals.errors && locals.errors.confirmPassword) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <% } %>
@@ -120,8 +123,9 @@
                 </div>
                 <div class="main__form-group">
                     <label for="avatar">Imagen de perfil</label>
-                    <input type="file" id="avatar" name="avatar" accept=".jpg, .png"
-                        class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>">
+                    <input type="file" id="avatar" name="avatar" 
+                    class="input-register <%= locals.errors && locals.errors.avatar ? 'is-invalid' : null %>">
+                    <small class="text-danger" id="erArchivo"></small>
                     <% if (locals.errors && errors.avatar) { %>
                         <small class="text-danger">
                             <%= errors.avatar.msg %>
@@ -139,14 +143,14 @@
                 </div>
                
                         <div class="main__form-group">
-                            <button type="submit" class="button-submit">Registrarte</button>
+                            <button type="submit" id="btnSubmit" class="button-submit">Registrarte</button>
                         </div>
             </form>
 
             <p class="main__options">¿Ya tenés una cuenta?<a href="/user/login"> Inicia sesión</a></p>
         </div>
     </main>
-
+    
     <%- include('../partials/footer') %>
 </body>
 
