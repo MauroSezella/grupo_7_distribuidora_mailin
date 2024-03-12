@@ -34,15 +34,17 @@
             
                 <div class="form-items form-items-1">
                     <label for="nombreProducto">Nombre del producto<span class="span-label">*</span></label>
-                    <div class="form-input <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>">
+                    <div class="form-input <%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>" id="input-name">
                         <input type="text" name="nombre" id="nombreProducto" class="input-nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                         <% if (locals.errors && locals.errors.nombre) { %>
                             <i class="fa-solid fa-circle-exclamation"></i>
                         <% } %>
                     </div>
 
+                    <small class="text-danger" id = "errorNombre"></small>
+
                     <% if (locals.errors && locals.errors.nombre) { %>
-                        <small id="errorNombre" class="text-danger">
+                        <small class="text-danger">
                             <%= locals.errors.nombre.msg %>
                         </small>
                         <% } %>
@@ -58,6 +60,9 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                         <% } %>
                     </div>
+
+                    <small class="text-danger" id = "errorDescripcion"></small>
+
                     <% if (locals.errors && locals.errors.descripcion) { %>
                         <small class="text-danger">
                             <%= locals.errors.descripcion.msg %>
@@ -68,7 +73,10 @@
 
                 <div class="form-items form-items-1">
                     <label for="imagenproducto">Seleccionar imagen</label>
-                        <input type="file" name="imagen" id="imagenproducto" accept=".jpg, .png" class="input-foto" <%= locals.errors && locals.errors.imagen ? 'is-invalid' : null %>>
+                    <input type="file" name="imagen" id="imagenproducto" accept=".jpg, .png" class="input-foto" <%= locals.errors && locals.errors.imagen ? 'is-invalid' : null %>>
+                    
+                    <small class="text-danger" id = "errorImagen"></small>
+                    
                     <% if (locals.errors && errors.imagen) { %>
                         <small class="text-danger">
                             <%= errors.imagen.msg %>
@@ -105,6 +113,9 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                         <% } %>
                     </div>
+
+                    <small class="text-danger" id = "errorStock"></small>
+
                     <% if (locals.errors && locals.errors.stock) { %>
                         <small class="text-danger">
                             <%= locals.errors.stock.msg %>
@@ -135,6 +146,8 @@
                         <% } %>
                     </div>
 
+                    <small class="text-danger" id = "errorPrecio"></small>
+
                     <% if (locals.errors && locals.errors.precio) { %>
                         <small class="text-danger">
                             <%= locals.errors.precio.msg %>
@@ -150,6 +163,9 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                         <% } %>
                     </div>
+
+                    <small class="text-danger" id = "errorDescuento"></small>
+
                     <% if (locals.errors && locals.errors.descuento) { %>
                         <small class="text-danger">
                             <%= locals.errors.descuento.msg %>
