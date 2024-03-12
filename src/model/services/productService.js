@@ -56,6 +56,16 @@ const productService = {
 
     },
 
+    getCategoriaBy: async function (id) { 
+        try {   
+            return await db.Categorias.findByPk(id);
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+
+    },
+
     filtrarProductos: async function (categoriasSeleccionadas, ofertasSeleccionadas) {
 
         //Pregunto si se seleccionaron categorias y si se filtraron por ofertas

@@ -2,8 +2,14 @@ const path = require('path');
 const { check } = require('express-validator');
 
 const validationRegister = [
-	check('nombre').notEmpty().withMessage('Ingrese su nombre'),
-	check('apellido').notEmpty().withMessage('Ingrese su apellido'),
+	check('nombre')
+    .notEmpty().withMessage('Ingrese su nombre').bail()
+    .isLength({ min: 3 }).withMessage('El nombre debe tener al menos 3 carácteres').bail()
+    .isAlpha().withMessage('Debe ingresar solamente letras'),
+	check('apellido')
+    .notEmpty().withMessage('Ingrese su apellido').bail()
+    .isLength({ min: 3 }).withMessage('El apellido debe tener al menos 3 carácteres').bail()
+    .isAlpha().withMessage('Debe ingresar solamente letras'),
 	check('email')
 		.notEmpty().withMessage('Ingrese su correo electrónico').bail()
 		.isEmail().withMessage('Ingresá un email válido'),
