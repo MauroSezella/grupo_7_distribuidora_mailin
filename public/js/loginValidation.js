@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
         }
 
         if (inputPassword.value.trim()=='') {
-            errores.password = 'Tienes que escribir una contraseña';
+            errores.password = 'Debe ingresar una contraseña';
             inputPassword.classList.add('is-invalid')
         }else{
             inputPassword.classList.remove('is-invalid')

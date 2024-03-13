@@ -65,7 +65,7 @@ window.addEventListener('load', function () {
 
 
         if (inputConfirmar.value == '') {
-            errores.confirmPassword = 'Debes confirmar tu contraseña';
+            errores.confirmPassword = 'Debe confirmar la contraseña';
             inputConfirmar.classList.add('is-invalid');
            
             }
@@ -81,7 +81,7 @@ window.addEventListener('load', function () {
                     inputPassword.classList.remove('is-invalid');
                 }
             } else {
-                errores.confirmPassword = 'Debes confirmar tu contraseña';
+                errores.confirmPassword = 'Debe confirmar la contraseña';
                 inputConfirmar.classList.add('is-invalid');
             }
         } else {

@@ -54,9 +54,6 @@
                     <label for="nombre">Nombre<span class="span-label">*</span></label>
                     <div class="input-with-icon ">
                         <input type="text" id="nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : user.nombre %>"  class="<%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>"/>
-                        <% if (locals.errors && locals.errors.nombre) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
                     </div>
                     <% if (locals.errors && locals.errors.nombre) { %>
                         <small class="text-danger"><%= locals.errors.nombre.msg %></small>
@@ -67,9 +64,6 @@
                     <label for="apellido">Apellido<span class="span-label">*</span></label>
                     <div class="input-with-icon">
                         <input type="text" id="apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : user.apellido %>" class="<%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
-                        <% if (locals.errors && locals.errors.apellido) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
                     </div>
                     <% if (locals.errors && errors.apellido) { %>
                         <small class="text-danger"><%= errors.apellido.msg %></small>
@@ -80,9 +74,6 @@
                     <label for="email">Email<span class="span-label">*</span></label>
                     <div class="input-with-icon">
                         <input type="text" id="email" name="email" value="<%= locals.oldData? oldData.email : user.email %>" class=" <%= locals.errors && locals.errors.email ? 'is-invalid' : '' %>">
-                        <% if (locals.errors && locals.errors.email) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
                     </div>
                     <% if (locals.errors && errors.email) { %>
                         <small class="text-danger"><%= errors.email.msg %></small>

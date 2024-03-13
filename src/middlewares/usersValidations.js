@@ -10,7 +10,7 @@ const register = [
     .trim().isLength({ min: 2 }).withMessage('Debe contener al menos 2 carácteres.'),
   check('email')
     .notEmpty().withMessage('Ingrese su correo electrónico.').bail()
-    .isEmail().withMessage('Ingresá un email válido.').bail()
+    .isEmail().withMessage('Debe ingresar un email válido').bail()
     .custom(async (value) => {
       let userInDB = await userService.getByEmail(value)
       if (userInDB) {
@@ -25,7 +25,7 @@ const register = [
     .isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 carácteres'),
 
   check('confirmPassword')
-    .notEmpty().withMessage('Debes confirmar tu contraseña').bail()
+    .notEmpty().withMessage('Debe confirmar la contraseña').bail()
     .custom((value, { req }) => {
       if (req.body.password && req.body.password.length < 8) {
         return true;
@@ -56,14 +56,14 @@ const register = [
 const login = [
   check('email')
     .notEmpty().withMessage('Ingrese su correo electrónico').bail()
-    .isEmail().withMessage('Debes escribir un formato de correo válido').bail()
+    .isEmail().withMessage('Debe ingresar un email válido').bail()
     .custom(async (value, { req }) => {
       let userInDB = await userService.getByEmail(value)
       if (userInDB) {
        if ( req.body.password) {
          let passwordOk = await userService.comparePasswords(req.body.password, userInDB.password);
          if (!passwordOk) {
-           throw new Error('Credenciales inválidas ')
+          throw new Error(' ')
          }
        }
         return true
@@ -73,13 +73,14 @@ const login = [
     }),
 
   check('password')
-    .notEmpty().withMessage('Tienes que escribir una contraseña').bail()
+    .notEmpty().withMessage('Debe ingresar una contraseña').bail()
     .custom(async (value, { req }) => {
       let userInDB = await userService.getByEmail(req.body.email);
       if (userInDB) {
         let passwordOk = await userService.comparePasswords(value, userInDB.password);
         if (!passwordOk) {
-          throw new Error(' ')
+          throw new Error('Credenciales inválidas ')
+       
         }
         return true
       };
@@ -89,7 +90,7 @@ const login = [
 const email = [
   check('email')
     .notEmpty().withMessage('Ingrese su correo electrónico').bail()
-    .isEmail().withMessage('Debes escribir un formato de correo válido').bail()
+    .isEmail().withMessage('Debe ingresar un email válido').bail()
     .custom(async (value) => {
       let userInDB = await userService.getByEmail(value)
       if (!userInDB) {
@@ -105,7 +106,7 @@ const password = [
     .isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 carácteres'),
 
   check('confirmPassword')
-    .notEmpty().withMessage('Debes confirmar tu contraseña').bail()
+    .notEmpty().withMessage('Debe confirmar la contraseña').bail()
     .custom((value, { req }) => {
       if (req.body.password && req.body.password.length < 8) {
         return true;
@@ -125,7 +126,7 @@ const edit = [
     .trim().isLength({ min: 2 }).withMessage('Debe contener al menos 2 carácteres.'),
   check('email')
     .notEmpty().withMessage('Ingrese su correo electrónico.').bail()
-    .isEmail().withMessage('Ingresá un email válido.').bail()
+    .isEmail().withMessage('Debe ingresar un email válido').bail()
     .custom(async (value, {req}) => {
       let userInDB = await userService.getByEmail(value);
       let userLogged =req.session.userLogged
