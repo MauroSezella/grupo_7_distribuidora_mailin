@@ -30,7 +30,7 @@
                 <div class="main__categoria-container">
                  
                     <% categorias.forEach(element=> { %>
-                        <a href="/productos/filter?categorias=<%= element.nombre%>" class="main__categoria-link"><img src="./images/categoria-<%= element.nombre %>.jpg" alt=""
+                        <a href="/productos/filter?categorias=<%= element.id%>" class="main__categoria-link"><img src="./images/categoria-<%= element.nombre %>.jpg" alt=""
                                 class="main__categoria-img"></a>
                         <% }) %>
                 </div>

@@ -152,7 +152,7 @@ main {
     position: relative;
     width: 100%;
 }
-/*errores*/
+
 .input-with-icon i {
     position: absolute;
     font-size: 14px;
@@ -185,6 +185,11 @@ main {
 
 }
 
+.is-invalid{
+    border: 1px solid #dc3545;
+    border-radius: 3px;
+}
+
 .is-valid{
     border: 0.5px seagreen solid;
     color: seagreen;
@@ -199,6 +204,7 @@ main {
     font-size: small;
     font-family: sans-serif;
     margin-top: 3px;
+    display: block;
 }
 
 /*HASTA AQUI*/

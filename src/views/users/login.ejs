@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/styles-LoginRegister.css">
         <title>Ingresá a tu cuenta</title>
         <script src="/js/loginValidation.js"></script>
-        <script src="/js/login.js"></script>
+
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
         <div class="main-form">
         
-            <form action="/user/login" method="post" class="formulario">
+            <form action="/user/login" method="post" id="form" class="formulario">
                 <h2 class="title-form">Ingresá a tu cuenta</h2>
 
                 <% if (locals.message) { %>
@@ -47,13 +47,9 @@
                         <input type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : '' %>"
                          class=" <%= locals.errors && locals.errors.email? 'is-invalid' : null %>">
                          <small class="text-danger" id="erEmail"></small>
-                         <% if (locals.errors && errors.email) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
-                      
                     </div>
                     <% if (locals.errors && errors.email) { %>
-                        <small class="text-danger"><%= errors.email.msg  %></small> 
+                        <small class="text-danger" id='erEmail-back' ><%= errors.email.msg  %></small> 
                     <% } %>
                 </div>
 
@@ -61,11 +57,11 @@
                     <label for="password">Contraseña</label>
                     <div class="input-with-icon">
                         <input type="password" name="password" id="password" class="password <%= locals.errors && locals.errors.password? 'is-invalid' : null %>" id="password">
-                        <small class="text-danger" id="erPassword"></small>
                         <i class="fa-regular fa-eye-slash" id="mostrarPassword"></i>
                     </div>
+                    <small class="text-danger" id="erPassword"></small>
                     <% if (locals.errors && errors.password) { %>
-                        <small class="text-danger">
+                        <small class="text-danger " id="erPass-back">
                             <%= errors.password.msg  %>
                         </small> 
                     <% } %>

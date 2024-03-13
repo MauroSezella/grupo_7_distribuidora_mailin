@@ -42,10 +42,6 @@
                         <input type="text" id="nombre" name="nombre"
                             value="<%= locals.oldData ? oldData.nombre : null %>"  class="<%= locals.errors && locals.errors.nombre ? 'is-invalid' : null %>" />
                             <small class="text-danger" id="erNombre"></small>
-                        <% if (locals.errors && locals.errors.nombre) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <% } %>
-
                     </div>
                     <% if (locals.errors && locals.errors.nombre) { %>
                         <small class="text-danger">
@@ -60,10 +56,6 @@
                         <input type="text" id="apellido" name="apellido"
                             value="<%= locals.oldData ? oldData.apellido : null %>" class="<%= locals.errors && locals.errors.apellido ? 'is-invalid' : '' %>">
                             <small class="text-danger" id="erApellido"></small>
-                        <% if (locals.errors && locals.errors.apellido) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <% } %>
-
                     </div>
                     <% if (locals.errors && errors.apellido) { %>
                         <small class="text-danger">
@@ -77,13 +69,9 @@
                         <div class="input-with-icon">
                             <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>" class=" <%= locals.errors && errors.email? 'is-invalid' : '' %>">
                             <small class="text-danger" id="erEmail"></small>   
-                            <% if (locals.errors && errors.email) { %>
-                                    <i class="fa-solid fa-circle-exclamation"></i>
-                                <% } %>
                         </div>
-
                     <% if (locals.errors && errors.email) { %>
-                        <small class="text-danger">
+                        <small class="text-danger" id='erEmail-back'>
                             <%= errors.email.msg %>
                         </small>
                     <% } %>
@@ -92,12 +80,9 @@
                 <div class="main__form-group">
                     <label for="password">Contraseña<span class="span-label">*</span></label>
                     <div class="input-with-icon">
-                        <input type="password" id="password" name="password" class=" <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>">
+                        <input type="password" id="password" name="password" class=" <%= locals.errors && locals.errors.password ? 'is-invalid' : '' %>"
+                        value="<%= locals.oldData ? oldData.password : '' %>" >
                         <small class="text-danger" id="erPassword"></small>
-                        <% if (locals.errors && locals.errors.password) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <% } %>
-
                     </div>
                     <% if (locals.errors && errors.password) { %>
                         <small class="text-danger">
@@ -109,11 +94,8 @@
                     <label for="confirmPassword">Confirmar Contraseña<span class="span-label">*</span></label>
                     <div
                         class="input-with-icon ">
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="<%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
+                        <input type="password" id="confirmPassword" name="confirmPassword"  value="<%= locals.oldData ? oldData.confirmPassword : '' %>" class="<%= locals.errors && locals.errors.confirmPassword ? 'is-invalid' : '' %>">
                         <small class="text-danger" id="erConfirmar"></small>
-                        <% if (locals.errors && locals.errors.confirmPassword) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <% } %>
                     </div>
                     <% if (locals.errors && errors.confirmPassword) { %>
                         <small class="text-danger">
@@ -135,6 +117,9 @@
                 <div class="main__aceptaTerminos">
                     <label for="aceptaTerminos"><input type="checkbox" id="aceptaTerminos" name="aceptaTerminos"
                             value="1"> Acepto términos y condiciones</label>
+                    <small class="text-danger" id="erAcepTerminos"></small>
+
+
                     <% if (locals.errors && errors.aceptaTerminos) { %>
                         <div class="text-danger">
                             <%= errors.aceptaTerminos.msg %>

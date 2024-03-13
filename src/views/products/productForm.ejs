@@ -56,9 +56,7 @@
                     <label for="descripcionProducto" class="form__label">Descripción<span class="span-label">*</span></label>
                     <div class="form-input <%= locals.errors && locals.errors.descripcion ? 'is-invalid' : null %>">
                         <textarea name="descripcion" id="descripcionProducto" cols="30"><%= locals.oldData ? oldData.descripcion : ""%></textarea>
-                        <% if (locals.errors && locals.errors.descripcion) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+               
                     </div>
 
                     <small class="text-danger" id = "errorDescripcion"></small>
@@ -93,9 +91,7 @@
                                 <option value = "<%= element.id %>"><%= element.nombre %></option>  
                             <% }); %>
                         </select>
-                        <% if (locals.errors && locals.errors.categoria) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+
                     </div>
                     <% if (locals.errors && locals.errors.categoria) { %>
                         <small class="text-danger">
@@ -109,9 +105,7 @@
                     <label for="stockProducto"> Stock<span class="span-label">*</span></label>
                     <div class="form-input-number <%= locals.errors && locals.errors.stock ? 'is-invalid' : null %>">
                         <input type="number" min="0" name="stock" id="stockProducto" class="input-stock" placeholder="0" value="<%= locals.oldData ? oldData.stock : null %>">
-                        <% if (locals.errors && locals.errors.stock) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+        
                     </div>
 
                     <small class="text-danger" id = "errorStock"></small>
@@ -126,9 +120,7 @@
                 <div class="form-items">
                     <label for="enOferta"> En oferta </label>
                     <input type = "checkbox" name = "en_oferta" value=1  id = "enOferta" class="input-oferta" >
-                    <% if (locals.errors && locals.errors.en_oferta) { %>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    <% } %>
+          
                     <% if (locals.errors && locals.errors.en_oferta) { %>
                         <small class="text-danger">
                             <%= locals.errors.en_oferta.msg %>
@@ -141,9 +133,7 @@
 
                     <div class="form-input-number <%= locals.errors && locals.errors.precio ? 'is-invalid' : null %>">
                     <input type="number" min="0" step="0.1" name="precio" id="precioProducto" class="input-precio" placeholder="0.00" value="<%= locals.oldData ? oldData.precio : null %>">
-                        <% if (locals.errors && locals.errors.precio) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+        
                     </div>
 
                     <small class="text-danger" id = "errorPrecio"></small>
@@ -159,9 +149,7 @@
                     <label for="descuento"> Descuento % <span class="span-label">*</span></label>
                     <div class="form-input-number <%= locals.errors && locals.errors.descuento ? 'is-invalid' : null %>">
                         <input type="number" min="0" name="descuento" id="descuento" class="input-descuento" placeholder="0" value="<%= locals.oldData ? oldData.descuento : null %>">
-                        <% if (locals.errors && locals.errors.descuento) { %>
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        <% } %>
+            
                     </div>
 
                     <small class="text-danger" id = "errorDescuento"></small>

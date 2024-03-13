@@ -20,21 +20,22 @@
 
 
 
-            <% if (enOferta==="si"){%>
-                 <h2> Ofertas</h2>
-    
-            <% }else if(categoriasSeleccionadas.length===0){%>
-                    <h2>Todos los Productos</h2>
-            <% }else if(categoriasSeleccionadas.length<5 && categoriasSeleccionadas.length>0  ){%>
-                        <h2> Productos</h2>
+            <% if (enOferta=="si"){%>
+                <h2> Ofertas</h2>
+   
+           <% }else if(categoriasSeleccionadas.length===0){%>
+                   <h2>Todos los Productos</h2>
+           <% }else if(categoriasSeleccionadas.length>1  ){%>
+                       <h2> Productos</h2>
 
-            <% } else{ %>
-                    <% categorias.forEach(element=> { %>
-                        <% if(categoriasSeleccionadas==element){%>
-                                <h2> <%= categoriasSeleccionadas %></h2>
-                        <% } %>
-                    <% }); %>
-            <% } %>
+           <% } else{ %>
+                   <% categorias.forEach(element=> { %>
+                       <% if(categoriasSeleccionadas==element.id){%>
+                               <h2> <%= element.nombre %></h2>
+                       <% } %>
+                   <% }); %>
+           <% } %>
+
 
         </section>
 
