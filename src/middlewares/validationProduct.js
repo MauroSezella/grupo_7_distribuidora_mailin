@@ -27,7 +27,7 @@ const validationProduct = [
     
     check('precio')
         .notEmpty().withMessage('Ingrese un valor para el precio').bail()
-        .isNumeric().withMessage('El precio debe ser un numero').bail(),
+        .isDecimal().withMessage('El precio debe ser un numero').bail(),
 
     check('descuento')
         .notEmpty().withMessage('Ingrese un valor para el descuento').bail()

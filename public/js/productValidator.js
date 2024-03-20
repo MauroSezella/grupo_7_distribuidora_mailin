@@ -3,7 +3,7 @@ window.addEventListener('load',function(){
     let formulario = document.querySelector('.formulario');
     let btnSubmit = document.querySelector('.btn-guardar');
 
-    const exprNumber = /^[0-9]*$/;
+    const exprNumber = /^[0-9]+([.][0-9]+)?$/;
     const acceptedExtensions = ['jpg', 'png', 'jpeg'];
     const esImagenValida = (val) => {
     if (val) {
