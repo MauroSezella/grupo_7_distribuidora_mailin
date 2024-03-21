@@ -222,7 +222,44 @@ const productService = {
         fs.unlinkSync(rutaArchivo);
         console.log(`Imagen ${nombreArchivo} eliminada del servidor.`);
     
-    }
+    },
+
+    getAllByCategory: async function (id) { 
+        try {   
+            let products = await db.Productos.findAll({
+                where: {categoria_id: id}
+            });
+            return products.length
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+
+    },
+
+    getAllApiProducts: async function () {
+        try {
+            let products = await productService.getAll();
+            let category1 = await productService.getAllByCategory(1);
+            let category2 = await productService.getAllByCategory(2);
+            let category3 = await productService.getAllByCategory(3);
+            let category4 = await productService.getAllByCategory(4);
+            let results = {
+                count:products.length,
+                countByCategory: {
+                    Galletas: category1,
+                    Alfajores: category2,
+                    Caramelos: category3,
+                    Chupetines: category4
+                },
+                products: products
+               };
+            return results;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    },
 
 }
 
