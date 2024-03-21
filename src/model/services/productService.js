@@ -244,17 +244,28 @@ const productService = {
             let category2 = await productService.getAllByCategory(2);
             let category3 = await productService.getAllByCategory(3);
             let category4 = await productService.getAllByCategory(4);
+
+            products.map((product)=>{product.dataValues.detail = 'api/products/'+product.id});
+
+            console.log(products);
+
             let results = {
+
                 count:products.length,
+
                 countByCategory: {
                     Galletas: category1,
                     Alfajores: category2,
                     Caramelos: category3,
                     Chupetines: category4
                 },
-                products: products
+
+                products: products,
+
                };
+
             return results;
+
         } catch (error) {
             console.log(error);
             return [];
