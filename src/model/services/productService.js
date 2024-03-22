@@ -39,7 +39,7 @@ const productService = {
     getProductosEnOferta: async function () {
 
         try {   
-            return await db.Productos.findAll({where: {en_oferta : 1}, include: 'categoria'});
+            return await db.Productos.findAll({where:  { descuento : {[Op.gt]: 0}}, include: 'categoria'});
         } catch (error) {
             console.log(error);
             return [];
@@ -74,7 +74,7 @@ const productService = {
         try {
                 return await db.Productos.findAll({where: 
                 {categoria_id : {[Op.in] : categoriasSeleccionadas},
-                en_oferta : 1
+                descuento : {[Op.gt]: 0}
                 },
                  include: 'categoria'
                 })
@@ -89,7 +89,7 @@ const productService = {
 
         try {
             return await db.Productos.findAll({where: 
-            {en_oferta : 1},
+            { descuento : {[Op.gt]: 0}},
              include: 'categoria'
             })
          } catch (error) {
