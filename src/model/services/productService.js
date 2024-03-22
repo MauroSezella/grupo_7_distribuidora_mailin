@@ -245,7 +245,7 @@ const productService = {
             let category3 = await productService.getAllByCategory(3);
             let category4 = await productService.getAllByCategory(4);
 
-            products.map((product)=>{product.dataValues.detail = 'api/products/'+product.id});
+            products.map((product)=>{product.dataValues.detail = `/api/products/${product.id}`});
 
             console.log(products);
 
