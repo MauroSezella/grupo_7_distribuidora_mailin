@@ -247,8 +247,6 @@ const productService = {
 
             products.map((product)=>{product.dataValues.detail = `/api/products/${product.id}`});
 
-            console.log(products);
-
             let results = {
 
                 count:products.length,

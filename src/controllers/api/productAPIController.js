@@ -15,6 +15,9 @@ let productAPIController = {
     productById: async (req, res) => {
         try {
             let result = await productService.getBy(req.params.id);
+
+            result.dataValues.url_imagen = `/images/products/${result.imagen}`;
+            
             res.json(result);
         } catch (error) {
             res.json(error);
