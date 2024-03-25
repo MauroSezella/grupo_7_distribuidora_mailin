@@ -2,10 +2,13 @@ const userService = require('../../model/services/userService');
 const productService = require('../../model/services/productService');
 
 let productAPIController = {
-    allProducts: async (req, res) => {
+    list: async (req, res) => {
+
+        page = req.query.page ? parseInt(req.query.page) : 1;
+        console.log(page);
 
         try {
-            let results = await productService.getAllApiProducts();
+            let results = await productService.getAllApiProducts(page);
             res.json(results);
         } catch (error) {
             res.json(error);

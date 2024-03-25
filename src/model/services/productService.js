@@ -237,19 +237,32 @@ const productService = {
 
     },
 
-    getAllApiProducts: async function () {
+    getAllApiProducts: async function (page) {
+                
         try {
-            let products = await productService.getAll();
+            
+            const offset = (page-1)*10;
+            const limit = 10;
+
+            const {count, rows} = await db.Productos.findAndCountAll({
+                offset: offset, 
+                limit: limit,
+                attributes:[
+                    'id', 'nombre', 'descripcion'
+                ],
+                include: 'categoria'
+            }); 
+
             let category1 = await productService.getAllByCategory(1);
             let category2 = await productService.getAllByCategory(2);
             let category3 = await productService.getAllByCategory(3);
             let category4 = await productService.getAllByCategory(4);
 
-            products.map((product)=>{product.dataValues.detail = `/api/products/${product.id}`});
+            rows.map((product)=>{product.dataValues.detail = `/api/products/${product.id}`});
 
             let results = {
 
-                count:products.length,
+                count:count,
 
                 countByCategory: {
                     Galletas: category1,
@@ -258,9 +271,19 @@ const productService = {
                     Chupetines: category4
                 },
 
-                products: products,
+                products: rows,
 
                };
+
+            if(page > 1){
+                let previous = `/api/products/?page=${page-1}`
+                results.previous = previous;
+             }
+
+            if(count - (offset + limit) > 0){
+                let next = `/api/products/?page=${page + 1}`
+                results.next = next;
+            }
 
             return results;
 
@@ -268,6 +291,8 @@ const productService = {
             console.log(error);
             return [];
         }
+
+
     },
 
 }
