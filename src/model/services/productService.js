@@ -7,7 +7,7 @@ const productService = {
 
     getAll: async function () {
         try {
-            return await db.Productos.findAll({include: 'categoria'})
+            return await db.Productos.findAll({order:[['stock', 'DESC']] , include: 'categoria'})
         } catch (error) {
             console.log(error);
             return [];
