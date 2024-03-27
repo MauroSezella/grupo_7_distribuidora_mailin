@@ -1,10 +1,13 @@
 const productService = require('../../model/services/productService');
 
 let productAPIController = {
-    allProducts: async (req, res) => {
+    list: async (req, res) => {
+
+        page = req.query.page ? parseInt(req.query.page) : 1;
+        console.log(page);
 
         try {
-            let results = await productService.getAllApiProducts();
+            let results = await productService.getAllApiProducts(page);
             res.json(results);
         } catch (error) {
             res.json(error);
@@ -14,6 +17,9 @@ let productAPIController = {
     productById: async (req, res) => {
         try {
             let result = await productService.getBy(req.params.id);
+
+            result.dataValues.url_imagen = `/images/products/${result.imagen}`;
+            
             res.json(result);
         } catch (error) {
             res.json(error);
