@@ -18,7 +18,7 @@ const User = {
     
             let users = rows.map(user => ({
                 ...user,
-                detail : `http://localhost:3030/api/users/${user.id}`
+                detail : `/api/users/${user.id}`
             }))
     
             return {count,users}
