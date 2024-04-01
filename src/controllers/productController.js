@@ -5,13 +5,14 @@ const { validationResult } = require('express-validator');
 let productController = {
 
     list: async function(req, res) {
-        try {
-            let productos = await productService.getAll();
-            res.render('./products/products', {products: productos})
-        } catch (error) {
-            console.log(error);
-            res.render('./products/products', {products: productos})
-        }
+        page = parseInt(req.query.page) || 1;
+           try {
+                const results = await productService.getAll(page);
+                res.render('./products/products', {products: results.productos, previous: results.previous , next: results.next, page})
+            } catch (error) {
+                console.log(error);
+                res.render('./products/products', {products: []})
+            }
     },
 
     detail: async function (req,res) {

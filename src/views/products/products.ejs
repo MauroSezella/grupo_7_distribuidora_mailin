@@ -56,6 +56,18 @@
             <section class="main__producto ">
                 <%- include('../partials/product.ejs') %>
 
+                <div class="main__producto-paginado">
+                    <% if (previous>0) { %>
+                        <a href="/productos?page=<%= previous %>">Anterior</a>
+                      <% } %>
+                    
+                      <p><%= page %></p>
+                    
+                      <% if (next) { %>
+                        <a href="/productos?page=<%= next %>">Siguiente</a>
+                      <% } %>
+                </div>
+
             </section>
 
 
