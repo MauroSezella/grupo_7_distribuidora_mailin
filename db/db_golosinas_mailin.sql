@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS golosinas_mailin;
+
 CREATE DATABASE golosinas_mailin;
 
 USE golosinas_mailin;
