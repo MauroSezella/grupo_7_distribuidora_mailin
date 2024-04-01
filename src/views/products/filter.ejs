@@ -14,29 +14,21 @@
 
 
     <%- include('../partials/header') %>
-
-
         <section class="main-titulo">
 
-
-
-            <% if (enOferta=="si"){%>
-                <h2> Ofertas</h2>
-   
-           <% }else if(categoriasSeleccionadas.length===0){%>
-                   <h2>Todos los Productos</h2>
-           <% }else if(categoriasSeleccionadas.length>1  ){%>
-                       <h2> Productos</h2>
-
-           <% } else{ %>
-                   <% categorias.forEach(element=> { %>
-                       <% if(categoriasSeleccionadas==element.id){%>
-                               <h2> <%= element.nombre %></h2>
-                       <% } %>
-                   <% }); %>
-           <% } %>
-
-
+        <% if((categoriasSeleccionadas.length===0 || categoriasSeleccionadas.length==4) && descuentoSeleccionado== 0){%>
+                <h2>Todos los Productos</h2>
+        <% }else if(categoriasSeleccionadas.length>1 ){%>
+                    <h2> Productos</h2>
+        <% } else if (categoriasSeleccionadas.length===0 && descuentoSeleccionado>=0){%>
+                     <h2> Ofertas</h2>
+        <% } else { %>
+                <% categorias.forEach(element=> { %>
+                    <% if(categoriasSeleccionadas==element.id){%>
+                            <h2> <%= element.nombre %></h2>
+                    <% } %>
+                <% }); %>
+        <% } %>
         </section>
 
         <main class="main__container">
@@ -46,33 +38,43 @@
                     <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
                             class="fa-solid fa-minus"></i></summary>
 
-                    <form action="/productos/filter" method="get" class="form-filter">
-                        <div class="label-categoria">
-                            <p class="label-filter">Categoría</p>
-                            <% categorias.forEach(element=> { %>
-                               <li ><label for="<%=element.nombre %>"><input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">  <%= element.nombre %></label></li> 
-                
-                            <% }); %>
-                        </div>
-                        <div class="label-ofertas">
-                            <p for="" class="label-filter">Ofertas</p>
-                            <li><label for="oferta"><input type="checkbox" name="ofertas" value="si" id="oferta"> Si</label></li>
-                        </div>
-
-                        <div class="btn-conteiner">
-                            <button type="reset" class="limpiar-btn">Limpiar</button>
-                            <button type="submit" class="aplicar-btn">Aplicar</button>
-                        </div>
-                    </form>
-                </details>
-
+                            <form action="/productos/filter" method="get" class="form-filter" id="form-filter">
+                                <div class="label-categoria">
+                                    <p class="label-filter">Categorías</p>
+                                    <% categorias.forEach(element=> { %>
+                                    <li >
+                                        <input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">
+                                        <label for="<%=element.nombre %>" class="filter-label"><%= element.nombre %></label>
+                                    </li> 
+                                    <% }); %>
+                                </div>
+                                <div class="label-ofertas">
+                                    <p for="" class="label-filter">Descuentos</p>
+                                        <% [5, 10, 15, 20].forEach(descuento => { %>
+                                          <li>
+                                            <input type="radio" name="descuento" value="<%= descuento %>" id="descuento<%= descuento %>">
+                                            <label for="descuento<%= descuento %>" class="filter-label ">
+                                              Desde <%= descuento %>% OFF
+                                            </label>
+                                          </li>
+                                        <% }) %>
+                                </div>
+        
+                                <div class="btn-conteiner">
+                                    <button  class="limpiar-btn" id="btn-reset" type="reset">Limpiar</button> 
+                                    <button type="submit" class="aplicar-btn">Aplicar</button>
+                                </div>
+                            </form>
+                        </details> 
+                        
                 <% if (isAdmin) { %>
 
                     <div class="enlace-product">
                         <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
                     </div>
-                <% } %>
+                <% } %>       
             </section>
+
 
 
             <section class="main__producto ">

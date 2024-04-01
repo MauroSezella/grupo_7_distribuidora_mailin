@@ -211,17 +211,18 @@ textarea {
     margin-top: 10px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
 }
 
 
 .action-button {
     padding: 10px 15px;
-    width: 170px;
+    width: 45%;
     text-decoration: none;
-text-align: center;
+    text-align: center;
     border: none;
     padding: 8px;
     color: #fff;
@@ -232,13 +233,12 @@ text-align: center;
     font-size: 14px;
     cursor: pointer;
     border-radius: 3px;
+    border: 1px solid #0f95b6;
   }
   
 
 .btn-regresar {
-    order: 1;
- background-color: #1A1265; 
-
+    color: #0f95b6; 
 }
 .imagen{
     width: 100%;
@@ -264,13 +264,14 @@ text-align: center;
 
 
 .btn-guardar {
-    order: -1;
     background-color: #0f95b6;
 
 }
 
 .btn-regresar:hover, .btn-guardar:hover {
   background-color: #0d1117;
+  color: #fff;
+  border: none;
 }
 .main__options {
     margin: 15px 0 0;
@@ -324,25 +325,9 @@ footer{
 
 
     .categorias {
-        width: 30%;
+        width: 40%;
     }
 
-
-    .botones-form {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-    }
-
-    .btn-regresar {
-        order: -1;
-    }
-
-    .btn-guardar {
-        order: 1;
-
-    }
 }
 
 @media (min-width: 577px) {

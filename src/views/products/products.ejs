@@ -23,29 +23,36 @@
                 <details open >
                     <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
                             class="fa-solid fa-minus"></i></summary>
-
-                    <form action="/productos/filter" method="get" class="form-filter">
-                        <div class="label-categoria">
-                            <p class="label-filter">Categoría</p>
-                            <% categorias.forEach(element=> { %>
-                               <li ><label for="<%=element.nombre %>"><input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">  <%= element.nombre %></label></li> 
-                
-                            <% }); %>
-                        </div>
-                        <div class="label-ofertas">
-                            <p for="" class="label-filter">Ofertas</p>
-                            <li><label for="oferta"><input type="checkbox" name="ofertas" value="si" id="oferta"> Si</label></li>
-                        </div>
-
-                        <div class="btn-conteiner">
-                            <button type="reset" class="limpiar-btn">Limpiar</button>
-                            <button type="submit" class="aplicar-btn">Aplicar</button>
-                        </div>
-                    </form>
+                            <form action="/productos/filter" method="get" class="form-filter" id="form-filter">
+                                <div class="label-categoria">
+                                    <p class="label-filter">Categorías</p>
+                                    <% categorias.forEach(element=> { %>
+                                    <li >
+                                        <input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">
+                                        <label for="<%=element.nombre %>" class="filter-label"><%= element.nombre %></label>
+                                    </li> 
+                                    <% }); %>
+                                </div>
+                                <div class="label-ofertas">
+                                    <p for="" class="label-filter">Descuentos</p>
+                                        <% [5, 10, 15, 20].forEach(descuento => { %>
+                                          <li>
+                                            <input type="radio" name="descuento" value="<%= descuento %>" id="descuento<%= descuento %>">
+                                            <label for="descuento<%= descuento %>" class="filter-label ">
+                                              Desde <%= descuento %>% OFF
+                                            </label>
+                                          </li>
+                                        <% }) %>
+                                </div>
+        
+                                <div class="btn-conteiner">
+                                    <button  class="limpiar-btn" id="btn-reset" type="reset">Limpiar</button> 
+                                    <button type="submit" class="aplicar-btn">Aplicar</button>
+                                </div>
+                            </form>
                 </details>
-
+                
                 <% if (isAdmin) { %>
-
                     <div class="enlace-product">
                         <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
                     </div>
@@ -58,13 +65,13 @@
 
                 <div class="main__producto-paginado">
                     <% if (previous>0) { %>
-                        <a href="/productos?page=<%= previous %>">Anterior</a>
+                        <a href="/productos?page=<%= previous %>"><i class="fa-solid fa-angle-left"></i></a>
                       <% } %>
                     
                       <p><%= page %></p>
                     
                       <% if (next) { %>
-                        <a href="/productos?page=<%= next %>">Siguiente</a>
+                        <a href="/productos?page=<%= next %>"><i class="fa-solid fa-angle-right"></i></a>
                       <% } %>
                 </div>
 

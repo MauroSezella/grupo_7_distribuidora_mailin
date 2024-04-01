@@ -7,6 +7,7 @@
 body {
     background-color: white;
     font-family: 'Quicksand', sans-serif;
+    height: 100vh;
 }
 
 :root {
@@ -53,7 +54,7 @@ header {
 main {
     width: 90%;
     margin: 40px auto;
-
+    
 }
 
 .main__enlaces {
@@ -92,7 +93,7 @@ main {
 .formulario {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 
 }
 
@@ -229,22 +230,23 @@ main {
 }
 
 .lostPassword{
+    width: 100%;
+    margin: 10px auto 0;
     text-decoration: none;
-    color: #0f95b6;
+    color: black;
     font-size: 14px;
     text-align: center;
-    font-weight: 600;
 }
 
 .lostPassword:hover{
-    color: var(--color-footer);
+    color: var(--color-3);
 }
 
 .botones{
     margin: 0 auto;
     margin-top: 15px;
     width: 100%;
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
 justify-content: space-between;
@@ -253,8 +255,8 @@ justify-content: space-between;
 
 .button-submit {
     background-color: var(--color-3);
-    border: none;
-    padding: 8px 20px;
+    border: 1px solid #0f95b6;
+    padding: 5px 10px;
     color: #fff;
     font-weight: bold;
     font-family: 'Quicksand';
@@ -264,32 +266,35 @@ justify-content: space-between;
     cursor: pointer;
     border-radius: 3px;
     text-align: center;
-
+    width: 100%;
 }
 
-.btn-regresar, .btn-guardar{
-    background-color: #1A1265; 
+.btn-regresar{
     text-decoration: none;
-    width: 170px;
+    background-color: #fff;
+    color: #0f95b6;
+    width: 45%;
 }
 
 .btn-guardar{
-    background-color: var(--color-3);
+    width: 45%;
 }
 
 .button-submit:hover {
-    background-color: var(--color-footer);
+    background-color: #0d1117;
+    color: #fff;
+    border: none;
 }
 
 .main__options {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .main__options a {
     margin: 15px 0 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
     color: var(--color-3);
     font-weight: bold;
@@ -330,6 +335,9 @@ justify-content: space-between;
     object-fit: cover;
 }
 
+.email-verificar{
+    height: 40vh;
+}
 
 
 
@@ -401,6 +409,10 @@ justify-content: space-between;
 
     .main__options a {
         font-size: 16px;
+    }
+
+    .lostPassword{
+        font-size: 15px;
     }
 
 

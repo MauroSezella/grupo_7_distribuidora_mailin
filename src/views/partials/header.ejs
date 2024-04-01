@@ -18,8 +18,8 @@
                             <% }); %>
                     </div>
                 </div>
-                <% let oferta="si" %>
-                    <li><a href="/productos/filter?ofertas=<%=oferta%>" class="nav-bar_enlaces">Ofertas</a></li>
+                
+                <li><a href="/productos/filter?ofertas=si" class="nav-bar_enlaces">Ofertas</a></li>
             </ul>
         </nav>
 
@@ -71,15 +71,9 @@
                                         </a>
 
                                         <% }); %>
-
-
                                 </details>
-                                <li><a href="/productos/filter?ofertas=<%=oferta%>" class="header-enlaces">Ofertas</a>
+                                <li><a href="/productos/filter?ofertas=si" class="header-enlaces">Ofertas</a>
                                 </li>
-                                <% if (isAdmin) { %>
-                                    <!-- Mostrar contenido solo para administradores -->
-                               <li><a href="/user/admin" class="header-enlaces">Admin</a></li>
-                                    <% } %>
                             </ul>
 
                         </div>
