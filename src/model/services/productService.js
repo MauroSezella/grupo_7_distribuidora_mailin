@@ -79,8 +79,7 @@ const productService = {
 
     },
 
-    filtrarProductos: async function (categoriasSeleccionadas, descuentoSeleccionado) {
-
+    filtrarProductos: async function (categoriasSeleccionadas, ofertas, ordenSeleccionado) {
         try {
             let productos = await db.Productos.findAll({
                 where: {
@@ -88,10 +87,10 @@ const productService = {
                         [Op.or]: categoriasSeleccionadas
                     },
                     descuento: {
-                        [Op.gte]: descuentoSeleccionado
+                        [Op.gte]: ofertas
                     }
                 },
-                order: [['categoria_id', 'ASC'],['stock', 'DESC']],
+                order: [ordenSeleccionado.split('-')],
                 include: 'categoria',
             })
             return productos
@@ -99,57 +98,6 @@ const productService = {
             console.error(error.message)
 
         }
-
-        /*         //Pregunto si se seleccionaron categorias y si se filtraron por ofertas
-                if (categoriasSeleccionadas.length > 0 && ofertasSeleccionadas === 'si') {
-        
-                    try {
-                        return await db.Productos.findAll({
-                            where:
-                            {
-                                categoria_id: { [Op.in]: categoriasSeleccionadas },
-                                descuento: { [Op.gt]: 0 }
-                            },
-                            include: 'categoria'
-                        })
-                    } catch (error) {
-                        console.log(error);
-                        return [];
-                    }
-                }
-        
-                //Pregunto no se seleccionaron categorias y si se filtraron por ofertas
-                if (categoriasSeleccionadas.length == 0 && ofertasSeleccionadas === 'si') {
-        
-                    try {
-                        return await db.Productos.findAll({
-                            where:
-                                { descuento: { [Op.gt]: 0 } },
-                            include: 'categoria'
-                        })
-                    } catch (error) {
-                        console.log(error);
-                        return [];
-                    }
-        
-                }
-        
-                //Caso por defecto, no se filtraron por ofertas solo por categorias
-                if (categoriasSeleccionadas.length > 0) {
-                    try {
-                        return await db.Productos.findAll({
-                            where:
-                                { categoria_id: { [Op.in]: categoriasSeleccionadas } },
-                            include: 'categoria'
-                        })
-                    } catch (error) {
-                        console.log(error);
-                        return [];
-                    }
-        
-                } else {
-                    return await this.getAll(); /// no funciona por paginado
-                } */
     },
 
     search: async function (keywords) {

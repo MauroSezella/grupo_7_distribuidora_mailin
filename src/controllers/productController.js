@@ -34,7 +34,7 @@ let productController = {
 
     filter: async function (req, res) {
 
-        if(!req.query.descuento && !req.query.categorias && !req.query.ofertas){
+        if(!req.query.categorias && !req.query.ofertas && !req.query.orden){
             res.redirect('/productos')
         }
 
@@ -45,11 +45,11 @@ let productController = {
             categoriasSeleccionadas = [req.query.categorias];
         }
 
-        let ofertas = req.query.ofertas ? 1 : 0;
-        let descuento = req.query.descuento || ofertas;
+        ofertas = req.query.ofertas? 1 : 0;
+        orden = req.query.orden || 'stock-DESC';
 
         try {
-            res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas, descuento), descuentoSeleccionado: descuento, categoriasSeleccionadas: categoriasSeleccionadas });
+            res.render('./products/filter', { products: await productService.filtrarProductos(categoriasSeleccionadas,ofertas, orden), categoriasSeleccionadas: categoriasSeleccionadas,ofertas: ofertas, orden: orden });
         } catch (error) {
             console.log(error);
             res.redirect('/productos');

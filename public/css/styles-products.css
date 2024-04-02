@@ -144,6 +144,9 @@ details[open] .category-summary {
     letter-spacing: 1px;
     user-select: none;
   }
+  .label-filter-m{
+    font-size: 14px;
+  }
 
   .btn-conteiner{
     display: flex;

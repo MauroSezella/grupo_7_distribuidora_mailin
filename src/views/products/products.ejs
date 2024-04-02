@@ -25,7 +25,7 @@
                             class="fa-solid fa-minus"></i></summary>
                             <form action="/productos/filter" method="get" class="form-filter" id="form-filter">
                                 <div class="label-categoria">
-                                    <p class="label-filter">Categorías</p>
+                                    <p class="label-filter">Categorías:</p>
                                     <% categorias.forEach(element=> { %>
                                     <li >
                                         <input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">
@@ -34,16 +34,33 @@
                                     <% }); %>
                                 </div>
                                 <div class="label-ofertas">
-                                    <p for="" class="label-filter">Descuentos</p>
-                                        <% [5, 10, 15, 20].forEach(descuento => { %>
-                                          <li>
-                                            <input type="radio" name="descuento" value="<%= descuento %>" id="descuento<%= descuento %>">
-                                            <label for="descuento<%= descuento %>" class="filter-label ">
-                                              Desde <%= descuento %>% OFF
-                                            </label>
-                                          </li>
-                                        <% }) %>
+                                    <p for="" class="label-filter label-filter-m">Ordenar Por:</p>
+                                    <li>
+                                        <input type="radio" name="orden" value="id-DESC" id="id-DESC">
+                                        <label for="id-DESC" class="filter-label ">
+                                            Más recientes
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="orden" value="descuento-DESC" id="descuento-DESC">
+                                        <label for="descuento-DESC" class="filter-label ">
+                                            Descuento
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="orden" value="precio-ASC" id="precio-ASC">
+                                        <label for="precio-ASC" class="filter-label ">
+                                            Precios más bajo
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="orden" value="precio-DESC" id="precio-DESC">
+                                        <label for="precio-DESC" class="filter-label ">
+                                            Precios más alto
+                                        </label>
+                                    </li>
                                 </div>
+        
         
                                 <div class="btn-conteiner">
                                     <button  class="limpiar-btn" id="btn-reset" type="reset">Limpiar</button> 

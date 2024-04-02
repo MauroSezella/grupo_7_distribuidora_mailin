@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="/css/styles-products.css" />
         <link rel="stylesheet" href="/css/styles-header.css">
+        <script src="/js/filterProducts.js"></script>
 
         <title>Golosinas Mailin</title>
 </head>
@@ -15,76 +16,87 @@
 
     <%- include('../partials/header') %>
         <section class="main-titulo">
-
-        <% if((categoriasSeleccionadas.length===0 || categoriasSeleccionadas.length==4) && descuentoSeleccionado== 0){%>
+            <%if (ofertas>0){%>
+                <h2> Ofertas</h2>
+            <%}else if((categoriasSeleccionadas.length===0 || categoriasSeleccionadas.length===4) && orden == 'stock-DESC'){%>
                 <h2>Todos los Productos</h2>
-        <% }else if(categoriasSeleccionadas.length>1 ){%>
+            <% }else if(categoriasSeleccionadas.length>1 ){%>
                     <h2> Productos</h2>
-        <% } else if (categoriasSeleccionadas.length===0 && descuentoSeleccionado>=0){%>
-                     <h2> Ofertas</h2>
-        <% } else { %>
-                <% categorias.forEach(element=> { %>
-                    <% if(categoriasSeleccionadas==element.id){%>
-                            <h2> <%= element.nombre %></h2>
-                    <% } %>
-                <% }); %>
-        <% } %>
+            <% } else { %>
+                    <% categorias.forEach(element=> { %>
+                       <% if(categoriasSeleccionadas==element.id){%>
+                            <h2><%= element.nombre %></h2>
+                       <% } %>
+                    <% }); %>
+            <% } %>
         </section>
 
         <main class="main__container">
             <section class="main_categorias">
-                
-                <details open >
+
+                <details open>
                     <summary class="category-summary">Filtrar<i class="fa-solid fa-caret-down"></i><i
                             class="fa-solid fa-minus"></i></summary>
 
-                            <form action="/productos/filter" method="get" class="form-filter" id="form-filter">
-                                <div class="label-categoria">
-                                    <p class="label-filter">Categorías</p>
-                                    <% categorias.forEach(element=> { %>
-                                    <li >
-                                        <input type="checkbox" name="categorias" value="<%= element.id %>" id="<%=element.nombre %>">
-                                        <label for="<%=element.nombre %>" class="filter-label"><%= element.nombre %></label>
-                                    </li> 
-                                    <% }); %>
-                                </div>
-                                <div class="label-ofertas">
-                                    <p for="" class="label-filter">Descuentos</p>
-                                        <% [5, 10, 15, 20].forEach(descuento => { %>
-                                          <li>
-                                            <input type="radio" name="descuento" value="<%= descuento %>" id="descuento<%= descuento %>">
-                                            <label for="descuento<%= descuento %>" class="filter-label ">
-                                              Desde <%= descuento %>% OFF
-                                            </label>
-                                          </li>
-                                        <% }) %>
-                                </div>
-        
-                                <div class="btn-conteiner">
-                                    <button  class="limpiar-btn" id="btn-reset" type="reset">Limpiar</button> 
-                                    <button type="submit" class="aplicar-btn">Aplicar</button>
-                                </div>
-                            </form>
-                        </details> 
-                        
-                <% if (isAdmin) { %>
+                    <form action="/productos/filter" method="get" class="form-filter" id="form-filter">
+                        <div class="label-categoria">
+                            <p class="label-filter">Categorías:</p>
+                            <% categorias.forEach(element=> { %>
+                                <li>
+                                    <input type="checkbox" name="categorias" value="<%= element.id %>"
+                                        id="<%=element.nombre %>"
+                                        <% if (categoriasSeleccionadas.includes(element.id.toString())) { %>
+                                            checked
+                                        <% } %> >
+                                    <label for="<%=element.nombre %>" class="filter-label">
+                                        <%= element.nombre %>
+                                    </label>
+                                </li>
+                                <% }); %>
+                        </div>
+                        <div class="label-ofertas">
+                            <p for="" class="label-filter label-filter-m">Ordenar Por:</p>
+                            <li>
+                                <input type="radio" name="orden" value="id-DESC" id="id-DESC" <% if (orden == 'id-DESC') { %>checked<% } %>>
+                                <label for="id-DESC" class="filter-label">Más recientes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="orden" value="descuento-DESC" id="descuento-DESC"  <% if (orden == 'descuento-DESC') { %>checked<% } %>>
+                                <label for="descuento-DESC" class="filter-label ">Descuento</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="orden" value="precio-ASC" id="precio-ASC"  <% if (orden == 'precio-ASC') { %>checked<% } %>>
+                                <label for="precio-ASC" class="filter-label ">Precios más bajo </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="orden" value="precio-DESC" id="precio-DESC" <% if (orden == 'precio-DESC') { %>checked<% } %>>
+                                <label for="precio-DESC" class="filter-label ">Precios más alto</label>
+                            </li>
+                        </div>
 
+                        <div class="btn-conteiner">
+                            <button class="limpiar-btn" id="btn-reset" type="reset">Limpiar</button>
+                            <button type="submit" class="aplicar-btn">Aplicar</button>
+                        </div>
+                    </form>
+                </details>
+
+                <% if (isAdmin) { %>
                     <div class="enlace-product">
-                        <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar Producto</a>
+                        <a href="/productos/create" class="boton-agregar"> <i class="fa-solid fa-plus"></i> Agregar
+                            Producto</a>
                     </div>
-                <% } %>       
+                    <% } %>
             </section>
 
 
 
             <section class="main__producto ">
                 <%- include('../partials/product.ejs') %>
-
             </section>
 
 
         </main>
-
         <%- include('../partials/footer') %>
 
 </body>
