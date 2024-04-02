@@ -11,7 +11,7 @@ const productService = {
         let offset = (page - 1) * limit;
         try {
             let { count, rows } = await db.Productos.findAndCountAll({
-                order: [['stock', 'DESC']],
+                order: [['categoria_id', 'ASC'],['stock', 'DESC']],
                 include: 'categoria',
                 limit: limit,
                 offset: offset
@@ -91,7 +91,7 @@ const productService = {
                         [Op.gte]: descuentoSeleccionado
                     }
                 },
-                order: [['stock', 'DESC']],
+                order: [['categoria_id', 'ASC'],['stock', 'DESC']],
                 include: 'categoria',
             })
             return productos

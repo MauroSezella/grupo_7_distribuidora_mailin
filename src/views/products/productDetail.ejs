@@ -23,7 +23,7 @@
         <main class="main__container">
             <section class="main__producto">
                 <div class="main__producto-enlaces">
-                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/filter?categorias=<%=product.categoria.nombre%>">
+                    <a href="/">INICIO </a><span class="span">> </span><a href="/productos/filter?categorias=<%=product.categoria.id%>">
                         <%=product.categoria.nombre.toUpperCase()%>
                     </a>
                 </div>
@@ -50,7 +50,8 @@
                         <%if(product.descuento> 0) { %>
                             <p class="main-precio">$ <%=product.precio%>
                             </p>
-                            <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>                                    <%= precioFinal %>
+                            <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>
+                                <%= precioFinal.toFixed(2) %>
                                     </p>
                         <% }else{ %>
                             <p class="main-precio-final">$ <%=product.precio%></p>
@@ -75,9 +76,9 @@
                         <p> <%=product.descripcion%> </p>
                     </div>
 
-                    <p class="main__producto-detalle-info">SKU: <span id="sku"><%=product.id%>
+                    <p class="main__producto-detalle-info">Código: <span id="sku"><%=product.id%>
                         </span></p>
-                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria.nombre%>" id="categoria">
+                    <p class="main__producto-detalle-info" id="categoria">Categoria: <a href="/productos/filter?categorias=<%=product.categoria.id%>" id="categoria">
                             <%=product.categoria.nombre%>
                         </a></p>
                         <% if (isAdmin) { %>

@@ -34,7 +34,7 @@ let productController = {
 
     filter: async function (req, res) {
 
-        if(!req.query.descuento && !req.query.categorias){
+        if(!req.query.descuento && !req.query.categorias && !req.query.ofertas){
             res.redirect('/productos')
         }
 
