@@ -1,4 +1,5 @@
 require('dotenv').config();
+console.log(process.env);
 
 let config={
   "development": {
@@ -7,6 +8,7 @@ let config={
     "database": process.env.DB_NAME,
     "host": "127.0.0.1",
     "dialect": "mysql"
+    
   },
   "test": {
     "username": "root",
@@ -22,6 +24,7 @@ let config={
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
+  
 }
 
 module.exports=config;

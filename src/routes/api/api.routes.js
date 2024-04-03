@@ -10,6 +10,7 @@ router.get('/products/:id', productAPIController.productById)
 
 //API Users
 router.get('/users', userApiController.list)
+router.get('/users/:id', userApiController.userById)
 
 
 module.exports = router;
