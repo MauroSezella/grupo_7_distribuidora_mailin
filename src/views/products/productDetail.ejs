@@ -61,9 +61,9 @@
                         <p class="main__producto-detalle-disponible">Disponible</p>
                         <form class="main__producto-detalle-cantidad ">
                             <div class="cantidad">
-                                <input type="number" value="1" min="1" />
+                                <input class="cantidad-item" type="number" value="1" min="1" />
                             </div>
-                            <button class="agregar-carrito">
+                            <button class="agregar-carrito" data-id="<%= product.id %>">
                                 Añadir al carrito
                             </button>
                         </form> 
