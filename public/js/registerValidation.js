@@ -35,7 +35,83 @@ window.addEventListener('load', function () {
             inputEmail.classList.remove('is-invalid')
         }
     });
+
+    // Validaciones on time
+    inputNombre.addEventListener('blur', () => {
+        if (inputNombre.value.trim()=='') {
+            erNombre.innerText = 'El campo nombre no puede quedar vacío'
+            inputNombre.classList.add('is-invalid')
+        }
+        else if (inputNombre.value.trim().length < 2) {
+            erNombre.innerText = 'El nombre debe tener al menos 2 caracteres'
+            inputNombre.classList.add('is-invalid')
+        }
+        else {
+            erNombre.innerText = ''
+            inputNombre.classList.remove('is-invalid')
+        }
+    })
+
+    inputApellido.addEventListener('blur', () => {
+        if (inputApellido.value.trim()=='') {
+            erApellido.innerText = 'El campo apellido no puede quedar vacío'
+            inputApellido.classList.add('is-invalid')
+        }
+        else if (inputApellido.value.trim().length < 2) {
+            erApellido.innerText = 'El apellido debe tener al menos 2 caracteres'
+            inputApellido.classList.add('is-invalid')
+        }
+        else {
+            erApellido.innerText = ''
+            inputApellido.classList.remove('is-invalid')
+        }
+    })
+
+    inputEmail.addEventListener('blur', () => {
+        if (inputEmail.value.trim()=='') {
+            erEmail.innerText = 'El campo email no puede quedar vacío';
+            inputEmail.classList.add('is-invalid')
+        }
+        else if (!validacion.test(inputEmail.value)) {
+            erEmail.innerText = 'Debe ingresar un email válido';
+            inputEmail.classList.add('is-invalid')
+        } else {
+            erEmail.innerText = '';
+            inputEmail.classList.remove('is-invalid')
+        }
+    })
+
+    inputPassword.addEventListener('blur', () => {
+        if (inputPassword.value.trim()=='') {
+            erPassword.innerText = 'Debes ingresar una contraseña'
+            inputPassword.classList.add('is-invalid')
+        }
+        else if (inputPassword.value.trim().length < 8) {
+            erPassword.innerText = 'La contraseña debe tener al menos 8 caracteres'
+            inputPassword.classList.add('is-invalid')
+        }
+        else {
+            erPassword.innerText = ''
+            inputPassword.classList.remove('is-invalid')
+        }
+    })
+
+    inputConfirmar.addEventListener('blur', () => {
+        if (inputConfirmar.value.trim()=='') {
+            erConfirmar.innerText = 'Debes ingresar una contraseña'
+            inputConfirmar.classList.add('is-invalid')
+        }
+        else if (inputConfirmar.value.trim().length < 8) {
+            erConfirmar.innerText = 'La contraseña debe tener al menos 8 caracteres'
+            inputConfirmar.classList.add('is-invalid')
+        }
+        else {
+            erConfirmar.innerText = ''
+            inputConfirmar.classList.remove('is-invalid')
+        }
+    })
     
+    // Validaciones en submit
     btnSubmit.addEventListener('click', function (e) {
         
         e.preventDefault();
