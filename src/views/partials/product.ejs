@@ -31,7 +31,7 @@
                                 <% } %>
                     </div>
                     <% if (product.stock>0) { %>
-                        <button class="agregar-carrito">Añadir al carrito</button>
+                        <button class="agregar-carrito" data-id="<%= product.id %>">Añadir al carrito</button>
                         
                     <%} else{ %>
                         <button class="agregar-carrito sin-stock">sin stock</button>
