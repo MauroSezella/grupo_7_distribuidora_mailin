@@ -3,6 +3,10 @@ const userService = require('../../model/services/userService');
 let userAPIController = {
     list: async (req, res) => {
 
+        page = req.query.page ? parseInt(req.query.page) : 1;
+        console.log(page);
+
+
         try {
             let results = await userService.getAllApi();
             res.status(200).json(results);
@@ -25,7 +29,6 @@ let userAPIController = {
         }
     },
    
-   /*  getOne: */
-};
-
+    
+}
 module.exports = userAPIController;

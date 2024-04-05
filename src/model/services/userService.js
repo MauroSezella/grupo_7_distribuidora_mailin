@@ -5,8 +5,12 @@ const db = require("../database/models/");
 const {fn, col} = require ('sequelize')
 
 const User = {
-    getAllApi: async function (){
+    getAllApi: async function (page){
         try {
+
+            const offset = (page-1)*10;
+            const limit = 10;
+
             const {count , rows} = await db.Usuarios.findAndCountAll({
                 attributes: [
                     'id',
@@ -20,6 +24,16 @@ const User = {
                 ...user,
                 detail : `/api/users/${user.id}`
             }))
+
+            if(page > 1){
+                let previous = `/api/users/?page=${page-1}`
+                results.previous = previous;
+             }
+
+            if(count - (offset + limit) > 0){
+                let next = `/api/users/?page=${page + 1}`
+                results.next = next;
+            }
     
             return {count,users}
         } catch (error) {

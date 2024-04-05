@@ -3,9 +3,9 @@ console.log(process.env);
 
 let config={
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
+    "username": "root",
+    "password": "root",
+    "database": "golosinas_mailin",
     "host": "127.0.0.1",
     "dialect": "mysql"
     
