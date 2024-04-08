@@ -51,94 +51,6 @@ h1{
     width: 100%;
 }
 
-
-/* 
-.container h4{
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-   padding: 10px 0;
-}
-
-.contenedor-enlaces{
-    width: 100%;
-    margin-top: 30px;
-
-}
-
-.link-perfil{
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--color-footer);
-    width: 100%;
-    padding-left: 20px;
-}
-
-.link-perfil i{
-    font-size: 12px;
-    padding: 5px;
-    margin-right: 5px;
-}
-.link-perfil:last-child{
-    border-bottom: none;
-}
-.link-perfil:hover{
-    color: #0f95b6;
-    font-weight: 600;
-}
-
-.active{
-    background-color: #0f95b6;
-    color: white;
-    font-weight: 600;
-}
-.active:hover{
-    color: white;
-}
-
-.cerrar-sesion{
-    padding: 10px;
-    color: #ffffff;
-    background-color: #0f95b6;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 3px;
-    letter-spacing: 1px;
-}
-.cerrar-sesion:hover{
-    background-color: var(--color-footer);
-}
- */
-/* .compras{
-    margin: 30px auto ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-}
-
-.compras i{
-    font-size: 22px;
-    color: var(--color-grisOscuro);
-}
-.compras p{
-    font-size: 16px;
-    color: var(--color-grisOscuro);
-    text-align: center;
-}
-.compras-boton{
-    width: 150px;
-} */
-
 .secciones-perfil{
     width: min(90%, 550px);
     padding: 20px;
@@ -171,14 +83,15 @@ align-items: center;
 .contenedor-avatar{
     margin: 10px auto;
     width: 100px;
-    object-fit: cover;
+    height: 100px;
     display: flex;
     justify-content: center;
 }
 .contenedor-avatar img{
     margin: 0 auto;
     width: 100%;
-    border-radius: 50%
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .datos{

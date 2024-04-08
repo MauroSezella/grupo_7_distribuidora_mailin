@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="/css/styles-header.css" />
     <link rel="stylesheet" href="/css/styles-perfil.css" />
     <link rel="stylesheet" href="/css/styles-Loginregister.css" />
-    <script src="/js/profile.js"></script>
-
     <title>Mi Perfil</title>
 </head>
 
@@ -21,10 +19,7 @@
           <%= errors.general.msg %>
         </small>
         <% } %>
-        <h1>
-          <%= `¡Hola, ${user.nombre}!`%>
-        </h1>
-           
+
             <section class="secciones-perfil" id="perfil">
               <h2>Mi Cuenta</h2>
               <div class="datos-perfil">
@@ -40,7 +35,7 @@
                 <a href="/user/profile/edit" class="btn  btn-editar"><i class="fa-regular fa-pen-to-square"></i>Editar mis Datos</a>
                 <a href="/user/resetpassword" class="btn btn-cambiar"><i class="fa-solid fa-lock"></i>Cambiar Contraseña</a>
                   <form action="/user/delete?_method=DELETE" method="POST" class="form-delete">
-                    <button type="submit" class="btn btn-eliminar"><i class="fa-solid fa-trash"></i>Eliminar mi Cuenta</button>
+                    <button type="submit" class="btn btn-eliminar" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?');" style="display: inline-flex"><i class="fa-solid fa-trash"></i>Eliminar mi Cuenta</button>
                   </form>
               </div>
 

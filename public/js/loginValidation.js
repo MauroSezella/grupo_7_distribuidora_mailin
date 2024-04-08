@@ -19,6 +19,13 @@ window.addEventListener('load', function () {
             inputEmail.classList.remove('is-invalid')
         }
     });
+    let erPassBack= document.getElementById('erPass-back');
+    inputPassword.addEventListener('input', function () {
+        if (erPassBack.innerHTML !== '') {
+            erPassBack.innerHTML = '';
+            inputPassword.classList.remove('is-invalid')
+        }
+    });
 
     // Validaciones on time
     inputEmail.addEventListener('blur', () => {
@@ -39,6 +46,9 @@ window.addEventListener('load', function () {
         if (inputPassword.value.trim()=='') {
             erPassword.innerHTML = 'Debe ingresar una contraseña';
             inputPassword.classList.add('is-invalid')
+            if (erPassBack.innerHTML !== '') {
+                erPassBack.innerHTML = '';
+            }
         } else {
             erPassword.innerHTML = '';
             inputPassword.classList.remove('is-invalid')
@@ -65,6 +75,9 @@ window.addEventListener('load', function () {
         if (inputPassword.value.trim()=='') {
             errores.password = 'Debe ingresar una contraseña';
             inputPassword.classList.add('is-invalid')
+                if (erPassBack.innerHTML !== '') {
+                    erPassBack.innerHTML = '';
+                }
         }else{
             inputPassword.classList.remove('is-invalid')
         }

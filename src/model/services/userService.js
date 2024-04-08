@@ -61,7 +61,6 @@ const User = {
             }
         } catch (error) {
             console.error("Error en la autenticación: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
@@ -90,14 +89,12 @@ const User = {
 
         } catch (error) {
             console.error('Error en registro:', error.message)
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
     update: async function (req) {
         try {
-            let userLogged = req.session.userLogged;
-            let oldData = await this.getByPK(userLogged.id);
+            let oldData = await this.getByPK(req.params.id);
             let image = oldData.avatar
             let deleteImage = null;
 
@@ -123,17 +120,14 @@ const User = {
             };
             let updatedUser = await this.getByPK(oldData.id);
             delete updatedUser.password;
-            req.session.userLogged = updatedUser //actualizo session
-            console.log('usuario actualizado')
             return updatedUser;
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
     updatePassword: async function (req) {
         try {
-            let oldData = await this.getByPK(req.body.id); //modificar password de usuario no logueado
+            let oldData = await this.getByPK(req.params.id); 
             let result = await db.Usuarios.update({
                 password: req.body.password ? bcryptjs.hashSync(req.body.password, 10) : oldData.password,
             }, {
@@ -146,7 +140,6 @@ const User = {
             return null
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 

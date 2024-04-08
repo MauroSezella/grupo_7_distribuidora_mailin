@@ -68,7 +68,7 @@ const login = [
        }
         return true
       } else {
-        throw new Error('Este email no está registrado.')
+        throw new Error(' ')
       }
     }),
 
@@ -79,10 +79,12 @@ const login = [
       if (userInDB) {
         let passwordOk = await userService.comparePasswords(value, userInDB.password);
         if (!passwordOk) {
-          throw new Error('Credenciales inválidas ')
+          throw new Error('Credenciales inválidas')
        
         }
         return true
+      } else {
+        throw new Error('Credenciales inválidas')
       };
     })
 ];
