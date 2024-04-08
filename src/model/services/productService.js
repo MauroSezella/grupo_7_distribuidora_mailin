@@ -87,7 +87,7 @@ const productService = {
                         [Op.or]: categoriasSeleccionadas
                     },
                     descuento: {
-                        [Op.gt]: ofertas
+                        [Op.gte]: ofertas
                     }
                 },
                 order: [ordenSeleccionado.split('-')],
