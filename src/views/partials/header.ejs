@@ -33,8 +33,8 @@
             <% if (locals.isLogged) { %>
                 <div class="header__icons--user user-perfil ">
                     <div class="dropdown-perfil">
-                        <button class=""> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil"
-                                alt=""></i></button>
+                        <button class=""> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil" alt="">
+                        </button>
                         <div class="dropdown-content-perfil">
                             <% if (isAdmin) { %>
                                <a href="/user/admin">Listado de Productos</a> 
@@ -50,8 +50,10 @@
                 <% } else{%>
                     <a href="/user/login" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
                     <% } %>
-                        <a href="/productos/cart" class="header__icons--cart"><i
-                                class="fa-solid fa-cart-shopping"></i></a>
+                    <div class="contenedor_icono-cart">
+                        <a href="/productos/cart" class="header__icons--cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <small class="mostrarCantidad"></small>
+                    </div>
                         <div class="header__burguer-menu">
                             <input type="checkbox" id="burguer-menu" class="input__burguer-menu">
                             <label for="burguer-menu"><i class="fas fa-bars"></i></label>

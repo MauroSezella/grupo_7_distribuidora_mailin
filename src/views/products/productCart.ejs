@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -7,9 +6,8 @@
 	<%- include('../partials/head') %>
 		<link rel="stylesheet" href="/css/styles-header.css">
 		<link href="/css/styles-productCart.css" rel="stylesheet">
-		
+		<script src="/js/cart.js"></script>
 		<title>Golosinas Mailin</title>
-
 </head>
 
 <body>
@@ -18,9 +16,7 @@
 
 	<h1 class="titulo">CARRITO</h1>
 		<main>
-
 			<div class="contenedor-carrito">
-
 				<table class="tabla_productos">
 					<thead>
 						<tr class="subtitulos">
@@ -30,131 +26,17 @@
 							<th class="col-4">SUBTOTAL</th>
 						</tr>
 					</thead>
-
-					<tbody>
-						<tr class="item-producto">
-							<td class="col-product" colspan="3">
-								<div class="contenedor_product">
-									<button class="boton-cancelar">
-										<i class="fa-solid fa-x boton-cancelar__icono"></i>
-									</button>
-									<a href="#" class="col-img_produc">
-										<img src="/images/products/img-alfajor-guaymallen-blanco.jpg" alt="">
-									</a>
-									<div class="col-name_product">
-										<a href="#">Alfajor Fantoche Triple Blanco x 85G.</a>
-										<div class="contenedor_movil">
-											<span class="movil_cantidad">3 x </span>
-											<span class="movil_precio">$3.335</span>
-										</div>
-
-									</div>
-								</div>
-							</td>
-							<td class="col-precio"><span>$ 3.335</span></td>
-							<td class="col-cantidad">
-								<div class="cantidad">
-									<input type="number" value="1" id="cantidad_product" min="1" />
-								</div>
-							</td>
-							<td class="col-subtotal"><span>$ 10.005</span></td>
-						</tr>
-						<tr class="item-producto">
-							<td class="col-product" colspan="3">
-								<div class="contenedor_product">
-									<button class="boton-cancelar">
-										<i class="fa-solid fa-x boton-cancelar__icono"></i>
-									</button>
-									<a href="#" class="col-img_produc">
-										<img src="/images/products/img-billiken-masticable-frutal.jpg" alt="">
-									</a>
-									<div class="col-name_product">
-										<a href="#">Billiken Masticable Frutal x200U</a>
-										<div class="contenedor_movil">
-											<span class="movil_cantidad">1 x </span>
-											<span class="movil_precio">$ 1.400,3 </span>
-										</div>
-
-									</div>
-								</div>
-							</td>
-							<td class="col-precio"><span>$1.400,3 </span></td>
-							<td class="col-cantidad">
-								<div class="cantidad">
-									<input type="number" value="1" id="cantidad_product" min="1" />
-								</div>
-							</td>
-							<td class="col-subtotal"><span>$1.400,3</span></td>
-						</tr>
-						<tr class="item-producto">
-							<td class="col-product" colspan="3">
-								<div class="contenedor_product">
-									<button class="boton-cancelar">
-										<i class="fa-solid fa-x boton-cancelar__icono"></i>
-									</button>
-									<a href="#" class="col-img_produc">
-										<img src="/images/products/img-galleta-bagley.jpg" alt="">
-									</a>
-									<div class="col-name_product">
-										<a href="#">Galleta Bagley Surtida X 398G</a>
-										<div class="contenedor_movil">
-											<span class="movil_cantidad">2 x </span>
-											<span class="movil_precio">$15.670</span>
-										</div>
-
-									</div>
-								</div>
-							</td>
-							<td class="col-precio"><span>$15.670</span></td>
-							<td class="col-cantidad">
-								<div class="cantidad">
-									<input type="number" value="1" id="cantidad_product" min="1" />
-								</div>
-							</td>
-							<td class="col-subtotal"><span>$31.340</span></td>
-						</tr>
-						<tr class="botones_carrito ">
-							<td class="" colspan="6">
-								<div class="seguir-actualizar">
-									<a href="/productos" class="botones-productos_boton enlace"> <i
-											class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</a>
-									<button class="botones-productos_boton">ACTUALIZAR CARRITO <i
-											class="fa-solid fa-arrow-rotate-left"></i> </button>
-								</div>
-							</td>
-						</tr>
+					<tbody class="cardRows">				
 					</tbody>
 				</table>
-
-				<table class="total-carrito">
-					<thead>
-						<tr class="subtitulos">
-							<th class="col-total_carrito" colspan="2">Total del carrito</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="row-total_carrito">
-							<td class="etiqueta">Subtotal</td>
-							<td class="valor">$50.000</td>
-						</tr>
-						<tr class="row-total_carrito envio">
-							<td class="etiqueta">Envío</td>
-							<td class="valor">$0</td>
-						</tr>
-						<tr class="row-total_carrito total">
-							<td class="etiqueta">Total</td>
-							<td class="valor">$50.000</td>
-						</tr>
-						<tr class="botones_carrito finalizar">
-							<td class="" colspan="2">
-								<div class="botones-productos">
-									<a href="#" class="botones-productos_boton finalizar_compra">FINALIZAR COMPRA</a>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
+				<div class="contenedor_total">
+						<h2>TOTAL: <span class="totalCarrito"></span></h2>
+				</div>
+			</div>
+			<div class="seguir-finalizar">
+				<a href="/productos" class="boton_seguir-comprando"> <i
+						class="fa-solid fa-arrow-left"></i> SEGUIR COMPRANDO</a>
+				<button class="boton_finalizar-compra">FInalizar Compra</button>
 			</div>
 
 	

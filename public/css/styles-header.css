@@ -380,6 +380,21 @@ button{
     padding: 5px;
 }
 
+.contenedor_icono-cart{
+    position: relative;
+}
+
+.contenedor_icono-cart small{
+    position: absolute;
+    padding: 5px 8px;
+    background-color: #FF217A;
+    border-radius: 50%;
+    color: white;
+    top: -15px;
+    right: -15px;
+    font-weight: 600;
+}
+
 
 @media (min-width: 577px){
 
@@ -488,7 +503,7 @@ button{
  
         font-size: 16px;
       
-      }
+    }
 
 }
 

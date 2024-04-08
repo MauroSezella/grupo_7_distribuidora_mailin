@@ -46,27 +46,23 @@ main {
 
 .contenedor-carrito{
     display: flex;
-    flex-wrap: wrap;
-    padding:  0 10px;
+    flex-direction: column;
+    padding: 10px 25px 20px;
     justify-content: center;
-    align-items: start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    
  }
 
-.tabla_productos, .total-carrito{
+.tabla_productos{
     width: 100%;
-    margin: 20px auto;
+    margin: 10px auto;
     table-layout: fixed;
     border-collapse: collapse;
 }
-
-/* .tabla_productos{
-    max-width: 60%;
-}
-
-.total-carrito{
-    max-width:40%;
-} */
-
 
 .subtitulos {
     padding: 20px 0;
@@ -103,9 +99,15 @@ main {
     border-bottom: 1px solid var(--color-grisClaro);
 }
 
+.item-total{
+    border-bottom: none;
+}
+
 .item-producto td{
    padding: 10px 5px;
+
 }
+
 
 .contenedor_product{
     width: 100%;
@@ -143,6 +145,7 @@ main {
   
   .col-name_product {
     padding: 0 10px;
+    color: #6b6b6b;
   }
 
   .col-name_product a{
@@ -195,92 +198,67 @@ main {
     width: 100%
 }
 
-.seguir-actualizar{
+.seguir-finalizar{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 10px;
-}
-
-
-.botones-productos_boton{
-    letter-spacing: 0.6px;
-    border: none;
-    border-radius: 2px;
-    color: #f7f7f7;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: var(--color-3);
-    text-transform: uppercase;
-    font-size: 12px;
     margin: 0 auto;
-    padding: 8px 15px;
 }
 
-.enlace{
-    border: 2px solid var(--color-3);
-    background-color: rgb(255, 255, 255);
+.boton_seguir-comprando{
+    text-decoration: none;
+    border-radius: 3px;
     color: #0f95b6;
-    text-decoration: none;
-}
-
-.botones-productos_boton:hover{
-    background-color: #1A1265;
-}
-
-.enlace:hover{
-    color:  rgb(255, 255, 255);
-    border: 2px solid var(--color-2);
-}
-
-
-.col-total_carrito{
-    text-align: start;
+    cursor: pointer;
     text-transform: uppercase;
-    font-size: 16px;
-}
-
-
-
-.total-carrito td{
-    text-align: start;
-    font-weight: normal;
-    color: black;
-}
-
-.row-total_carrito .valor{
-    text-align: end;
-}
-
-.row-total_carrito td{
-    padding: 10px 5px;
-    border-bottom: 1px solid var(--color-grisClaro);
- }
-
- .envio td{
-     border-bottom: none;
- }
-
- .total td{
-    border-bottom: none;
-    border-top: 2px solid var(--color-grisClaro);
-    font-weight: bold;
-    font-size: 16px;
- }
-
- .finalizar_compra{
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
     font-size: 14px;
+    padding: 5px;
+    border: 1px solid var(--color-3);
+    letter-spacing: 1px;
+    text-align: center;
+    width: 40%;
+    font-weight: 600;
+
+}
+
+.boton_finalizar-compra{
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #0f95b6;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 5px;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 45%;
+    border: 1px solid #0f95b6;
+    font-weight: 600;
+}
+
+.boton_seguir-comprando:hover, .boton_finalizar-compra:hover{
+    color:  rgb(255, 255, 255);
+    background-color: #252525;
+    border: 1px solid #252525;
+}
+
+
+ .contenedor_total{
+    text-align: end;
+    padding: 10px 20px;
+}
+
+.col-total h2{
+     padding-right: 25px;
+
  }
 
 
   @media (min-width: 550px) {
 
-    .seguir-actualizar{
-        width: max-content;
-        justify-content: start;
-    }
      
     .titulo{
         font-size: 24px;
@@ -316,20 +294,9 @@ main {
   @media (min-width: 850px) {
      
 
-    .contenedor-carrito{
-        display: flex;
-        flex-wrap: wrap;
-        padding:  0 10px;
-        gap: 10px;
+    .contenedor-carrito, .seguir-finalizar{
+        max-width: 75%;
      }
-    
-    .tabla_productos{
-        max-width: 65%;
-    }
-    
-    .total-carrito{
-        max-width:30%;
-    } 
 
     .subtitulos th{
         font-size: 16px;
@@ -357,9 +324,9 @@ main {
         width: 70px;
     }
 
-    
-    .row-total_carrito td{
-       font-size: 16px;
-     }
+    .boton_seguir-comprando{
+
+        width: 30%;
+    }
     
   }
