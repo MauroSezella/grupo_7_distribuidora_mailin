@@ -1,6 +1,16 @@
 window.addEventListener('load', () => {
+    let precios = document.querySelectorAll('.formatoPrecio');
+    precios.forEach(precio=>{
+        valor = parseFloat(precio.textContent);
+        precio.textContent = valor.toLocaleString('es-AR', {
+            style: 'currency',
+            currency: 'ARS'
+        });
+    })
+
     let mostrarCantidad = document.querySelector('.mostrarCantidad');
-    mostrarCantidad.innerHTML = productosEnCarrito() 
+    mostrarCantidad.innerHTML = productosEnCarrito() ;
+    
     let btnAddCart = document.querySelectorAll('.btnAddCart');
     btnAddCart.forEach(btn => {
         btn.addEventListener('click', (event) => {
@@ -47,6 +57,8 @@ window.addEventListener('load', () => {
         };
         mostrarCantidad.innerHTML = productosEnCarrito()
     });
+
+
 });
 
 function productosEnCarrito() {

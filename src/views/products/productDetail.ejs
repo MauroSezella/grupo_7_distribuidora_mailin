@@ -48,13 +48,13 @@
 
                     <div class="main__producto-detalle--precio">
                         <%if(product.descuento> 0) { %>
-                            <p class="main-precio">$ <%=product.precio%>
+                            <p class="main-precio formatoPrecio"><%=product.precio%>
                             </p>
-                            <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>
+                            <p class="main-precio-final formatoPrecio"><% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>
                                 <%= precioFinal.toFixed(2) %>
                                     </p>
                         <% }else{ %>
-                            <p class="main-precio-final">$ <%=product.precio%></p>
+                            <p class="main-precio-final formatoPrecio"><%=product.precio%></p>
                         <% } %>
                     </div>
                     <% if (product.stock>0) {%>
