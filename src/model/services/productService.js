@@ -7,7 +7,7 @@ const { error } = require("console");
 const productService = {
 
     getAll: async function (page) {
-        let limit = 8;
+        let limit = 10;
         let offset = (page - 1) * limit;
         try {
             let { count, rows } = await db.Productos.findAndCountAll({
