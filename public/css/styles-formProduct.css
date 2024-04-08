@@ -297,6 +297,14 @@ footer{
        height: 30px;
 }
 
+
+.formulario input:focus, .formulario textarea:focus  {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+}
+
 @media (min-width:540px) {
 
     

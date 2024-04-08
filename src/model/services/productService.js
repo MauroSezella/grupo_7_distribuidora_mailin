@@ -11,7 +11,7 @@ const productService = {
         let offset = (page - 1) * limit;
         try {
             let { count, rows } = await db.Productos.findAndCountAll({
-                order: [['categoria_id', 'ASC'],['stock', 'DESC']],
+                order: [['stock', 'DESC']],
                 include: 'categoria',
                 limit: limit,
                 offset: offset
@@ -202,8 +202,7 @@ const productService = {
     },
 
     eliminarImagen: function (nombreArchivo) {
-        const rutaArchivo = path.join(__dirname, `../../public/images/products/${nombreArchivo}`);
-        console.log(rutaArchivo);
+        const rutaArchivo = path.resolve("public", "images", "products", nombreArchivo);;
         fs.unlinkSync(rutaArchivo);
         console.log(`Imagen ${nombreArchivo} eliminada del servidor.`);
 

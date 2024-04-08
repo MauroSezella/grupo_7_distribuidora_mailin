@@ -64,6 +64,7 @@ let productController = {
         try {
             const resultValidation = validationResult(req);
             if (resultValidation.errors.length > 0) {
+                
                 return res.render('./products/productForm', {
                     errors: resultValidation.mapped(),
                     oldData: req.body

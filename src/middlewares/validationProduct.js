@@ -42,6 +42,11 @@ const validationProduct = [
         }),       
 
     check('imagen').custom((value, { req }) => {
+        let url = req.originalUrl;
+
+        if (!url.includes('edit') && !req.file) {
+            throw new Error('Debe seleccionar una imagen')
+        }
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
         
