@@ -8,7 +8,7 @@ router.get('/products', productAPIController.list);
 router.get('/products/:id', productAPIController.productById);
 router.get('/last-product', productAPIController.lastProduct);
 
-router.post('/checkout', productAPIController.checkout);
+router.post('/carrito', productAPIController.checkout);
 
 
 //API Users

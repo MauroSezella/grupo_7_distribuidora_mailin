@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
             orderItems: products,
             total: calcularTotal(products),
         };
-        fetch("/api/checkout", {
+        fetch("/api/carrito", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
