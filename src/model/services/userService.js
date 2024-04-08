@@ -28,12 +28,12 @@ const User = {
             }
 
             if(page > 1){
-                let previous = `/api/users/?page=${page-1}`
+                let previous = `/api/users?page=${page-1}`
                 result.previous = previous;
              }
 
             if(count - (offset + limit) > 0){
-                let next = `/api/users/?page=${page + 1}`
+                let next = `/api/users?page=${page + 1}`
                 result.next = next;
             }
     
