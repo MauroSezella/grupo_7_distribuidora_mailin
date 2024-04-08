@@ -14,6 +14,9 @@ window.addEventListener('load',function(){
     }
     
     formulario.nombre.addEventListener('blur', () => {
+
+        formulario.nombre.classList.remove('is-invalid');
+        errorNombre.innerHTML = '';
      
         if (formulario.nombre.value.trim() == ""){
             formulario.nombre.classList.add('is-invalid');
@@ -29,6 +32,9 @@ window.addEventListener('load',function(){
 
     formulario.descripcion.addEventListener('blur', () => {
 
+        formulario.descripcion.classList.remove('is-invalid');
+        errorDescripcion.innerHTML = '';
+
         if (formulario.descripcion.value.trim() == ""){
             formulario.descripcion.classList.add('is-invalid');
             errorDescripcion.innerHTML += 'La descipcion no puede estar vacia';
@@ -43,6 +49,9 @@ window.addEventListener('load',function(){
 
     formulario.stock.addEventListener('blur', () => {
 
+        formulario.stock.classList.remove('is-invalid');
+        errorStock.innerHTML = '';
+
         if (formulario.stock.value.trim() == ""){
             formulario.stock.classList.add('is-invalid');
             errorStock.innerHTML += 'El stock no puede estar vacio';
@@ -55,6 +64,10 @@ window.addEventListener('load',function(){
     })
 
     formulario.precio.addEventListener('blur', () => {
+
+
+        formulario.precio.classList.remove('is-invalid');
+        errorPrecio.innerHTML = '';
 
         if (formulario.precio.value.trim() == ""){
             formulario.precio.classList.add('is-invalid');
@@ -69,6 +82,9 @@ window.addEventListener('load',function(){
     })
     
     formulario.descuento.addEventListener('blur', () => {
+
+        formulario.descuento.classList.remove('is-invalid');
+        errorDescuento.innerHTML = '';
 
         if (formulario.descuento.value.trim() == ""){
             formulario.descuento.classList.add('is-invalid');
