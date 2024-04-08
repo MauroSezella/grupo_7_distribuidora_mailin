@@ -22,29 +22,18 @@
         </small>
         <% } %>
         <h1>
-          <%= `Hola, ${user.nombre}`%>
+          <%= `¡Hola, ${user.nombre}!`%>
         </h1>
-            <section class="container perfil">
-              <img src="/images/users/<%= user.avatar %>" />
-              <div class="contenedor-enlaces">
-                <a href="" class="link-perfil" id="enlace-perfil"> <i class="fa-regular fa-user"></i> Cuenta</a>
-                <% if (!isAdmin) { %>
-                  <a href="" class="link-perfil" id="enlace-pedidos"><i class="fa-solid fa-basket-shopping"></i> Pedidos</a>
-                <% } %>
-                <a href="/user/logout/" class="link-perfil"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión</a>
-
-              </div>
-            </section>
-            
-
+           
             <section class="secciones-perfil" id="perfil">
-              <h2>Perfil</h2>
+              <h2>Mi Cuenta</h2>
               <div class="datos-perfil">
-                <i class="fa-regular fa-user"></i>
+                <div class="contenedor-avatar">
+                  <img src="/images/users/<%= user.avatar %>" />
+                </div>
                 <div class="datos">
                   <h3><%= isAdmin? 'Admin: ': null %> <%= user.nombre+ ' ' +user.apellido %> </h3>
                   <p>Email: <%= user.email %> </p>
-
                 </div>
               </div>
               <div class="datos-acciones">
@@ -57,65 +46,10 @@
 
             </section>
 
-
-            <% if (!isAdmin) { %>
-              <section class="compras" id="compras">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <p>¡Hacé tu primera compra!</p>
-                <a href="/productos" class="cerrar-sesion compras-boton">IR A TIENDA</a>
-              </section>
-
-              <% }%>
-              <!--  <section class="secciones-perfil" id="pedidos">
-                  <h2>Pedidos</h2>
-                  <div class="datos-pedidos">
-                    <div class="pedidos">
-                      <h3> pedido.id
-                      </h3>
-                      <p>Fecha: <span class="span-pedido">
-                          pedido.fecha_pedido
-                        </span></p>
-                      <p>Total: <span class="span-pedido"> $pedido.total </span></p>
-                    </div>
-    
-                    <div class="detalle-pedido">
-                      <details>
-                        <summary>Detalle de
-                          Pedido</summary>
-                        <table class="tabla_productos">
-                          <tbody>
-    
-                            <tr class="item-producto">
-                              <td class="col-product" colspan="2">
-                                <img src="/images/products/img-chupetin-bola-loca-max.jpg" alt="">
-                                <div class="col-name_product">
-                                  <a href="/productos/">
-                                    nombre
-                                  </a>
-                                  <div class="contenedor_movil">
-                                    <span class="movil_cantidad">
-                                      3x
-                                    </span>
-                                    <span class="movil_precio">$ 2255 </span>
-                                  </div>
-                              </td>
-                              <td class="col-precio"><span>$2500 </span></td>
-                              <td class="col-cantidad"> 3
-    
-                              </td>
-                              <td class="col-subtotal"><span>$3655</span></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </details>
-                    </div>
-    
-                  </div>
-                </section>  -->
-
     </main>
 
     <%- include('../partials/footer') %>
+    
 </body>
 
 </html>
