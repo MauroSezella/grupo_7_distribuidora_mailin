@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const session = require('express-session');
 const methodOverride =  require('method-override');
+const cors = require('cors');
 
 const cookies= require('cookie-parser')
 
@@ -28,7 +29,9 @@ app.use(session({
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-app.use(cookies())
+app.use(cookies());
+
+app.use(cors());
 
 app.use(userLoggedMiddleware); 
 

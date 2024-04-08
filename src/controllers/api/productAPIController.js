@@ -5,7 +5,6 @@ let productAPIController = {
     list: async (req, res) => {
 
         page = req.query.page ? parseInt(req.query.page) : 1;
-        console.log(page);
 
         try {
             let results = await productService.getAllApiProducts(page);
