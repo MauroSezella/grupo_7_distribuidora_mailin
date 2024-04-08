@@ -26,14 +26,12 @@
                                     <%= precioFinal.toFixed(2) %>
                             </p>
                             <% }else{ %>
-                                <p class="precio-final">$ <%=product.precio%>
-                                </p>
-
-                                <% }; %>
+                             <p class="precio-final">$ <%=product.precio%></p>
+                            <% }; %>
                     </div>
-                    <!-- <% if (product.stock > 0) { %>
-                    <button class="sliderProducto-button">Añadir al carrito</button>
-                    <%}else{%> -->
+                     <% if (product.stock > 0) { %>
+                        <button class="sliderProducto-button btnAddCart" data-id="<%= product.id %>">Añadir al carrito</button>
+                    <%}else{%>
                         <button class="sliderProducto-button sin-stock">sin stock</button>
                     <%} %>
 
