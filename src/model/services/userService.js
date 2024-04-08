@@ -2,14 +2,50 @@ const fs = require("fs");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models/");
-const e = require("express");
+const {fn, col} = require ('sequelize')
 
 const User = {
+    getAllApi: async function (page){
+        try {
+
+            const offset = (page-1)*10;
+            const limit = 10;
+
+            const {count , rows} = await db.Usuarios.findAndCountAll({
+                attributes: [
+                    'id',
+                    [fn('concat', col('nombre'), ' ', col('apellido')), 'name'],
+                    'email',
+                ],
+                raw: true,
+            })
+    
+            let users = rows.map(user => ({
+                ...user,
+                detail : `/api/users/${user.id}`
+            }))
+
+            if(page > 1){
+                let previous = `/api/users/?page=${page-1}`
+                results.previous = previous;
+             }
+
+            if(count - (offset + limit) > 0){
+                let next = `/api/users/?page=${page + 1}`
+                results.next = next;
+            }
+    
+            return {count,users}
+        } catch (error) {
+            console.error(error);
+            return []
+        }
+    },
+
     getAll: async function () {
         try {
             return await db.Usuarios.findAll({
-                raw: true,
-                nest: true,
+                raw: true
             });
         } catch (error) {
             console.error("Error al obtener Usuarios: ", error.message);
@@ -21,8 +57,7 @@ const User = {
     getByPK: async function (id) {
         try {
             return await db.Usuarios.findByPk(id, {
-                raw: true,
-                nest: true,
+                raw: true
             });
         } catch (error) {
             console.error(`Error al obtener usuario por Pk ${id}: `, error.message);
@@ -37,7 +72,6 @@ const User = {
                     email: data,
                 },
                 raw: true,
-                nest: true,
             });
         } catch (error) {
             console.error("Error al obtener usuario por email: ", error.message);
@@ -52,7 +86,6 @@ const User = {
                     email: data,
                 },
                 raw: true,
-                nest: true,
             })
 
             if (userToLogin) {
@@ -81,7 +114,6 @@ const User = {
         try {
             let newUser = await db.Usuarios.create(data, {
                 raw: true,
-                nest: true
             })
 
             delete newUser.password;
@@ -165,7 +197,9 @@ const User = {
             fs.unlinkSync(rutaArchivo);
             console.log(`Imagen ${image} eliminada.`);
         }
-    },
+    }
+
+
 };
 
 module.exports = User;

@@ -1,4 +1,3 @@
-const userService = require('../../model/services/userService');
 const productService = require('../../model/services/productService');
 
 let productAPIController = {
