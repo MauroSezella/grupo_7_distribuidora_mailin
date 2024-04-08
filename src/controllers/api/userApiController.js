@@ -2,13 +2,9 @@ const userService = require('../../model/services/userService');
 
 let userAPIController = {
     list: async (req, res) => {
-
         page = req.query.page ? parseInt(req.query.page) : 1;
-        console.log(page);
-
-
         try {
-            let results = await userService.getAllApi();
+            let results = await userService.getAllApi(page);
             res.status(200).json(results);
         } catch (error) {
             res.status(500).json(error);

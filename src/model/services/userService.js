@@ -8,34 +8,36 @@ const User = {
     getAllApi: async function (page){
         try {
 
-            const offset = (page-1)*10;
             const limit = 10;
+            const offset = (page-1)*10;
 
             const {count , rows} = await db.Usuarios.findAndCountAll({
                 attributes: [
                     'id',
                     [fn('concat', col('nombre'), ' ', col('apellido')), 'name'],
                     'email',
+                    [fn('concat', '/api/users/', col('id')), 'detail'],
                 ],
-                raw: true,
+                limit: limit,
+                offset: offset,
             })
-    
-            let users = rows.map(user => ({
-                ...user,
-                detail : `/api/users/${user.id}`
-            }))
+
+            let result ={
+                count: count,
+                users: rows
+            }
 
             if(page > 1){
                 let previous = `/api/users/?page=${page-1}`
-                results.previous = previous;
+                result.previous = previous;
              }
 
             if(count - (offset + limit) > 0){
                 let next = `/api/users/?page=${page + 1}`
-                results.next = next;
+                result.next = next;
             }
     
-            return {count,users}
+            return result
         } catch (error) {
             console.error(error);
             return []
