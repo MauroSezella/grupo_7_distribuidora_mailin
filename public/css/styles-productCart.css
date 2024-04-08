@@ -35,7 +35,7 @@ main {
     margin-bottom: 20px;
     height: max-content;
     background-color: #1A1265;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     color:white;
     text-transform: uppercase;
@@ -84,7 +84,7 @@ main {
 }
 
 .col-3, .col-cantidad{
-    width: 30%;
+    display: none;
 }
 
 .col-2, .col-precio{
@@ -92,7 +92,9 @@ main {
 }
 
 .col-4, .col-subtotal{
-    display: none;
+    width: 30%;
+    text-align: center;
+  
 }
 
 .item-producto{
@@ -173,12 +175,12 @@ main {
     background-color: var(--color-grisClaro);
     border: none;
     padding: 8px;
-    padding-left: 15px;
     width: 50px;
     height: 100%;
     color: var(--color-grisOscuro);
     font-weight: 500;
     line-height: 0;
+    text-align: center;
 
 }
 
@@ -187,6 +189,17 @@ main {
     background-color: white;
     border: 1px solid var(--color-grisOscuro);
 }
+
+
+.carrito_input-cantidad::-webkit-inner-spin-button,
+.carrito_input-cantidad::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.carrito_input-cantidad {
+    -moz-appearance: textfield;
+    appearance: textfield;
+} 
 
 .botones_carrito td{
    padding : 20px 0;
@@ -201,24 +214,26 @@ main {
 .seguir-finalizar{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     margin: 0 auto;
 }
 
 .boton_seguir-comprando{
+    order: 2;
     text-decoration: none;
     border-radius: 3px;
     color: #0f95b6;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 12px;
     padding: 5px;
     border: 1px solid var(--color-3);
     letter-spacing: 1px;
     text-align: center;
-    width: 40%;
+    width: 80%;
     font-weight: 600;
 
 }
@@ -230,16 +245,16 @@ main {
     background-color: #0f95b6;
     color: #ffffff;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 12px;
     padding: 5px;
     letter-spacing: 1px;
     text-align: center;
-    width: 45%;
+    width: 80%;
     border: 1px solid #0f95b6;
     font-weight: 600;
 }
 
-.boton_seguir-comprando:hover, .boton_finalizar-compra:hover{
+.boton_seguir-comprando:hover{
     color:  rgb(255, 255, 255);
     background-color: #252525;
     border: 1px solid #252525;
@@ -253,7 +268,37 @@ main {
 
 .col-total h2{
      padding-right: 25px;
+     font-size: 16px;
 
+ }
+ 
+ .contendor_carrito-vacio{
+    width: 90%;
+    height: 30vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+ }
+
+
+ .btn_ir-tienda{
+    background-color: #0f95b6;
+    color: #ffffff;
+    padding: 5px 10px;
+    text-decoration: none;
+    width: min(70%, 150px);
+    border-radius: 3px;
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px;
+ }
+
+ .btn_ir-tienda:hover{
+    background-color: #252525;
  }
 
 
@@ -264,11 +309,53 @@ main {
         font-size: 24px;
     }
 
+    .seguir-finalizar{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .boton_seguir-comprando{
+        width: 45%;
+        order: 1;
+        font-size: 14px;
+    }
+    
+    .boton_finalizar-compra{
+        width: 45%;
+        order: 2;
+        font-size: 14px;
+
+    }
+
+    .contendor_carrito-vacio{
+        width: 90%;
+        height: 40vh;
+     }
+
+     .contendor_carrito-vacio h4{
+        font-size: larger;
+     }
+    
+    
+     .btn_ir-tienda{
+        font-size: 14px;
+     }
+    
+    
+  }
+  
+
+
+  @media (min-width: 700px) {
     .subtitulos_producto, .col-product{
         width: 40%;
     }
     
     .col-3, .col-cantidad{
+        display: table-cell;
         width: 20%;
     }
     
@@ -285,15 +372,10 @@ main {
       .cantidad input {
         width: 60px;
     }
-
-    
-    
   }
-  
 
   @media (min-width: 850px) {
      
-
     .contenedor-carrito, .seguir-finalizar{
         max-width: 75%;
      }

@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
     let mostrarCantidad = document.querySelector('.mostrarCantidad');
-    mostrarCantidad.innerHTML = productosEnCarrito() //mostrar en el header
-    // captura de elementos DOM, todos los botones del slider y products
+    mostrarCantidad.innerHTML = productosEnCarrito() 
     let btnAddCart = document.querySelectorAll('.btnAddCart');
     btnAddCart.forEach(btn => {
         btn.addEventListener('click', (event) => {
@@ -25,7 +24,6 @@ window.addEventListener('load', () => {
         });
     });
 
-    //boton de product detail
     let btnAddCartDetail = document.querySelector('.btnAddCartDetail');
     let inputCantidad = document.querySelector('.cantidad-item');
 

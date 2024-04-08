@@ -505,6 +505,11 @@ button{
       
     }
 
+    .contenedor_icono-cart small{
+        top: -10px;
+        right: -10px;
+    }
+
 }
 
 @media (min-width: 1024px){
