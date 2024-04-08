@@ -13,6 +13,76 @@ window.addEventListener('load',function(){
      }
     }
     
+    formulario.nombre.addEventListener('blur', () => {
+     
+        if (formulario.nombre.value.trim() == ""){
+            formulario.nombre.classList.add('is-invalid');
+            errorNombre.innerHTML += 'El nombre no puede estar vacio';
+   
+        } else if(formulario.nombre.value.trim().length < 5){
+            formulario.nombre.classList.add('is-invalid');
+            errorNombre.innerHTML += 'El nombre tiene que tener al menos 5 caracteres';
+        }
+        
+
+    })
+
+    formulario.descripcion.addEventListener('blur', () => {
+
+        if (formulario.descripcion.value.trim() == ""){
+            formulario.descripcion.classList.add('is-invalid');
+            errorDescripcion.innerHTML += 'La descipcion no puede estar vacia';
+   
+        } else if(formulario.nombre.value.trim().length < 20){
+            formulario.descripcion.classList.add('is-invalid');
+            errorDescripcion.innerHTML += 'La descripcion tiene que tener al menos 20 caracteres';
+        }
+        
+
+    })
+
+    formulario.stock.addEventListener('blur', () => {
+
+        if (formulario.stock.value.trim() == ""){
+            formulario.stock.classList.add('is-invalid');
+            errorStock.innerHTML += 'El stock no puede estar vacio';
+  
+        } else if(!exprNumber.test(formulario.stock.value)){
+            formulario.stock.classList.add('is-invalid');
+            errorStock.innerHTML += 'El stock debe ser un numero';
+        } 
+
+    })
+
+    formulario.precio.addEventListener('blur', () => {
+
+        if (formulario.precio.value.trim() == ""){
+            formulario.precio.classList.add('is-invalid');
+            errorPrecio.innerHTML += 'El precio no puede estar vacio';
+
+        } else if(!exprNumber.test(formulario.precio.value)){
+            formulario.precio.classList.add('is-invalid');
+            errorPrecio.innerHTML += 'El precio debe ser un numero';
+
+        } 
+
+    })
+    
+    formulario.descuento.addEventListener('blur', () => {
+
+        if (formulario.descuento.value.trim() == ""){
+            formulario.descuento.classList.add('is-invalid');
+            errorDescuento.innerHTML += 'El descuento no puede estar vacio';
+
+        } else if(!exprNumber.test(formulario.descuento.value)){
+            formulario.descuento.classList.add('is-invalid');
+            errorDescuento.innerHTML += 'El descuento debe ser un numero';
+    
+        }   
+    })
+    
+
+
     btnSubmit.addEventListener('click', e => {
 
         let errores = 0;
