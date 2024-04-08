@@ -2,14 +2,52 @@ const fs = require("fs");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models/");
-const e = require("express");
+const {fn, col} = require ('sequelize')
 
 const User = {
+    getAllApi: async function (page){
+        try {
+
+            const limit = 10;
+            const offset = (page-1)*10;
+
+            const {count , rows} = await db.Usuarios.findAndCountAll({
+                attributes: [
+                    'id',
+                    [fn('concat', col('nombre'), ' ', col('apellido')), 'name'],
+                    'email',
+                    [fn('concat', '/api/users/', col('id')), 'detail'],
+                ],
+                limit: limit,
+                offset: offset,
+            })
+
+            let result ={
+                count: count,
+                users: rows
+            }
+
+            if(page > 1){
+                let previous = `/api/users?page=${page-1}`
+                result.previous = previous;
+             }
+
+            if(count - (offset + limit) > 0){
+                let next = `/api/users?page=${page + 1}`
+                result.next = next;
+            }
+    
+            return result
+        } catch (error) {
+            console.error(error);
+            return []
+        }
+    },
+
     getAll: async function () {
         try {
             return await db.Usuarios.findAll({
-                raw: true,
-                nest: true,
+                raw: true
             });
         } catch (error) {
             console.error("Error al obtener Usuarios: ", error.message);
@@ -21,8 +59,7 @@ const User = {
     getByPK: async function (id) {
         try {
             return await db.Usuarios.findByPk(id, {
-                raw: true,
-                nest: true,
+                raw: true
             });
         } catch (error) {
             console.error(`Error al obtener usuario por Pk ${id}: `, error.message);
@@ -37,7 +74,6 @@ const User = {
                     email: data,
                 },
                 raw: true,
-                nest: true,
             });
         } catch (error) {
             console.error("Error al obtener usuario por email: ", error.message);
@@ -52,7 +88,6 @@ const User = {
                     email: data,
                 },
                 raw: true,
-                nest: true,
             })
 
             if (userToLogin) {
@@ -61,7 +96,6 @@ const User = {
             }
         } catch (error) {
             console.error("Error en la autenticación: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
@@ -82,7 +116,6 @@ const User = {
         try {
             let newUser = await db.Usuarios.create(data, {
                 raw: true,
-                nest: true
             })
 
             delete newUser.password;
@@ -90,14 +123,12 @@ const User = {
 
         } catch (error) {
             console.error('Error en registro:', error.message)
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
     update: async function (req) {
         try {
-            let userLogged = req.session.userLogged;
-            let oldData = await this.getByPK(userLogged.id);
+            let oldData = await this.getByPK(req.params.id);
             let image = oldData.avatar
             let deleteImage = null;
 
@@ -123,17 +154,14 @@ const User = {
             };
             let updatedUser = await this.getByPK(oldData.id);
             delete updatedUser.password;
-            req.session.userLogged = updatedUser //actualizo session
-            console.log('usuario actualizado')
             return updatedUser;
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
     updatePassword: async function (req) {
         try {
-            let oldData = await this.getByPK(req.body.id); //modificar password de usuario no logueado
+            let oldData = await this.getByPK(req.params.id); 
             let result = await db.Usuarios.update({
                 password: req.body.password ? bcryptjs.hashSync(req.body.password, 10) : oldData.password,
             }, {
@@ -146,7 +174,6 @@ const User = {
             return null
         } catch (error) {
             console.error("Error al modificar usuario: ", error.message);
-            throw new Error("Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente.");
         }
     },
 
@@ -172,7 +199,9 @@ const User = {
             fs.unlinkSync(rutaArchivo);
             console.log(`Imagen ${image} eliminada.`);
         }
-    },
+    }
+
+
 };
 
 module.exports = User;

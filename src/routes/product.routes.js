@@ -11,7 +11,7 @@ const validationProduct = require('../middlewares/validationProduct');
 /*** TRAER TODOS LOS PRODUCTOS***/ 
 router.get('/', productController.list);
 
-router.get('/cart', authMiddleware, productController.getCarrito);
+router.get('/cart',authMiddleware, productController.getCarrito);
 router.get('/filter', productController.filter);
 
 /*** CREAR UN PRODUCTO ***/ 

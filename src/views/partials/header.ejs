@@ -18,7 +18,7 @@
                             <% }); %>
                     </div>
                 </div>
-                
+
                 <li><a href="/productos/filter?ofertas=si" class="nav-bar_enlaces">Ofertas</a></li>
             </ul>
         </nav>
@@ -33,53 +33,48 @@
             <% if (locals.isLogged) { %>
                 <div class="header__icons--user user-perfil ">
                     <div class="dropdown-perfil">
-                        <button class=""> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil"
-                                alt=""></i></button>
+                        <button class=""> <img src="/images/users/<%= userLogged.avatar %>" class="img-perfil" alt="">
+                        </button>
                         <div class="dropdown-content-perfil">
-                            <% if (isAdmin) { %>
-                               <a href="/user/admin">Listado de Productos</a> 
-                            <% } %>
-                            <a href="/user/profile">Mi Cuenta</a>
-                            <a href="/user/logout/">Cerrar Sesión</a>
-
+                                <a href="/user/profile">Mi Cuenta</a>
+                                <a href="/user/logout/">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
-
-
-                <% } else{%>
+                <% if (isAdmin) { %>
+                    <small class="nombre-user">Admin <%= userLogged.nombre  %></small>
+                <% } else { %>
+                    <small class="nombre-user"><%= userLogged.nombre  %></small>
+                <% } %>
+            <% } else{%>
                     <a href="/user/login" class="header__icons--user"><i class="fa-solid fa-circle-user"></i></a>
-                    <% } %>
-                        <a href="/productos/cart" class="header__icons--cart"><i
-                                class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="header__burguer-menu">
+             <% } %>
+                        <div class="contenedor_icono-cart">
+                            <a href="/productos/cart" class="header__icons--cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                            <small class="mostrarCantidad"></small>
+                        </div>
+                        <div class="header__burguer-menu" id="contenedor-burguer_menu">
                             <input type="checkbox" id="burguer-menu" class="input__burguer-menu">
                             <label for="burguer-menu"><i class="fas fa-bars"></i></label>
 
                             <ul class="burguer-menu__options">
                                 <li><a href="/productos" class="header-enlaces">Productos</a></li>
                                 <details class="header-details">
-                                    <summary class="header-summary">Categorias<i class="fa-solid fa-caret-down"
-                                            style="font-size: 14px;"></i><i class="fa-solid fa-minus"
-                                            style="font-size: 14px"></i></summary>
-
-                                    <% categorias.forEach(element=> { %>
-                                        <a href="/productos/filter?categorias=<%= element.id%>" class="header-categoria">
-                                            <li>
-                                                <%= element.nombre %>
-                                            </li>
-                                        </a>
-
+                                    <summary class="header-summary">Categorías</summary>
+                                    <div class="details_categorias">
+                                        <% categorias.forEach(element=> { %>
+                                            <a href="/productos/filter?categorias=<%= element.id%>" class="header-categoria">
+                                                <li> <%= element.nombre %></li>
+                                            </a>
                                         <% }); %>
+                                    </div>
                                 </details>
-                                <li><a href="/productos/filter?ofertas=si" class="header-enlaces">Ofertas</a>
-                                </li>
+                                <li><a href="/productos/filter?ofertas=si" class="header-enlaces">Ofertas</a></li>
                             </ul>
-
                         </div>
+                    </div>
         </div>
 
-    </div>
-
-    </div>
+     </div>
 </header>

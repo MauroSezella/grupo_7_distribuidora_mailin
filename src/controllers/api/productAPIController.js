@@ -1,4 +1,3 @@
-const userService = require('../../model/services/userService');
 const productService = require('../../model/services/productService');
 
 let productAPIController = {
@@ -24,8 +23,15 @@ let productAPIController = {
         } catch (error) {
             res.json(error);
         }
-       
-       
+    },
+
+    checkout: async (req, res)=>{
+        try {
+            await productService.createCart(req)
+            res.json({ok: true, status:200})
+        } catch (error) {
+            res.json({ok: false, status: 500})
+        }
     }
 };
 

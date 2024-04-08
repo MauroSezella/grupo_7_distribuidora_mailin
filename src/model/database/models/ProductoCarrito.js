@@ -10,7 +10,6 @@ let modelProductoCarrito = (sequelize, DataTypes) => {
         cantidad : DataTypes.INTEGER ,
         subtotal : DataTypes.DECIMAL ,
         
-        
     };
     let config = {
         tableName : "productos_carrito",

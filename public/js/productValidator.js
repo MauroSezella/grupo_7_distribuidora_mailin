@@ -85,7 +85,23 @@ window.addEventListener('load',function(){
             errores++;
         } 
 
-        if(formulario.imagen.value && !esImagenValida(formulario.imagen.value)){
+
+        ///agrego para que la imagen sea obligatoria en formulario de creacion.
+        if (!formulario.imagen.value) {   
+            const imagenData = formulario.imagen.dataset.imagen;
+            if (imagenData === 'obligatoria') {
+              formulario.imagen.classList.add('is-invalid');
+              errorImagen.innerHTML += 'Debe seleccionar una imagen';
+              errores++;
+            }
+          } else if (!esImagenValida(formulario.imagen.value)) {
+            formulario.imagen.classList.add('is-invalid');
+            errorImagen.innerHTML += 'Solo se admiten formatos .jpg, .png, .jpeg';
+            errores++;
+          }
+
+
+          if(formulario.imagen.value && !esImagenValida(formulario.imagen.value)){
             formulario.imagen.classList.add('is-invalid');
             errorImagen.innerHTML += 'Solo se admiten formatos .jpg, .png, .jpeg';
             errores++;

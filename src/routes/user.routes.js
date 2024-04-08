@@ -16,15 +16,12 @@ router.post('/register', upload.single('avatar'), validations.register,userContr
 router.get('/profile',authMiddleware, userController.profile);
 
 router.get('/profile/edit',authMiddleware, userController.edit);
-router.put('/profile/edit',upload.single('avatar'), validations.edit, userController.update);
+router.put('/profile/edit/:id',upload.single('avatar'), validations.edit, userController.update);
 router.get('/resetpassword',authMiddleware, userController.resetPassword);
-router.put('/resetpassword', validations.password, userController.updatePassword);
+router.put('/resetpassword/:id', validations.password, userController.updatePassword);
 router.post('/verification', validations.email,userController.verification);
 
 router.delete('/delete', authMiddleware, userController.delete); 
-
-router.get('/admin',adminMiddleware, userController.admin);
-
 router.get('/logout/',userController.logout);
 
 

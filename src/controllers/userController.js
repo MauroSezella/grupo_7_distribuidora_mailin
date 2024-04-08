@@ -57,6 +57,9 @@ let userController = {
         try {
             const resultValidation = validationResult(req);
             if (resultValidation.errors.length > 0) {
+                if (req.file) {
+                    userService.deleteAvatar(req.file.filename)
+                }
                 return res.render('./users/register', {
                     errors: resultValidation.mapped(),
                     oldData: req.body
@@ -90,19 +93,23 @@ let userController = {
             const resultValidation = validationResult(req);
 
             if (resultValidation.errors.length > 0) {
+                if (req.file) {
+                    userService.deleteAvatar(req.file.filename)
+                }
                 return res.render('./users/editProfile', {
                     user: req.session.userLogged,
                     errors: resultValidation.mapped(),
                     oldData: req.body
                 });
             };
-            await userService.update(req);
+           let user =  await userService.update(req);
+           req.session.userLogged = user
             return res.redirect("/user/profile")
         } catch (error) {
             return res.render("./users/editProfile", {
                 user: req.session.userLogged,
                 errors: {
-                    general: {msg: error.message}},
+                    general: {msg: "Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente."}},
                 oldData: req.body,
             });
         }
@@ -117,25 +124,26 @@ let userController = {
 
             if (resultValidation.errors.length > 0) {
                 return res.render('./users/resetPassword', {
-                    user: req.session.userLogged || req.body,
+                    user: req.session.userLogged || req.params.id,
                     errors: resultValidation.mapped(),
                     oldData: req.body
                 });
             };
 
-            if (req.body.id) {
+            if (req.session && req.session.userLogged) {
+                let user =  await userService.update(req);
+                req.session.userLogged = user
+                return res.redirect("/user/profile")
+            }else{
                 let result = await userService.updatePassword(req);
                 return res.render("./users/login", { message: result });
-
-            } else {
-                await userService.update(req);
-                return res.redirect("/user/profile")
             }
+         
         } catch (error) {
             return res.render("./users/resetPassword", {
-                user: req.session.userLogged || req.body,
+                user: req.session.userLogged || req.params.id,
                 errors: {
-                    general: {msg: error.message}
+                    general: {msg: "Hubo un problema al procesar tu solicitud. Por favor, inténtalo nuevamente."}
                 },
                 oldData: req.body,
             });
@@ -183,16 +191,6 @@ let userController = {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/')
-    },
-
-    admin: async (req, res) => {
-        try {
-            let productos = await productService.getAll();
-            res.render('./users/admin', { products: productos })
-        } catch (error) {
-            console.log(error);
-            res.render('./users/admin', { products: productos })
-        }
     }
 
 }

@@ -48,22 +48,22 @@
 
                     <div class="main__producto-detalle--precio">
                         <%if(product.descuento> 0) { %>
-                            <p class="main-precio">$ <%=product.precio%>
+                            <p class="main-precio formatoPrecio"><%=product.precio%>
                             </p>
-                            <p class="main-precio-final">$ <% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>
+                            <p class="main-precio-final formatoPrecio"><% let precioFinal=product.precio - (product.precio *(product.descuento/100)) %>
                                 <%= precioFinal.toFixed(2) %>
                                     </p>
                         <% }else{ %>
-                            <p class="main-precio-final">$ <%=product.precio%></p>
+                            <p class="main-precio-final formatoPrecio"><%=product.precio%></p>
                         <% } %>
                     </div>
                     <% if (product.stock>0) {%>
                         <p class="main__producto-detalle-disponible">Disponible</p>
                         <form class="main__producto-detalle-cantidad ">
                             <div class="cantidad">
-                                <input type="number" value="1" min="1" />
+                                <input class="cantidad-item" type="number" value="1" min="1" />
                             </div>
-                            <button class="agregar-carrito">
+                            <button class="agregar-carrito btnAddCartDetail" data-id="<%= product.id %>">
                                 Añadir al carrito
                             </button>
                         </form> 

@@ -71,7 +71,7 @@
 
                 <div class="form-items form-items-1">
                     <label for="imagenproducto">Seleccionar imagen</label>
-                    <input type="file" name="imagen" id="imagenproducto" accept=".jpg, .png" class="input-foto" <%= locals.errors && locals.errors.imagen ? 'is-invalid' : null %>>
+                    <input type="file" name="imagen" id="imagenproducto" accept=".jpg, .png" data-imagen="obligatoria"  class="input-foto" <%= locals.errors && locals.errors.imagen ? 'is-invalid' : null %>>
                     
                     <small class="text-danger" id = "errorImagen"></small>
                     

@@ -51,110 +51,15 @@ h1{
     width: 100%;
 }
 
-.container img{
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    border-radius: 50%;
-    margin-bottom: 5px;
-    border: 1px solid #d3d3d3;
-    object-fit: cover;
-}
-
-.container h4{
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-   padding: 10px 0;
-}
-
-.contenedor-enlaces{
-    width: 100%;
-    margin-top: 30px;
-
-}
-
-.link-perfil{
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--color-footer);
-    width: 100%;
-    padding-left: 20px;
-}
-
-.link-perfil i{
-    font-size: 12px;
-    padding: 5px;
-    margin-right: 5px;
-}
-.link-perfil:last-child{
-    border-bottom: none;
-}
-.link-perfil:hover{
-    color: #0f95b6;
-    font-weight: 600;
-}
-
-.active{
-    background-color: #0f95b6;
-    color: white;
-    font-weight: 600;
-}
-.active:hover{
-    color: white;
-}
-
-.cerrar-sesion{
-    padding: 10px;
-    color: #ffffff;
-    background-color: #0f95b6;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 3px;
-    letter-spacing: 1px;
-}
-.cerrar-sesion:hover{
-    background-color: var(--color-footer);
-}
-
-.compras{
-    margin: 30px auto ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-}
-
-.compras i{
-    font-size: 22px;
-    color: var(--color-grisOscuro);
-}
-.compras p{
-    font-size: 16px;
-    color: var(--color-grisOscuro);
-    text-align: center;
-}
-.compras-boton{
-    width: 150px;
-}
-
 .secciones-perfil{
-    width: min(90%, 450px);
+    width: min(90%, 550px);
     padding: 20px;
-    margin: 30px 0;
+    margin: 30px auto;
     height: max-content;
-    border: 1px solid #d3d3d3;
-   /*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    border: 0.5px solid #d3d3d3;
+    border-radius: 5px;
 }
+
 
 
 .secciones-perfil h2{
@@ -167,21 +72,34 @@ h1{
 .datos-perfil{
     margin-top: 10px;
     border-radius: 3px;
-    padding: 5px 15px 10px;
+    padding: 5px 10px 10px;
     display:  flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    gap: 20px;
+align-items: center;
     background-color: #f1f1f1;
-    border-radius: 3px;
+
+}
+.contenedor-avatar{
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.contenedor-avatar img{
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .datos{
-    width: 92%;
+    width: 100%;
 }
 
 .datos h3, p{
-    padding: 5px 0;
+    padding: 5px 10px;
 }
 .datos-perfil h4{
     display: block;
@@ -192,12 +110,11 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px 0;
     width: 100%;
+    margin-top: 10px;
 }
 .datos-acciones li{
-    margin-left: 10px;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 
@@ -212,20 +129,11 @@ h1{
 
 .btn:hover {
     color: #0f95b6; 
-    font-weight: 600;
 
 }
 
 .btn i{
     margin-right: 10px;
-}
-
-.datos-pedidos{
-    margin-top: 10px;
-    border-radius: 3px;
-    padding: 10px 15px;
-    display:  flex;
-    flex-direction: column;
 }
 
 
@@ -246,74 +154,7 @@ summary{
 }
 
 
-.tabla_productos {
-    width: 100%;
-    margin: 10px auto;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-.col-product {
-    width: 75%;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-}
-
-.col-product img {
-    width: 40%;
-}
-
-.col-cantidad,
-.col-precio {
-    width: 20%;
-    text-align: center;
-    display: none;
-}
-
-.col-subtotal {
-    width: 20%;
-    text-align: center;
-}
-
-.item-producto{
-    border-bottom: 1px solid var(--color-grisClaro);
-}
-
-.item-producto td {
-    padding: 10px 5px;
-}
-
-.contenedor_product {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-
-.col-name_product a {
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-}
-
-.contenedor_movil {
-    padding: 5px 0;
-    color: black;
-    font-size: 14px;
-}
-
-.movil_cantidad {
-    color: var(--color-grisOscuro);
-}
-
-.col-cantidad {
-    text-align: center;
-}
-.itulo-bienvenida{
+.titulo-bienvenida{
     display: block;
     width: 90%;
     margin: 0 auto;
@@ -330,35 +171,30 @@ summary{
 }
 
 
-@media (min-width: 660px) {
+@media (min-width: 540px) {
 
-    .container{
-        width: min(30%, 200px);
-       margin: 0 auto;
+    .datos{
+        width: calc(100% - 120px);
     }
-    .secciones-perfil, .compras{
-        margin:0 auto ;
-        margin-top: 30px;
-        width: 67%;
-    }
+
 }
 
 @media (min-width: 769px) {
+
+    .datos-perfil{
+        margin: 10px auto 0;    
+    }
+
 
 .link-perfil{
     font-size: 16px;
 }
 
+.datos-acciones li{
+    padding: 0;
+
 }
 
-@media (min-width: 1024px) {
+}
 
-.contenedor_movil {
-   display: none;
-}
-.col-cantidad,
-.col-precio {
 
-    display: table-cell;
-}
-}

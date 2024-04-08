@@ -19,13 +19,53 @@ window.addEventListener('load', function () {
             inputEmail.classList.remove('is-invalid')
         }
     });
+    let erPassBack= document.getElementById('erPass-back');
+    inputPassword.addEventListener('input', function () {
+        if (erPassBack.innerHTML !== '') {
+            erPassBack.innerHTML = '';
+            inputPassword.classList.remove('is-invalid')
+        }
+    });
 
+    // Validaciones on time
+    inputEmail.addEventListener('blur', () => {
+        if (inputEmail.value.trim()=='') {
+            erEmail.innerText = 'El campo email no puede quedar vacío';
+            inputEmail.classList.add('is-invalid')
+        }
+        else if (!validacion.test(inputEmail.value)) {
+            erEmail.innerText = 'Debe ingresar un email válido';
+            inputEmail.classList.add('is-invalid')
+        } else {
+            erEmail.innerText = '';
+            inputEmail.classList.remove('is-invalid')
+        }
+    })
+
+    inputPassword.addEventListener('blur', () => {
+        if (inputPassword.value.trim()=='') {
+            erPassword.innerHTML = 'Debe ingresar una contraseña';
+            inputPassword.classList.add('is-invalid')
+            if (erPassBack.innerHTML !== '') {
+                erPassBack.innerHTML = '';
+            }
+        } else {
+            erPassword.innerHTML = '';
+            inputPassword.classList.remove('is-invalid')
+        }
+    })
+
+    // Validacion al hacer submit
     btnSubmit.addEventListener('click', function (e) {
 
         e.preventDefault();
         let errores = {};
 
-        if (!validacion.test(inputEmail.value)) {
+        if (inputEmail.value.trim()=='') {
+            errores.email = 'El campo email no puede quedar vacío';
+            inputEmail.classList.add('is-invalid')
+        }
+        else if (!validacion.test(inputEmail.value)) {
             errores.email = 'Debe ingresar un email válido';
             inputEmail.classList.add('is-invalid')
         } else{
@@ -35,6 +75,9 @@ window.addEventListener('load', function () {
         if (inputPassword.value.trim()=='') {
             errores.password = 'Debe ingresar una contraseña';
             inputPassword.classList.add('is-invalid')
+                if (erPassBack.innerHTML !== '') {
+                    erPassBack.innerHTML = '';
+                }
         }else{
             inputPassword.classList.remove('is-invalid')
         }

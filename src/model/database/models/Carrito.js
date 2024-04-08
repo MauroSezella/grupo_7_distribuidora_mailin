@@ -9,11 +9,10 @@ let modelCarrito = (sequelize, DataTypes) => {
         },
         total : DataTypes.DECIMAL ,
         fecha_pedido : DataTypes.DATE ,
-        estado : DataTypes.INTEGER ,
-        
+        estado : DataTypes.STRING,   
     };
     let config = {
-        tableName : "carritos",
+        tableName : "carrito",
         timestamps : false
     };
     let Carrito = sequelize.define(alias, columns, config);
