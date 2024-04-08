@@ -6,6 +6,7 @@ const userApiController = require ('../../controllers/api/userApiController')
 //API Products
 router.get('/products', productAPIController.list);
 router.get('/products/:id', productAPIController.productById);
+router.get('/last-product', productAPIController.lastProduct);
 
 router.post('/checkout', productAPIController.checkout);
 

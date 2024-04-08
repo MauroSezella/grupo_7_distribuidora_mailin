@@ -25,6 +25,20 @@ let productAPIController = {
         }
     },
 
+    lastProduct: async (req,res)=>{
+        try {
+
+            let result = await productService.getLastProduct();
+            product = result.pop();
+            product.dataValues.url_imagen = `http://localhost:3030/images/products/${product.imagen}`;
+
+            res.json(product);
+
+        } catch (error) {
+            res.json(error);
+        }
+    },
+
     checkout: async (req, res)=>{
         try {
             await productService.createCart(req)
