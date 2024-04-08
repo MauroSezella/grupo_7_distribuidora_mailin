@@ -1,5 +1,5 @@
 let totalCarrito;
-
+let total;
 window.addEventListener('load', () => {
     totalCarrito = document.querySelector('.totalCarrito');
     let products = [];
@@ -8,11 +8,39 @@ window.addEventListener('load', () => {
         let carrito = JSON.parse(localStorage.carrito);
         carrito.forEach(async (item, index) => {
             await fetchProduct(carrito, item, index, products);
-            totalCarrito.innerHTML = `${calcularTotal(products)}`;
+            total= calcularTotal(products)
+            totalCarrito.innerHTML = `${formatoPesos(total)}`;
         });
     } else {
         setCarritoVacio();
-    }
+    };
+
+    let formCart = document.querySelector("#form-cart");
+
+    formCart.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = {
+            orderItems: products,
+            total: calcularTotal(products),
+        };
+        fetch("/api/checkout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                if (res.ok) {
+                    vaciarCarrito();
+                    location.href = `/productos`;
+                }else{
+                    location.href = `/productos/cart`;
+                }
+            })
+            .catch((error) => console.log(error));
+    });
 });
 
 async function fetchProduct(carrito, item, index, products) {
@@ -74,7 +102,7 @@ function calcularTotal(products) {
         return acum + parseFloat(product.subtotal);
     }, 0);
 
-    return formatoPesos(total.toFixed(2));
+    return total.toFixed(2);
 };
 
 function setCarritoVacio() {
@@ -105,10 +133,14 @@ function actualizarSubtotal(index) {
     window.location.reload()
 }
 
-function formatoPesos(precio){
-    precio= parseFloat(precio)
-    return  precio.toLocaleString('es-AR', {
+function formatoPesos(precio) {
+    precio = parseFloat(precio)
+    return precio.toLocaleString('es-AR', {
         style: 'currency',
         currency: 'ARS'
     })
+}
+
+function vaciarCarrito(){
+    localStorage.removeItem('carrito');
 }

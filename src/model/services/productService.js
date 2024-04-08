@@ -279,6 +279,34 @@ const productService = {
 
     },
 
+    createCart: async function (req) {
+        let userLogged = req.session.userLogged
+        try {
+            let carrito = await db.Carritos.create({
+                total: req.body.total,
+                fecha_pedido: new Date(),
+                estado: 'CONFIRMADO',
+                usuario_id: userLogged.id
+            })
+            
+            let products = req.body.orderItems
+
+            products.forEach(async product => {
+                await db.Productos_Carrito.create(
+                    {
+                        cantidad: product.cantidad,
+                        subtotal: product.subtotal,
+                        carrito_id: carrito.id,
+                        producto_id: product.id,
+                    },
+                );
+            });
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 }
 
 function Producto({ nombre, descripcion, categoria, stock, en_oferta, precio, descuento }, imagen) {

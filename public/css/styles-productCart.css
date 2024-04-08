@@ -238,6 +238,10 @@ main {
 
 }
 
+#form-cart{
+    width: 80%;
+}
+
 .boton_finalizar-compra{
     border: none;
     cursor: pointer;
@@ -249,7 +253,7 @@ main {
     padding: 5px;
     letter-spacing: 1px;
     text-align: center;
-    width: 80%;
+width: 100%;
     border: 1px solid #0f95b6;
     font-weight: 600;
 }
@@ -323,9 +327,11 @@ main {
         font-size: 14px;
     }
     
-    .boton_finalizar-compra{
+    #form-cart{
         width: 45%;
         order: 2;
+    }
+    .boton_finalizar-compra{
         font-size: 14px;
 
     }
