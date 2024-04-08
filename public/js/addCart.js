@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
             idProduct = event.target.dataset.id;
             if (localStorage.carrito) {
                 let carrito = JSON.parse(localStorage.carrito);
-                let index = carrito.findIndex(producto => (producto.id == idProduct));
+                let index = carrito.findIndex(producto => (parseInt(producto.id) === parseInt(idProduct)));
                 if (index !== -1) {
                     carrito[index].cantidad += 1
                 } else {
@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
         idProduct = event.target.dataset.id;
         if (localStorage.carrito) {
             let carrito = JSON.parse(localStorage.carrito);
-            let index = carrito.findIndex(producto => (producto.id == idProduct));
+            let index = carrito.findIndex(producto => (parseInt(producto.id) === parseInt(idProduct)));
             if (index !== -1) {
                 carrito[index].cantidad += parseInt(inputCantidad.value)
             } else {
