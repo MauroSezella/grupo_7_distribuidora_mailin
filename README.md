@@ -33,6 +33,7 @@
 * https://kingofthekongo.com.ar/ - Por el estilo minimalista del sitio.
 
 TRELLO : https://trello.com/invite/b/CSTwRnUe/ATTI2aec7ec4c69a8d476a66c67a464bc9d808CDFE84/sprint-viii
+REPOSITORIO DEL DASHBOARD: https://github.com/MauroSezella/dashboard-grupo7.git
 
 USUARIO ADMIN PARA PROBAR: admin@dh.com
 CONSTRASEÑA: 12345678
