@@ -39,7 +39,7 @@ window.addEventListener('load',function(){
             formulario.descripcion.classList.add('is-invalid');
             errorDescripcion.innerHTML += 'La descipcion no puede estar vacia';
    
-        } else if(formulario.nombre.value.trim().length < 20){
+        } else if(formulario.descripcion.value.trim().length < 20){
             formulario.descripcion.classList.add('is-invalid');
             errorDescripcion.innerHTML += 'La descripcion tiene que tener al menos 20 caracteres';
         }
